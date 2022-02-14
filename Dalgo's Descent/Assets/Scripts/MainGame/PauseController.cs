@@ -12,7 +12,7 @@ public class PauseController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             GameState currentGameState = GameStateManager.Get_Instance.CurrentGameState;
-            GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
+            GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay; //changing the gamestate to pause
             GameStateManager.Get_Instance.SetState(newGameState);
             PausePanel.SetActive(true);
             Debug.Log("Paused");
