@@ -20,7 +20,9 @@ public class EnemyPatrolState : EnemyBaseState
         if (walkpointSet) agent.SetDestination(walkpoint);
 
         var q = Quaternion.LookRotation(walkpoint - animator.transform.position);
-        animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, q, 15f * Time.deltaTime);
+        float velocity = agent.velocity.magnitude / agent.speed;
+        animator.speed = velocity;
+        animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, q, 30f * Time.deltaTime);
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
         // animator.transform.LookAt(new Vector3(, animator.transform.position.y, walkpoint.z));
@@ -33,7 +35,7 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        animator.speed = 1;
     }
 
     private void SearchWalkPoint(Transform transform)
