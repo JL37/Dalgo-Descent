@@ -17,7 +17,7 @@ public class EnemyPatrolState : EnemyBaseState
     {
         walkpointSet = false;
         agent = animator.transform.parent.GetComponent<NavMeshAgent>();
-        agent.speed = 1.5f;
+        agent.speed = 0.8f;
         destinationChangeTime = maxDestinationChangeTime = 0.2f;
         Player = GameObject.FindGameObjectWithTag("Player");
         FOV = agent.transform.GetComponent<FieldOfView>();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations.Rigging;
 
 public class EnemyPreparingAttackState : EnemyBaseState
 {
@@ -9,12 +10,16 @@ public class EnemyPreparingAttackState : EnemyBaseState
     float destinationChangeTime;
     float maxDestinationChangeTime;
     GameObject Player;
+    FieldOfView FOV;
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         agent = animator.transform.parent.GetComponent<NavMeshAgent>();
         agent.speed = 3.5f;
         destinationChangeTime = maxDestinationChangeTime = 0.2f;
+        FOV = agent.GetComponent<FieldOfView>();
+        FOV.m_multiAimConstraint.data.sourceObjects.Add(new WeightedTransform(Player.transform, 1));
+        FOV.m_rig.Build();
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -41,10 +46,14 @@ public class EnemyPreparingAttackState : EnemyBaseState
         // walkpoint reached
         if (distanceToWalkpoint.magnitude < 3f)
             animator.SetTrigger("Attack");
+
+        
     }
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.speed = 1;
+        FOV.m_multiAimConstraint.data.sourceObjects.RemoveAt(0);
+        FOV.m_rig.Build();
     }
 }

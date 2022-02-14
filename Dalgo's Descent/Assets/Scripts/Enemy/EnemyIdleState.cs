@@ -7,6 +7,7 @@ public class EnemyIdleState : EnemyBaseState
     float time;
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.speed = 0.4f;
         time = 0f;
     }
 
