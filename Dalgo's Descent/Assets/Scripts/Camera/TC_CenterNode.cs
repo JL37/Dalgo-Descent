@@ -6,7 +6,7 @@ using Cinemachine;
 public class TC_CenterNode : MonoBehaviour
 {
     [Header("Object to follow")]
-    [SerializeField] Transform following;
+    [SerializeField] Transform m_following;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +19,11 @@ public class TC_CenterNode : MonoBehaviour
     {
         //Set y axis to same as the thingy youre following la
         Vector3 toChangeTo = transform.position;
-        toChangeTo.y = following.position.y;
+        toChangeTo.y = m_following.position.y;
         transform.position = toChangeTo;
 
         //Change looking direction
-        Vector3 diff3D = transform.position - following.position;
+        Vector3 diff3D = transform.position - m_following.position;
         diff3D.y = 0;
         diff3D.Normalize();
 
