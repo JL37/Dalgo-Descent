@@ -11,7 +11,7 @@ public class EnemyPatrolState : EnemyBaseState
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         walkpointSet = false;
-        agent = animator.transform.GetComponent<NavMeshAgent>();
+        agent = animator.transform.parent.GetComponent<NavMeshAgent>();
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,10 +19,10 @@ public class EnemyPatrolState : EnemyBaseState
         if (!walkpointSet) SearchWalkPoint(animator.transform);
         if (walkpointSet) agent.SetDestination(walkpoint);
 
-        var q = Quaternion.LookRotation(walkpoint - animator.transform.position);
-        float velocity = agent.velocity.magnitude / agent.speed;
-        animator.speed = velocity;
-        animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, q, 30f * Time.deltaTime);
+        var q = Quaternion.LookRotation(walkpoint - animator.transform.parent.position);
+        float velocity = agent.velocity.magnitude; /// agent.speed;
+        animator.SetFloat("Speed", velocity);
+        animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 30f * Time.deltaTime);
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
         // animator.transform.LookAt(new Vector3(, animator.transform.position.y, walkpoint.z));
@@ -35,7 +35,7 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.speed = 1;
+        // animator.speed = 1;
     }
 
     private void SearchWalkPoint(Transform transform)

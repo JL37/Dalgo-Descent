@@ -14,7 +14,8 @@ public class EnemyIdleState : EnemyBaseState
     {
         time += Time.deltaTime;
         Debug.Log(time);
-
+        if (animator.GetFloat("Speed") > 0) animator.SetFloat("Speed", animator.GetFloat("Speed") - Time.deltaTime * 5f);
+        
         if (time > 3f)
         {
             animator.SetBool("IsPatrolling", true);
