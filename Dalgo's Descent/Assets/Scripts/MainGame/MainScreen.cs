@@ -18,7 +18,7 @@ public class MainScreen : MonoBehaviour
 
     }
 
-    private void OnGameStateChanged(GameState newGameState)
+    private void OnGameStateChanged(GameState newGameState) //change the game state to gameplay
     {
         enabled = newGameState == GameState.Gameplay;
     }
