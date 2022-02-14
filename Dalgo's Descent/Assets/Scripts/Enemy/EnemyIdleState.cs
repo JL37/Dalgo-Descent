@@ -13,7 +13,7 @@ public class EnemyIdleState : EnemyBaseState
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time += Time.deltaTime;
-        Debug.Log(time);
+        // Debug.Log(time);
         if (animator.GetFloat("Speed") > 0) animator.SetFloat("Speed", animator.GetFloat("Speed") - Time.deltaTime * 5f);
         
         if (time > 3f)
