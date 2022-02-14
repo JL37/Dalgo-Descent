@@ -11,12 +11,11 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        
     }
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("End");
-        animator.SetBool("IsAttack", false);
+        Debug.Log("End Attack State");
     }
 }
