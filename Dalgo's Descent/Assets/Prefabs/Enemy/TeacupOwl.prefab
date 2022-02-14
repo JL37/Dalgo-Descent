@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 6966468796741028869}
   - component: {fileID: 7559891738649763634}
   - component: {fileID: 3608180175654852552}
+  - component: {fileID: 4462780870781250010}
   m_Layer: 0
   m_Name: TeacupOwl
   m_TagString: Untagged
@@ -74,10 +75,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -97,11 +98,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520009872bffbff48a977fef0737099b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rig: {fileID: 6735224157873631810}
+  m_multiAimConstraint: {fileID: 0}
+  m_rig: {fileID: 0}
   m_radius: 5
   m_angle: 120
   m_playerRef: {fileID: 0}
   m_canSeeTarget: 0
+--- !u!114 &4462780870781250010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278351248973665841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66fd4dc135f3af4f9476ed0b8996c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agent: {fileID: 7559891738649763634}
 --- !u!1 &7852453304183508407
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,9 +312,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1249083905480559252, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
   m_PrefabInstance: {fileID: 8116562234506300074}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8336765482528901084 stripped
+--- !u!4 &4889113514052677469 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 221228680591363446, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
+  m_CorrespondingSourceObject: {fileID: -5514010616451127817, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
   m_PrefabInstance: {fileID: 8116562234506300074}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &849247583970507269 stripped
@@ -352,11 +367,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4918753458281921464, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
   m_PrefabInstance: {fileID: 8116562234506300074}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8305307967614188182 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 279702351479320636, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
-  m_PrefabInstance: {fileID: 8116562234506300074}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5857020312426604922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2444190882681201616, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
@@ -377,9 +387,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -1268580365815025485, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
   m_PrefabInstance: {fileID: 8116562234506300074}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4889113514052677469 stripped
+--- !u!4 &8336765482528901084 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -5514010616451127817, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 221228680591363446, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
+  m_PrefabInstance: {fileID: 8116562234506300074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8305307967614188182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 279702351479320636, guid: a097e57dd9454b74d9143cf98f2428a9, type: 3}
   m_PrefabInstance: {fileID: 8116562234506300074}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &5076698986601281213

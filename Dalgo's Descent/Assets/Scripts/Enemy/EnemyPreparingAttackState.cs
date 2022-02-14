@@ -7,6 +7,7 @@ using UnityEngine.Animations.Rigging;
 public class EnemyPreparingAttackState : EnemyBaseState
 {
     NavMeshAgent agent;
+    AIUnit aiUnit;
     float destinationChangeTime;
     float maxDestinationChangeTime;
     GameObject Player;
@@ -20,6 +21,7 @@ public class EnemyPreparingAttackState : EnemyBaseState
         FOV = agent.GetComponent<FieldOfView>();
         FOV.m_multiAimConstraint.data.sourceObjects.Add(new WeightedTransform(Player.transform, 1));
         FOV.m_rig.Build();
+        aiUnit = agent.GetComponent<AIUnit>();
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -29,7 +31,8 @@ public class EnemyPreparingAttackState : EnemyBaseState
         if (destinationChangeTime < 0f)
         {
             destinationChangeTime = maxDestinationChangeTime;
-            agent.SetDestination(Player.transform.position);
+            // agent.SetDestination(Player.transform.position);
+            aiUnit.MoveTo(Player.transform.position);
         }
 
         var q = Quaternion.LookRotation(Player.transform.position - animator.transform.parent.position);
