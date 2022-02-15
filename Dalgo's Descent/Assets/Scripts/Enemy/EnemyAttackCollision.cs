@@ -11,7 +11,16 @@ public class EnemyAttackCollision : MonoBehaviour
         // Debug.Log("Hit Player");
         if (other.gameObject.tag == "Player")
         {
-            aiUnit.m_attacked = true;
+            aiUnit.m_inAttackRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Debug.Log("Hit Player");
+        if (other.gameObject.tag == "Player")
+        {
+            aiUnit.m_inAttackRange = false;
         }
     }
 }

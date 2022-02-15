@@ -1,0 +1,425 @@
+fileFormatVersion: 2
+guid: a90d1ef76d94b624a8ac089ac772a2ab
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: TeacupOwl_Model(rigged) (1)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface2
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform2
+      parentName: polySurface2
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface3
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: -1, y: 1, z: 1}
+    - name: polySurface10
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0, y: 0.02920133, z: -0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform4
+      parentName: polySurface10
+      position: {x: -0, y: -0.02920133, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pTorus2
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0.0069194697, y: 0.055281118, z: 0.00044231743}
+      rotation: {x: 0.012845317, y: 0.021274492, z: 0.27283287, w: 0.96174043}
+      scale: {x: 1.6572876, y: 1.3675619, z: 1.6796286}
+    - name: transform3
+      parentName: pTorus2
+      position: {x: 0.041437738, y: -0.007155772, z: -0.004780018}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface11
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0, y: 0.03099479, z: -0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface12 1
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform12
+      parentName: polySurface12 1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface13
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform11
+      parentName: polySurface13
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface14
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform10
+      parentName: polySurface14
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface15
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform9
+      parentName: polySurface15
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface16
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform8
+      parentName: polySurface16
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface17
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform6
+      parentName: polySurface17
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface18 1
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform7
+      parentName: polySurface18 1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: transform5
+      parentName: polySurface11
+      position: {x: -0, y: -0.03099479, z: 0.0052903597}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle1
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0.006647127, y: 0.0013554082, z: -0.0040645823}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle2
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: 0.005966566, y: 0.0006536015, z: -0.004705248}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base_C
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0, y: -0.0014183184, z: -0.0049817413}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_foot_C
+      parentName: Base_C
+      position: {x: -0.0066528004, y: 0.001213486, z: 0.00090853404}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_foot_C
+      parentName: Base_C
+      position: {x: 0.005960893, y: 0.00051167916, z: 0.00026786773}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hip_C
+      parentName: Base_C
+      position: {x: -0.000015601914, y: 0.03662868, z: 0.007213844}
+      rotation: {x: 0.14843665, y: -0.0010069412, z: -0.0026140695, w: 0.988918}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest_C
+      parentName: Hip_C
+      position: {x: 0.0000028789311, y: 0.0081384005, z: 0.0061472743}
+      rotation: {x: -0.27017352, y: 0, z: -0, w: 0.9628117}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head_C
+      parentName: Chest_C
+      position: {x: -0.0000037770071, y: 0.0088307, z: 0.00018195197}
+      rotation: {x: 0.09913647, y: -0.00011016283, z: 0.0024176268, w: 0.99507093}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_arm_C
+      parentName: Chest_C
+      position: {x: 0.014193454, y: 0.0048079914, z: -0.0020491378}
+      rotation: {x: 0.067077056, y: 0.2673887, z: 0.04759853, w: 0.96007204}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_elbow_C
+      parentName: R_arm_C
+      position: {x: 0.010942048, y: 0.0046794796, z: 0.0014514215}
+      rotation: {x: 0.025942799, y: -0.14347969, z: 0.08447455, w: 0.9857001}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_hand_C
+      parentName: R_elbow_C
+      position: {x: 0.01746236, y: 0.0022595597, z: -0.0010956714}
+      rotation: {x: 0.08020962, y: 0.058998615, z: 0.15672523, w: 0.98261017}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_arm_C
+      parentName: Chest_C
+      position: {x: -0.0137103265, y: 0.002949783, z: -0.006233709}
+      rotation: {x: -0.14073172, y: 0.046781693, z: -0.00941312, w: 0.9888971}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_elbow_C
+      parentName: L_arm_C
+      position: {x: -0.011745251, y: 0.004281521, z: 0.0003557542}
+      rotation: {x: 0.17533132, y: 0.012490728, z: -0.14018364, w: 0.974398}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_hand_C
+      parentName: L_elbow_C
+      position: {x: -0.0165475, y: 0.0025541496, z: 0}
+      rotation: {x: 0.04639414, y: -0.12754029, z: -0.12869568, w: 0.98235357}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Tail_C
+      parentName: Hip_C
+      position: {x: 0.000015601914, y: -0.0019140672, z: -0.0061480007}
+      rotation: {x: -0.052479934, y: 0, z: -0, w: 0.998622}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Tail_C_2
+      parentName: Tail_C
+      position: {x: -0, y: -0.0109417625, z: -0.0062779067}
+      rotation: {x: 0.23152702, y: -0, z: -0, w: 0.97282845}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_knee_C
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: 0.010946855, y: 0.015619242, z: 0.007029255}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_knee_C
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0.008431285, y: 0.015619242, z: 0.007029255}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface18
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface12
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cup_C
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0.004674638, y: 0.05288765, z: 0.008823758}
+      rotation: {x: 0.04426764, y: 0.012923734, z: 0.27994847, w: 0.95890677}
+      scale: {x: 0.6229896, y: 1, z: 0.6229896}
+    - name: Cup_J
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0.0045408327, y: 0.05286645, z: 0.008946941}
+      rotation: {x: -0.2142338, y: 0.67387235, z: 0.2142338, w: 0.6738723}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint2
+      parentName: Cup_J
+      position: {x: -8.143641e-19, y: 0.004890093, z: -5.551115e-19}
+      rotation: {x: 0.2142338, y: -0.67387235, z: -0.2142338, w: 0.6738723}
+      scale: {x: 0.99999976, y: 1, z: 0.9999999}
+    - name: Hip_J
+      parentName: TeacupOwl_Model(rigged) (1)(Clone)
+      position: {x: -0.000009940538, y: 0.034071706, z: -0.0013782404}
+      rotation: {x: 0.1458663, y: -1.7310614e-10, z: -2.387834e-10, w: 0.98930436}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest_J
+      parentName: Hip_J
+      position: {x: -6.505213e-21, y: 0.010003436, z: 0.0032436508}
+      rotation: {x: -0, y: -0, z: -3.4694465e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head_J
+      parentName: Chest_J
+      position: {x: 0.000036979633, y: 0.008430101, z: -0.001028662}
+      rotation: {x: 0.000000014901159, y: 1.8800657e-10, z: 2.297869e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: L_arm_J
+      parentName: Chest_J
+      position: {x: -0.0136870295, y: -0.00015583078, z: -0.0022495622}
+      rotation: {x: -0.542092, y: 0.59220374, z: 0.40918374, w: 0.4335893}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000004}
+    - name: L_elbow_J
+      parentName: L_arm_J
+      position: {x: 0.0000009632114, y: 0.0125052, z: -0.0000043704117}
+      rotation: {x: -0.07406304, y: -0.0035445387, z: -0.008794545, w: 0.9972085}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
+    - name: L_hand_J
+      parentName: L_elbow_J
+      position: {x: -0.0000010358903, y: 0.016745757, z: -0.0000023833154}
+      rotation: {x: 0.46028626, y: -0.5367836, z: -0.46028623, w: 0.5367836}
+      scale: {x: 1, y: 0.99999994, z: 1.0000002}
+    - name: R_arm_J
+      parentName: Chest_J
+      position: {x: 0.011051801, y: -0.001873568, z: -0.0036867252}
+      rotation: {x: -0.5736632, y: -0.5760503, z: -0.46199548, w: 0.3544528}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.9999999}
+    - name: R_elbow_J
+      parentName: R_arm_J
+      position: {x: -0.0020639393, y: 0.015075137, z: 0.0028067022}
+      rotation: {x: 0.02758883, y: 0.01012224, z: 0.054929942, w: 0.9980577}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000004}
+    - name: R_hand_J
+      parentName: R_elbow_J
+      position: {x: -0.00000068625457, y: 0.0172709, z: 0.0000004557168}
+      rotation: {x: 0.53709334, y: 0.45992482, z: -0.5370932, w: -0.45992488}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: L_leg_J
+      parentName: Hip_J
+      position: {x: -0.005158799, y: -0.006677749, z: 0.002546532}
+      rotation: {x: -0.15195888, y: -0.12367796, z: 0.0119438805, w: 0.98054564}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: L_knee_J
+      parentName: L_leg_J
+      position: {x: -0, y: -0.011652082, z: 0.0015746057}
+      rotation: {x: 0.9646536, y: -0.027689345, z: -0.2364695, w: -0.11295589}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+    - name: L_foot_J
+      parentName: L_knee_J
+      position: {x: -5.551115e-19, y: 0.013837195, z: 2.7755574e-18}
+      rotation: {x: -0.9646536, y: 0.02768934, z: 0.23646943, w: -0.11295589}
+      scale: {x: 1, y: 0.99999934, z: 0.99999964}
+    - name: R_leg_J
+      parentName: Hip_J
+      position: {x: 0.0051588016, y: -0.006677752, z: 0.0025465318}
+      rotation: {x: 0.9804376, y: -0.012021735, z: -0.12448411, w: 0.1519911}
+      scale: {x: 0.99999994, y: 1.0000006, z: 1.0000005}
+    - name: R_knee_J
+      parentName: R_leg_J
+      position: {x: -0, y: 0.0116521, z: -0.00157461}
+      rotation: {x: 0.11295606, y: 0.23646942, z: -0.027689362, w: 0.96465355}
+      scale: {x: 1, y: 1.0000007, z: 1.0000007}
+    - name: R_foot_J
+      parentName: R_knee_J
+      position: {x: 8.3266725e-19, y: 0.013837176, z: 8.3266725e-19}
+      rotation: {x: -0.11295607, y: -0.23646942, z: 0.02768938, w: 0.96465355}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: Tail_J
+      parentName: Hip_J
+      position: {x: 0.000018005225, y: -0.00020033903, z: -0.0030249425}
+      rotation: {x: -0.1458663, y: 5.0771026e-10, z: 6.376204e-10, w: 0.98930436}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Tail_J_2
+      parentName: Tail_J
+      position: {x: 3.469447e-20, y: -0.010945648, z: -0.006278831}
+      rotation: {x: -0, y: -5.5511145e-17, z: -3.7516645e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: Hip_J
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

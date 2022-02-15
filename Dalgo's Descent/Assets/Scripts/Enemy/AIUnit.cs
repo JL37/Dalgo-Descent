@@ -10,8 +10,7 @@ public class AIUnit : MonoBehaviour
     public LayerMask m_groundLayer;
 
     public Collider m_damageCollider;
-    public bool m_isAttacking = false;
-    public bool m_attacked = false; // Check if the enemy has already hit the player during its attack sequence
+    public bool m_inAttackRange = false;
 
     private void Awake()
     {
@@ -35,7 +34,7 @@ public class AIUnit : MonoBehaviour
 
     public void AttackPlayer()
     {
-        if (m_isAttacking && m_attacked)
+        if (m_inAttackRange)
         {
             Debug.Log("Player Hit");
         }

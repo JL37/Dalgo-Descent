@@ -6,8 +6,6 @@ using UnityEngine.Animations.Rigging;
 
 public class FieldOfView : MonoBehaviour
 {
-    public MultiAimConstraint m_multiAimConstraint;
-    public RigBuilder m_rig;
 
     public float m_radius;
     [Range(0,360)]
