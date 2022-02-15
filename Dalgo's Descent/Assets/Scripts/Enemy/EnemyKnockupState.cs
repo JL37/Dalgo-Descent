@@ -15,6 +15,7 @@ public class EnemyKnockupState : EnemyBaseState
         // aiUnit.transform.GetComponent<Collider>().enabled = true;
         rb.velocity = Vector3.zero;
         rb.AddForce(new Vector3(0, 400, 0));
+        animator.SetBool("IsAirborne", true);
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

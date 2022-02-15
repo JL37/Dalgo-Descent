@@ -10,6 +10,7 @@ public class EnemyLandState : EnemyBaseState
     {
         aiUnit = animator.transform.parent.GetComponent<AIUnit>();
         rb = animator.transform.parent.GetComponent<Rigidbody>();
+        animator.SetBool("IsAirborne", false);
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

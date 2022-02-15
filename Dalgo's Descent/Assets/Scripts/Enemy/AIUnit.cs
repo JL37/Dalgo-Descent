@@ -20,10 +20,25 @@ public class AIUnit : MonoBehaviour
 
     public void Update()
     {
+        AISeparation();
+
         if (Input.GetKey(KeyCode.P))
         {
             Debug.Log("Knockup");
             GetComponentInChildren<Animator>().SetTrigger("Knockup");
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Debug.Log("Hit");
+            if (m_agent.enabled)
+                m_agent.ResetPath();
+
+
+            GetComponentInChildren<Animator>().speed = 0.8f;
+            GetComponentInChildren<Animator>().SetTrigger("Hit");
+            GetComponentInChildren<Animator>().SetFloat("Speed", 0f);
+
         }
     }
 
@@ -38,5 +53,9 @@ public class AIUnit : MonoBehaviour
         {
             Debug.Log("Player Hit");
         }
+    }
+
+    private void AISeparation()
+    {
     }
 }
