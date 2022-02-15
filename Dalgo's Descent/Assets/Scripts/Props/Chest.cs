@@ -32,7 +32,7 @@ public class Chest : MonoBehaviour
     {
         UpdateNameTextPos();
 
-        if (m_WithinRange)
+        if (m_WithinRange && !m_Opened)
             LerpFontSize(m_MaxFontSize);
         else
             LerpFontSize(0);
