@@ -16,13 +16,22 @@ public class PauseController : MonoBehaviour
             GameStateManager.Get_Instance.SetState(newGameState);
             m_PausePanel.SetActive(true);
             Debug.Log("Paused");
+            
         }
     }
     public void ButtonClicked()
     {
         if(m_PausePanel.activeInHierarchy == true)
-            m_PausePanel.SetActive(false); 
+        {
+            m_PausePanel.SetActive(false);
+            Cursor.visible = false;
+            GameState currentGameState = GameStateManager.Get_Instance.CurrentGameState;
+            GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Gameplay : GameState.Gameplay; //changing the gamestate to gameplay
+            GameStateManager.Get_Instance.SetState(newGameState);
+        }
         else
+        {
             m_PausePanel.SetActive(true);
+        }
     }    
 }
