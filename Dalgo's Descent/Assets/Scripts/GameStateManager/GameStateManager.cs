@@ -1,15 +1,15 @@
 public class GameStateManager
 {
     //Making it as singleton cause why not
-    private static GameStateManager single_instance;
+    private static GameStateManager m_singleInstance;
 
     public static GameStateManager Get_Instance
     {
         get
         {
-            if(single_instance == null)
-                single_instance = new GameStateManager();
-            return single_instance;
+            if(m_singleInstance == null)
+                m_singleInstance = new GameStateManager();
+            return m_singleInstance;
         }
     }
 
