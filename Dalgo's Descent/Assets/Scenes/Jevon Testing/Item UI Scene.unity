@@ -745,7 +745,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233295252}
-  m_LocalRotation: {x: 0.080420345, y: 2.270412e-11, z: 1.8498298e-12, w: 0.996761}
+  m_LocalRotation: {x: 0.080420345, y: -2.2704094e-11, z: -1.85004e-12, w: 0.996761}
   m_LocalPosition: {x: 0, y: -0.27999997, z: -6.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1579,11 +1579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017172928
+      value: 0.000000017172933
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000010723775
+      value: -0.0000000010723779
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701540738406, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1915,6 +1915,17 @@ Transform:
   m_Father: {fileID: 469254169}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &774792616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5254464211624626339, guid: dd5c05ef690c3324c9b22e2b79a9b522, type: 3}
+  m_PrefabInstance: {fileID: 101429598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64aa94c15c5a70a4eb22633d2e10195d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791105863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,6 +2192,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6247980434120169373, guid: cbdfe1d563674444ab20522760440ab8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 774792616}
+    - target: {fileID: 6247980434120169373, guid: cbdfe1d563674444ab20522760440ab8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 6247980435901974993, guid: cbdfe1d563674444ab20522760440ab8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
