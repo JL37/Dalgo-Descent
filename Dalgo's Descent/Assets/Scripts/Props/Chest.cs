@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Chest : MonoBehaviour
 {
     [SerializeField] TMP_Text m_NameText;
     [SerializeField] Canvas m_Canvas;
+    [SerializeField] GameUI m_GameUI;
+    [SerializeField] RawImage m_ItemImage;
 
     [Header("Font size set for name text")]
     [SerializeField] int m_MaxFontSize = 80;
@@ -14,7 +17,11 @@ public class Chest : MonoBehaviour
 
     protected bool m_WithinRange = false;
     protected bool m_Opened = false;
+    protected bool m_ItemAnimation = false;
+
     protected int m_Cost = 1;
+    protected float m_HeightOffset = 1.5f;
+    protected float m_ImageDimensions = 150;
 
     protected PlayerStats m_PlayerStats = null;
 
@@ -25,12 +32,18 @@ public class Chest : MonoBehaviour
 
         m_Canvas.gameObject.SetActive(true);
         m_CurrFontSize = 0;
+
+        //Set text to the cost
+        m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(E)</color>";
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
         UpdateNameTextPos();
+
+        if (m_ItemAnimation)
+            UpdateItemPos();
 
         if (m_WithinRange && !m_Opened)
             LerpFontSize(m_MaxFontSize);
@@ -51,11 +64,44 @@ public class Chest : MonoBehaviour
         m_NameText.fontSize = (int)m_CurrFontSize;
     }
 
+    protected void UpdateItemPos()
+    {
+        if (!m_ItemImage.gameObject.activeSelf)
+            m_ItemImage.gameObject.SetActive(true);
+
+        //Item slowly increasing in size until maximum
+        Vector2 ogWidthHeight = m_ItemImage.GetComponent<RectTransform>().sizeDelta;
+
+        float spd = 0.3f;
+        ogWidthHeight.x = Mathf.Lerp(ogWidthHeight.x, m_ImageDimensions, spd);
+        ogWidthHeight.y = ogWidthHeight.x;
+
+        m_ItemImage.GetComponent<RectTransform>().sizeDelta = ogWidthHeight;
+
+        //Update positioning of UI above text
+        //Offset Y axis
+        float offsetPosY = gameObject.transform.position.y;
+
+        //Final position of marker above chest in world space
+        Vector3 offsetPos = new Vector3(gameObject.transform.position.x, offsetPosY, gameObject.transform.position.z);
+
+        //Calculate "screen" position (NOT a canvas/recttransform position)
+        Vector2 canvasPos;
+        Vector2 screenPoint = Camera.main.WorldToScreenPoint(offsetPos);
+
+        //Convert screen pos to canvas/recttransform space (LEAVE CAMERA NULL IF SCREEN SPACE OVERLAY)
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(m_Canvas.GetComponent<RectTransform>(), screenPoint, null, out canvasPos);
+
+        int abVal = canvasPos.x > 0 ? -1 : 1;
+
+        m_ItemImage.transform.localPosition = canvasPos;
+    }
+
     protected void UpdateNameTextPos()
     {
         //Update positioning of UI above text
         //Offset Y axis
-        float offsetPosY = gameObject.transform.position.y + 1.3f;
+        float offsetPosY = gameObject.transform.position.y + m_HeightOffset;
 
         //Final position of marker above chest in world space
         Vector3 offsetPos = new Vector3(gameObject.transform.position.x, offsetPosY, gameObject.transform.position.z);
@@ -114,6 +160,14 @@ public class Chest : MonoBehaviour
             Item newItem = new Item();
             newItem.InitialiseStats(m_PlayerStats);
             m_PlayerStats.AddItem(newItem);
+
+            //Start Item animation
+            m_ItemAnimation = true;
+        } 
+        else
+        {
+            //Show error
+            m_GameUI.ShowError("Not enough coins!");
         }
     }
 }
