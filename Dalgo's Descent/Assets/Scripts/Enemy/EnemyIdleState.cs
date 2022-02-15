@@ -22,10 +22,7 @@ public class EnemyIdleState : EnemyBaseState
             animator.SetBool("IsPatrolling", true);
         }
 
-        if (Input.GetKey(KeyCode.P))
-        {
-            animator.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(10, 0, 0));
-        }
+
         if (Input.GetKey(KeyCode.O))
         {
             animator.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0));

@@ -31,7 +31,7 @@ public class EnemyPreparingAttackState : EnemyBaseState
         if (destinationChangeTime < 0f)
         {
             destinationChangeTime = maxDestinationChangeTime;
-            // agent.SetDestination(Player.transform.position);
+            agent.SetDestination(Player.transform.position);
             aiUnit.MoveTo(Player.transform.position);
         }
 
@@ -47,8 +47,12 @@ public class EnemyPreparingAttackState : EnemyBaseState
         Debug.Log(distanceToWalkpoint.magnitude);
 
         // walkpoint reached
-        if (distanceToWalkpoint.magnitude < 5f)
+        if (distanceToWalkpoint.magnitude < 3f)
+        {
+            Debug.Log("Stopped");
+            agent.ResetPath();
             animator.SetTrigger("Attack");
+        }
 
         
     }
