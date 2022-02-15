@@ -5,10 +5,14 @@ using UnityEngine;
 public class EnemyIdleState : EnemyBaseState
 {
     float time;
+    float delay;
+    FieldOfView FOV;
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        delay = Random.Range(2f, 5f);
         animator.speed = 0.4f;
         time = 0f;
+        FOV = animator.transform.parent.GetComponent<FieldOfView>();
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,7 +21,7 @@ public class EnemyIdleState : EnemyBaseState
         // Debug.Log(time);
         if (animator.GetFloat("Speed") > 0) animator.SetFloat("Speed", animator.GetFloat("Speed") - Time.deltaTime * 5f);
         
-        if (time > 3f)
+        if (time > delay)
         {
             animator.SetBool("IsPatrolling", true);
         }
@@ -26,6 +30,11 @@ public class EnemyIdleState : EnemyBaseState
         if (Input.GetKey(KeyCode.O))
         {
             animator.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0));
+        }
+
+        if (FOV.m_canSeeTarget)
+        {
+            animator.SetBool("IsAttack", true);
         }
     }
 

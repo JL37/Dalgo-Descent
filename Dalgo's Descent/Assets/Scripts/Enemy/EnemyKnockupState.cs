@@ -10,6 +10,7 @@ public class EnemyKnockupState : EnemyBaseState
     {
         aiUnit = animator.transform.parent.GetComponent<AIUnit>();
         rb = animator.transform.parent.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
         aiUnit.m_agent.enabled = false;
         // aiUnit.transform.GetComponent<Collider>().enabled = true;
         rb.velocity = Vector3.zero;

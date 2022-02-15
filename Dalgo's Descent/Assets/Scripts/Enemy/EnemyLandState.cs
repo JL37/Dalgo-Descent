@@ -19,5 +19,6 @@ public class EnemyLandState : EnemyBaseState
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         aiUnit.m_agent.enabled = true;
+        rb.isKinematic = true;
     }
 }

@@ -44,12 +44,12 @@ public class EnemyPreparingAttackState : EnemyBaseState
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
         // animator.transform.LookAt(new Vector3(, animator.transform.position.y, walkpoint.z));
         Vector3 distanceToWalkpoint = Player.transform.position - animator.transform.position;
-        Debug.Log(distanceToWalkpoint.magnitude);
+        // Debug.Log(distanceToWalkpoint.magnitude);
 
         // walkpoint reached
-        if (distanceToWalkpoint.magnitude < 3f)
+        if (distanceToWalkpoint.magnitude < 1f)
         {
-            Debug.Log("Stopped");
+            // Debug.Log("Stopped");
             agent.ResetPath();
             animator.SetTrigger("Attack");
         }
