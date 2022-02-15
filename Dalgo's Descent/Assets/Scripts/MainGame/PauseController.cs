@@ -7,6 +7,7 @@ public class PauseController : MonoBehaviour
     public GameObject m_PausePanel;
 
     // Update is called once per frame
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
