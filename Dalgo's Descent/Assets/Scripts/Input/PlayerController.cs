@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Modifer")]
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody PlayerRigidBody;
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
+    public Button SkillButton;
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
     public float Velocity { get; private set; }
@@ -35,6 +38,8 @@ public class PlayerController : MonoBehaviour
         InputScript = GetComponent<PlayerInput>();
         PlayerRigidBody = GetComponent<Rigidbody>();
         PlayerAnimator = GetComponent<Animator>();
+        SkillButton = GetComponent<Button>();
+        GameStateManager.Get_Instance.OnGameStateChanged += OnGameStateChanged;
     }
 
     void Start()
@@ -83,6 +88,13 @@ public class PlayerController : MonoBehaviour
         PlayerAnimator.SetBool(IsLandingHash, IsLanding);
         PlayerAnimator.SetBool(IsGroundedHash, IsGrounded);
     }
+
+/*    void OnDestroy()
+    {
+        GameStateManager.Get_Instance.OnGameStateChanged -= OnGameStateChanged;
+
+
+    }*/
 
     void OnAnimatorMove()
     {
@@ -135,15 +147,26 @@ public class PlayerController : MonoBehaviour
             IsGrounded = false;
         }
     }
+
+    public void OnSkillUsed(InputAction.CallbackContext context)
+    {
+
+    }
     #endregion
 
     void OnEnable()
     {
         InputScript.ActivateInput();
+        
     }
 
     void OnDisable()
     {
         InputScript.DeactivateInput();
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
     }
 }
