@@ -24,7 +24,11 @@ public class EnemyIdleState : EnemyBaseState
 
         if (Input.GetKey(KeyCode.P))
         {
-            animator.SetBool("IsAttack", true);
+            animator.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(10, 0, 0));
+        }
+        if (Input.GetKey(KeyCode.O))
+        {
+            animator.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0));
         }
     }
 

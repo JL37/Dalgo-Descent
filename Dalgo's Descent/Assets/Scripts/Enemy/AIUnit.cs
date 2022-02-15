@@ -5,16 +5,17 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class AIUnit : MonoBehaviour
 {
-    public NavMeshAgent Agent;
+    public NavMeshAgent m_agent;
+    public Vector3 m_targetPoint = new Vector3();
 
     private void Awake()
     {
-        Agent = GetComponent<NavMeshAgent>();
+        m_agent = GetComponent<NavMeshAgent>();
         AIManager.Instance.Units.Add(this);
     }
 
     public void MoveTo(Vector3 Position)
     {
-        Agent.SetDestination(Position);
+        m_agent.SetDestination(Position);
     }
 }

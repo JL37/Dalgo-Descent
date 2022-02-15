@@ -47,7 +47,7 @@ public class EnemyPreparingAttackState : EnemyBaseState
         Debug.Log(distanceToWalkpoint.magnitude);
 
         // walkpoint reached
-        if (distanceToWalkpoint.magnitude < 3f)
+        if (distanceToWalkpoint.magnitude < 5f)
             animator.SetTrigger("Attack");
 
         
