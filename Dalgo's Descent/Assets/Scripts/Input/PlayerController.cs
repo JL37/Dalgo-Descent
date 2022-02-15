@@ -89,12 +89,12 @@ public class PlayerController : MonoBehaviour
         PlayerAnimator.SetBool(IsGroundedHash, IsGrounded);
     }
 
-/*    void OnDestroy()
-    {
-        GameStateManager.Get_Instance.OnGameStateChanged -= OnGameStateChanged;
+    /*    void OnDestroy()
+        {
+            GameStateManager.Get_Instance.OnGameStateChanged -= OnGameStateChanged;
 
 
-    }*/
+        }*/
 
     void OnAnimatorMove()
     {
