@@ -45,7 +45,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5278351248973665841}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -70,7 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520009872bffbff48a977fef0737099b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_radius: 5
+  m_viewRadius: 8
+  m_radius: 3
   m_angle: 120
   m_playerRef: {fileID: 0}
   m_canSeeTarget: 0
@@ -93,7 +94,6 @@ MonoBehaviour:
     m_Bits: 8
   m_damageCollider: {fileID: 3616641635467515209}
   m_inAttackRange: 0
-  m_SpaceBetween: 4
 --- !u!54 &3644844294466099586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Height: 1.56
   m_Direction: 1
   m_Center: {x: 0, y: 0.82, z: 0}
