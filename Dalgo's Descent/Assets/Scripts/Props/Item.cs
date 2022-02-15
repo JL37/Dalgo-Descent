@@ -10,8 +10,7 @@ public class Item
         CHARIOTCUP,
         TALONNECKLACE,
         RABBITBIBLE,
-        BLADE,
-        TOTAL
+        BLADE
     };
 
     [SerializeField] TYPE m_CurrType = TYPE.CARROTRING;
@@ -20,8 +19,8 @@ public class Item
     public Item()
     {
         //Randomisation start
-        //Debug.Log("Bruh " + (int)TYPE.TOTAL);
-        m_CurrType = (TYPE)Random.Range(0, (int)TYPE.TOTAL - 1);
+        System.Array A = System.Enum.GetValues(typeof(TYPE));
+        m_CurrType = (TYPE)A.GetValue(Random.Range(0, A.Length));
     }
 
     // Start is called before the first frame update
