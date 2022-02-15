@@ -4,18 +4,46 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    protected int m_coin = 0;
+    //Stats
+    protected int m_Health = 100;
+    protected float m_AtkSpd = 1f;
+    protected float m_LifeSteal = 0f;
+    protected float m_CritChance = 0.03f;
+    protected int m_BasicAtk = 15;
 
-    // Start is called before the first frame update
-    void Start()
+    //Inventory
+    protected int m_coin = 0;
+    protected Chest m_CurrentChest = null;
+    protected List<Item> m_ItemArr = new List<Item>();
+
+    public int Health
     {
-        
+        get { return m_Health; }
+        set { m_Health = value; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public float AtkSpd
     {
-        
+        get { return m_AtkSpd; }
+        set { m_AtkSpd = value; }
+    }
+
+    public float LifeSteal
+    {
+        get { return m_LifeSteal; }
+        set { m_LifeSteal = value; }
+    }
+
+    public float CritChance
+    {
+        get { return m_CritChance; }
+        set { m_CritChance = value; }
+    }
+
+    public int BasicAtk
+    {
+        get { return m_BasicAtk; }
+        set { m_BasicAtk = value; }
     }
 
     //Coins bruh
@@ -33,5 +61,23 @@ public class PlayerStats : MonoBehaviour
         }
 
         return false;
+    }
+
+    //Chest variable bruh
+    public void SetChest(Chest chest)
+    {
+        m_CurrentChest = chest;
+    }
+
+    public Chest GetChest()
+    {
+        return m_CurrentChest;
+    }
+
+    //Items la if not what?
+    public void AddItem(Item item)
+    {
+        m_ItemArr.Add(item);
+        print("Item added to inventory");
     }
 }

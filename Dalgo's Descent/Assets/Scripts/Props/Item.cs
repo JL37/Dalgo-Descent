@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item
 {
     public enum TYPE
     {
@@ -10,17 +10,23 @@ public class Item : MonoBehaviour
         CHARIOTCUP,
         TALONNECKLACE,
         RABBITBIBLE,
-        BLADE,
-        TOTAL
+        BLADE
     };
 
     [SerializeField] TYPE m_CurrType = TYPE.CARROTRING;
     protected int m_EffectVal = 0;
 
+    public Item()
+    {
+        //Randomisation start
+        System.Array A = System.Enum.GetValues(typeof(TYPE));
+        m_CurrType = (TYPE)A.GetValue(Random.Range(0, A.Length));
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,43 +35,65 @@ public class Item : MonoBehaviour
         
     }
 
-    public void InitialiseStats(ref int stat)
+    public void InitialiseStats(PlayerStats stat)
     {
         switch (m_CurrType)
         {
             case TYPE.CARROTRING: //Carrot ring provides higher attack speed (4-12% boost)
-                m_EffectVal = Random.Range(4, 12);
-                stat = (int)(stat * (float)((100f + m_EffectVal) / 100f));
+                {
+                    float effect = Random.Range(0.04f, 0.12f);
+                    stat.AtkSpd += effect;
+                    m_EffectVal = (int)(effect * 100);
 
-                break;
+                    break;
+                }
 
             case TYPE.CHARIOTCUP: //Chariot cup provides 10-25% of additional lifesteal (Capped to 65%)
-                m_EffectVal = Random.Range(10, 25);
-                stat += m_EffectVal;
-                if (stat > 65)
-                    stat = 65;
+                {
+                    float effect = Random.Range(0.1f, 0.25f);
+                    m_EffectVal = (int)(effect * 100);
+                    stat.LifeSteal += effect;
+                    if (stat.LifeSteal > 0.65f)
+                        stat.LifeSteal = 0.65f;
 
-                break;
+                    break;
+                }
 
             case TYPE.TALONNECKLACE: //Talon necklace provides a boost of 10 - 18% additional health
-                m_EffectVal = Random.Range(10, 18);
-                stat = (int)(stat * (float)((100f + m_EffectVal) / 100f));
+                {
+                    int effect = Random.Range(10, 18);
+                    m_EffectVal = effect;
+                    effect = (int)(stat.Health * (effect / 100f));
+                    stat.Health += effect;
 
-                break;
+                    break;
+                }
 
-            case TYPE.RABBITBIBLE: //Rabbit bible Reduces crit chance by 5- 12% (Capped at 40%)
-                m_EffectVal = Random.Range(5, 12);
-                stat -= m_EffectVal;
-                if (stat < 45)
-                    stat = 45;
+            case TYPE.RABBITBIBLE: //Rabbit bible increases crit chance by 5- 12% (Capped at 65%)
+                {
+                    float effect = Random.Range(0.05f, 0.12f);
+                    m_EffectVal = (int)(effect * 100);
+                    stat.CritChance += effect;
+                    if (stat.CritChance > 0.65f)
+                        stat.CritChance = 0.65f;
 
-                break;
+                    break;
+                }
 
-            case TYPE.BLADE: //Blade boost damage done by 15 - 30%
-                m_EffectVal = Random.Range(15, 30);
-                stat = (int)(stat * (float)((100f + m_EffectVal) / 100f));
+            case TYPE.BLADE: //Blade boost basic attack damage by 15 - 40%
+                {
+                    float effect = Random.Range(0.15f, 0.4f);
+                    m_EffectVal = (int)(effect * 100);
+                    effect = (int)(stat.BasicAtk * effect);
+                    stat.BasicAtk += (int)effect;
 
-                break;
+                    break;
+                }
         }
+
+        if (m_EffectVal > 0)
+            Debug.Log("Item initialisation success with Index " + (int)m_CurrType + "!");
+        else
+            Debug.Log("Item initialisation failed!");
     }
 }
