@@ -25,16 +25,22 @@ public class Chest : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
+        {
             m_WithinRange = true;
+            m_PlayerStats.SetChest(this);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
+        {
             m_WithinRange = false;
+            m_PlayerStats.SetChest(null);
+        }
     }
 
-    protected void OnInteract()
+    public void OnInteract()
     {
         if (!m_WithinRange) //If within range or not
             return;
@@ -48,6 +54,13 @@ public class Chest : MonoBehaviour
             m_Opened = true;
             GetComponent<MeshRenderer>().material.color = Color.red;
             print("CHEST HAS BEEN OPENED");
+
+            //Randomise items and put into player
+            Item newItem = new Item();
+            newItem.InitialiseStats(m_PlayerStats);
+            m_PlayerStats.AddItem(newItem);
+
+
         }
     }
 }

@@ -109,6 +109,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnInteraction(InputAction.CallbackContext context)
+    {
+        PlayerStats pStats = GetComponent<PlayerStats>();
+        if (pStats && context.started)
+        {
+            if (pStats.GetChest())
+            {
+                pStats.GetChest().OnInteract();
+                return;
+            }
+        }
+    }
+
     public void OnSprint(InputAction.CallbackContext context)
     {
         if (IsMoving)
