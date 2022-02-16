@@ -28,9 +28,9 @@ public class Health : MonoBehaviour
     {
         m_blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(m_blinkTimer / blinkDuration);
-        float intensity = lerp * blinkIntensity + 1f;
+        float intensity = lerp * blinkIntensity;
         // Debug.Log(intensity);
-        m_SkinnedMeshRenderer.material.color = Color.white * intensity;
+        m_SkinnedMeshRenderer.materials[1].color = new Vector4(1, 1, 1, lerp);
     }
 
     public void TakeDamage(float amount)
@@ -47,9 +47,6 @@ public class Health : MonoBehaviour
         }
 
         m_blinkTimer = blinkDuration;
-
-        Vector3 directionFromPlayer = Vector3.Normalize(m_aiUnit.transform.position - m_aiUnit.m_playerRef.transform.position);
-        m_aiUnit.m_rigidbody.AddForce(directionFromPlayer * 100f);
     }
 
     public void Die()

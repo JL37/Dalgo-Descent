@@ -68,6 +68,10 @@ public class AIUnit : MonoBehaviour
         m_animator.SetTrigger("Hit");
         // m_animator.SetBool("IsHit", true);
         m_Health.TakeDamage(10);
+		
+        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - m_playerRef.transform.position);
+        m_rigidbody.AddForce(directionFromPlayer * 100f);
+
         SpawnText(10.ToString());
     }
 
@@ -85,6 +89,7 @@ public class AIUnit : MonoBehaviour
         if (m_animator.GetBool("IsAirborne"))
             return;
 
+        m_Health.TakeDamage(10);
         m_animator.speed = 1f;
         m_animator.SetTrigger("Knockup");
         m_rigidbody.isKinematic = false;
