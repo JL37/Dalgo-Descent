@@ -264,14 +264,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7351890725064758261, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04b0d360f1828f9458db6aa4e0f3d062, type: 2}
     - target: {fileID: -3261683169632868513, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -3261683169632868513, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04b0d360f1828f9458db6aa4e0f3d062, type: 2}
     - target: {fileID: -3261683169632868513, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 89e49bc18bfe21f48aebeba3967e6fb3, type: 2}
+      objectReference: {fileID: 2100000, guid: 06dca6b67bbbca240a3006f5d1ee9a14, type: 2}
     - target: {fileID: 919132149155446097, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
       propertyPath: m_Name
       value: TeacupOwl_Model(rigged) (1)
