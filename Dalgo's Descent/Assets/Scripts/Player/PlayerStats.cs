@@ -83,9 +83,12 @@ public class PlayerStats : MonoBehaviour
         print("Item added to inventory");
 
         //Animation (If needed)
-        GameObject itemUI = Instantiate(m_ItemUIPrefab);
-        itemUI.GetComponent<ItemUI>().Initialise(item, m_ItemArr.Count, animated);
-        itemUI.transform.SetParent(GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetItemPanelTransform());
+        if (m_ItemArr.Count < 16) //This part is only for the front part (Ofc, there will be more than 16 but they'll have to access the tab to see them all).
+        {
+            GameObject itemUI = Instantiate(m_ItemUIPrefab);
+            itemUI.GetComponent<ItemUI>().Initialise(item, m_ItemArr.Count, animated);
+            itemUI.transform.SetParent(GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetItemPanelTransform());
+        }
 
         item.AffectStats(this);
         m_ItemArr.Add(item);

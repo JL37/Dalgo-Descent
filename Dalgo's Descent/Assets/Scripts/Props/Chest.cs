@@ -39,7 +39,8 @@ public class Chest : MonoBehaviour
         m_CurrFontSize = 0;
 
         //Randomise cost
-        m_Cost = Random.Range(15, 30);
+        m_Cost = 1;
+        //m_Cost = Random.Range(15, 30);
 
         //Set text to the cost
         m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(E)</color>";
@@ -193,22 +194,14 @@ public class Chest : MonoBehaviour
         }
     }
 
-    public void InteractItem()
-    {
-        if (m_Item == null)
-            return;
-
-        m_Item.OnInteract();
-    }
-
     public void OnInteract()
     {
         if (!m_WithinRange) //If within range or not
             return;
 
-        if (m_Opened)
+        if (m_Opened && m_Item)
         {
-            InteractItem(); //Interacting with items
+            m_Item.OnInteract(); //Interacting with items
             return;
         }
 

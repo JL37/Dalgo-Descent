@@ -17,29 +17,26 @@ public class ItemUI : MonoBehaviour
     protected Item m_Item;
 
     protected int m_Idx = 0;
-    protected float m_Size = 35;
+    protected float m_Size = 50;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Image = GetComponent<RawImage>();
         m_Image.texture = m_Item.GetCurrTexture();
+        m_Size = m_Image.GetComponent<RectTransform>().sizeDelta.x;
 
         if (m_CurrAnim == Animation.EXPAND)
             m_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
 
         //Get position based on idx
-        float x = 42.7f + (45 * (m_Idx % 8));
-        float y = -27.5f;
+        float x = 50f + (68 * (m_Idx % 8));
+        float y = -50f;
 
         if (m_Idx >= 8)
-            y = -72.5f;
+            y = -112f;
 
         //Setting anchor first
-        //m_Image.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
-        //m_Image.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
-        //m_Image.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-
         m_Image.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
         transform.localScale = new Vector2(1, 1);
     }
