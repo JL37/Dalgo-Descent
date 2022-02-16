@@ -30,7 +30,7 @@ public class EnemyPatrolState : EnemyBaseState
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        Vector3 target = aiUnit.m_targetPoint - animator.transform.parent.position;
+        Vector3 target = aiUnit.m_targetPoint - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
         var q = Quaternion.LookRotation(target);
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
