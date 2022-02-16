@@ -33,7 +33,7 @@ public class EnemyPreparingAttackState : EnemyBaseState
             aiUnit.MoveTo(Player.transform.position);
         }
 
-        var q = Quaternion.LookRotation(Player.transform.position - animator.transform.parent.position);
+        var q = Quaternion.LookRotation(new Vector3(Player.transform.position.x, 0, Player.transform.position.z) - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z));
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
         animator.speed = 1f;
@@ -47,8 +47,9 @@ public class EnemyPreparingAttackState : EnemyBaseState
         // walkpoint reached
         if (aiUnit.m_inAttackRange)
         {
-            // Debug.Log("Stopped");
-            agent.ResetPath();
+            if (agent.enabled)
+                agent.ResetPath();
+
             animator.SetBool("InAttackRange", true);
         }
 
