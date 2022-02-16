@@ -47,9 +47,6 @@ public class Health : MonoBehaviour
         }
 
         m_blinkTimer = blinkDuration;
-
-        Vector3 directionFromPlayer = Vector3.Normalize(m_aiUnit.transform.position - m_aiUnit.m_playerRef.transform.position);
-        m_aiUnit.m_rigidbody.AddForce(directionFromPlayer * 100f);
     }
 
     public void Die()
