@@ -65,6 +65,7 @@ public class AIUnit : MonoBehaviour
         if (m_animator.GetBool("IsAirborne"))
             return;
 
+        m_animator.speed = 1f;
         m_animator.SetTrigger("Knockup");
         m_rigidbody.isKinematic = false;
         m_agent.enabled = false;

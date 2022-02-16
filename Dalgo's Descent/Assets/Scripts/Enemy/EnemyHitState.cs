@@ -17,7 +17,7 @@ public class EnemyHitState : EnemyBaseState
 
         aiUnit.m_rigidbody.isKinematic = false;
         aiUnit.m_agent.enabled = false;
-        aiUnit.m_rigidbody.velocity = Vector3.zero;
+        // aiUnit.m_rigidbody.velocity = Vector3.zero;
 
     }
 
@@ -26,7 +26,7 @@ public class EnemyHitState : EnemyBaseState
 
     }
 
-    public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnSLStatePreExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("IsHit", false);
         aiUnit.m_agent.enabled = true;

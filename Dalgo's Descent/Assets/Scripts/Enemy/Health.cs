@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
         m_aiUnit.m_animator.speed = 1f;
         m_aiUnit.m_rigidbody.isKinematic = false;
         m_aiUnit.m_agent.enabled = false;
-        m_aiUnit.m_rigidbody.velocity = Vector3.zero;
+        // m_aiUnit.m_rigidbody.velocity = Vector3.zero;
 
         currentHealth -= amount;
         if (currentHealth <= 0.0f)
