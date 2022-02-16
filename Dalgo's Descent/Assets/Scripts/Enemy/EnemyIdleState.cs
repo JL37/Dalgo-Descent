@@ -26,12 +26,6 @@ public class EnemyIdleState : EnemyBaseState
             animator.SetBool("IsPatrolling", true);
         }
 
-
-        if (Input.GetKey(KeyCode.O))
-        {
-            animator.transform.parent.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0));
-        }
-
         if (FOV.m_canSeeTarget)
         {
             animator.SetBool("IsAttack", true);

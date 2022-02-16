@@ -29,10 +29,9 @@ public class AIUnit : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("Knockup");
-            m_animator.SetTrigger("Knockup");
+            EnemyKnockup();
         }
 
         if (Input.GetKeyDown(KeyCode.O))
@@ -59,5 +58,17 @@ public class AIUnit : MonoBehaviour
         m_animator.SetTrigger("Hit");
         m_animator.SetBool("IsHit", true);
         m_Health.TakeDamage(10);
+    }
+
+    public void EnemyKnockup()
+    {
+        if (m_animator.GetBool("IsAirborne"))
+            return;
+
+        m_animator.SetTrigger("Knockup");
+        m_rigidbody.isKinematic = false;
+        m_agent.enabled = false;
+        m_rigidbody.velocity = Vector3.zero;
+        m_rigidbody.AddForce(new Vector3(0, 500, 0));
     }
 }
