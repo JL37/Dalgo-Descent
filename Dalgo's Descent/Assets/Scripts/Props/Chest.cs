@@ -6,10 +6,13 @@ using TMPro;
 
 public class Chest : MonoBehaviour
 {
+    [Header("Objects")]
     [SerializeField] TMP_Text m_NameText;
     [SerializeField] Canvas m_Canvas;
     [SerializeField] GameUI m_GameUI;
-    [SerializeField] RawImage m_ItemImage;
+
+    [Header("Prefabs")]
+    [SerializeField] GameObject m_RingPrefab;
 
     [Header("Font size set for name text")]
     [SerializeField] int m_MaxFontSize = 80;
@@ -17,7 +20,6 @@ public class Chest : MonoBehaviour
 
     protected bool m_WithinRange = false;
     protected bool m_Opened = false;
-    protected bool m_ItemAnimation = false;
 
     protected float m_Radian = 0;
     protected int m_AbValue = 0;
@@ -26,14 +28,18 @@ public class Chest : MonoBehaviour
     protected float m_ImageDimensions = 100;
 
     protected PlayerStats m_PlayerStats = null;
+    protected ItemPickup m_Item = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<MeshRenderer>().material.color = Color.yellow;
+        //GetComponent<MeshRenderer>().material.color = Color.yellow;
 
         m_Canvas.gameObject.SetActive(true);
         m_CurrFontSize = 0;
+
+        //Randomise cost
+        m_Cost = Random.Range(15, 30);
 
         //Set text to the cost
         m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(E)</color>";
@@ -44,52 +50,19 @@ public class Chest : MonoBehaviour
     {
         UpdateNameTextPos();
 
-        if (m_ItemAnimation)
-            UpdateItemPos();
-        else if (m_ItemImage.gameObject.activeSelf)
-            MoveItemToPanel();
-
         if (m_WithinRange && !m_Opened)
             LerpFontSize(m_MaxFontSize);
         else
             LerpFontSize(0);
     }
 
-    protected void MoveItemToPanel()
+    private void Update()
     {
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
             return;
 
-        //Move to panel and disappear
-        Vector2 pos = m_ItemImage.transform.localPosition;
-        Vector2 targetPos = m_GameUI.GetItemPanelLocalPos();
-
-        //lerp the axis one by one
-        float spd = 0.08f;
-        pos.x = Mathf.Lerp(pos.x, targetPos.x, spd);
-        pos.y = Mathf.Lerp(pos.y, targetPos.y, spd);
-
-        //Set new position
-        m_ItemImage.transform.localPosition = pos;
-
-        //If its within item panel range, shrink the thing
-        float length = (pos - m_GameUI.GetItemPanelLocalPos()).magnitude;
-        if (length < 150) //SHRINK SIZE
-        {
-            Vector2 ogWidthHeight = m_ItemImage.GetComponent<RectTransform>().sizeDelta;
-
-            spd = 0.3f;
-            ogWidthHeight.x = Mathf.Lerp(ogWidthHeight.x, 0, spd);
-            ogWidthHeight.y = ogWidthHeight.x;
-
-            m_ItemImage.GetComponent<RectTransform>().sizeDelta = ogWidthHeight;
-
-            if (ogWidthHeight.x == 0)
-            {
-                //Do stuff here
-                m_ItemImage.gameObject.SetActive(false);
-            }
-        }
+        if (m_Item)
+            m_Item.InRange = m_WithinRange;
     }
 
     protected void LerpFontSize(int newSize)
@@ -108,44 +81,41 @@ public class Chest : MonoBehaviour
         m_NameText.fontSize = (int)m_CurrFontSize;
     }
 
-    protected void UpdateItemPos()
-    {
-        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
-            return;
+    //protected void UpdateItemPos()
+    //{
+    //    if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
+    //        return;
 
-        if (!m_ItemImage.gameObject.activeSelf)
-            m_ItemImage.gameObject.SetActive(true);
+    //    //Item slowly increasing in size until maximum
+    //    Vector2 ogWidthHeight = m_ItemImage.GetComponent<RectTransform>().sizeDelta;
 
-        //Item slowly increasing in size until maximum
-        Vector2 ogWidthHeight = m_ItemImage.GetComponent<RectTransform>().sizeDelta;
+    //    float spd = 0.3f;
+    //    ogWidthHeight.x = Mathf.Lerp(ogWidthHeight.x, m_ImageDimensions, spd);
+    //    ogWidthHeight.y = ogWidthHeight.x;
 
-        float spd = 0.3f;
-        ogWidthHeight.x = Mathf.Lerp(ogWidthHeight.x, m_ImageDimensions, spd);
-        ogWidthHeight.y = ogWidthHeight.x;
+    //    m_ItemImage.GetComponent<RectTransform>().sizeDelta = ogWidthHeight;
 
-        m_ItemImage.GetComponent<RectTransform>().sizeDelta = ogWidthHeight;
+    //    //Update positioning of UI above text
+    //    //Offset Y axis
+    //    float offsetPosY = gameObject.transform.position.y;
 
-        //Update positioning of UI above text
-        //Offset Y axis
-        float offsetPosY = gameObject.transform.position.y;
+    //    //Final position of marker above chest in world space
+    //    Vector3 offsetPos = new Vector3(gameObject.transform.position.x, offsetPosY, gameObject.transform.position.z);
 
-        //Final position of marker above chest in world space
-        Vector3 offsetPos = new Vector3(gameObject.transform.position.x, offsetPosY, gameObject.transform.position.z);
+    //    //Calculate "screen" position (NOT a canvas/recttransform position)
+    //    Vector2 canvasPos;
+    //    Vector2 screenPoint = Camera.main.WorldToScreenPoint(offsetPos);
 
-        //Calculate "screen" position (NOT a canvas/recttransform position)
-        Vector2 canvasPos;
-        Vector2 screenPoint = Camera.main.WorldToScreenPoint(offsetPos);
+    //    //Convert screen pos to canvas/recttransform space (LEAVE CAMERA NULL IF SCREEN SPACE OVERLAY)
+    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(m_Canvas.GetComponent<RectTransform>(), screenPoint, null, out canvasPos);
 
-        //Convert screen pos to canvas/recttransform space (LEAVE CAMERA NULL IF SCREEN SPACE OVERLAY)
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(m_Canvas.GetComponent<RectTransform>(), screenPoint, null, out canvasPos);
+    //    if (m_AbValue == 0)
+    //        m_AbValue = canvasPos.x > 0 ? -1 : 1;
 
-        if (m_AbValue == 0)
-            m_AbValue = canvasPos.x > 0 ? -1 : 1;
+    //    UpdateSineGraph(ref canvasPos);
 
-        UpdateSineGraph(ref canvasPos);
-
-        m_ItemImage.transform.localPosition = canvasPos;
-    }
+    //    m_ItemImage.transform.localPosition = canvasPos;
+    //}
 
     protected void UpdateSineGraph(ref Vector2 ogPos)
     {
@@ -175,8 +145,8 @@ public class Chest : MonoBehaviour
         }
 
         m_Radian += spd;
-        if (Mathf.Deg2Rad * angleClamp < m_Radian)
-            m_ItemAnimation = false;
+        //if (Mathf.Deg2Rad * angleClamp < m_Radian)
+        //    m_ItemAnimation = false;
     }
 
     protected void UpdateNameTextPos()
@@ -223,13 +193,24 @@ public class Chest : MonoBehaviour
         }
     }
 
+    public void InteractItem()
+    {
+        if (m_Item == null)
+            return;
+
+        m_Item.OnInteract();
+    }
+
     public void OnInteract()
     {
         if (!m_WithinRange) //If within range or not
             return;
 
         if (m_Opened)
+        {
+            InteractItem(); //Interacting with items
             return;
+        }
 
         //Check if player has enough coins la
         if (m_PlayerStats.DeductCoin(m_Cost))
@@ -238,13 +219,12 @@ public class Chest : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.red;
             print("CHEST HAS BEEN OPENED");
 
-            //Randomise items and put into player
-            Item newItem = new Item();
-            newItem.InitialiseStats(m_PlayerStats);
-            m_PlayerStats.AddItem(newItem);
+            //Start Create item
+            GameObject itemObj = Instantiate(m_RingPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            itemObj.transform.localPosition = transform.localPosition;
+            itemObj.GetComponent<ItemPickup>().Initialise(this);
 
-            //Start Item animation
-            m_ItemAnimation = true;
+            m_Item = itemObj.GetComponent<ItemPickup>();
         } 
         else
         {

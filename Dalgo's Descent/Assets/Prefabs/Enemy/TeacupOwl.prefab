@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4462780870781250010}
   - component: {fileID: 3644844294466099586}
   - component: {fileID: 8194242469935190416}
+  - component: {fileID: 2795952678705034301}
   m_Layer: 0
   m_Name: TeacupOwl
   m_TagString: Untagged
@@ -45,7 +46,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5278351248973665841}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.4
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -70,8 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520009872bffbff48a977fef0737099b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_viewRadius: 8
-  m_radius: 3
+  m_radius: 5
   m_angle: 120
   m_playerRef: {fileID: 0}
   m_canSeeTarget: 0
@@ -87,6 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66fd4dc135f3af4f9476ed0b8996c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_animator: {fileID: 0}
+  m_playerRef: {fileID: 0}
+  m_rigidbody: {fileID: 0}
   m_agent: {fileID: 7559891738649763634}
   m_targetPoint: {x: 0, y: 0, z: 0}
   m_groundLayer:
@@ -120,10 +123,26 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
+  m_Radius: 0.5
   m_Height: 1.56
   m_Direction: 1
   m_Center: {x: 0, y: 0.82, z: 0}
+--- !u!114 &2795952678705034301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278351248973665841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b420b2f0b97938847a0bf0555fcffa39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  blinkIntensity: 20
+  blinkDuration: 0.1
 --- !u!1 &6129198041162140009
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6129198041162140009}
   m_LocalRotation: {x: -0.07442481, y: 0.0008616628, z: 0.0011091847, w: 0.99722564}
-  m_LocalPosition: {x: -0.000024276771, y: 0.0051710773, z: 0.0006445716}
+  m_LocalPosition: {x: 0, y: 0.0072, z: 0.0135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6748310161319482387}
@@ -167,7 +186,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.04
+  m_Radius: 0.025
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4574539189021679689
 MonoBehaviour:
@@ -245,6 +264,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3261683169632868513, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3261683169632868513, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89e49bc18bfe21f48aebeba3967e6fb3, type: 2}
     - target: {fileID: 919132149155446097, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
       propertyPath: m_Name
       value: TeacupOwl_Model(rigged) (1)
@@ -279,7 +306,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 4c2f3e71aa034f747aee67d28c54bd44, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
