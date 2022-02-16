@@ -5,6 +5,8 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class AIUnit : MonoBehaviour
 {
+    public GameObject m_playerRef;
+    public Rigidbody m_rigidbody;
     public NavMeshAgent m_agent;
     public Vector3 m_targetPoint = new Vector3();
     public LayerMask m_groundLayer;
@@ -14,13 +16,14 @@ public class AIUnit : MonoBehaviour
 
     private void Awake()
     {
+        m_rigidbody = GetComponent<Rigidbody>();
         m_agent = GetComponent<NavMeshAgent>();
+        m_playerRef = GameObject.FindGameObjectWithTag("Player");
         AIManager.Instance.Units.Add(this);
     }
 
     public void Update()
     {
-        AISeparation();
 
         if (Input.GetKey(KeyCode.P))
         {
@@ -28,17 +31,9 @@ public class AIUnit : MonoBehaviour
             GetComponentInChildren<Animator>().SetTrigger("Knockup");
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKey(KeyCode.O))
         {
-            Debug.Log("Hit");
-            if (m_agent.enabled)
-                m_agent.ResetPath();
-
-
-            GetComponentInChildren<Animator>().speed = 0.8f;
-            GetComponentInChildren<Animator>().SetTrigger("Hit");
-            GetComponentInChildren<Animator>().SetFloat("Speed", 0f);
-
+            EnemyHit();
         }
     }
 
@@ -55,7 +50,8 @@ public class AIUnit : MonoBehaviour
         }
     }
 
-    private void AISeparation()
+    public void EnemyHit(/*Skill enum or smth idk*/) 
     {
+        GetComponentInChildren<Animator>().SetBool("IsHit", true); 
     }
 }
