@@ -97,6 +97,7 @@ MonoBehaviour:
     m_Bits: 8
   m_damageCollider: {fileID: 3616641635467515209}
   m_inAttackRange: 0
+  m_damageTextPrefab: {fileID: 8663583582339724556, guid: 82c3a0c2ffcfc644eb000ae1897b9344, type: 3}
 --- !u!54 &3644844294466099586
 Rigidbody:
   m_ObjectHideFlags: 0
