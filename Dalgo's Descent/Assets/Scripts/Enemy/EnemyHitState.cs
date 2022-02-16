@@ -7,9 +7,9 @@ public class EnemyHitState : EnemyBaseState
     AIUnit aiUnit;
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("Hit");
         aiUnit = animator.transform.parent.GetComponent<AIUnit>();
         animator.SetFloat("Speed", 0f);
-        animator.speed = 0.5f;
 
         Debug.Log("Hit");
         if (aiUnit.m_agent.enabled)
@@ -18,9 +18,6 @@ public class EnemyHitState : EnemyBaseState
         aiUnit.m_rigidbody.isKinematic = false;
         aiUnit.m_agent.enabled = false;
         aiUnit.m_rigidbody.velocity = Vector3.zero;
-
-        Vector3 directionFromPlayer = Vector3.Normalize(aiUnit.transform.position - aiUnit.m_playerRef.transform.position);
-        aiUnit.m_rigidbody.AddForce(directionFromPlayer * 200f);
 
     }
 

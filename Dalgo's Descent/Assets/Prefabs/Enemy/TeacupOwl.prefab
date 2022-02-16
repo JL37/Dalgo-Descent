@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4462780870781250010}
   - component: {fileID: 3644844294466099586}
   - component: {fileID: 8194242469935190416}
+  - component: {fileID: 2795952678705034301}
   m_Layer: 0
   m_Name: TeacupOwl
   m_TagString: Untagged
@@ -95,7 +96,6 @@ MonoBehaviour:
     m_Bits: 8
   m_damageCollider: {fileID: 3616641635467515209}
   m_inAttackRange: 0
-  m_SpaceBetween: 4
 --- !u!54 &3644844294466099586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,6 +126,22 @@ CapsuleCollider:
   m_Height: 1.56
   m_Direction: 1
   m_Center: {x: 0, y: 0.82, z: 0}
+--- !u!114 &2795952678705034301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278351248973665841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b420b2f0b97938847a0bf0555fcffa39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  blinkIntensity: 20
+  blinkDuration: 0.1
 --- !u!1 &6129198041162140009
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +263,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3261683169632868513, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3261683169632868513, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89e49bc18bfe21f48aebeba3967e6fb3, type: 2}
     - target: {fileID: 919132149155446097, guid: a90d1ef76d94b624a8ac089ac772a2ab, type: 3}
       propertyPath: m_Name
       value: TeacupOwl_Model(rigged) (1)

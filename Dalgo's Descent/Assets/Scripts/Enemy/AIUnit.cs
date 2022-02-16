@@ -5,6 +5,7 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class AIUnit : MonoBehaviour
 {
+    public Animator m_animator;
     public GameObject m_playerRef;
     public Rigidbody m_rigidbody;
     public NavMeshAgent m_agent;
@@ -14,8 +15,12 @@ public class AIUnit : MonoBehaviour
     public Collider m_damageCollider;
     public bool m_inAttackRange = false;
 
+    private Health m_Health;
+
     private void Awake()
     {
+        m_animator = GetComponentInChildren<Animator>();
+        m_Health = GetComponent<Health>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_agent = GetComponent<NavMeshAgent>();
         m_playerRef = GameObject.FindGameObjectWithTag("Player");
@@ -24,14 +29,13 @@ public class AIUnit : MonoBehaviour
 
     public void Update()
     {
-
         if (Input.GetKey(KeyCode.P))
         {
             Debug.Log("Knockup");
-            GetComponentInChildren<Animator>().SetTrigger("Knockup");
+            m_animator.SetTrigger("Knockup");
         }
 
-        if (Input.GetKey(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             EnemyHit();
         }
@@ -52,6 +56,8 @@ public class AIUnit : MonoBehaviour
 
     public void EnemyHit(/*Skill enum or smth idk*/) 
     {
-        GetComponentInChildren<Animator>().SetBool("IsHit", true);
+        m_animator.SetTrigger("Hit");
+        m_animator.SetBool("IsHit", true);
+        m_Health.TakeDamage(10);
     }
 }
