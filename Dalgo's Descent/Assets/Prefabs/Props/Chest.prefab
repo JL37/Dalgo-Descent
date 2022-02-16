@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Canvas: {fileID: 5724665402285688498}
   m_GameUI: {fileID: 0}
   m_ItemImage: {fileID: 4979891500909599323}
+  m_RingPrefab: {fileID: 1831854861363122610, guid: f29f99aa0f416b84d9992ae016c9f169, type: 3}
   m_MaxFontSize: 80
 --- !u!135 &460454829852956835
 SphereCollider:

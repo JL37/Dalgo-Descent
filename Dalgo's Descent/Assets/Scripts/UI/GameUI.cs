@@ -51,6 +51,11 @@ public class GameUI : MonoBehaviour
         return m_ItemPanel.gameObject.transform.localPosition;
     }
 
+    public Transform GetItemPanelTransform()
+    {
+        return m_ItemPanel.gameObject.transform;
+    }
+
     public void ShowError(string str)
     {
         //Error text

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [Header("Prefabs")]
+    [SerializeField] GameObject m_ItemUIPrefab;
+
     //Stats
     protected int m_Health = 100;
     protected float m_AtkSpd = 1f;
@@ -75,9 +78,16 @@ public class PlayerStats : MonoBehaviour
     }
 
     //Items la if not what?
-    public void AddItem(Item item)
+    public void AddItem(Item item, bool animated = false)
     {
-        m_ItemArr.Add(item);
         print("Item added to inventory");
+
+        //Animation (If needed)
+        GameObject itemUI = Instantiate(m_ItemUIPrefab);
+        itemUI.GetComponent<ItemUI>().Initialise(item, m_ItemArr.Count, animated);
+        itemUI.transform.SetParent(GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetItemPanelTransform());
+
+        item.AffectStats(this);
+        m_ItemArr.Add(item);
     }
 }
