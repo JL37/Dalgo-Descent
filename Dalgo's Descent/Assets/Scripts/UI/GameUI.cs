@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] TMP_Text m_ErrorText;
+    [SerializeField] GameObject m_ItemPanel;
 
     [Header("Timers")]
     protected float m_CurrErrorTimer = 0f;
@@ -43,6 +44,11 @@ public class GameUI : MonoBehaviour
                 m_ErrorText.color = new Color(1, 1, 1, 1);
             }
         }
+    }
+
+    public Vector2 GetItemPanelLocalPos()
+    {
+        return m_ItemPanel.gameObject.transform.localPosition;
     }
 
     public void ShowError(string str)

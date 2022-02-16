@@ -19,9 +19,11 @@ public class Chest : MonoBehaviour
     protected bool m_Opened = false;
     protected bool m_ItemAnimation = false;
 
+    protected float m_Radian = 0;
+    protected int m_AbValue = 0;
     protected int m_Cost = 1;
     protected float m_HeightOffset = 1.5f;
-    protected float m_ImageDimensions = 150;
+    protected float m_ImageDimensions = 100;
 
     protected PlayerStats m_PlayerStats = null;
 
@@ -44,6 +46,8 @@ public class Chest : MonoBehaviour
 
         if (m_ItemAnimation)
             UpdateItemPos();
+        else if (m_ItemImage.gameObject.activeSelf)
+            MoveItemToPanel();
 
         if (m_WithinRange && !m_Opened)
             LerpFontSize(m_MaxFontSize);
@@ -51,8 +55,48 @@ public class Chest : MonoBehaviour
             LerpFontSize(0);
     }
 
+    protected void MoveItemToPanel()
+    {
+        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
+            return;
+
+        //Move to panel and disappear
+        Vector2 pos = m_ItemImage.transform.localPosition;
+        Vector2 targetPos = m_GameUI.GetItemPanelLocalPos();
+
+        //lerp the axis one by one
+        float spd = 0.08f;
+        pos.x = Mathf.Lerp(pos.x, targetPos.x, spd);
+        pos.y = Mathf.Lerp(pos.y, targetPos.y, spd);
+
+        //Set new position
+        m_ItemImage.transform.localPosition = pos;
+
+        //If its within item panel range, shrink the thing
+        float length = (pos - m_GameUI.GetItemPanelLocalPos()).magnitude;
+        if (length < 150) //SHRINK SIZE
+        {
+            Vector2 ogWidthHeight = m_ItemImage.GetComponent<RectTransform>().sizeDelta;
+
+            spd = 0.3f;
+            ogWidthHeight.x = Mathf.Lerp(ogWidthHeight.x, 0, spd);
+            ogWidthHeight.y = ogWidthHeight.x;
+
+            m_ItemImage.GetComponent<RectTransform>().sizeDelta = ogWidthHeight;
+
+            if (ogWidthHeight.x == 0)
+            {
+                //Do stuff here
+                m_ItemImage.gameObject.SetActive(false);
+            }
+        }
+    }
+
     protected void LerpFontSize(int newSize)
     {
+        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
+            return;
+
         if (m_NameText.fontSize == newSize)
         {
             m_CurrFontSize = newSize;
@@ -66,6 +110,9 @@ public class Chest : MonoBehaviour
 
     protected void UpdateItemPos()
     {
+        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
+            return;
+
         if (!m_ItemImage.gameObject.activeSelf)
             m_ItemImage.gameObject.SetActive(true);
 
@@ -92,9 +139,44 @@ public class Chest : MonoBehaviour
         //Convert screen pos to canvas/recttransform space (LEAVE CAMERA NULL IF SCREEN SPACE OVERLAY)
         RectTransformUtility.ScreenPointToLocalPointInRectangle(m_Canvas.GetComponent<RectTransform>(), screenPoint, null, out canvasPos);
 
-        int abVal = canvasPos.x > 0 ? -1 : 1;
+        if (m_AbValue == 0)
+            m_AbValue = canvasPos.x > 0 ? -1 : 1;
+
+        UpdateSineGraph(ref canvasPos);
 
         m_ItemImage.transform.localPosition = canvasPos;
+    }
+
+    protected void UpdateSineGraph(ref Vector2 ogPos)
+    {
+        //Move angle by speed
+        float angleClamp = 315f;
+        float xAxisRatio = 100f; //1 bump/ 180 degrees 
+        float spd = Mathf.Deg2Rad * 300f * Time.fixedDeltaTime;
+
+        //Sine graoh
+        float height = 300f;
+        if (Mathf.Deg2Rad * 180 >= m_Radian)
+        {
+            //Wide tall sine graph
+            float y = height * Mathf.Sin(m_Radian);
+            float x = (m_Radian / (Mathf.Deg2Rad * 180)) * xAxisRatio;
+
+            ogPos.x += (x * m_AbValue);
+            ogPos.y += y;
+        } 
+        else if (Mathf.Deg2Rad * angleClamp >= m_Radian)
+        {
+            float y = (height/2) * Mathf.Sin(2 * (m_Radian - Mathf.Deg2Rad * 90));
+            float x = (m_Radian / (Mathf.Deg2Rad * 180)) * xAxisRatio;
+
+            ogPos.x += (x * m_AbValue);
+            ogPos.y += y;
+        }
+
+        m_Radian += spd;
+        if (Mathf.Deg2Rad * angleClamp < m_Radian)
+            m_ItemAnimation = false;
     }
 
     protected void UpdateNameTextPos()

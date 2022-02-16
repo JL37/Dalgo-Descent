@@ -376,7 +376,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1404026794082159706
 MonoBehaviour:
@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ErrorText: {fileID: 981946225954277503}
+  m_ItemPanel: {fileID: 1404026794579005950}
   m_MaxErrorTimer: 2
   m_AlphaReduce: 3
 --- !u!1 &1404026794213561552
