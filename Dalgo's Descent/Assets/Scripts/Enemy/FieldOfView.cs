@@ -6,9 +6,8 @@ using UnityEngine.Animations.Rigging;
 
 public class FieldOfView : MonoBehaviour
 {
-    public MultiAimConstraint m_multiAimConstraint;
-    public RigBuilder m_rig;
 
+    public float m_viewRadius;
     public float m_radius;
     [Range(0,360)]
     public float m_angle;
@@ -36,12 +35,15 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return wait;
-            m_canSeeTarget = CanSeeTarget(transform, m_playerRef.transform, m_angle, m_radius);
+            m_canSeeTarget = CanSeeTarget(transform, m_playerRef.transform, m_angle, m_viewRadius);
         }
     }
 
     private bool CanSeeTarget(Transform enemy, Transform target, float viewAngle, float viewRange)
     {
+        if (Vector3.SqrMagnitude(target.position - enemy.transform.position) <= 25f)
+            return true;
+
         Vector3 toTarget = target.position - enemy.transform.position;
         if (Vector3.Angle(enemy.transform.forward, toTarget) <= viewAngle)
         {

@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class EnemyKnockupState : EnemyBaseState
 {
-    Rigidbody rb;
     AIUnit aiUnit;
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         aiUnit = animator.transform.parent.GetComponent<AIUnit>();
-        rb = animator.transform.parent.GetComponent<Rigidbody>();
+        aiUnit.m_rigidbody.isKinematic = false;
         aiUnit.m_agent.enabled = false;
-        // aiUnit.transform.GetComponent<Collider>().enabled = true;
-        rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(0, 400, 0));
+        aiUnit.m_rigidbody.velocity = Vector3.zero;
+        aiUnit.m_rigidbody.AddForce(new Vector3(0, 400, 0));
+        animator.SetBool("IsAirborne", true);
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (rb.velocity.y < 0)
+        if (aiUnit.m_rigidbody.velocity.y < 0)
             animator.SetBool("IsFalling", true);
     }
 

@@ -49,7 +49,7 @@ public class EnemyTurningState : EnemyBaseState
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
         animator.speed = 0.42814f;
-        animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 50f * Time.deltaTime);
+        animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 55f * Time.deltaTime);
         
         if (Quaternion.Angle(animator.transform.parent.rotation, q) < 10f)
         {

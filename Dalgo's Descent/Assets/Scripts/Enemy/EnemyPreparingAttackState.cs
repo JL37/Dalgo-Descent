@@ -19,8 +19,6 @@ public class EnemyPreparingAttackState : EnemyBaseState
         agent.speed = 3.5f;
         destinationChangeTime = maxDestinationChangeTime = 0.2f;
         FOV = agent.GetComponent<FieldOfView>();
-        FOV.m_multiAimConstraint.data.sourceObjects.Add(new WeightedTransform(Player.transform, 1));
-        FOV.m_rig.Build();
         aiUnit = agent.GetComponent<AIUnit>();
     }
 
@@ -43,15 +41,15 @@ public class EnemyPreparingAttackState : EnemyBaseState
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
         // animator.transform.LookAt(new Vector3(, animator.transform.position.y, walkpoint.z));
-        Vector3 distanceToWalkpoint = Player.transform.position - animator.transform.position;
-        Debug.Log(distanceToWalkpoint.magnitude);
+        // Vector3 distanceToWalkpoint = Player.transform.position - animator.transform.position;
+        // Debug.Log(distanceToWalkpoint.magnitude);
 
         // walkpoint reached
-        if (distanceToWalkpoint.magnitude < 3f)
+        if (aiUnit.m_inAttackRange)
         {
-            Debug.Log("Stopped");
+            // Debug.Log("Stopped");
             agent.ResetPath();
-            animator.SetTrigger("Attack");
+            animator.SetBool("InAttackRange", true);
         }
 
         
@@ -60,7 +58,5 @@ public class EnemyPreparingAttackState : EnemyBaseState
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.speed = 1;
-        FOV.m_multiAimConstraint.data.sourceObjects.RemoveAt(0);
-        FOV.m_rig.Build();
     }
 }

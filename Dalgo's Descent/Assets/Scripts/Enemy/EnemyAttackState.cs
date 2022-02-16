@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyBaseState
 {
+    AIUnit aiUnit;
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        aiUnit = animator.transform.parent.GetComponent<AIUnit>();
         animator.speed = 1;
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        if (animator.GetFloat("Speed") > 0) animator.SetFloat("Speed", animator.GetFloat("Speed") - Time.deltaTime * 5f);
+
+        if (!aiUnit.m_inAttackRange)
+        {
+            animator.SetBool("InAttackRange", false);
+        }
     }
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
