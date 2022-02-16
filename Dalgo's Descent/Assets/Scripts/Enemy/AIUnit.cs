@@ -52,6 +52,6 @@ public class AIUnit : MonoBehaviour
 
     public void EnemyHit(/*Skill enum or smth idk*/) 
     {
-        GetComponentInChildren<Animator>().SetBool("IsHit", true); 
+        GetComponentInChildren<Animator>().SetBool("IsHit", true);
     }
 }

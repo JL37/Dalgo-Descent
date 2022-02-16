@@ -86,6 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66fd4dc135f3af4f9476ed0b8996c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerRef: {fileID: 0}
+  m_rigidbody: {fileID: 0}
   m_agent: {fileID: 7559891738649763634}
   m_targetPoint: {x: 0, y: 0, z: 0}
   m_groundLayer:
@@ -150,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6129198041162140009}
   m_LocalRotation: {x: -0.07442481, y: 0.0008616628, z: 0.0011091847, w: 0.99722564}
-  m_LocalPosition: {x: -0.000024276771, y: 0.0051710773, z: 0.0006445716}
+  m_LocalPosition: {x: 0, y: 0.0072, z: 0.0135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6748310161319482387}
@@ -167,7 +169,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.04
+  m_Radius: 0.025
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4574539189021679689
 MonoBehaviour:
