@@ -35,7 +35,7 @@ public class EnemyPatrolState : EnemyBaseState
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
         animator.speed = 0.42814f;
-        animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 30f * Time.deltaTime);
+        animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 90 * Time.deltaTime);
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
         // animator.transform.LookAt(new Vector3(, animator.transform.position.y, walkpoint.z));
