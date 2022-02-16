@@ -24,7 +24,6 @@ public class AIUnit : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
         m_agent = GetComponent<NavMeshAgent>();
         m_playerRef = GameObject.FindGameObjectWithTag("Player");
-        AIManager.Instance.Units.Add(this);
     }
 
     public void Update()
