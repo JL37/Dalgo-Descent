@@ -56,7 +56,7 @@ public class AIUnit : MonoBehaviour
     public void EnemyHit(/*Skill enum or smth idk*/) 
     {
         m_animator.SetTrigger("Hit");
-        m_animator.SetBool("IsHit", true);
+        // m_animator.SetBool("IsHit", true);
         m_Health.TakeDamage(10);
     }
 

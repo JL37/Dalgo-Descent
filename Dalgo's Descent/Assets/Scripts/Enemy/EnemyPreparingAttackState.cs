@@ -47,8 +47,9 @@ public class EnemyPreparingAttackState : EnemyBaseState
         // walkpoint reached
         if (aiUnit.m_inAttackRange)
         {
-            // Debug.Log("Stopped");
-            agent.ResetPath();
+            if (agent.enabled)
+                agent.ResetPath();
+
             animator.SetBool("InAttackRange", true);
         }
 
