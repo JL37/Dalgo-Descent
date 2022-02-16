@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<MeshRenderer>().material.color = Color.black;
+        //GetComponent<MeshRenderer>().material.color = Color.black;
     }
 
     // Update is called once per frame

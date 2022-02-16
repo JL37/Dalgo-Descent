@@ -33,10 +33,13 @@ public class Chest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<MeshRenderer>().material.color = Color.yellow;
+        //GetComponent<MeshRenderer>().material.color = Color.yellow;
 
         m_Canvas.gameObject.SetActive(true);
         m_CurrFontSize = 0;
+
+        //Randomise cost
+        m_Cost = Random.Range(15, 30);
 
         //Set text to the cost
         m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(E)</color>";

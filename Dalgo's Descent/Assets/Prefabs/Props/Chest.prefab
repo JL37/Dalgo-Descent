@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 87bd20252d9b4274b9916c5b1c0ac0ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_NameText: {fileID: 5690725582811989972}
   m_Canvas: {fileID: 5724665402285688498}
   m_GameUI: {fileID: 0}
-  m_ItemImage: {fileID: 4979891500909599323}
   m_RingPrefab: {fileID: 1831854861363122610, guid: f29f99aa0f416b84d9992ae016c9f169, type: 3}
   m_MaxFontSize: 80
 --- !u!135 &460454829852956835
