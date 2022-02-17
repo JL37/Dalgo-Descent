@@ -5,12 +5,8 @@ using TMPro;
 
 public class DamageTextUI : MonoBehaviour
 {
-    [Header("Variables")]
-    [SerializeField] float m_MaxFontSize = 48;
-    [SerializeField] float m_MaxHeight = 100;
-    [SerializeField] float m_MaxHorizontalOffSet = 60;
-
     [Header("Adjustable things for the animation lmao")]
+    [SerializeField] float m_MaxFontSize = 48;
     [SerializeField] float m_MaxXOffset = 90;
     [SerializeField] float m_MaxYOffset = 150;
     [Range(0, 1)]
