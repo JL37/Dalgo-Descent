@@ -97,19 +97,19 @@ public class ItemPickup : MonoBehaviour
         }
         else
         {
-            LerpDescBoxScale(0);
+            LerpDescBoxScale(0,0.45f);
 
             if (transform.localScale.x < 0.01f)
                 Destroy(gameObject);
         }
     }
 
-    protected void LerpDescBoxScale(float newSize)
+    protected void LerpDescBoxScale(float newSize, float spd = 0)
     {
         if (m_CurrScaleLerp == newSize)
             return;
 
-        float spd = 0.3f;
+        spd = spd <= 0 ? 0.3f : spd;
         m_CurrScaleLerp = Mathf.Lerp(m_CurrScaleLerp, newSize, spd);
 
         //Set new scale value
