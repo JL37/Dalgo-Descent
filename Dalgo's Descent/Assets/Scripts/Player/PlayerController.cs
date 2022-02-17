@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     [Range(5, 20)][SerializeField] private float JumpForce;
     [Range(0, 10)][SerializeField] private float RunSpeed;
     [Range(0, 10)][SerializeField] private float WalkSpeed;
-    [Range(0, 1)][SerializeField] private float SlowSpeed;
-    [Range(0, 1)][SerializeField] private float TurnSpeed;
+    [Range(0, 5)][SerializeField] private float SlowSpeed;
+    [Range(0, 10)][SerializeField] private float TurnSpeed;
     [Range(0, 1)][SerializeField] private double AttackInputGracePeriod;
     [Range(0, 2)][SerializeField] private double AttackDuration;
 
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Velocity = Mathf.Lerp(Velocity, 0, SlowSpeed);
+            Velocity = Mathf.Lerp(Velocity, 0, SlowSpeed * Time.fixedDeltaTime);
         }
 
         Controller.Move(Impact * Time.deltaTime);
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
         var ForwardVelocity = Rotation * Vector3.forward * Velocity;
         Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
     }
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
