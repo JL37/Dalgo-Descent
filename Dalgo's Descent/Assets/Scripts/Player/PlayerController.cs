@@ -3,25 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Collections;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.Animations.Rigging;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Modifer")]
     [SerializeField] private Vector3 Gravity = new Vector3 (0,-10.0f,0);
     [SerializeField][Min(1)] private float Mass;
-    [Range(5, 20)] [SerializeField] private float JumpForce;
+    [Range(5, 20)][SerializeField] private float JumpForce;
     [Range(0, 10)][SerializeField] private float RunSpeed;
     [Range(0, 10)][SerializeField] private float WalkSpeed;
     [Range(0, 1)][SerializeField] private float SlowSpeed;
     [Range(0, 1)][SerializeField] private float TurnSpeed;
-    [ReadOnly] public Vector3 Impact;
+    [Range(1, 4)][SerializeField] private int NoOfAttacks;
+    private Vector3 Impact;
+    private int AttackStage;
+    private bool RecordAttackInput = true;
 
     [Header("Variables")]
     [SerializeField] private LayerMask GroundLayer;
     public CharacterController Controller;
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
+    public TwoBoneIKConstraint LeftHandConstraint;
+    public TwoBoneIKConstraint RightHandConstraint;
 
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
@@ -31,12 +36,18 @@ public class PlayerController : MonoBehaviour
     public bool IsJump { get; private set; }
     public bool IsLanding { get; private set; }
     public bool IsGrounded { get; private set; }
+    public bool IsAttack { get; private set; }
 
     private int IsWalkingHash;
     private int JumpTriggerHash;
     private int IsLandingHash;
     private int IsGroundedHash;
     private int VelocityHash;
+    private int AttackStateHash;
+    //private int AttackTriggerHash;
+    private int IsAttackHash;
+
+    private float weight = 0;
     void Awake()
     {
         InputScript = GetComponent<PlayerInput>();
@@ -52,6 +63,9 @@ public class PlayerController : MonoBehaviour
         IsLandingHash = Animator.StringToHash("IsLanding");
         IsGroundedHash = Animator.StringToHash("IsGrounded");
         VelocityHash = Animator.StringToHash("Velocity");
+        AttackStateHash = Animator.StringToHash("AttackStage");
+        //AttackTriggerHash = Animator.StringToHash("AttackTrigger");
+        IsAttackHash = Animator.StringToHash("IsAttack");
     }
 
     void Update()
@@ -71,11 +85,18 @@ public class PlayerController : MonoBehaviour
             IsGrounded = true;
         }
         
+        if(IsAttack) weight = Mathf.Lerp(weight, 1, 0.1f);
+        else weight = Mathf.Lerp(weight, 0, 0.1f);
+        RightHandConstraint.data.targetPositionWeight = weight;
+        RightHandConstraint.data.targetRotationWeight = weight;
 
         PlayerAnimator.SetBool(IsWalkingHash, IsMoving);
         PlayerAnimator.SetFloat(VelocityHash, Velocity * 0.1f);
         PlayerAnimator.SetBool(IsLandingHash, IsLanding);
         PlayerAnimator.SetBool(IsGroundedHash, IsGrounded);
+        PlayerAnimator.SetInteger(AttackStateHash, AttackStage);
+        PlayerAnimator.SetBool(IsAttackHash, IsAttack);
+
     }
 
     private void FixedUpdate()
@@ -101,8 +122,6 @@ public class PlayerController : MonoBehaviour
         Impact += Gravity * Mass * Time.fixedDeltaTime;
 
         Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
-
-        Debug.Log(Impact);
 
         var ForwardVelocity = Rotation * Vector3.forward * Velocity;
         Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
@@ -144,9 +163,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Fire(InputAction.CallbackContext context)
+    public void Attack(InputAction.CallbackContext context)
     {
-        //Debug.Log(context.control + " " + context.phase);
+        Debug.Log(RecordAttackInput);
+        if (context.started && RecordAttackInput)
+        {
+            PlayerAnimator.SetBool(IsAttackHash, true);
+            RecordAttackInput = false;
+            IsAttack = true;
+            if (AttackStage == 0) AttackStage++;
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -162,10 +188,29 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+
+    #region AnimationCallbacks
+    public void EnableRecordAttackInput()
+    {
+        RecordAttackInput = true;
+        IsAttack = false;
+    }
+
+    public void OnAttackEnd()
+    {
+        if(!IsAttack || AttackStage == NoOfAttacks)
+        {
+            IsAttack = false;
+            AttackStage = 0;
+        }
+        else
+            AttackStage++;
+    }
+    #endregion
+
     void OnEnable()
     {
         InputScript.ActivateInput();
-        
     }
 
     void OnDisable()
