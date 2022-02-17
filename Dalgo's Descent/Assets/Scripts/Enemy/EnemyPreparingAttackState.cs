@@ -16,7 +16,7 @@ public class EnemyPreparingAttackState : EnemyBaseState
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         agent = animator.transform.parent.GetComponent<NavMeshAgent>();
-        agent.speed = 3.5f;
+        agent.speed = Random.Range(3f, 3.5f);
         destinationChangeTime = maxDestinationChangeTime = 0.2f;
         FOV = agent.GetComponent<FieldOfView>();
         aiUnit = agent.GetComponent<AIUnit>();
@@ -36,7 +36,7 @@ public class EnemyPreparingAttackState : EnemyBaseState
         var q = Quaternion.LookRotation(new Vector3(Player.transform.position.x, 0, Player.transform.position.z) - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z));
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
-        animator.speed = 1f;
+        animator.speed = agent.speed / 3.5f;
         animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 0.1f);
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
@@ -58,5 +58,6 @@ public class EnemyPreparingAttackState : EnemyBaseState
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.speed = 1f;
     }
 }
