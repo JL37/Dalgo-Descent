@@ -16,12 +16,14 @@ public class Health : MonoBehaviour
     private float m_blinkTimer;
 
     private SkinnedMeshRenderer m_SkinnedMeshRenderer;
+    private ObjectPoolManager m_UIPoolManager;
 
     void Start()
     {
         m_aiUnit = GetComponent<AIUnit>();
         m_SkinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         currentHealth = maxHealth;
+        m_UIPoolManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetObjectPoolManager();
     }
 
     private void Update()
@@ -47,6 +49,16 @@ public class Health : MonoBehaviour
         }
 
         m_blinkTimer = blinkDuration;
+        SpawnText(((int)(amount)).ToString());
+    }
+
+    protected void SpawnText(string txt)
+    {
+        txt = "<color=red>" + txt + "</color>";
+        GameObject obj = m_UIPoolManager.GetFromPool();
+
+        //Initialisation
+        obj.GetComponent<DamageTextUI>().Initialise(transform, txt, 1f);
     }
 
     public void Die()

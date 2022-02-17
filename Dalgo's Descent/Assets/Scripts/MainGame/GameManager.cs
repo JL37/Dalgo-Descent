@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     {
 
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Awake()
@@ -21,10 +22,12 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         if (Input.GetKeyUp(KeyCode.LeftAlt))
         {
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
     }

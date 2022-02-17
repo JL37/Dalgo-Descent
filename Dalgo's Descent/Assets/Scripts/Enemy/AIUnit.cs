@@ -21,7 +21,6 @@ public class AIUnit : MonoBehaviour
     [SerializeField] GameObject m_damageTextPrefab;
 
     private Health m_Health;
-    private ObjectPoolManager m_UIPoolManager;
 
     private void Awake()
     {
@@ -34,7 +33,7 @@ public class AIUnit : MonoBehaviour
 
     private void Start()
     {
-        m_UIPoolManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetObjectPoolManager();
+        
     }
 
     public void Update()
@@ -71,17 +70,6 @@ public class AIUnit : MonoBehaviour
 		
         Vector3 directionFromPlayer = Vector3.Normalize(transform.position - m_playerRef.transform.position);
         m_rigidbody.AddForce(directionFromPlayer * 100f);
-
-        SpawnText(10.ToString());
-    }
-
-    protected void SpawnText(string txt)
-    {
-        txt = "<color=red>" + txt + "</color>";
-        GameObject obj = m_UIPoolManager.GetFromPool();
-
-        //Initialisation
-        obj.GetComponent<DamageTextUI>().Initialise(transform, txt, 1f);
     }
 
     public void EnemyKnockup()
