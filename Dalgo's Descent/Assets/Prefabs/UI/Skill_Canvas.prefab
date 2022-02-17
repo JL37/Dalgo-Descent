@@ -33,7 +33,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 8
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -238,14 +238,14 @@ RectTransform:
   - {fileID: 256297943341573287}
   - {fileID: 256297943569149846}
   - {fileID: 256297944499756814}
-  - {fileID: 256297943521597014}
-  - {fileID: 256297944965379098}
-  - {fileID: 256297943571149324}
-  - {fileID: 256297943186930004}
   - {fileID: 7569678663208753602}
   - {fileID: 5886727939425003555}
   - {fileID: 8207670250882604631}
   - {fileID: 7604529074410279755}
+  - {fileID: 256297943521597014}
+  - {fileID: 256297944965379098}
+  - {fileID: 256297943571149324}
+  - {fileID: 256297943186930004}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -348,7 +348,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -551,7 +551,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -842,7 +842,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 7604529074410279755}
   - component: {fileID: 7735684621711120159}
   - component: {fileID: 4582610565114554420}
+  - component: {fileID: 2001257439436356926}
   - component: {fileID: 4872640184852139245}
   m_Layer: 5
   m_Name: SkillBorder4_CD
@@ -942,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7604529074410279755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -955,7 +956,7 @@ RectTransform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1000,6 +1001,19 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2001257439436356926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742042514381324118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 256297943377168933}
 --- !u!114 &4872640184852139245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,6 +1037,7 @@ GameObject:
   - component: {fileID: 5886727939425003555}
   - component: {fileID: 7229614020716246881}
   - component: {fileID: 1173718090282572344}
+  - component: {fileID: 5227221602423045568}
   - component: {fileID: 3230815677339582969}
   m_Layer: 5
   m_Name: SkillBorder2_CD
@@ -1030,7 +1045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5886727939425003555
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1043,7 +1058,7 @@ RectTransform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1088,6 +1103,19 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5227221602423045568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534991032371405388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 256297943377168933}
 --- !u!114 &3230815677339582969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,6 +1214,7 @@ GameObject:
   - component: {fileID: 8207670250882604631}
   - component: {fileID: 250725366153516271}
   - component: {fileID: 3200972005933388904}
+  - component: {fileID: 5247775539272651606}
   - component: {fileID: 2307402502528898906}
   m_Layer: 5
   m_Name: SkillBorder3_CD
@@ -1193,7 +1222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8207670250882604631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1206,7 +1235,7 @@ RectTransform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1251,6 +1280,19 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5247775539272651606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184022092281403243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 256297943377168933}
 --- !u!114 &2307402502528898906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,6 +1316,7 @@ GameObject:
   - component: {fileID: 7569678663208753602}
   - component: {fileID: 1147473256056911614}
   - component: {fileID: 5097978789493366510}
+  - component: {fileID: 5843613853698383734}
   - component: {fileID: 1052413862603539582}
   m_Layer: 5
   m_Name: SkillBorder1_CD
@@ -1281,7 +1324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7569678663208753602
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1294,7 +1337,7 @@ RectTransform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 256297943377168932}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1339,6 +1382,19 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5843613853698383734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516933642602555563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 256297943377168933}
 --- !u!114 &1052413862603539582
 MonoBehaviour:
   m_ObjectHideFlags: 0
