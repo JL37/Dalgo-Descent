@@ -58,6 +58,5 @@ public class EnemyPreparingAttackState : EnemyBaseState
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.speed = 1;
     }
 }

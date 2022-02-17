@@ -51,6 +51,6 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        GetComponentInChildren<Animator>().SetTrigger("Die");
+        GetComponentInChildren<Animator>().SetTrigger("Death");
     }
 }
