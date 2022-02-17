@@ -9,7 +9,7 @@ public class Chest : MonoBehaviour
     [Header("Objects")]
     [SerializeField] TMP_Text m_NameText;
     [SerializeField] Canvas m_Canvas;
-    [SerializeField] GameUI m_GameUI;
+    protected GameUI m_GameUI;
 
     [Header("Prefabs")]
     [SerializeField] GameObject m_RingPrefab;
@@ -44,6 +44,8 @@ public class Chest : MonoBehaviour
 
         //Set text to the cost
         m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(E)</color>";
+
+        m_GameUI = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>();
     }
 
     // Update is called once per frame

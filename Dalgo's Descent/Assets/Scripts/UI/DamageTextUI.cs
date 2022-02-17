@@ -98,7 +98,7 @@ public class DamageTextUI : MonoBehaviour
 
     protected void UpdateScale(float target, float lerp)
     {
-        if (m_TextCmpt.fontSize <= target + 1)
+        if (Mathf.Abs(m_TextCmpt.fontSize - target) < 1)
         {
             m_TextCmpt.fontSize = target;
             return;

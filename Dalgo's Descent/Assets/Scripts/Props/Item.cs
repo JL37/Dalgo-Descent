@@ -78,24 +78,47 @@ public class Item
         Debug.Log("Stats have been affected!");
     }
 
-    public string GetText()
+    public string GetInfo()
     {
         switch (m_CurrType)
         {
             case TYPE.CARROTRING: //Carrot ring provides higher attack speed (4-12% boost)
-                return "<color=yellow>Attack Speed: </color> +" + m_EffectVal + "%";
+                return "Increases <color=yellow>Attack Speed</color> by <color=yellow>" + m_EffectVal + "%</color>.";
 
             case TYPE.GOLDRING: //Chariot cup provides 10-25% of additional lifesteal (Capped to 65%)
-                return "<color=yellow>Lifesteal: </color> +" + m_EffectVal + "%";
+                return "Increases <color=yellow>Lifesteal</color> by <color=yellow>" + m_EffectVal + "%</color>.";
 
             case TYPE.YELLOWRING: //Talon necklace provides a boost of 10 - 18% additional health
-                return "<color=yellow>Health: </color> +" + m_EffectVal + "%";
+                return "Increases <color=yellow>Health</color> by <color=yellow>" + m_EffectVal + "%</color>.";
 
             case TYPE.PURPLERING: //Rabbit bible increases crit chance by 5- 12% (Capped at 65%)
-                return "<color=yellow>Critical Chance: </color> +" + m_EffectVal + "%";
+                return "Increases <color=yellow>Critical Chance</color> by <color=yellow>" + m_EffectVal + "%</color>.";
 
             case TYPE.REDRING: //Blade boost basic attack damage by 15 - 40%
-                return "<color=yellow>Basic Attack: </color> +" + m_EffectVal + "%";
+                return "Increases <color=yellow>Basic Attack Damage</color> by <color=yellow>" + m_EffectVal + "%</color>.";
+        }
+
+        return "BODY LA IF NOT WHAT";
+    }
+
+    public string GetName()
+    {
+        switch (m_CurrType)
+        {
+            case TYPE.CARROTRING: //Carrot ring provides higher attack speed (4-12% boost)
+                return "Carrot Ring";
+
+            case TYPE.GOLDRING: //Chariot cup provides 10-25% of additional lifesteal (Capped to 65%)
+                return "Gold Ring";
+
+            case TYPE.YELLOWRING: //Talon necklace provides a boost of 10 - 18% additional health
+                return "Yellow Ring";
+
+            case TYPE.PURPLERING: //Rabbit bible increases crit chance by 5- 12% (Capped at 65%)
+                return "Purple Ring";
+
+            case TYPE.REDRING: //Blade boost basic attack damage by 15 - 40%
+                return "Red Ring";
         }
 
         return "BRUH MOMENT";
