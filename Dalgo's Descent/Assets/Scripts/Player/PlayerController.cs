@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Collections;
 using UnityEngine.InputSystem;
-using UnityEngine.Animations.Rigging;
-
 public class PlayerController : MonoBehaviour
 {
     [Header("Modifer")]
@@ -15,19 +13,17 @@ public class PlayerController : MonoBehaviour
     [Range(0, 10)][SerializeField] private float WalkSpeed;
     [Range(0, 1)][SerializeField] private float SlowSpeed;
     [Range(0, 1)][SerializeField] private float TurnSpeed;
-    [Range(1, 4)][SerializeField] private int NoOfAttacks;
+    [Range(0, 1)][SerializeField] private double AttackInputGracePeriod;
+    [Range(0, 2)][SerializeField] private double AttackDuration;
+
     private Vector3 Impact;
-    private int AttackStage;
-    private bool RecordAttackInput = true;
+    private double AttackInputTimer = 0;
 
     [Header("Variables")]
     [SerializeField] private LayerMask GroundLayer;
     public CharacterController Controller;
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
-    public TwoBoneIKConstraint LeftHandConstraint;
-    public TwoBoneIKConstraint RightHandConstraint;
-
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
     public float Velocity { get; private set; }
@@ -37,15 +33,15 @@ public class PlayerController : MonoBehaviour
     public bool IsLanding { get; private set; }
     public bool IsGrounded { get; private set; }
     public bool IsAttack { get; private set; }
-
+    
+    //Animator Parameter Hashes
     private int IsWalkingHash;
     private int JumpTriggerHash;
     private int IsLandingHash;
     private int IsGroundedHash;
     private int VelocityHash;
-    private int AttackStateHash;
-    //private int AttackTriggerHash;
     private int IsAttackHash;
+    private int AttackTriggerHash;
 
     private float weight = 0;
     void Awake()
@@ -63,14 +59,13 @@ public class PlayerController : MonoBehaviour
         IsLandingHash = Animator.StringToHash("IsLanding");
         IsGroundedHash = Animator.StringToHash("IsGrounded");
         VelocityHash = Animator.StringToHash("Velocity");
-        AttackStateHash = Animator.StringToHash("AttackStage");
-        //AttackTriggerHash = Animator.StringToHash("AttackTrigger");
         IsAttackHash = Animator.StringToHash("IsAttack");
+
+        AttackTriggerHash = Animator.StringToHash("AttackTrigger");
     }
 
     void Update()
     {
-
         IsGrounded = Physics.CheckSphere(gameObject.transform.position, 0.2f, GroundLayer) && !IsJump;
         //Set to Landing - Going Down + Not Grounded
         if (Controller.velocity.y < -0.0001f && !IsGrounded) 
@@ -84,19 +79,19 @@ public class PlayerController : MonoBehaviour
             IsLanding = false;
             IsGrounded = true;
         }
-        
-        if(IsAttack) weight = Mathf.Lerp(weight, 1, 0.1f);
-        else weight = Mathf.Lerp(weight, 0, 0.1f);
-        RightHandConstraint.data.targetPositionWeight = weight;
-        RightHandConstraint.data.targetRotationWeight = weight;
+
+        if(AttackInputTimer >= AttackDuration)
+            IsAttack = false;
+        else
+            AttackInputTimer += Time.deltaTime;
+
+
 
         PlayerAnimator.SetBool(IsWalkingHash, IsMoving);
         PlayerAnimator.SetFloat(VelocityHash, Velocity * 0.1f);
         PlayerAnimator.SetBool(IsLandingHash, IsLanding);
         PlayerAnimator.SetBool(IsGroundedHash, IsGrounded);
-        PlayerAnimator.SetInteger(AttackStateHash, AttackStage);
         PlayerAnimator.SetBool(IsAttackHash, IsAttack);
-
     }
 
     private void FixedUpdate()
@@ -165,13 +160,11 @@ public class PlayerController : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        Debug.Log(RecordAttackInput);
-        if (context.started && RecordAttackInput)
+        if (context.started && AttackInputTimer >= AttackInputGracePeriod) 
         {
-            PlayerAnimator.SetBool(IsAttackHash, true);
-            RecordAttackInput = false;
+            AttackInputTimer = 0;
+            PlayerAnimator.SetTrigger(AttackTriggerHash);
             IsAttack = true;
-            if (AttackStage == 0) AttackStage++;
         }
     }
 
@@ -185,26 +178,6 @@ public class PlayerController : MonoBehaviour
             IsJump = true;
             IsGrounded = false;
         }
-    }
-    #endregion
-
-
-    #region AnimationCallbacks
-    public void EnableRecordAttackInput()
-    {
-        RecordAttackInput = true;
-        IsAttack = false;
-    }
-
-    public void OnAttackEnd()
-    {
-        if(!IsAttack || AttackStage == NoOfAttacks)
-        {
-            IsAttack = false;
-            AttackStage = 0;
-        }
-        else
-            AttackStage++;
     }
     #endregion
 
