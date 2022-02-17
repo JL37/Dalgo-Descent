@@ -296,8 +296,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197103868}
-  m_LocalRotation: {x: 0.080420345, y: 2.270412e-11, z: 1.8498298e-12, w: 0.996761}
-  m_LocalPosition: {x: 0, y: 2.991, z: -5}
+  m_LocalRotation: {x: 0.080420345, y: 2.270415e-11, z: 1.8495676e-12, w: 0.996761}
+  m_LocalPosition: {x: -6.041, y: 2.991, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -7007,7 +7007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967554155759824668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.491, z: 0}
+  m_LocalPosition: {x: -6.041, y: 0.491, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6972626772908797403}
@@ -7086,7 +7086,6 @@ GameObject:
   - component: {fileID: 967554155759824671}
   - component: {fileID: 967554155759824672}
   - component: {fileID: 5820494705943244764}
-  - component: {fileID: 967554155759824670}
   - component: {fileID: 967554155759824669}
   m_Layer: 0
   m_Name: Player
@@ -7095,8 +7094,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &967554155759824669
-CapsuleCollider:
+--- !u!143 &967554155759824669
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7105,26 +7104,14 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!54 &967554155759824670
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967554155759824668}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 60
+  m_StepOffset: 0
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &967554155759824671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7137,18 +7124,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a824766e5e61e3843a63b1bd6fa292e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 1
-  slowSpeed: 0.1
-  walkSpeed: 0.4
-  turnSpeed: 0.08
-  jumpForce: 5
+  Gravity: {x: 0, y: -10, z: 0}
+  Mass: 1
+  JumpForce: 8
+  RunSpeed: 10
+  WalkSpeed: 4
+  SlowSpeed: 1
+  TurnSpeed: 0.2
+  Impact: {x: 0, y: 0, z: 0}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 8
-  PlayerRigidBody: {fileID: 967554155759824670}
+  Controller: {fileID: 967554155759824669}
   PlayerAnimator: {fileID: 5820494705943244764}
   InputScript: {fileID: 967554155759824672}
-  SkillButton: {fileID: 0}
 --- !u!114 &967554155759824672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7244,8 +7233,24 @@ MonoBehaviour:
     m_ActionName: Player/Sprint[/Keyboard/shift]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: d69f5521-21f3-42ff-87dc-9a68114eea5e
-    m_ActionName: Player/Skill[/Keyboard/q]
+    m_ActionId: 8974d3c0-24ea-43ab-90d0-6e4a2e0ba284
+    m_ActionName: Player/Interaction[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5484ed88-695c-46bc-891f-63a56f2852bf
+    m_ActionName: Player/Skill1[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9bc3f29c-1ef1-4080-a00b-fd9133fb96f1
+    m_ActionName: Player/Skill2[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9b50faa7-8163-4a6f-b6e8-072bf72f650d
+    m_ActionName: Player/Skill3[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f5bebc50-7efb-4b97-9b70-9a7357a52170
+    m_ActionName: Player/Skill4[/Keyboard/t]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -8046,7 +8051,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2477152504647978758, guid: 5edf3747021c31f4d9f7da52825a72e9, type: 3}
+  - {fileID: 2100000, guid: a75f7520cb01b7d469034e758bcc9531, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8467,7 +8472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5196599700412639051, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.041
       objectReference: {fileID: 0}
     - target: {fileID: 5196599700412639051, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8506,6 +8511,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.99513334
       objectReference: {fileID: 0}
@@ -8522,20 +8531,28 @@ PrefabInstance:
       value: 4.238689e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.998056
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.062324412
+      value: 0.062324416
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017172928
+      value: -0.000000017306572
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000010723775
+      value: 0.000000001080723
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196599701540738406, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701540738406, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8711,7 +8728,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d687f7d218f22a543894fefc9d310927, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -8798,7 +8815,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2541457280464432744, guid: 5edf3747021c31f4d9f7da52825a72e9, type: 3}
+  - {fileID: 2100000, guid: 8a1232a881655144090df7fb560cecd4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
