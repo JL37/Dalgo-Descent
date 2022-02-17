@@ -97,7 +97,7 @@ public class ItemPickup : MonoBehaviour
         }
         else
         {
-            LerpDescBoxScale(0,0.45f);
+            LerpDescBoxScale(0,0.5f);
 
             if (transform.localScale.x < 0.01f)
                 Destroy(gameObject);
