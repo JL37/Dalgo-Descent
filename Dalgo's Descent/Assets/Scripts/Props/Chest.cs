@@ -9,6 +9,8 @@ public class Chest : MonoBehaviour
     [Header("Objects")]
     [SerializeField] TMP_Text m_NameText;
     [SerializeField] Canvas m_Canvas;
+    [SerializeField] ParticleSystem m_ParticleSystem;
+
     protected GameUI m_GameUI;
 
     [Header("Prefabs")]
@@ -49,6 +51,11 @@ public class Chest : MonoBehaviour
         m_PlayerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
 
+    public void RemoveSpawnedItem()
+    {
+        m_Item = null;
+    }
+
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -68,7 +75,16 @@ public class Chest : MonoBehaviour
         m_WithinRange = m_PlayerStats.GetChest() == this ? true : false;
 
         if (m_Item)
+        {
             m_Item.InRange = m_WithinRange;
+
+            if (!m_ParticleSystem.isPlaying)
+                m_ParticleSystem.Play();
+        } 
+        else if (m_ParticleSystem.isPlaying)
+        {
+            m_ParticleSystem.Stop();
+        }
     }
 
     protected void LerpFontSize(int newSize)

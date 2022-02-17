@@ -219,5 +219,8 @@ public class ItemPickup : MonoBehaviour
         //Start animation
         m_Animating = true;
         stat.AddItem(m_Item, true);
+
+        //Remove reference from chest
+        m_Chest.RemoveSpawnedItem();
     }
 }
