@@ -10,6 +10,11 @@ public class BossAnimationEvent : MonoBehaviour
         bossAI = transform.parent.GetComponent<BossAI>();
     }
 
+    public void SetChargeAttackDestination()
+    {
+        bossAI.m_agent.SetDestination(bossAI.m_playerRef.transform.position);
+    }
+
     public void AttackPlayer()
     {
         bossAI.AttackPlayer();
