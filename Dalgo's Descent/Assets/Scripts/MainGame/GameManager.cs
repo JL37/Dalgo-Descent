@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] DynamicCamera m_Camera;
 
     protected PauseController m_PauseController;
-    //protected int m_EnemiesToFight = 0;
+    protected List<GameObject> m_EnemyArr;
 
     void Start()
     {
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         m_PauseController = GetComponent<PauseController>();
+        m_EnemyArr = new List<GameObject>();
     }
 
     void Awake()
@@ -36,5 +37,10 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        if (m_EnemyArr.Count > 0)
+            m_Camera.SetInCombat(true);
+        else
+            m_Camera.SetInCombat(false);
     }
 }

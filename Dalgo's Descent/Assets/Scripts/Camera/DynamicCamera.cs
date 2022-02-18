@@ -12,16 +12,16 @@ public class DynamicCamera : MonoBehaviour
 
     protected CinemachineFreeLook m_Camera;
 
-    protected float currDistance = 5f;
-    protected float scaleTop = 1f;
-    protected float botTop = 1f;
+    protected float m_CurrDistance = 5f;
+    protected float m_ScaleTop = 1f;
+    protected float m_BotTop = 1f;
 
     protected bool m_InCombat = false;
 
     private void Awake()
     {
-        scaleTop = 4f / 5f;
-        botTop = 1.3f / 5f;
+        m_ScaleTop = 4f / 5f;
+        m_BotTop = 1.3f / 5f;
     }
 
     // Start is called before the first frame update
@@ -33,7 +33,16 @@ public class DynamicCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Math
+        bool reachedCombat = m_InCombat && m_CurrDistance == m_CombatDistance;
+        bool reachedNonCombat = !m_InCombat && m_CurrDistance == m_NonCombatDistance;
+
+        if (!reachedCombat || !reachedNonCombat)
+            UpdateCameraRadius();
+    }
+
+    protected void UpdateCameraRadius()
+    {
+        
     }
 
     public void SetInCombat(bool combat) { m_InCombat = combat; }
