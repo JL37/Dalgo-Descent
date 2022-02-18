@@ -60,7 +60,7 @@ public class PlayerStats : MonoBehaviour
     public void EXP_Update(int amount)
     {
         m_EXP += amount;
-        if (m_EXP >= 100)
+        if (m_EXP > 101)
             m_EXP = 0;
         if (onEXPChanged != null)
             onEXPChanged(this, EventArgs.Empty);
