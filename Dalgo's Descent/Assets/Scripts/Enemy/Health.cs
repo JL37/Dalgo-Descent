@@ -86,7 +86,8 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        GetComponentInChildren<Animator>().SetBool("Death", true);
+        Animator animator = GetComponentInChildren<Animator>();
+        animator.SetTrigger("Death");
     }
 
     public void DieAnimation()

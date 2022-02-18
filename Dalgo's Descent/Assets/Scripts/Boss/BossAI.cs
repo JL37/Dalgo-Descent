@@ -59,6 +59,9 @@ public class BossAI : MonoBehaviour
     }
     public void Damage(float amount)
     {
+        if (health.currentHealth <= 0)
+            return;
+
         health.TakeDamage(amount);
     }
 
