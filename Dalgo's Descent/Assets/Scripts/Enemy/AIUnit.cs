@@ -21,6 +21,8 @@ public class AIUnit : MonoBehaviour
     [SerializeField] GameObject damageTextPrefab;
 
     private Health m_Health;
+    private GameManager m_GameManager;
+    private bool aggroActivated = false;
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class AIUnit : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
+        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Start()
@@ -38,7 +41,7 @@ public class AIUnit : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(IsAggro());
+        //Debug.Log(IsAggro());
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -48,6 +51,13 @@ public class AIUnit : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             EnemyHit();
+        }
+
+        if (!aggroActivated && IsAggro())
+        {
+            //Add to the gamemanager to say got enemy here
+            aggroActivated = true;
+            m_GameManager.AddToEnemyArray(gameObject);
         }
     }
 
@@ -70,7 +80,17 @@ public class AIUnit : MonoBehaviour
         rigidbody.isKinematic = false;
         agent.enabled = false;
         // m_aiUnit.m_rigidbody.velocity = Vector3.zero;
+
+        if (!aggroActivated)
+        {
+            //Add to the gamemanager to say got enemy here
+            aggroActivated = true;
+            m_GameManager.AddToEnemyArray(gameObject);
+        }
+
         m_Health.TakeDamage(amount);
+        if (m_Health.currentHealth <= 0)
+            m_GameManager.RemoveFromEnemyArray(gameObject);
     }
 
     public void EnemyHit(/*Skill enum or smth idk*/) 
@@ -106,6 +126,6 @@ public class AIUnit : MonoBehaviour
 
     public bool IsAggro()
     {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup");
     }
 }

@@ -179,9 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b799bf09f4fc52f4f98ebc1306c0052a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GameManager: {fileID: 0}
   m_NonCombatDistance: 5
   m_CombatDistance: 10
-  m_LerpSpd: 0.25
+  m_LerpSpd: 0.01
 --- !u!1 &5196599700495690592
 GameObject:
   m_ObjectHideFlags: 0
