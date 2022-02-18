@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject m_ItemUIPrefab;
 
+    //Status
+    protected bool m_Combat = false;
+
     //Stats
     protected int m_Health = 100;
     protected float m_AtkSpd = 1f;

@@ -10,11 +10,23 @@ public class ObjectPoolManager : MonoBehaviour
     [SerializeField] int m_InitialSize = 10;
     [SerializeField] GameObject prefab;
 
-    protected List<GameObject> poolArr = new List<GameObject>();
+    protected List<GameObject> poolArr;
+
+    ~ObjectPoolManager()
+    {
+        for (int i = 0; i < poolArr.Count; ++i)
+        {
+            Destroy(poolArr[i]);
+        }
+
+        poolArr.Clear();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        poolArr = new List<GameObject>();
+
         for (int i = 0; i < m_InitialSize;++i)
         {
             GameObject obj = Instantiate(prefab, transform);
