@@ -1620,15 +1620,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.09853762
+      value: 0.098537624
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000004280661
+      value: -0.0000000042806607
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.238689e-10
+      value: 4.238689e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2357,69 +2357,9 @@ MonoBehaviour:
     m_ActionId: 8974d3c0-24ea-43ab-90d0-6e4a2e0ba284
     m_ActionName: Player/Interaction[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1161393716}
-        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
-        m_MethodName: OnSkill1Used
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5484ed88-695c-46bc-891f-63a56f2852bf
-    m_ActionName: Player/Skill1[/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1161393716}
-        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
-        m_MethodName: OnSkill2Used
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9bc3f29c-1ef1-4080-a00b-fd9133fb96f1
-    m_ActionName: Player/Skill2[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1161393716}
-        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
-        m_MethodName: OnSkill3Used
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9b50faa7-8163-4a6f-b6e8-072bf72f650d
-    m_ActionName: Player/Skill3[/Keyboard/r]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1161393716}
-        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
-        m_MethodName: OnSkill4Used
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f5bebc50-7efb-4b97-9b70-9a7357a52170
-    m_ActionName: Player/Skill4[/Keyboard/t]
+      m_Calls: []
+    m_ActionId: 42a60fcd-9427-4b0b-9ba9-a3c6dfba939e
+    m_ActionName: Player/Skills[/Keyboard/q,/Keyboard/e,/Keyboard/r,/Keyboard/t]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -2439,25 +2379,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputScript: {fileID: 1161393715}
   skill:
-  - {fileID: 1925263460}
-  - {fileID: 1733524796}
+  - {fileID: 256297943888956075}
+  - {fileID: 256297943888956074}
   - {fileID: 1412417675}
   - {fileID: 322086422}
-  skill_image1: {fileID: 1925263460}
-  cooldown1: 5
   isCooldown: 0
   isSkill1Pressed: 0
-  skill_image2: {fileID: 1733524796}
-  cooldown2: 5
-  isCooldown2: 0
   isSkill2Pressed: 0
-  skill_image3: {fileID: 1412417675}
-  cooldown3: 5
-  isCooldown3: 0
   isSkill3Pressed: 0
-  skill_image4: {fileID: 322086422}
-  cooldown4: 5
-  isCooldown4: 0
   isSkill4Pressed: 0
 --- !u!1001 &1208669315
 PrefabInstance:
@@ -4369,6 +4298,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
+--- !u!114 &256297943888956074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 256297944965379102, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
+  m_PrefabInstance: {fileID: 256297943888956073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &256297943888956075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 256297943521597352, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
+  m_PrefabInstance: {fileID: 256297943888956073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &460454830090913687
 PrefabInstance:
   m_ObjectHideFlags: 0
