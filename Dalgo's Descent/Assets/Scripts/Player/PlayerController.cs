@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public CharacterController Controller;
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
+    public List<SlashScript> SlashVFXPrefabs;
+    public int AttackStage;
+
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
     public float Velocity { get; private set; }
@@ -43,7 +46,6 @@ public class PlayerController : MonoBehaviour
     private int IsAttackHash;
     private int AttackTriggerHash;
 
-    private float weight = 0;
     void Awake()
     {
         InputScript = GetComponent<PlayerInput>();
@@ -122,6 +124,15 @@ public class PlayerController : MonoBehaviour
         Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
+    }
+
+    public void Slash()
+    {
+        Instantiate(SlashVFXPrefabs[AttackStage], transform);
+        AttackStage++;
+
+        if (AttackStage > 2)
+            AttackStage = 0;
     }
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
