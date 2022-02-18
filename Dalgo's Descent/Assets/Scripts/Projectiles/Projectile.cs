@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.position = transform.position + directionVelocity;
+        transform.position = transform.position + directionVelocity * Time.deltaTime * 10f;
     }
 
     private void OnTriggerEnter(Collider other)

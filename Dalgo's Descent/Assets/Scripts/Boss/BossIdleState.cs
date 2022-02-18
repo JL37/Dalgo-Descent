@@ -28,7 +28,7 @@ public class BossIdleState : SceneLinkedSMB<MyMonoBehaviour>
         {   
             // Chance of ground slam is higher than other 2 attacks
             int attackChoice = (bossAI.health.currentHealth < bossAI.health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 2);
-            attackChoice = 1;
+            attackChoice = 2;
             switch (attackChoice)
             {
                 case 1:
