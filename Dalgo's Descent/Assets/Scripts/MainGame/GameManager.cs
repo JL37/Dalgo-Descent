@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
     [SerializeField] DynamicCamera m_Camera;
     protected PauseController m_PauseController;
-    
-    //protected int m_EnemiesToFight = 0;
+
+    protected List<GameObject> m_EnemyArr;
+    protected bool m_InCombat = false;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         status.Setup(playerStats);
 
         m_PauseController = GetComponent<PauseController>();
+        m_EnemyArr = new List<GameObject>();
     }
 
     void Awake()
@@ -58,5 +60,39 @@ public class GameManager : MonoBehaviour
             playerStats.Replenish_Health(5);
             print("health now is  : " + playerStats.Health);
         }
+
+        if (m_EnemyArr.Count > 0)
+            m_InCombat = true;
+        else
+            m_InCombat = false;
+    }
+
+    public bool GetInCombat() { return m_InCombat; }
+    public void AddToEnemyArray(GameObject enemy)
+    {
+        for (int i = 0; i < m_EnemyArr.Count;++i)
+        {
+            if (m_EnemyArr[i] == enemy)
+                return;
+        }
+
+        m_EnemyArr.Add(enemy);
+        print("Enemy " + enemy + " added to manager!");
+    }
+
+    public void RemoveFromEnemyArray(GameObject enemy)
+    {
+        for (int i = 0; i < m_EnemyArr.Count; ++i)
+        {
+            if (m_EnemyArr[i] == enemy)
+            {
+                print("Enemy " + enemy + " removed from manager!");
+                m_EnemyArr.RemoveAt(i);
+                return;
+            }
+        }
+
+        print("Enemy to remove from game manager array is not even in array.");
+
     }
 }

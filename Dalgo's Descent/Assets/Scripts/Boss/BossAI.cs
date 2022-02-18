@@ -27,12 +27,16 @@ public class BossAI : MonoBehaviour
     [HideInInspector] public bool m_inAttackRange = false;
     [HideInInspector] public float m_bossTimer;
     public float m_bossAttackIntervals;
+
+    private GameManager m_GameManager;
     private bool m_rigActive = true;
+    private bool m_AggroActivated = false;
 
     void Awake()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         health = GetComponent<Health>();
+        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void AttackPlayer()
@@ -56,13 +60,37 @@ public class BossAI : MonoBehaviour
         {
             Damage(10);
         }
+
+        //Check for any signs of aggression, if have then bruh update the gamemanager
+        if (!m_AggroActivated && IsAggro())
+        {
+            //Add to the gamemanager to say got enemy here
+            m_AggroActivated = true;
+            m_GameManager.AddToEnemyArray(gameObject);
+        }
     }
+
+    public bool IsAggro()
+    {
+        return !animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Spawn");
+    }
+
     public void Damage(float amount)
     {
-        if (health.currentHealth <= 0)
-            return;
+		if (health.currentHealth <= 0)
+			return;
+		
+        if (!m_AggroActivated)
+        {
+            //Add to the gamemanager to say got enemy here
+            m_AggroActivated = true;
+            m_GameManager.AddToEnemyArray(gameObject);
+        }
 
         health.TakeDamage(amount);
+
+        if (health.currentHealth <= 0)
+            m_GameManager.RemoveFromEnemyArray(gameObject);
     }
 
     public void Die()
