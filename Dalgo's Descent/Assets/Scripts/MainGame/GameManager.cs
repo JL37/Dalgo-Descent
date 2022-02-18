@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] DynamicCamera m_Camera;
+
     protected PauseController m_PauseController;
+    //protected int m_EnemiesToFight = 0;
 
     void Start()
     {
@@ -32,6 +36,5 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-
     }
 }

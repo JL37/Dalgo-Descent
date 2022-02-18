@@ -16,6 +16,8 @@ public class DynamicCamera : MonoBehaviour
     protected float scaleTop = 1f;
     protected float botTop = 1f;
 
+    protected bool m_InCombat = false;
+
     private void Awake()
     {
         scaleTop = 4f / 5f;
@@ -33,4 +35,6 @@ public class DynamicCamera : MonoBehaviour
     {
         //Math
     }
+
+    public void SetInCombat(bool combat) { m_InCombat = combat; }
 }
