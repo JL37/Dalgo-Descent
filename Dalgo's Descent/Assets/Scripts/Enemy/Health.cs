@@ -71,6 +71,12 @@ public class Health : MonoBehaviour
 
     protected void SpawnText(string txt)
     {
+        if (m_UIPoolManager == null)
+        {
+            print("UI not even in scene wtf are you trying???");
+            return;
+        }
+
         txt = "<color=red>" + txt + "</color>";
         GameObject obj = m_UIPoolManager.GetFromPool();
 
@@ -80,7 +86,8 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        GetComponentInChildren<Animator>().SetBool("Death", true);
+        Animator animator = GetComponentInChildren<Animator>();
+        animator.SetTrigger("Death");
     }
 
     public void DieAnimation()

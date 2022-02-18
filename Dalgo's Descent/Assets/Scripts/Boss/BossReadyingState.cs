@@ -14,7 +14,7 @@ public class BossReadyingState : BossBaseState
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.transform.parent.LookAt(new Vector3(bossAI.m_playerRef.transform.position.x, bossAI.transform.position.y, bossAI.m_playerRef.transform.position.z));
+        animator.transform.parent.LookAt(new Vector3(bossAI.playerRef.transform.position.x, bossAI.transform.position.y, bossAI.playerRef.transform.position.z));
     }
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
