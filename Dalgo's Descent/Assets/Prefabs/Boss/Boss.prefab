@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b420b2f0b97938847a0bf0555fcffa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   currentHealth: 0
   blinkDuration: 0.05
   models:
@@ -108,12 +108,17 @@ MonoBehaviour:
   damageCollider: {fileID: 229982603570707368}
   health: {fileID: 229982603349147802}
   targetPoint: {x: 0, y: 0, z: 0}
-  woodPrefabs: []
+  woodPrefabs:
+  - {fileID: 5312727187203838740, guid: b9574278bb95cd046ab6974264a40ff8, type: 3}
+  - {fileID: 3173892224146102666, guid: 7d59066987cb22d45ad847a301c21460, type: 3}
+  - {fileID: 7213078970447351125, guid: fee30e986fd34874f910c5990de484a9, type: 3}
+  projectileHolder: {fileID: 0}
+  projectileThrownHolder: {fileID: 0}
   animator: {fileID: 229982603108584023}
   rig: {fileID: 229982604389995320}
   m_inAttackRange: 0
   m_bossTimer: 0
-  m_bossAttackIntervals: 5
+  m_bossAttackIntervals: 2
 --- !u!1 &229982603508137411
 GameObject:
   m_ObjectHideFlags: 0

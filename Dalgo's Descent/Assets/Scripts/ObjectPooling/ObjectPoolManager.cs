@@ -50,7 +50,7 @@ public class ObjectPoolManager : MonoBehaviour
             }
         }
     }
-
+    
     public GameObject GetFromPool()
     {
         for (int i = 0; i < poolArr.Count;++i)

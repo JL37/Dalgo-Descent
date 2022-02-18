@@ -77,6 +77,9 @@ public class BossAI : MonoBehaviour
 
     public void Damage(float amount)
     {
+		if (health.currentHealth <= 0)
+			return;
+		
         if (!m_AggroActivated)
         {
             //Add to the gamemanager to say got enemy here
