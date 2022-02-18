@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 1404026794082159707}
   - component: {fileID: 1404026794082159706}
   - component: {fileID: 1404026794082159709}
+  - component: {fileID: 5632653049107800135}
   - component: {fileID: 4760013570404469157}
   m_Layer: 5
   m_Name: VIsibleCanvas
@@ -302,6 +303,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5632653049107800135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404026794082159708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41761ff32124f741b9095d4f0ec82e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIcon: {fileID: 1751603128041717836}
+  healthy: {fileID: 21300000, guid: c91b3251543da5c478df8504d54b9401, type: 3}
+  halfDead: {fileID: 21300000, guid: bbc9753d0c200fa488314f4682b484b2, type: 3}
+  criticalHealth: {fileID: 21300000, guid: a941f844ebbf0e544acaa33cbb132be0, type: 3}
+  dead: {fileID: 21300000, guid: bd206f9116b15e444a4ee46f08215e88, type: 3}
 --- !u!114 &4760013570404469157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +652,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41761ff32124f741b9095d4f0ec82e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIcon: {fileID: 0}
+  healthy: {fileID: 0}
+  halfDead: {fileID: 0}
+  criticalHealth: {fileID: 0}
+  dead: {fileID: 0}
 --- !u!1 &4710353223245561675
 GameObject:
   m_ObjectHideFlags: 0

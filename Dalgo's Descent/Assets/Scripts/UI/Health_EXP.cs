@@ -8,7 +8,6 @@ public class Health_EXP : MonoBehaviour
 {
     private PlayerStats playerStats;
 
-    public Image expImage;
     public Image playerIcon;
     public Sprite healthy, halfDead, criticalHealth, dead;
     public void Setup(PlayerStats playerStats)
@@ -43,12 +42,12 @@ public class Health_EXP : MonoBehaviour
 
     private void PlayerStats_onHealthChanged(object sender, EventArgs e)
     {
-        transform.localScale = new Vector3(playerStats.GetHealthPerc(), 1);
+        transform.Find("health_fill").localScale = new Vector3(playerStats.GetHealthPerc(), 1);
     }
 
     private void PlayerStats_onEXPChanged(object sender, EventArgs e) //change the health only when the player gets attack
     {
-        expImage.transform.localScale = new Vector3(playerStats.GetEXPPerc(), 1.6f);
+        transform.Find("lv_fill").localScale = new Vector3(playerStats.GetEXPPerc(), 1);
     }
 
     private void Update()
