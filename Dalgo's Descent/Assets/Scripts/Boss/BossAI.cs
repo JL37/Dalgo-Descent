@@ -115,7 +115,7 @@ public class BossAI : MonoBehaviour
     {
         Transform projectile = projectileHolder.GetChild(0);
         projectile.parent = projectileThrownHolder;
-        projectile.GetComponent<Projectile>().directionVelocity = (playerRef.transform.position - transform.position).normalized;
+        projectile.GetComponent<Projectile>().directionVelocity = (new Vector3(playerRef.transform.position.x, 0.5f, playerRef.transform.position.z) - projectile.transform.position).normalized;
     }
 
     public void GroundSlam()
@@ -127,6 +127,7 @@ public class BossAI : MonoBehaviour
     public void ChooseAttack()
     {
         attackChoice = (health.currentHealth < health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 3);
+        attackChoice = 2;
         Debug.Log(attackChoice);
     }
 

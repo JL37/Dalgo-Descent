@@ -6,6 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Vector3 directionVelocity;
+    public ParticleSystem woodThrowParticleSystemPrefab;
 
     private void Start()
     {
@@ -19,14 +20,24 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "AI")
+            return;
+
+        if (directionVelocity == Vector3.zero)
+            return;
+
+        Debug.Log("Particle Collided");
+        Instantiate(woodThrowParticleSystemPrefab, transform.position, Quaternion.identity);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 4f);
+        foreach (Collider c in colliders)
         {
-            Debug.Log("Projectile Hit");
-            // deal damage and knockback
+            if (c.gameObject.tag == "Player")
+            {
+                // deal damage
+            }
         }
 
         Destroy(gameObject);
-
     }
 
 }
