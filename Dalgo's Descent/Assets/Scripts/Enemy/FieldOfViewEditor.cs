@@ -10,22 +10,22 @@ public class FieldOfViewEditor : Editor
     {
         FieldOfView fov = (FieldOfView)target;
         Handles.color = Color.white;
-        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.m_viewRadius);
+        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.viewRadius);
 
         Handles.color = Color.red;
-        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.m_radius);
+        Handles.DrawWireArc(fov.transform.position, Vector3.up, Vector3.forward, 360, fov.radius);
 
-        Vector3 viewAngle01 = DirectionFromAngle(fov.transform.eulerAngles.y, -fov.m_angle * 0.5f);
-        Vector3 viewAngle02 = DirectionFromAngle(fov.transform.eulerAngles.y, fov.m_angle * 0.5f);
+        Vector3 viewAngle01 = DirectionFromAngle(fov.transform.eulerAngles.y, -fov.angle * 0.5f);
+        Vector3 viewAngle02 = DirectionFromAngle(fov.transform.eulerAngles.y, fov.angle * 0.5f);
 
         Handles.color = Color.yellow;
-        Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngle01 * fov.m_viewRadius);
-        Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngle02 * fov.m_viewRadius);
+        Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngle01 * fov.viewRadius);
+        Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngle02 * fov.viewRadius);
 
-        if (fov.m_canSeeTarget)
+        if (fov.canSeeTarget)
         {
             Handles.color = Color.green;
-            Handles.DrawLine(fov.transform.position, fov.m_playerRef.transform.position);
+            Handles.DrawLine(fov.transform.position, fov.playerRef.transform.position);
         }
     }
 

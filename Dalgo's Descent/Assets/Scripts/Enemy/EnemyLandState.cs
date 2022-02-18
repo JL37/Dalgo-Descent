@@ -11,7 +11,7 @@ public class EnemyLandState : EnemyBaseState
         aiUnit = animator.transform.parent.GetComponent<AIUnit>();
         rb = animator.transform.parent.GetComponent<Rigidbody>();
         animator.SetBool("IsAirborne", false);
-        aiUnit.m_agent.enabled = true;
+        aiUnit.agent.enabled = true;
         rb.isKinematic = true;
     }
 
