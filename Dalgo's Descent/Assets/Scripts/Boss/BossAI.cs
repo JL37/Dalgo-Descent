@@ -15,6 +15,9 @@ public class BossAI : MonoBehaviour
     public Health health;
     public Vector3 targetPoint = new Vector3();
 
+    [Header("Attack Choice")]
+    [HideInInspector] public int attackChoice;
+
     [Header("Throwable Object Attack")]
     public GameObject[] woodPrefabs;
     public Transform projectileHolder;
@@ -41,7 +44,7 @@ public class BossAI : MonoBehaviour
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         health = GetComponent<Health>();
-        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        // m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void AttackPlayer()
@@ -71,7 +74,7 @@ public class BossAI : MonoBehaviour
         {
             //Add to the gamemanager to say got enemy here
             m_AggroActivated = true;
-            m_GameManager.AddToEnemyArray(gameObject);
+            // m_GameManager.AddToEnemyArray(gameObject);
         }
     }
 
@@ -89,13 +92,13 @@ public class BossAI : MonoBehaviour
         {
             //Add to the gamemanager to say got enemy here
             m_AggroActivated = true;
-            m_GameManager.AddToEnemyArray(gameObject);
+            // m_GameManager.AddToEnemyArray(gameObject);
         }
 
         health.TakeDamage(amount);
 
-        if (health.currentHealth <= 0)
-            m_GameManager.RemoveFromEnemyArray(gameObject);
+        //if (health.currentHealth <= 0)
+            // m_GameManager.RemoveFromEnemyArray(gameObject);
     }
 
     public void Die()
@@ -119,6 +122,12 @@ public class BossAI : MonoBehaviour
     {
         shockwaveParticleSystem.Play(); 
         // shake camera or smth
+    }
+
+    public void ChooseAttack()
+    {
+        attackChoice = (health.currentHealth < health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 3);
+        Debug.Log(attackChoice);
     }
 
     public void SetRigActive(bool active)

@@ -10,6 +10,7 @@ public class BossIdleState : SceneLinkedSMB<MyMonoBehaviour>
         bossAI = animator.transform.parent.GetComponent<BossAI>();
         bossAI.m_bossTimer = bossAI.m_bossAttackIntervals;
         bossAI.SetRigActive(true);
+        bossAI.ChooseAttack();
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -25,10 +26,9 @@ public class BossIdleState : SceneLinkedSMB<MyMonoBehaviour>
 
         bossAI.m_bossTimer -= Time.deltaTime;
         if (bossAI.m_bossTimer <= 0)
-        {   
+        {
             // Chance of ground slam is higher than other 2 attacks
-            int attackChoice = (bossAI.health.currentHealth < bossAI.health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 2);
-            switch (attackChoice)
+            switch (bossAI.attackChoice)
             {
                 case 1:
                     animator.SetTrigger("ChargeAttack");

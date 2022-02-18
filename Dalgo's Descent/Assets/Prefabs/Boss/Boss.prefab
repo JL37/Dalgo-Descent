@@ -50,7 +50,7 @@ NavMeshAgent:
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -109,6 +109,7 @@ MonoBehaviour:
   damageCollider: {fileID: 229982603570707368}
   health: {fileID: 229982603349147802}
   targetPoint: {x: 0, y: 0, z: 0}
+  attackChoice: 0
   woodPrefabs:
   - {fileID: 5312727187203838740, guid: b9574278bb95cd046ab6974264a40ff8, type: 3}
   - {fileID: 3173892224146102666, guid: 7d59066987cb22d45ad847a301c21460, type: 3}

@@ -48,7 +48,7 @@ public class AIUnit : MonoBehaviour
             EnemyKnockup();
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             EnemyHit();
         }

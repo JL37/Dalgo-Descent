@@ -18,7 +18,7 @@ public class BossPathBackState : BossBaseState
         animator.SetFloat("Speed", bossAI.agent.speed);
         animator.transform.parent.LookAt(new Vector3(bossAI.targetPoint.x, bossAI.transform.position.y, bossAI.targetPoint.z));
         Vector3 distanceToWalkpoint = animator.transform.position - bossAI.targetPoint;
-        if (distanceToWalkpoint.sqrMagnitude < 4f)
+        if (distanceToWalkpoint.sqrMagnitude < 2f)
         {
             animator.SetBool("ReachedDestination", true);
         }

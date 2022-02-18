@@ -18,7 +18,7 @@ public class BossChargingState : BossBaseState
         animator.SetFloat("Speed", bossAI.agent.speed);
         // animator.transform.parent.LookAt(new Vector3(bossAI.m_playerRef.transform.position.x, bossAI.transform.position.y, bossAI.m_playerRef.transform.position.z));
         Vector3 distanceToWalkpoint = animator.transform.position - bossAI.targetPoint;
-        if (distanceToWalkpoint.sqrMagnitude < 4f)
+        if (distanceToWalkpoint.sqrMagnitude < 2f)
         {
             animator.SetBool("ReachedDestination", true);
         }
@@ -26,5 +26,6 @@ public class BossChargingState : BossBaseState
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.SetBool("ReachedDestination", false);
     }
 }
