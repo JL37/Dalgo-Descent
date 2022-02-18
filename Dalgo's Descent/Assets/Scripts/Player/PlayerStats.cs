@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] GameObject m_ItemUIPrefab;
 
     //Stats
-    protected int m_Health = 100;
+    protected float m_Health = 100;
+    protected float m_MaxHealth = 100;
     protected float m_AtkSpd = 1f;
     protected float m_LifeSteal = 0f;
     protected float m_CritChance = 0.03f;
@@ -20,9 +22,26 @@ public class PlayerStats : MonoBehaviour
     protected List<Chest> m_ChestArr = new List<Chest>();
     protected List<Item> m_ItemArr = new List<Item>();
 
-    public int Health
+    public event EventHandler onHealthChanged;
+
+    public void Damage(int damageAmount)
+    {
+        m_Health -= damageAmount;
+        if (m_Health < 0)
+            m_Health = 0;
+        if (onHealthChanged != null)
+            onHealthChanged(this, EventArgs.Empty);
+
+    }
+
+    public float Health
     {
         get { return m_Health; }
+        set { m_Health = value; }
+    }
+    public float MaxHealth
+    {
+        get { return m_MaxHealth; }
         set { m_Health = value; }
     }
 
@@ -48,6 +67,11 @@ public class PlayerStats : MonoBehaviour
     {
         get { return m_BasicAtk; }
         set { m_BasicAtk = value; }
+    }
+
+    public float GetHealthPerc()
+    {
+        return m_Health / m_MaxHealth;
     }
 
     //Coins bruh
