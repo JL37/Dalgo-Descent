@@ -48,7 +48,7 @@ public class Health_EXP : MonoBehaviour
 
     private void PlayerStats_onEXPChanged(object sender, EventArgs e) //change the health only when the player gets attack
     {
-        expImage.transform.localScale = new Vector3(playerStats.GetEXPPerc(), 1);
+        expImage.transform.localScale = new Vector3(playerStats.GetEXPPerc(), 1.6f);
     }
 
     private void Update()
