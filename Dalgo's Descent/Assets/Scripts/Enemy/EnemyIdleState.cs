@@ -10,7 +10,6 @@ public class EnemyIdleState : EnemyBaseState
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         delay = Random.Range(2f, 5f);
-        animator.speed = 0.4f;
         time = 0f;
         FOV = animator.transform.parent.GetComponent<FieldOfView>();
     }

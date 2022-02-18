@@ -64,7 +64,6 @@ public class EnemyTurningState : EnemyBaseState
 
     public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.speed = 1;
         animator.SetBool("PatrolDoneTurning", false);
     }
 
