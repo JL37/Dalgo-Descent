@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 6061ab73c1515b948a2fd607584bfa5f
+guid: 196ad54e87bbdbf428aa33591fb97fc3
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Dalgo Run
+    second: Dalgo idle With Weapon
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Dalgo Run
+      name: Dalgo idle With Weapon
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 43
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -117,7 +117,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.099999994
+    globalScale: 10
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

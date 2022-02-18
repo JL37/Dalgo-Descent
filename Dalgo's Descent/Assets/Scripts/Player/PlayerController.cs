@@ -13,11 +13,17 @@ public class PlayerController : MonoBehaviour
     [Range(0, 10)][SerializeField] private float WalkSpeed;
     [Range(0, 5)][SerializeField] private float SlowSpeed;
     [Range(0, 10)][SerializeField] private float TurnSpeed;
-    [Range(0, 1)][SerializeField] private double AttackInputGracePeriod;
-    [Range(0, 2)][SerializeField] private double AttackDuration;
+    [Range(0, 5)][SerializeField] private double AttackCoolDown; //Start Recording after this period
+    [SerializeField] private List<AnimationClip> AttackAnimations; 
+
+    public double AttackCDTimer = 0;
+    public double AttackInputTimer = 0;
+    public bool IsAttacking;
+    public bool HasAttackInput;
+    public int AttackStage;
+    public int SlashStage;
 
     private Vector3 Impact;
-    private double AttackInputTimer = 0;
 
     [Header("Variables")]
     [SerializeField] private LayerMask GroundLayer;
@@ -25,7 +31,6 @@ public class PlayerController : MonoBehaviour
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
     public List<SlashScript> SlashVFXPrefabs;
-    public int AttackStage;
 
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
@@ -35,8 +40,7 @@ public class PlayerController : MonoBehaviour
     public bool IsJump { get; private set; }
     public bool IsLanding { get; private set; }
     public bool IsGrounded { get; private set; }
-    public bool IsAttack { get; private set; }
-    
+
     //Animator Parameter Hashes
     private int IsWalkingHash;
     private int JumpTriggerHash;
@@ -62,40 +66,82 @@ public class PlayerController : MonoBehaviour
         IsGroundedHash = Animator.StringToHash("IsGrounded");
         VelocityHash = Animator.StringToHash("Velocity");
         IsAttackHash = Animator.StringToHash("IsAttack");
-
         AttackTriggerHash = Animator.StringToHash("AttackTrigger");
     }
 
     void Update()
     {
         IsGrounded = Physics.CheckSphere(gameObject.transform.position, 0.2f, GroundLayer) && !IsJump;
-        //Set to Landing - Going Down + Not Grounded
-        if (Controller.velocity.y < -0.0001f && !IsGrounded) 
+
+        if (Controller.velocity.y < -0.0001f && !IsGrounded)  //Set to Landing - Going Down + Not Grounded
         {
             IsJump = false;
             IsLanding = true;
         }
-        //Set to Grounded
-        else if (IsGrounded)
+        else if (IsGrounded) //Set to Grounded
         {
             IsLanding = false;
             IsGrounded = true;
         }
 
-        if(AttackInputTimer >= AttackDuration)
-            IsAttack = false;
-        else
+        if(AttackCDTimer > 0)
+            AttackCDTimer -= Time.deltaTime;
+
+        if (HasAttackInput && !IsAttacking && AttackCDTimer <= 0)
+        {
+            HasAttackInput = false;
+            IsAttacking = true;
+            AttackStage++;
+            PlayerAnimator.SetTrigger(AttackTriggerHash);
+        }
+
+        if(IsAttacking)
+        {
             AttackInputTimer += Time.deltaTime;
 
+            if (AttackStage < AttackAnimations.Count)
+            {
+                if (AttackInputTimer >= AttackAnimations[AttackStage - 1].length * 0.9f)
+                {
+                    if (HasAttackInput)
+                    {
+                        AttackInputTimer = 0;
+                        HasAttackInput = false;
+                        PlayerAnimator.SetTrigger(AttackTriggerHash);
+                        AttackStage++;
+                    }
+                    else
+                    {
+                        AttackStage = 0;
+                        IsAttacking = false;
+                        HasAttackInput = false;
+                        SlashStage = 0;
+                        AttackInputTimer = 0;
+                        AttackCDTimer = AttackCoolDown;
+                    }
+                }
+            }
+            else
+            {
+                if (AttackInputTimer >= AttackAnimations[AttackStage - 2].length * 0.9f)
+                {
+                    SlashStage = 0;
+                    AttackStage = 0;
+                    HasAttackInput = false;
+                    IsAttacking = false;
+                    AttackInputTimer = 0;
+                    AttackCDTimer = AttackCoolDown;
+                }
+            }
+        }
 
 
         PlayerAnimator.SetBool(IsWalkingHash, IsMoving);
         PlayerAnimator.SetFloat(VelocityHash, Velocity * 0.1f);
         PlayerAnimator.SetBool(IsLandingHash, IsLanding);
         PlayerAnimator.SetBool(IsGroundedHash, IsGrounded);
-        PlayerAnimator.SetBool(IsAttackHash, IsAttack);
+        PlayerAnimator.SetBool(IsAttackHash, IsAttacking);
     }
-
     private void FixedUpdate()
     {
         if (IsMoving)
@@ -126,13 +172,15 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
     }
 
-    public void Slash()
+    public void Slash() // Called by Animation
     {
-        Instantiate(SlashVFXPrefabs[AttackStage], transform);
-        AttackStage++;
+        Instantiate(SlashVFXPrefabs[SlashStage], transform);
+        SlashStage++;
+    }
 
-        if (AttackStage > 2)
-            AttackStage = 0;
+    public void EndAttack()
+    {
+        SlashStage = 0;
     }
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
@@ -171,12 +219,8 @@ public class PlayerController : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (context.started && AttackInputTimer >= AttackInputGracePeriod) 
-        {
-            AttackInputTimer = 0;
-            PlayerAnimator.SetTrigger(AttackTriggerHash);
-            IsAttack = true;
-        }
+        if (context.started && AttackCDTimer <= 0)
+            HasAttackInput = true;
     }
 
     public void OnJump(InputAction.CallbackContext context)
