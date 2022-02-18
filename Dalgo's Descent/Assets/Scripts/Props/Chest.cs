@@ -9,7 +9,9 @@ public class Chest : MonoBehaviour
     [Header("Objects")]
     [SerializeField] TMP_Text m_NameText;
     [SerializeField] Canvas m_Canvas;
-    [SerializeField] GameUI m_GameUI;
+    [SerializeField] ParticleSystem m_ParticleSystem;
+
+    protected GameUI m_GameUI;
 
     [Header("Prefabs")]
     [SerializeField] GameObject m_RingPrefab;
@@ -39,10 +41,19 @@ public class Chest : MonoBehaviour
         m_CurrFontSize = 0;
 
         //Randomise cost
-        m_Cost = Random.Range(15, 30);
+        m_Cost = 1;
+        //m_Cost = Random.Range(15, 30);
 
         //Set text to the cost
         m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(E)</color>";
+
+        m_GameUI = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>();
+        m_PlayerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+    }
+
+    public void RemoveSpawnedItem()
+    {
+        m_Item = null;
     }
 
     // Update is called once per frame
@@ -61,8 +72,19 @@ public class Chest : MonoBehaviour
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
             return;
 
+        m_WithinRange = m_PlayerStats.GetChest() == this ? true : false;
+
         if (m_Item)
+        {
             m_Item.InRange = m_WithinRange;
+
+            if (!m_ParticleSystem.isPlaying)
+                m_ParticleSystem.Play();
+        } 
+        else if (m_ParticleSystem.isPlaying)
+        {
+            m_ParticleSystem.Stop();
+        }
     }
 
     protected void LerpFontSize(int newSize)
@@ -80,42 +102,6 @@ public class Chest : MonoBehaviour
         m_CurrFontSize = Mathf.Lerp(m_CurrFontSize, newSize, spd);
         m_NameText.fontSize = (int)m_CurrFontSize;
     }
-
-    //protected void UpdateItemPos()
-    //{
-    //    if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Return when paused
-    //        return;
-
-    //    //Item slowly increasing in size until maximum
-    //    Vector2 ogWidthHeight = m_ItemImage.GetComponent<RectTransform>().sizeDelta;
-
-    //    float spd = 0.3f;
-    //    ogWidthHeight.x = Mathf.Lerp(ogWidthHeight.x, m_ImageDimensions, spd);
-    //    ogWidthHeight.y = ogWidthHeight.x;
-
-    //    m_ItemImage.GetComponent<RectTransform>().sizeDelta = ogWidthHeight;
-
-    //    //Update positioning of UI above text
-    //    //Offset Y axis
-    //    float offsetPosY = gameObject.transform.position.y;
-
-    //    //Final position of marker above chest in world space
-    //    Vector3 offsetPos = new Vector3(gameObject.transform.position.x, offsetPosY, gameObject.transform.position.z);
-
-    //    //Calculate "screen" position (NOT a canvas/recttransform position)
-    //    Vector2 canvasPos;
-    //    Vector2 screenPoint = Camera.main.WorldToScreenPoint(offsetPos);
-
-    //    //Convert screen pos to canvas/recttransform space (LEAVE CAMERA NULL IF SCREEN SPACE OVERLAY)
-    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(m_Canvas.GetComponent<RectTransform>(), screenPoint, null, out canvasPos);
-
-    //    if (m_AbValue == 0)
-    //        m_AbValue = canvasPos.x > 0 ? -1 : 1;
-
-    //    UpdateSineGraph(ref canvasPos);
-
-    //    m_ItemImage.transform.localPosition = canvasPos;
-    //}
 
     protected void UpdateSineGraph(ref Vector2 ogPos)
     {
@@ -179,8 +165,8 @@ public class Chest : MonoBehaviour
                 return;
             }
 
-            m_WithinRange = true;
-            m_PlayerStats.SetChest(this);
+            //m_WithinRange = true;
+            m_PlayerStats.AddChest(this);
         }
     }
 
@@ -188,17 +174,9 @@ public class Chest : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            m_WithinRange = false;
-            m_PlayerStats.SetChest(null);
+            //m_WithinRange = false;
+            m_PlayerStats.RemoveChest(this);
         }
-    }
-
-    public void InteractItem()
-    {
-        if (m_Item == null)
-            return;
-
-        m_Item.OnInteract();
     }
 
     public void OnInteract()
@@ -206,9 +184,9 @@ public class Chest : MonoBehaviour
         if (!m_WithinRange) //If within range or not
             return;
 
-        if (m_Opened)
+        if (m_Opened && m_Item)
         {
-            InteractItem(); //Interacting with items
+            m_Item.OnInteract(); //Interacting with items
             return;
         }
 

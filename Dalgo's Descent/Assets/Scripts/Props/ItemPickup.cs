@@ -7,7 +7,7 @@ public class ItemPickup : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] Canvas m_Canvas;
-    [SerializeField] TMP_Text m_NameText;
+    [SerializeField] RectTransform m_DescBox;
     [SerializeField] Texture m_Texture;
 
     [Header("Variables")]
@@ -23,16 +23,15 @@ public class ItemPickup : MonoBehaviour
     [Tooltip("For the height between the object and the name text")]
     [SerializeField] float m_HeightOffset = 1.5f;
 
-    [SerializeField] int m_MaxFontSize = 80;
-
     [Header("Speed")]
     [SerializeField] float m_TransformSpd = 2;
     [SerializeField] float m_RotationSpd = 360f;
-    [SerializeField] float m_ScaleLerp = 0.2f;
+    
+    protected float m_MaxScaleLerp = 1f;
+    protected float m_CurrScaleLerp = 0f;
 
     protected Vector3 m_OriginalPos;
     protected float m_YToAdd = 0f;
-    protected float m_CurrFontSize = 0f;
 
     protected Chest m_Chest;
     protected Item m_Item;
@@ -47,6 +46,19 @@ public class ItemPickup : MonoBehaviour
         set { m_InRange = value; }
     }
 
+    private void Awake()
+    {
+        //Randomise item str8 up
+        m_Item = new Item();
+        m_Item.InitialiseRandomStats();
+        //For now, give all items same image
+        m_Item.SetCurrTexture(m_Texture);
+
+
+        //Change desc box text
+        m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item.GetName(), m_Item.GetInfo());
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,15 +66,7 @@ public class ItemPickup : MonoBehaviour
         m_OriginalPos = gameObject.transform.position;
 
         m_Canvas.gameObject.SetActive(true);
-        m_NameText.fontSize = 0;
-
-        //Randomise item str8 up
-        m_Item = new Item();
-        m_Item.InitialiseRandomStats();
-        //For now, give all items same image
-        m_Item.SetCurrTexture(m_Texture);
-
-        m_NameText.text = m_Item.GetText() + "\n<color=yellow>(E)</color>";
+        m_DescBox.transform.localScale = new Vector3(0, 0,0);
     }
 
     public void Initialise(Chest chest)
@@ -84,26 +88,43 @@ public class ItemPickup : MonoBehaviour
         }
         else
         {
-            AnimateScaleModel(0,0.5f);
+            AnimateScaleModel(0,0.55f);
         }
 
         if (m_InRange && !m_Interacted)
-            LerpFontSize(m_MaxFontSize);
+        {
+            LerpDescBoxScale(m_MaxScaleLerp);
+        }
         else
-            LerpFontSize(0);
+        {
+            LerpDescBoxScale(0,0.5f);
+
+            if (transform.localScale.x < 0.01f)
+                Destroy(gameObject);
+        }
     }
 
-    protected void LerpFontSize(int newSize)
+    protected void LerpDescBoxScale(float newSize, float spd = 0)
     {
-        if (m_NameText.fontSize == newSize)
-        {
-            m_CurrFontSize = newSize;
+        if (m_CurrScaleLerp == newSize)
             return;
-        }
 
-        float spd = 0.3f;
-        m_CurrFontSize = Mathf.Lerp(m_CurrFontSize, newSize, spd);
-        m_NameText.fontSize = (int)m_CurrFontSize;
+        spd = spd <= 0 ? 0.3f : spd;
+        m_CurrScaleLerp = Mathf.Lerp(m_CurrScaleLerp, newSize, spd);
+
+        //Set new scale value
+        Vector3 newScale;
+        newScale.x = m_CurrScaleLerp;
+        newScale.y = m_CurrScaleLerp;
+        newScale.z = 1;
+
+        m_DescBox.transform.localScale = newScale;
+
+        if (Mathf.Abs(m_CurrScaleLerp - newSize) < 0.01f)
+        {
+            m_DescBox.transform.localScale = new Vector3(newSize, newSize, newSize);
+            m_CurrScaleLerp = newSize;
+        }
     }
 
     protected void UpdateNameTextPos()
@@ -122,14 +143,14 @@ public class ItemPickup : MonoBehaviour
         //Convert screen pos to canvas/recttransform space (LEAVE CAMERA NULL IF SCREEN SPACE OVERLAY)
         RectTransformUtility.ScreenPointToLocalPointInRectangle(m_Canvas.GetComponent<RectTransform>(), screenPoint, null, out canvasPos);
 
-        m_NameText.transform.localPosition = canvasPos;
+        m_DescBox.transform.localPosition = canvasPos;
     }
 
     public void AnimateScaleModel(float scaleTarget, float lerpSpd = 0)
     {
         Vector3 ogWidthHeight = gameObject.transform.localScale;
 
-        lerpSpd = lerpSpd > 0 ? lerpSpd : m_ScaleLerp;
+        lerpSpd = lerpSpd > 0 ? lerpSpd : m_MaxScaleLerp;
 
         ogWidthHeight.x = Mathf.Lerp(ogWidthHeight.x, scaleTarget, lerpSpd);
         ogWidthHeight.y = ogWidthHeight.x;
@@ -198,5 +219,8 @@ public class ItemPickup : MonoBehaviour
         //Start animation
         m_Animating = true;
         stat.AddItem(m_Item, true);
+
+        //Remove reference from chest
+        m_Chest.RemoveSpawnedItem();
     }
 }

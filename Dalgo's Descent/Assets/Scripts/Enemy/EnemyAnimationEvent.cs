@@ -15,4 +15,9 @@ public class EnemyAnimationEvent : MonoBehaviour
     {
         aiUnit.AttackPlayer();
     }
+
+    public void Die()
+    {
+        aiUnit.Die();
+    }
 }

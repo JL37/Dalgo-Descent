@@ -8,7 +8,6 @@ public class EnemyAttackState : EnemyBaseState
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         aiUnit = animator.transform.parent.GetComponent<AIUnit>();
-        animator.speed = 1;
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
