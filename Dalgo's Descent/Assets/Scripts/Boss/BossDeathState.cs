@@ -9,6 +9,7 @@ public class BossDeathState : BossBaseState
     {
         bossAI = animator.transform.parent.GetComponent<BossAI>();
         bossAI.SetRigActive(false);
+        bossAI.agent.ResetPath();
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

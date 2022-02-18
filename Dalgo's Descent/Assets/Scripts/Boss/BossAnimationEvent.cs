@@ -34,4 +34,9 @@ public class BossAnimationEvent : MonoBehaviour
     {
         bossAI.TossWood();
     }
+
+    public void GroundSlam()
+    {
+        bossAI.GroundSlam();
+    }
 }
