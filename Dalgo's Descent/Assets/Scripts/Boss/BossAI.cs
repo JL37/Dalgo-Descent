@@ -9,20 +9,20 @@ using UnityEngine.Animations.Rigging;
 public class BossAI : MonoBehaviour
 {
     [Header("References")]
-    public GameObject m_playerRef;
-    public NavMeshAgent m_agent;
-    public Collider m_damageCollider;
-    public Health m_Health;
-    public Vector3 m_targetPoint = new Vector3();
+    public GameObject playerRef;
+    public NavMeshAgent agent;
+    public Collider damageCollider;
+    public Health health;
+    public Vector3 targetPoint = new Vector3();
 
-    [Header("Ground Slam Attack")]
-    public Transform centerOfRoom;
-    public ParticleSystem shockwaveParticleSystem;
+    [Header("Throwable Object Attack")]
+    public GameObject[] woodPrefabs;
+    public Transform projectileHolder;
+    public Transform projectileThrownHolder;
 
     [Header("Animation")]
-    public Animator m_animator;
-    public Rig m_rig;
-
+    public Animator animator;
+    public Rig rig;
 
     [HideInInspector] public bool m_inAttackRange = false;
     [HideInInspector] public float m_bossTimer;
@@ -34,14 +34,9 @@ public class BossAI : MonoBehaviour
 
     void Awake()
     {
-<<<<<<< HEAD
         playerRef = GameObject.FindGameObjectWithTag("Player");
         health = GetComponent<Health>();
         m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-=======
-        m_playerRef = GameObject.FindGameObjectWithTag("Player");
-        m_Health = GetComponent<Health>();
->>>>>>> parent of 19d8647 (Merge branch 'main' into BasicUI-and-SceneSetup)
     }
 
     public void AttackPlayer()
@@ -54,13 +49,13 @@ public class BossAI : MonoBehaviour
 
     public void MoveTo(Vector3 position)
     {
-        m_targetPoint = position;
-        m_agent.SetDestination(m_targetPoint);
+        targetPoint = position;
+        agent.SetDestination(targetPoint);
     }
 
     void Update()
     {
-        m_rig.weight = m_rigActive ? m_rig.weight + Time.deltaTime : m_rig.weight - Time.deltaTime;
+        rig.weight = m_rigActive ? rig.weight + Time.deltaTime * 2f : rig.weight - Time.deltaTime * 2f;
         if (Input.GetKeyDown(KeyCode.O))
         {
             Damage(10);
@@ -82,10 +77,9 @@ public class BossAI : MonoBehaviour
 
     public void Damage(float amount)
     {
-<<<<<<< HEAD
-		if (health.currentHealth <= 0)
-			return;
-		
+        if (health.currentHealth <= 0)
+            return;
+
         if (!m_AggroActivated)
         {
             //Add to the gamemanager to say got enemy here
@@ -97,20 +91,23 @@ public class BossAI : MonoBehaviour
 
         if (health.currentHealth <= 0)
             m_GameManager.RemoveFromEnemyArray(gameObject);
-=======
-        m_Health.TakeDamage(amount);
->>>>>>> parent of 19d8647 (Merge branch 'main' into BasicUI-and-SceneSetup)
     }
 
     public void Die()
     {
-        m_Health.DieAnimation();
+        health.DieAnimation();
     }
 
-    public void GroundSlam()
+    public void GrabWood()
     {
-        shockwaveParticleSystem.Play(); 
-        // shake camera or smth
+        Instantiate(woodPrefabs[Random.Range(0, woodPrefabs.Length - 1)], projectileHolder);
+    }
+
+    public void TossWood()
+    {
+        Transform projectile = projectileHolder.GetChild(0);
+        projectile.parent = projectileThrownHolder;
+        projectile.GetComponent<Projectile>().directionVelocity = (playerRef.transform.position - transform.position).normalized;
     }
 
     public void SetRigActive(bool active)

@@ -6,27 +6,23 @@ public class GameManager : MonoBehaviour
 {
     public Health_EXP status;
     public PlayerStats playerStats;
-<<<<<<< HEAD
     [SerializeField] DynamicCamera m_Camera;
     protected PauseController m_PauseController;
 
     protected List<GameObject> m_EnemyArr;
     protected bool m_InCombat = false;
 
-=======
->>>>>>> parent of 19d8647 (Merge branch 'main' into BasicUI-and-SceneSetup)
     void Start()
     {
         playerStats = new PlayerStats();
         status.Setup(playerStats);
-<<<<<<< HEAD
 
         m_PauseController = GetComponent<PauseController>();
         m_EnemyArr = new List<GameObject>();
-=======
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
->>>>>>> parent of 19d8647 (Merge branch 'main' into BasicUI-and-SceneSetup)
+
     }
 
     void Awake()

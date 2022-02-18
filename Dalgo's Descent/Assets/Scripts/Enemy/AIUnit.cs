@@ -6,19 +6,19 @@ using UnityEngine.AI;
 public class AIUnit : MonoBehaviour
 {
     [Header("Objects and variables")]
-    public Animator m_animator;
-    public GameObject m_playerRef;
-    public Rigidbody m_rigidbody;
-    public NavMeshAgent m_agent;
+    public Animator animator;
+    public GameObject playerRef;
+    public Rigidbody rigidbody;
+    public NavMeshAgent agent;
 
-    public Vector3 m_targetPoint = new Vector3();
-    public LayerMask m_groundLayer;
+    public Vector3 targetPoint = new Vector3();
+    public LayerMask groundLayer;
 
-    public Collider m_damageCollider;
-    public bool m_inAttackRange = false;
+    public Collider damageCollider;
+    public bool inAttackRange = false;
 
     [Header("Prefabs")]
-    [SerializeField] GameObject m_damageTextPrefab;
+    [SerializeField] GameObject damageTextPrefab;
 
     private Health m_Health;
     private GameManager m_GameManager;
@@ -26,32 +26,23 @@ public class AIUnit : MonoBehaviour
 
     private void Awake()
     {
-        m_animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();
         m_Health = GetComponent<Health>();
-<<<<<<< HEAD
         rigidbody = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
         m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-=======
-        m_rigidbody = GetComponent<Rigidbody>();
-        m_agent = GetComponent<NavMeshAgent>();
-        m_playerRef = GameObject.FindGameObjectWithTag("Player");
->>>>>>> parent of 19d8647 (Merge branch 'main' into BasicUI-and-SceneSetup)
     }
 
     private void Start()
     {
-        
+
     }
 
     public void Update()
     {
-<<<<<<< HEAD
         //Debug.Log(IsAggro());
 
-=======
->>>>>>> parent of 19d8647 (Merge branch 'main' into BasicUI-and-SceneSetup)
         if (Input.GetKeyDown(KeyCode.P))
         {
             EnemyKnockup();
@@ -72,12 +63,12 @@ public class AIUnit : MonoBehaviour
 
     public void MoveTo(Vector3 Position)
     {
-        m_agent.SetDestination(Position);
+        agent.SetDestination(Position);
     }
 
     public void AttackPlayer()
     {
-        if (m_inAttackRange)
+        if (inAttackRange)
         {
             Debug.Log("Player Hit");
         }
@@ -85,9 +76,9 @@ public class AIUnit : MonoBehaviour
 
     public void Damage(float amount)
     {
-        m_animator.speed = 1f;
-        m_rigidbody.isKinematic = false;
-        m_agent.enabled = false;
+        animator.speed = 1f;
+        rigidbody.isKinematic = false;
+        agent.enabled = false;
         // m_aiUnit.m_rigidbody.velocity = Vector3.zero;
 
         if (!aggroActivated)
@@ -102,42 +93,39 @@ public class AIUnit : MonoBehaviour
             m_GameManager.RemoveFromEnemyArray(gameObject);
     }
 
-    public void EnemyHit(/*Skill enum or smth idk*/) 
+    public void EnemyHit(/*Skill enum or smth idk*/)
     {
         if (m_Health.currentHealth <= 0.0f)
             return;
 
-        m_animator.SetTrigger("Hit");
+        animator.SetTrigger("Hit");
         // m_animator.SetBool("IsHit", true);
         Damage(10);
-        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - m_playerRef.transform.position);
-        m_rigidbody.AddForce(directionFromPlayer * 100f);
+        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
+        rigidbody.AddForce(directionFromPlayer * 100f);
     }
 
     public void EnemyKnockup()
     {
-        if (m_animator.GetBool("IsAirborne"))
+        if (animator.GetBool("IsAirborne"))
             return;
 
         Damage(10);
-        m_animator.speed = 1f;
-        m_animator.SetTrigger("Knockup");
-        m_rigidbody.isKinematic = false;
-        m_agent.enabled = false;
-        m_rigidbody.velocity = Vector3.zero;
-        m_rigidbody.AddForce(new Vector3(0, 500, 0));
+        animator.speed = 1f;
+        animator.SetTrigger("Knockup");
+        rigidbody.isKinematic = false;
+        agent.enabled = false;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.AddForce(new Vector3(0, 500, 0));
     }
 
     public void Die()
     {
         m_Health.DieAnimation();
     }
-<<<<<<< HEAD
 
     public bool IsAggro()
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup");
     }
-=======
->>>>>>> parent of 19d8647 (Merge branch 'main' into BasicUI-and-SceneSetup)
 }
