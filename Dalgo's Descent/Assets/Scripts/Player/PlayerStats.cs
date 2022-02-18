@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerStats : MonoBehaviour
 
     //Inventory
     protected int m_coin = 0;
-    protected Chest m_CurrentChest = null;
+    protected List<Chest> m_ChestArr = new List<Chest>();
     protected List<Item> m_ItemArr = new List<Item>();
 
     public int Health
@@ -66,15 +67,27 @@ public class PlayerStats : MonoBehaviour
         return false;
     }
 
-    //Chest variable bruh
-    public void SetChest(Chest chest)
+    //Chest variables bruh
+    public void AddChest(Chest chest)
     {
-        m_CurrentChest = chest;
+        m_ChestArr.Add(chest);
+    }
+
+    public void RemoveChest(Chest chest)
+    {
+        for (int i = 0; i < m_ChestArr.Count;++i)
+        {
+            if (m_ChestArr[i] == chest)
+            {
+                m_ChestArr.RemoveAt(i);
+                break;
+            }
+        }
     }
 
     public Chest GetChest()
     {
-        return m_CurrentChest;
+        return m_ChestArr.Count > 0 ? m_ChestArr.Last() : null;
     }
 
     //Items la if not what?

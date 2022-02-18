@@ -21,7 +21,6 @@ public class AIUnit : MonoBehaviour
     [SerializeField] GameObject m_damageTextPrefab;
 
     private Health m_Health;
-    private ObjectPoolManager m_UIPoolManager;
 
     private void Awake()
     {
@@ -34,7 +33,7 @@ public class AIUnit : MonoBehaviour
 
     private void Start()
     {
-        m_UIPoolManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetObjectPoolManager();
+        
     }
 
     public void Update()
@@ -63,25 +62,25 @@ public class AIUnit : MonoBehaviour
         }
     }
 
-    public void EnemyHit(/*Skill enum or smth idk*/) 
+    public void Damage(float amount)
     {
-        m_animator.SetTrigger("Hit");
-        // m_animator.SetBool("IsHit", true);
-        m_Health.TakeDamage(10);
-		
-        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - m_playerRef.transform.position);
-        m_rigidbody.AddForce(directionFromPlayer * 100f);
-
-        SpawnText(10.ToString());
+        m_animator.speed = 1f;
+        m_rigidbody.isKinematic = false;
+        m_agent.enabled = false;
+        // m_aiUnit.m_rigidbody.velocity = Vector3.zero;
+        m_Health.TakeDamage(amount);
     }
 
-    protected void SpawnText(string txt)
+    public void EnemyHit(/*Skill enum or smth idk*/) 
     {
-        txt = "<color=red>" + txt + "</color>";
-        GameObject obj = m_UIPoolManager.GetFromPool();
+        if (m_Health.currentHealth <= 0.0f)
+            return;
 
-        //Initialisation
-        obj.GetComponent<DamageTextUI>().Initialise(transform, txt, 1f);
+        m_animator.SetTrigger("Hit");
+        // m_animator.SetBool("IsHit", true);
+        Damage(10);
+        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - m_playerRef.transform.position);
+        m_rigidbody.AddForce(directionFromPlayer * 100f);
     }
 
     public void EnemyKnockup()
@@ -89,12 +88,17 @@ public class AIUnit : MonoBehaviour
         if (m_animator.GetBool("IsAirborne"))
             return;
 
-        m_Health.TakeDamage(10);
+        Damage(10);
         m_animator.speed = 1f;
         m_animator.SetTrigger("Knockup");
         m_rigidbody.isKinematic = false;
         m_agent.enabled = false;
         m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.AddForce(new Vector3(0, 500, 0));
+    }
+
+    public void Die()
+    {
+        m_Health.DieAnimation();
     }
 }
