@@ -10,6 +10,7 @@ public class BossChargingState : BossBaseState
         bossAI = animator.transform.parent.GetComponent<BossAI>();
         // Vector3 targetPoint = 
         bossAI.MoveTo(bossAI.playerRef.transform.position);
+        bossAI.agent.speed = 9f;
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,7 +20,7 @@ public class BossChargingState : BossBaseState
         Vector3 distanceToWalkpoint = animator.transform.position - bossAI.targetPoint;
         if (distanceToWalkpoint.sqrMagnitude < 4f)
         {
-            animator.SetBool("IsCharging", false);
+            animator.SetBool("ReachedDestination", true);
         }
     }
 

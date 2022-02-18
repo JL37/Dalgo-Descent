@@ -20,9 +20,14 @@ public class BossAI : MonoBehaviour
     public Transform projectileHolder;
     public Transform projectileThrownHolder;
 
+    [Header("Ground Slam Attack")]
+    public Transform centerOfRoom;
+    public ParticleSystem shockwaveParticleSystem;
+
     [Header("Animation")]
     public Animator animator;
     public Rig rig;
+
 
     [HideInInspector] public bool m_inAttackRange = false;
     [HideInInspector] public float m_bossTimer;
@@ -80,6 +85,12 @@ public class BossAI : MonoBehaviour
         Transform projectile = projectileHolder.GetChild(0);
         projectile.parent = projectileThrownHolder;
         projectile.GetComponent<Projectile>().directionVelocity = (playerRef.transform.position - transform.position).normalized;
+    }
+
+    public void GroundSlam()
+    {
+        shockwaveParticleSystem.Play(); 
+        // shake camera or smth
     }
 
     public void SetRigActive(bool active)
