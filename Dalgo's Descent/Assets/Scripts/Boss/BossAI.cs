@@ -9,17 +9,20 @@ using UnityEngine.Animations.Rigging;
 public class BossAI : MonoBehaviour
 {
     [Header("References")]
-    public Animator m_animator;
     public GameObject m_playerRef;
     public NavMeshAgent m_agent;
     public Collider m_damageCollider;
     public Health m_Health;
     public Vector3 m_targetPoint = new Vector3();
-    public RigBuilder m_rig;
+
+    [Header("Animation")]
+    public Animator m_animator;
+    public Rig m_rig;
 
     [HideInInspector] public bool m_inAttackRange = false;
     [HideInInspector] public float m_bossTimer;
     public float m_bossAttackIntervals;
+    private bool m_rigActive = true;
 
     void Awake()
     {
@@ -35,9 +38,15 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    public void MoveTo(Vector3 position)
+    {
+        m_targetPoint = position;
+        m_agent.SetDestination(m_targetPoint);
+    }
+
     void Update()
     {
-
+        m_rig.weight = m_rigActive ? m_rig.weight + Time.deltaTime : m_rig.weight - Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.O))
         {
             Damage(10);
@@ -55,6 +64,6 @@ public class BossAI : MonoBehaviour
 
     public void SetRigActive(bool active)
     {
-        m_rig.enabled = active;
+        m_rigActive = active;
     }
 }

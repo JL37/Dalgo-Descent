@@ -9,6 +9,7 @@ public class BossIdleState : SceneLinkedSMB<MyMonoBehaviour>
     {
         bossAI = animator.transform.parent.GetComponent<BossAI>();
         bossAI.m_bossTimer = bossAI.m_bossAttackIntervals;
+        bossAI.SetRigActive(true);
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -31,8 +32,6 @@ public class BossIdleState : SceneLinkedSMB<MyMonoBehaviour>
             switch (attackChoice)
             {
                 case 1:
-                    bossAI.SetRigActive(false);
-                    animator.transform.parent.LookAt(new Vector3(bossAI.m_playerRef.transform.position.x, bossAI.transform.position.y, bossAI.m_playerRef.transform.position.z));
                     animator.SetTrigger("ChargeAttack");
                     break;
                 case 2:

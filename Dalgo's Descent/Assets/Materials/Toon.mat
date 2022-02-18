@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StingrayPBS1 2
+  m_Name: Toon
   m_Shader: {fileID: -6465566751694194690, guid: ffdbe01e442ca4647992d03ffb4990a2, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _NORMALMAP _SPECGLOSSMAP
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_84abeed70eb84c13aeeaa7ad9cf4eef8:
-        m_Texture: {fileID: 2800000, guid: ed5d142a318261e448221a8c28f3a032, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -61,7 +61,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_1c08e7ae5b384a93b4132279fb36725c: 0.2
-    - Vector1_1e61e8e9a590431fa3bccb6621aabf5c: 0
+    - Vector1_1e61e8e9a590431fa3bccb6621aabf5c: 1
     - Vector1_29d5ec840670429ab28cc4e252007915: 0.56
     - Vector1_936905cfb8d64585894ec2501bf56d30: 0.04
     - Vector1_cf971128cec047a29f1e47661ad467ee: 0.434
@@ -101,7 +101,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - Color_9e111a71bad1406bae154bd696110170: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 0}
-    - Color_ac6c395b873e4c0b82f59fec29361afe: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0}
+    - Color_ac6c395b873e4c0b82f59fec29361afe: {r: 0, g: 0, b: 0, a: 0}
     - Color_adc87a0451ed45c1a76c5ea913ac5e49: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
