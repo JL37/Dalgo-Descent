@@ -8,6 +8,7 @@ public class GameUI : MonoBehaviour
     [Header("Objects")]
     [SerializeField] TMP_Text m_ErrorText;
     [SerializeField] GameObject m_ItemPanel;
+    [SerializeField] GameObject m_TempPanel;
 
     [Header("Timers")]
     protected float m_CurrErrorTimer = 0f;
@@ -56,6 +57,15 @@ public class GameUI : MonoBehaviour
         return m_ItemPanel.gameObject.transform;
     }
 
+    public Transform GetTempPanelTransform()
+    {
+        return m_TempPanel.gameObject.transform;
+    }
+
+    public ObjectPoolManager GetObjectPoolManager()
+    {
+        return m_TempPanel.GetComponent<ObjectPoolManager>();
+    }
     public void ShowError(string str)
     {
         //Error text

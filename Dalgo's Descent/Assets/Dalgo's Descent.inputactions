@@ -60,9 +60,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skills",
+                    "name": "Skill1",
                     "type": "Button",
                     "id": "5484ed88-695c-46bc-891f-63a56f2852bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill2",
+                    "type": "Button",
+                    "id": "9bc3f29c-1ef1-4080-a00b-fd9133fb96f1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill3",
+                    "type": "Button",
+                    "id": "9b50faa7-8163-4a6f-b6e8-072bf72f650d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill4",
+                    "type": "Button",
+                    "id": "f5bebc50-7efb-4b97-9b70-9a7357a52170",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -187,40 +214,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skills",
+                    "action": "Skill1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "f5a38d5f-00d7-4433-ad7c-308dcd4e9add",
+                    "id": "67c6f436-7837-4a54-b76e-9110860e997e",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skills",
+                    "action": "Skill2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "77308437-c6a4-43ec-817a-d7abd9f489e3",
+                    "id": "962faf01-9b57-44a0-9d4c-a80338c0beb7",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skills",
+                    "action": "Skill3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "a421fc87-a01e-421b-afe1-d98a74cdcd12",
+                    "id": "3e654050-d874-49cd-ab3a-2bc68c290629",
                     "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skills",
+                    "action": "Skill4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
