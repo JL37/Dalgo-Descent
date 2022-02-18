@@ -6,18 +6,20 @@ using UnityEngine.Animations.Rigging;
 
 public class EnemyPreparingAttackState : EnemyBaseState
 {
+    NavMeshAgent agent;
     AIUnit aiUnit;
-    GameObject Player;
-    FieldOfView FOV;
     float destinationChangeTime;
     float maxDestinationChangeTime;
+    GameObject Player;
+    FieldOfView FOV;
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        aiUnit = animator.transform.parent.GetComponent<AIUnit>();
-        aiUnit.agent.speed = Random.Range(3f, 3.5f);
+        Player = GameObject.FindGameObjectWithTag("Player");
+        agent = animator.transform.parent.GetComponent<NavMeshAgent>();
+        agent.speed = Random.Range(3f, 3.5f);
         destinationChangeTime = maxDestinationChangeTime = 0.2f;
-        FOV = aiUnit.GetComponent<FieldOfView>();
-        Player = aiUnit.playerRef;
+        FOV = agent.GetComponent<FieldOfView>();
+        aiUnit = agent.GetComponent<AIUnit>();
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -27,14 +29,14 @@ public class EnemyPreparingAttackState : EnemyBaseState
         if (destinationChangeTime < 0f)
         {
             destinationChangeTime = maxDestinationChangeTime;
-            aiUnit.agent.SetDestination(Player.transform.position);
+            agent.SetDestination(Player.transform.position);
             aiUnit.MoveTo(Player.transform.position);
         }
 
         var q = Quaternion.LookRotation(new Vector3(Player.transform.position.x, 0, Player.transform.position.z) - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z));
-        float velocity = aiUnit.agent.velocity.magnitude; /// agent.speed;
+        float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
-        animator.speed = aiUnit.agent.speed / 3.5f;
+        animator.speed = agent.speed / 3.5f;
         animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 0.1f);
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
@@ -43,10 +45,10 @@ public class EnemyPreparingAttackState : EnemyBaseState
         // Debug.Log(distanceToWalkpoint.magnitude);
 
         // walkpoint reached
-        if (aiUnit.inAttackRange)
+        if (aiUnit.m_inAttackRange)
         {
-            if (aiUnit.agent.enabled)
-                aiUnit.agent.ResetPath();
+            if (agent.enabled)
+                agent.ResetPath();
 
             animator.SetBool("InAttackRange", true);
         }

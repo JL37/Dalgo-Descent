@@ -12,11 +12,11 @@ public class EnemyHitState : EnemyBaseState
         animator.SetFloat("Speed", 0f);
 
         Debug.Log("Hit");
-        if (aiUnit.agent.enabled)
-            aiUnit.agent.ResetPath();
+        if (aiUnit.m_agent.enabled)
+            aiUnit.m_agent.ResetPath();
 
-        aiUnit.rigidbody.isKinematic = false;
-        aiUnit.agent.enabled = false;
+        aiUnit.m_rigidbody.isKinematic = false;
+        aiUnit.m_agent.enabled = false;
         // aiUnit.m_rigidbody.velocity = Vector3.zero;
 
     }
@@ -29,8 +29,8 @@ public class EnemyHitState : EnemyBaseState
     public override void OnSLStatePreExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("IsHit", false);
-        aiUnit.agent.enabled = true;
-        aiUnit.rigidbody.isKinematic = true;
+        aiUnit.m_agent.enabled = true;
+        aiUnit.m_rigidbody.isKinematic = true;
         animator.speed = 1f;
     }
 }

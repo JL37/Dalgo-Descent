@@ -6,18 +6,18 @@ using UnityEngine.Animations.Rigging;
 
 public class FieldOfView : MonoBehaviour
 {
-    public float radius;
-    public float viewRadius;
+    public float m_radius;
+    public float m_viewRadius;
     [Range(0,360)]
-    public float angle;
+    public float m_angle;
 
-    public GameObject playerRef;
+    public GameObject m_playerRef;
 
-    public bool canSeeTarget;
+    public bool m_canSeeTarget;
 
     void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        m_playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(DoFOVCheck());
     }
 
@@ -34,14 +34,14 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return wait;
-            canSeeTarget = CanSeeTarget(transform, playerRef.transform, angle, viewRadius);
+            m_canSeeTarget = CanSeeTarget(transform, m_playerRef.transform, m_angle, m_viewRadius);
         }
     }
 
     private bool CanSeeTarget(Transform enemy, Transform target, float viewAngle, float viewRange)
     {
         Vector3 toTarget = target.position - enemy.transform.position;
-        if (toTarget.sqrMagnitude < radius * radius)
+        if (toTarget.sqrMagnitude < m_radius * m_radius)
             return true;
 
         if (Vector3.Angle(enemy.transform.forward, toTarget) <= viewAngle)
