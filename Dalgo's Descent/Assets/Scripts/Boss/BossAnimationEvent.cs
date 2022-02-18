@@ -12,7 +12,7 @@ public class BossAnimationEvent : MonoBehaviour
 
     public void SetChargeAttackDestination()
     {
-        bossAI.m_agent.SetDestination(bossAI.m_playerRef.transform.position);
+        bossAI.agent.SetDestination(bossAI.playerRef.transform.position);
     }
 
     public void AttackPlayer()
@@ -23,5 +23,20 @@ public class BossAnimationEvent : MonoBehaviour
     public void Die()
     {
         bossAI.Die();
+    }
+
+    public void GrabWood()
+    {
+        bossAI.GrabWood();
+    }
+
+    public void TossWood()
+    {
+        bossAI.TossWood();
+    }
+
+    public void GroundSlam()
+    {
+        bossAI.GroundSlam();
     }
 }

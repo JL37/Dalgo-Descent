@@ -15,9 +15,14 @@ public class BossAI : MonoBehaviour
     public Health m_Health;
     public Vector3 m_targetPoint = new Vector3();
 
+    [Header("Ground Slam Attack")]
+    public Transform centerOfRoom;
+    public ParticleSystem shockwaveParticleSystem;
+
     [Header("Animation")]
     public Animator m_animator;
     public Rig m_rig;
+
 
     [HideInInspector] public bool m_inAttackRange = false;
     [HideInInspector] public float m_bossTimer;
@@ -100,6 +105,12 @@ public class BossAI : MonoBehaviour
     public void Die()
     {
         m_Health.DieAnimation();
+    }
+
+    public void GroundSlam()
+    {
+        shockwaveParticleSystem.Play(); 
+        // shake camera or smth
     }
 
     public void SetRigActive(bool active)
