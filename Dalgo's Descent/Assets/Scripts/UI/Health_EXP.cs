@@ -41,7 +41,7 @@ public class Health_EXP : MonoBehaviour
 
     private void PlayerStats_onHealthChanged(object sender, EventArgs e)
     {
-        transform.Find("health_bar").localScale = new Vector3((Mathf.Lerp(playerStats.MaxHealth, playerStats.Health, 0.5f))/100, 1);
+        transform.Find("health_bar").localScale = new Vector3(playerStats.GetHealthPerc(), 1);
     }
 
     private void PlayerStats_onEXPChanged(object sender, EventArgs e) //change the health only when the player gets attack
