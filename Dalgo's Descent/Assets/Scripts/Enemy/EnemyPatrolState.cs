@@ -24,13 +24,13 @@ public class EnemyPatrolState : EnemyBaseState
         Player = GameObject.FindGameObjectWithTag("Player");
         FOV = agent.transform.GetComponent<FieldOfView>();
 
-        agent.SetDestination(aiUnit.m_targetPoint);
+        agent.SetDestination(aiUnit.targetPoint);
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        Vector3 target = aiUnit.m_targetPoint - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
+        Vector3 target = aiUnit.targetPoint - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
         var q = Quaternion.LookRotation(target);
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
@@ -38,13 +38,13 @@ public class EnemyPatrolState : EnemyBaseState
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
         // animator.transform.LookAt(new Vector3(, animator.transform.position.y, walkpoint.z));
-        Vector3 distanceToWalkpoint = animator.transform.position - aiUnit.m_targetPoint;
+        Vector3 distanceToWalkpoint = animator.transform.position - aiUnit.targetPoint;
 
         // walkpoint reached
         if (distanceToWalkpoint.magnitude < 1f)
             animator.SetBool("IsPatrolling", false);
 
-        if (FOV.m_canSeeTarget)
+        if (FOV.canSeeTarget)
         {
             animator.SetBool("IsAttack", true);
         }
@@ -56,7 +56,7 @@ public class EnemyPatrolState : EnemyBaseState
 
     private void SearchWalkPoint()
     {
-        aiUnit.m_targetPoint = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
+        aiUnit.targetPoint = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
         Debug.Log("Walkpoint Set");
         walkpointSet = true;
     }

@@ -25,7 +25,7 @@ public class EnemyIdleState : EnemyBaseState
             animator.SetBool("IsPatrolling", true);
         }
 
-        if (FOV.m_canSeeTarget)
+        if (FOV.canSeeTarget)
         {
             animator.SetBool("IsAttack", true);
         }

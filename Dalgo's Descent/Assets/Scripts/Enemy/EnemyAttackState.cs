@@ -14,7 +14,7 @@ public class EnemyAttackState : EnemyBaseState
     {
         if (animator.GetFloat("Speed") > 0) animator.SetFloat("Speed", animator.GetFloat("Speed") - Time.deltaTime * 5f);
 
-        if (!aiUnit.m_inAttackRange)
+        if (!aiUnit.inAttackRange)
         {
             animator.SetBool("InAttackRange", false);
         }

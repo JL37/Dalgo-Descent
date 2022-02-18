@@ -11,7 +11,7 @@ public class EnemyAttackCollision : MonoBehaviour
         // Debug.Log("Hit Player");
         if (other.gameObject.tag == "Player")
         {
-            aiUnit.m_inAttackRange = true;
+            aiUnit.inAttackRange = true;
         }
     }
 
@@ -20,7 +20,7 @@ public class EnemyAttackCollision : MonoBehaviour
         // Debug.Log("Hit Player");
         if (other.gameObject.tag == "Player")
         {
-            aiUnit.m_inAttackRange = false;
+            aiUnit.inAttackRange = false;
         }
     }
 }

@@ -44,7 +44,7 @@ public class EnemyTurningState : EnemyBaseState
         if (!walkpointSet)
             return;
 
-        Vector3 target = aiUnit.m_targetPoint - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
+        Vector3 target = aiUnit.targetPoint - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
         var q = Quaternion.LookRotation(target);
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
@@ -56,7 +56,7 @@ public class EnemyTurningState : EnemyBaseState
             animator.SetBool("PatrolDoneTurning", true);
         }
 
-        if (FOV.m_canSeeTarget)
+        if (FOV.canSeeTarget)
         {
             animator.SetBool("IsAttack", true);
         }
@@ -69,7 +69,7 @@ public class EnemyTurningState : EnemyBaseState
 
     private void SearchWalkPoint()
     {
-        aiUnit.m_targetPoint = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
+        aiUnit.targetPoint = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
         Debug.Log("Walkpoint Set");
         walkpointSet = true;
     }
