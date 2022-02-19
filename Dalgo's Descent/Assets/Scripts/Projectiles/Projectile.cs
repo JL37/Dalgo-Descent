@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "AI")
+        if (other.gameObject.tag != "ProjCollidable")
             return;
 
         if (directionVelocity == Vector3.zero)

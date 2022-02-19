@@ -127,7 +127,7 @@ public class BossAI : MonoBehaviour
     public void ChooseAttack()
     {
         attackChoice = (health.currentHealth < health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 3);
-        attackChoice = 2;
+        attackChoice = 3;
         Debug.Log(attackChoice);
     }
 
