@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ public class PlayerStats : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject m_ItemUIPrefab;
 
-    //Status
-    protected bool m_Combat = false;
-
     //Stats
-    protected int m_Health = 100;
+    protected float m_Health = 100;
+    protected float m_MaxHealth = 100;
+    protected float m_EXP = 0;
+    protected float m_MaxEXP = 100;
     protected float m_AtkSpd = 1f;
     protected float m_LifeSteal = 0f;
     protected float m_CritChance = 0.03f;
@@ -23,9 +24,95 @@ public class PlayerStats : MonoBehaviour
     protected List<Chest> m_ChestArr = new List<Chest>();
     protected List<Item> m_ItemArr = new List<Item>();
 
-    public int Health
+    public event EventHandler onHealthChanged;
+    public event EventHandler onEXPChanged;
+
+    public event EventHandler onHealthy;
+    public event EventHandler onHalfHealth;
+    public event EventHandler onCriticalHealth;
+    public event EventHandler onDead;
+
+
+    public void Received_Damage(int damageAmount)
+    {
+        m_Health -= damageAmount;
+        UpdatePlayerIcon();
+        if (m_Health <= 0)
+        {
+            m_Health = 0;
+        }
+        if (onHealthChanged != null)
+            onHealthChanged(this, EventArgs.Empty);
+
+    }
+    public void Replenish_Health(int amount)
+    {
+        m_Health += amount;
+        UpdatePlayerIcon();
+        if (m_Health >= 100)
+        {
+            m_Health = 100;
+        }
+        if (onHealthChanged != null)
+            onHealthChanged(this, EventArgs.Empty);
+
+    }
+    public void EXP_Update(int amount)
+    {
+        m_EXP += amount;
+        if (m_EXP > 101)
+            m_EXP = 0;
+        if (onEXPChanged != null)
+            onEXPChanged(this, EventArgs.Empty);
+
+    }
+
+    public void UpdatePlayerIcon()
+    {
+        if (m_Health > 50)
+        {
+            if (onHealthy != null)
+                onHealthy(this, EventArgs.Empty);
+        }
+        if (m_Health <= 50)
+        {
+            if (onHalfHealth != null)
+                onHalfHealth(this, EventArgs.Empty);
+
+        }
+        if (m_Health <= 25)
+        {
+            if (onCriticalHealth != null)
+                onCriticalHealth(this, EventArgs.Empty);
+        }
+        if (m_Health <= 0)
+        {
+            m_Health = 0;
+            if (onDead != null)
+                onDead(this, EventArgs.Empty);
+        }
+    }
+    public float EXP
+    {
+        get { return m_EXP; }
+        set { m_EXP = value; }
+    }
+
+    public float MaxEXP
+    {
+        get { return m_MaxEXP; }
+        set { m_MaxEXP = value; }
+    }
+
+
+    public float Health
     {
         get { return m_Health; }
+        set { m_Health = value; }
+    }
+    public float MaxHealth
+    {
+        get { return m_MaxHealth; }
         set { m_Health = value; }
     }
 
@@ -53,6 +140,16 @@ public class PlayerStats : MonoBehaviour
         set { m_BasicAtk = value; }
     }
 
+    public float GetHealthPerc()
+    {
+        return m_Health / m_MaxHealth;
+    }
+
+    public float GetEXPPerc()
+    {
+        return m_EXP / m_MaxEXP;
+    }
+
     //Coins bruh
     public void AddCoin(int num = 1)
     {
@@ -78,7 +175,7 @@ public class PlayerStats : MonoBehaviour
 
     public void RemoveChest(Chest chest)
     {
-        for (int i = 0; i < m_ChestArr.Count;++i)
+        for (int i = 0; i < m_ChestArr.Count; ++i)
         {
             if (m_ChestArr[i] == chest)
             {

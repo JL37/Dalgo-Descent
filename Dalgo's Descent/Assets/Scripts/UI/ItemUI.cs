@@ -31,10 +31,11 @@ public class ItemUI : MonoBehaviour
 
         //Get position based on idx
         float x = 50f + (68 * (m_Idx % 8));
-        float y = -50f;
+        float y = -50f + (62 * (m_Idx /8));
 
-        if (m_Idx >= 8)
-            y = -112f;
+        //Original code (Remove the + (62 * whatever bullshit) on top)
+        //if (m_Idx >= 8)
+        //    y = -112f;
 
         //Setting anchor first
         m_Image.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
@@ -74,6 +75,11 @@ public class ItemUI : MonoBehaviour
 
                 break;
         }
+    }
+
+    public void SetPosition(Vector2 pos)
+    {
+        transform.position = pos;
     }
 
     public void Initialise(Item item, int idx = 0, bool animation = false)

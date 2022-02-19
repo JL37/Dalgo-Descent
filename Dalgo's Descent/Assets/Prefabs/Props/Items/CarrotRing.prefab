@@ -201,11 +201,11 @@ MonoBehaviour:
   m_Canvas: {fileID: 841353245024331960}
   m_DescBox: {fileID: 7230148892568906582}
   m_Texture: {fileID: 2800000, guid: 52729308823a9b340bae067e185ae6ca, type: 3}
-  m_Scale_InRange: 30
-  m_Scale_NotInRange: 20
-  m_OffSet_InRange: 1
-  m_OffSet_NotInRange: 0.3
-  m_HeightOffset: 0.5
+  m_Scale_InRange: 15
+  m_Scale_NotInRange: 10
+  m_OffSet_InRange: 0.5
+  m_OffSet_NotInRange: 0.15
+  m_HeightOffset: 0.35
   m_TransformSpd: 4
   m_RotationSpd: 165
 --- !u!1001 &7392517855892587537
