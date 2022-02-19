@@ -45,6 +45,9 @@ public class PlayerStats : MonoBehaviour
             Item item = new Item();
             AddItem(item, true);
         }
+
+        //print("WIDTH LA: " + Screen.width);
+        //print("MOUSE LA: " + Input.mousePosition);
     }
 
     public void Received_Damage(int damageAmount)

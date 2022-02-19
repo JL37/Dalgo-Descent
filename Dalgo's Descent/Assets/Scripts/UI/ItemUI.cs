@@ -13,6 +13,8 @@ public class ItemUI : MonoBehaviour
     }
     Animation m_CurrAnim = Animation.EXPAND;
 
+    [SerializeField] ItemDescBoxUI m_DescBox;
+
     protected RawImage m_Image;
     protected RectTransform m_RectTransform;
     protected Item m_Item;
@@ -29,6 +31,9 @@ public class ItemUI : MonoBehaviour
     protected float m_NumPerRow = 8;
     protected float m_NumPerCol = 3;
 
+    //Hovering stuff
+    protected bool m_IsHovered = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,9 @@ public class ItemUI : MonoBehaviour
 
         if (m_CurrAnim == Animation.EXPAND)
             m_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+
+        //Update description box
+        m_DescBox.Initialise(m_Item.GetName(), m_Item.GetInfo());
 
         //Set position
         UpdatePositionFromIndex();
@@ -74,8 +82,55 @@ public class ItemUI : MonoBehaviour
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused)
             return;
 
+        UpdateHover();
         UpdateAnimation();
         UpdatePosition();
+        UpdateDescBox();
+    }
+
+    protected void UpdateDescBox()
+    {
+        if (m_IsHovered && !m_DescBox.gameObject.activeSelf)
+        {
+            m_DescBox.gameObject.SetActive(true);
+        }
+        else if (!m_IsHovered)
+        {
+            if (m_DescBox.gameObject.activeSelf)
+                m_DescBox.gameObject.SetActive(false);
+
+            return;
+        }
+
+        m_DescBox.gameObject.transform.position = Input.mousePosition;
+
+        //Reverse positioning if the info is too out of bounds
+        RectTransform descBoxRect = m_DescBox.GetComponent<RectTransform>();
+
+        Vector2 rightPos = m_DescBox.gameObject.transform.position;
+        rightPos.x += descBoxRect.sizeDelta.x * descBoxRect.lossyScale.x;
+
+        if (rightPos.x > Screen.width)
+            descBoxRect.pivot = new Vector2(1, 0);
+        else
+            descBoxRect.pivot = new Vector2(0, 0);
+    }
+
+    protected void UpdateHover()
+    {
+        Vector2 topLeftPos = transform.position;
+        topLeftPos.x -= m_RectTransform.sizeDelta.x / 2 * transform.lossyScale.x;
+        topLeftPos.y += m_RectTransform.sizeDelta.y / 2 * transform.lossyScale.y;
+
+        Vector2 botRightPos = transform.position;
+        botRightPos.x += m_RectTransform.sizeDelta.x / 2 * transform.lossyScale.x;
+        botRightPos.y -= m_RectTransform.sizeDelta.y / 2 * transform.lossyScale.y;
+
+        //Check if within range
+        bool inRangeX = Input.mousePosition.x >= topLeftPos.x && Input.mousePosition.x <= botRightPos.x;
+        bool inRangeY = Input.mousePosition.y >= botRightPos.y && Input.mousePosition.y <= topLeftPos.y;
+
+        m_IsHovered = inRangeX && inRangeY;
     }
 
     protected void UpdatePosition() //Animate position
