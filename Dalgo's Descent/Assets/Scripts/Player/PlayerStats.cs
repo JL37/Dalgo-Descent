@@ -38,18 +38,6 @@ public class PlayerStats : MonoBehaviour
         m_ChestArr = new List<Chest>();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1)) //Rmb to remove this bruh
-        {
-            Item item = new Item();
-            AddItem(item, true);
-        }
-
-        //print("WIDTH LA: " + Screen.width);
-        //print("MOUSE LA: " + Input.mousePosition);
-    }
-
     public void Received_Damage(int damageAmount)
     {
         m_Health -= damageAmount;
