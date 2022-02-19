@@ -260,7 +260,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1404026794082159706
 MonoBehaviour:
@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 7007758992507755958}
   - component: {fileID: 8134507593059757808}
   - component: {fileID: 6220503332860348739}
+  - component: {fileID: 2887869978110832201}
   m_Layer: 5
   m_Name: ItemPanel
   m_TagString: Untagged
@@ -505,7 +506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 621.0001, y: -630.25916}
+  m_AnchoredPosition: {x: 621.00006, y: -630}
   m_SizeDelta: {x: 576, y: 450}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8134507593059757808
@@ -546,6 +547,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2887869978110832201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789194250972960810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c768f68099408f489199da5d10fceb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CursorPos: {x: 0, y: 40}
+  m_HoveredPos: {x: 0, y: 250}
+  m_LerpSpd: 0.1
 --- !u!1 &2752491404999467880
 GameObject:
   m_ObjectHideFlags: 0

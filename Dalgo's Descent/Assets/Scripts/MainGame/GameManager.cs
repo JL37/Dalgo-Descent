@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        playerStats = new PlayerStats();
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         status.Setup(playerStats);
 
         m_PauseController = GetComponent<PauseController>();

@@ -21,8 +21,8 @@ public class PlayerStats : MonoBehaviour
 
     //Inventory
     protected int m_coin = 0;
-    protected List<Chest> m_ChestArr = new List<Chest>();
-    protected List<ItemUI> m_ItemArr = new List<ItemUI>();
+    protected List<Chest> m_ChestArr;
+    protected List<ItemUI> m_ItemArr;
 
     public event EventHandler onHealthChanged;
     public event EventHandler onEXPChanged;
@@ -31,6 +31,12 @@ public class PlayerStats : MonoBehaviour
     public event EventHandler onHalfHealth;
     public event EventHandler onCriticalHealth;
     public event EventHandler onDead;
+
+    private void Start()
+    {
+        m_ItemArr = new List<ItemUI>();
+        m_ChestArr = new List<Chest>();
+    }
 
     private void Update()
     {
