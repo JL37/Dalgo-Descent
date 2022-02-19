@@ -61,15 +61,15 @@ public class PauseController : MonoBehaviour
 
         Debug.Log("Paused Toggled");
 
-        CameraToggle();
+        CameraToggle(GameStateManager.Get_Instance.CurrentGameState == GameState.Paused);
     }
 
-    protected void CameraToggle()
+    public void CameraToggle(bool disable)
     {
         if (!m_FreeLookCamera)
             return;
 
-        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused)
+        if (disable)
         {
             m_FreeLookCamera.m_XAxis.m_MaxSpeed = 0;
             m_FreeLookCamera.m_YAxis.m_MaxSpeed = 0;

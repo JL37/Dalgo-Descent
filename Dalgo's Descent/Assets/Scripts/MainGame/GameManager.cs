@@ -32,15 +32,22 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
+            return;
+
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            m_PauseController.CameraToggle(true);
         }
         if (Input.GetKeyUp(KeyCode.LeftAlt))
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            m_PauseController.CameraToggle(false);
         }
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {

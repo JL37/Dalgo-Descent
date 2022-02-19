@@ -503,11 +503,11 @@ RectTransform:
   m_Father: {fileID: 1404026794082159704}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -339, y: 103}
-  m_SizeDelta: {x: 576, y: 162}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 621.0001, y: -630.25916}
+  m_SizeDelta: {x: 576, y: 450}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8134507593059757808
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -634,6 +634,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41761ff32124f741b9095d4f0ec82e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expImage: {fileID: 0}
+  playerIcon: {fileID: 0}
+  healthy: {fileID: 0}
+  halfDead: {fileID: 0}
+  criticalHealth: {fileID: 0}
+  dead: {fileID: 0}
 --- !u!1 &4710353223245561675
 GameObject:
   m_ObjectHideFlags: 0
