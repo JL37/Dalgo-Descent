@@ -80,7 +80,10 @@ public class ItemUI : MonoBehaviour
     void Update()
     {
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused)
+        {
+            m_IsHovered = false;
             return;
+        }
 
         UpdateHover();
         UpdateAnimation();
@@ -92,6 +95,7 @@ public class ItemUI : MonoBehaviour
     {
         if (m_IsHovered && !m_DescBox.gameObject.activeSelf)
         {
+            transform.SetAsLastSibling();
             m_DescBox.gameObject.SetActive(true);
         }
         else if (!m_IsHovered)
@@ -102,10 +106,12 @@ public class ItemUI : MonoBehaviour
             return;
         }
 
-        m_DescBox.gameObject.transform.position = Input.mousePosition;
+        Vector3 updatePos = Input.mousePosition;
+        updatePos.z = -10; //depth
+        m_DescBox.gameObject.transform.position = updatePos;
 
-        //Reverse positioning if the info is too out of bounds
-        RectTransform descBoxRect = m_DescBox.GetComponent<RectTransform>();
+       //Reverse positioning if the info is too out of bounds
+       RectTransform descBoxRect = m_DescBox.GetComponent<RectTransform>();
 
         Vector2 rightPos = m_DescBox.gameObject.transform.position;
         rightPos.x += descBoxRect.sizeDelta.x * descBoxRect.lossyScale.x;
