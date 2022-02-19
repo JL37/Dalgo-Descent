@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager>   
 {
     [SerializeField] DynamicCamera m_Camera;
 
