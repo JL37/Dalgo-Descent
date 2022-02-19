@@ -109,9 +109,10 @@ MonoBehaviour:
   targetPoint: {x: 0, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   damageCollider: {fileID: 0}
   inAttackRange: 0
+  inPlayerAttackRange: 0
   damageTextPrefab: {fileID: 0}
 --- !u!136 &3676725544286473720
 CapsuleCollider:
