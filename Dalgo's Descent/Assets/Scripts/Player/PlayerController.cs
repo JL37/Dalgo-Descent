@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
         enabled = newGameState == GameState.Gameplay;
     }
 
-    private void AddImpact(Vector3 dir, float force)
+    public void AddImpact(Vector3 dir, float force)
     {
         dir.Normalize();
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground

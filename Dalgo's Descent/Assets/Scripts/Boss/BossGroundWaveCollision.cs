@@ -22,7 +22,8 @@ public class BossGroundWaveCollision : MonoBehaviour
         while (i < numCollisionEvents)
         {
             if (other.gameObject.tag == "Player")
-            {
+            { 
+                other.gameObject.GetComponent<PlayerController>().AddImpact(-collisionEvents[i].normal, 6f);
                 Debug.Log("Player Hit");
             }
             i++;
