@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     protected List<GameObject> m_EnemyArr;
     protected bool m_InCombat = false;
 
+    [SerializeField] LevelWindow levelWindow;
+    private LevelSystem m_LevelSystem;
+    private LevelSystemAnimated m_levelSystemAnimated;
+
     void Start()
     {
         playerStats = new PlayerStats();
@@ -23,15 +27,21 @@ public class GameManager : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+       
     }
 
     void Awake()
     {
-
+        m_LevelSystem = new LevelSystem();
+        levelWindow.SetLevelSystem(m_LevelSystem);
+        m_levelSystemAnimated = new LevelSystemAnimated(m_LevelSystem);
+        levelWindow.SetLevelSystemAnimated(m_levelSystemAnimated);
     }
 
     void Update()
     {
+        m_levelSystemAnimated.Update();
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.visible = true;
@@ -51,7 +61,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N)) //testing for exp
         {
             Debug.Log("EXP");
-            playerStats.EXP_Update(5);
+            m_LevelSystem.AddExperience(60);
             print("EXP now is : " + playerStats.EXP);
         }
         if (Input.GetKeyDown(KeyCode.L)) //testing too add health
