@@ -49,12 +49,12 @@ public class AIUnit : AI
         {
             //Add to the gamemanager to say got enemy here
             aggroActivated = true;
-            m_GameManager.AddToEnemyArray(gameObject);
+            gameManager.AddToEnemyArray(gameObject);
         }
 
         m_Health.TakeDamage(amount);
         if (m_Health.currentHealth <= 0)
-            m_GameManager.RemoveFromEnemyArray(gameObject);
+            gameManager.RemoveFromEnemyArray(gameObject);
     }
 
     public void EnemyHit(/*Skill enum or smth idk*/) 

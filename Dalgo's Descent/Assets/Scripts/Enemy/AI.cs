@@ -8,7 +8,6 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     private GameManager m_GameManager;
-    private bool aggroActivated = false;
 
     protected Animator m_Animator;
     protected Health m_Health;
@@ -84,6 +83,12 @@ public class AI : MonoBehaviour
     public bool inAttackRange { 
         get { return m_inAttackRange; } 
         set { m_inAttackRange = value;}
+    }
+
+    public GameManager gameManager { get { return m_GameManager; } }
+    public bool aggroActivated { 
+        get { return m_AggroActivated; } 
+        set { m_AggroActivated = value; }
     }
 
 }

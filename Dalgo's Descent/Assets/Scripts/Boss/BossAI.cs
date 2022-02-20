@@ -50,10 +50,10 @@ public class BossAI : AI
 		if (health.currentHealth <= 0)
 			return;
 		
-        if (!m_AggroActivated)
+        if (!aggroActivated)
         {
             //Add to the gamemanager to say got enemy here
-            m_AggroActivated = true;
+            aggroActivated = true;
             // m_GameManager.AddToEnemyArray(gameObject);
         }
 
