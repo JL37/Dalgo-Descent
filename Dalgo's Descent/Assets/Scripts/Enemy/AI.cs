@@ -24,6 +24,7 @@ public class AI : MonoBehaviour
 
     protected virtual void Awake()
     {
+        m_Health = GetComponent<Health>();
         m_Animator = GetComponentInChildren<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
