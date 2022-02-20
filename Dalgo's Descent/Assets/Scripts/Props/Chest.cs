@@ -200,7 +200,7 @@ public class Chest : MonoBehaviour
 
             //Start Create item
             GameObject itemObj = Instantiate(m_RingPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            itemObj.transform.localPosition = transform.localPosition;
+            itemObj.transform.position = transform.position;
             itemObj.GetComponent<ItemPickup>().Initialise(this);
 
             m_Item = itemObj.GetComponent<ItemPickup>();
