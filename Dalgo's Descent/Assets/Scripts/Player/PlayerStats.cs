@@ -10,7 +10,6 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] GameObject m_ItemUIPrefab;
 
     //Stats
-
     public Health m_Health;
 
 /*    protected float m_Health = 100;

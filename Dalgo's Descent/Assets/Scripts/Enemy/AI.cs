@@ -7,7 +7,7 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class AI : MonoBehaviour
 {
-    private GameManager m_GameManager;
+    protected GameManager m_GameManager;
 
     protected Animator m_Animator;
     protected Health m_Health;

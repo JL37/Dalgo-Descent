@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageCollider: {fileID: 3676725544721013764}
   damageTextPrefab: {fileID: 8663583582339724556, guid: 82c3a0c2ffcfc644eb000ae1897b9344, type: 3}
+  enemyHealth: {fileID: 8999343856534588507}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

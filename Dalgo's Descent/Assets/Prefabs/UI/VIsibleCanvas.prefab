@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 7001902010683932644}
   - component: {fileID: 4821114362959705774}
   - component: {fileID: 9092182322162007064}
-  - component: {fileID: 5415608345893166741}
+  - component: {fileID: 1684054063933775253}
   m_Layer: 5
   m_Name: health_fill
   m_TagString: Untagged
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5415608345893166741
+--- !u!114 &1684054063933775253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -843,11 +843,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2752491404999467880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41761ff32124f741b9095d4f0ec82e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 150514c4dcad3f749b8b02e810baafb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  expImage: {fileID: 0}
+  healthBar: {fileID: 9092182322162007064}
   playerIcon: {fileID: 1751603128041717836}
   healthy: {fileID: 21300000, guid: c91b3251543da5c478df8504d54b9401, type: 3}
   halfDead: {fileID: 21300000, guid: bbc9753d0c200fa488314f4682b484b2, type: 3}
@@ -1097,7 +1096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64.5, y: 0}
+  m_AnchoredPosition: {x: 64.5, y: 54.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7396393666258766650
