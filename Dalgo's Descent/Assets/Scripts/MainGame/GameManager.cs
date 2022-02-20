@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>   
 {
-    public Health_EXP status;
+    public Health_UI m_healthUI;
     public PlayerStats playerStats;
 
     [SerializeField] DynamicCamera m_Camera;
@@ -13,25 +13,36 @@ public class GameManager : Singleton<GameManager>
     protected List<GameObject> m_EnemyArr;
     protected bool m_InCombat = false;
 
+    [SerializeField] LevelWindow levelWindow;
+    private LevelSystem m_LevelSystem;
+    private LevelSystemAnimated m_levelSystemAnimated;
+
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-        status.Setup(playerStats);
+        m_healthUI.Setup(playerStats);
 
         m_PauseController = GetComponent<PauseController>();
         m_EnemyArr = new List<GameObject>();
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+       
     }
 
     void Awake()
     {
-
+        m_LevelSystem = new LevelSystem();
+        levelWindow.SetLevelSystem(m_LevelSystem);
+        m_levelSystemAnimated = new LevelSystemAnimated(m_LevelSystem);
+        levelWindow.SetLevelSystemAnimated(m_levelSystemAnimated);
     }
 
     void Update()
     {
+        m_levelSystemAnimated.Update();
+
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 
@@ -57,9 +68,8 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.N)) //testing for exp
         {
-            Debug.Log("EXP");
-            playerStats.EXP_Update(5);
-            print("EXP now is : " + playerStats.EXP);
+            m_LevelSystem.AddExperience(60);
+
         }
         if (Input.GetKeyDown(KeyCode.L)) //testing too add health
         {
