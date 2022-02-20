@@ -21,6 +21,11 @@ public class WeaponCollider : MonoBehaviour
         m_collisionEvents.Remove(other);
     }
 
+    private void OnApplicationQuit()
+    {
+        m_collisionEvents.Clear();
+    }
+
     public List<Collider> collisionEvents
     {
         get { return m_collisionEvents; }

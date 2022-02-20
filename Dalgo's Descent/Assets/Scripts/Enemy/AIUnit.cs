@@ -11,6 +11,7 @@ public class AIUnit : AI
     protected override void Awake()
     {
         base.Awake();
+        aiType = AI_TYPE.AI_TYPE_ENEMY;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -26,12 +27,12 @@ public class AIUnit : AI
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            EnemyKnockup();
+            EnemyKnockup(20);
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            EnemyHit();
+            EnemyHit(10);
         }
     }
 
@@ -57,24 +58,24 @@ public class AIUnit : AI
             gameManager.RemoveFromEnemyArray(gameObject);
     }
 
-    public void EnemyHit(/*Skill enum or smth idk*/) 
+    public void EnemyHit(float damage) 
     {
         if (m_Health.currentHealth <= 0.0f)
             return;
 
         animator.SetTrigger("Hit");
         // m_animator.SetBool("IsHit", true);
-        Damage(10);
+        Damage(damage);
         Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
         rigidbody.AddForce(directionFromPlayer * 100f);
     }
 
-    public void EnemyKnockup()
+    public void EnemyKnockup(float damage)
     {
         if (animator.GetBool("IsAirborne"))
             return;
 
-        Damage(10);
+        Damage(damage);
         animator.speed = 1f;
         animator.SetTrigger("Knockup");
         rigidbody.isKinematic = false;

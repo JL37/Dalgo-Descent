@@ -31,6 +31,7 @@ public class BossAI : AI
     protected override void Awake()
     {
         base.Awake();
+        aiType = AI_TYPE.AI_TYPE_BOSS;
         // m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
