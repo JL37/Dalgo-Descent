@@ -55,13 +55,13 @@ public class BossAI : AI
         {
             //Add to the gamemanager to say got enemy here
             aggroActivated = true;
-            // m_GameManager.AddToEnemyArray(gameObject);
+            m_GameManager.AddToEnemyArray(gameObject);
         }
 
         health.TakeDamage(amount);
 
-        //if (health.currentHealth <= 0)
-            // m_GameManager.RemoveFromEnemyArray(gameObject);
+        if (health.currentHealth <= 0)
+            m_GameManager.RemoveFromEnemyArray(gameObject);
     }
 
     public void GrabWood()
