@@ -22,12 +22,10 @@ public class BossAI : AI
 
     [Header("Animation")]
     public Rig rig;
+    private bool m_rigActive = true;
 
     [HideInInspector] public float m_bossTimer;
     public float m_bossAttackIntervals;
-
-    private GameManager m_GameManager;
-    private bool m_rigActive = true;
     
 
     protected override void Awake()

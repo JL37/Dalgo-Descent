@@ -8,9 +8,6 @@ public class AIUnit : AI
     private new Rigidbody rigidbody;
     public LayerMask groundLayer;
 
-    private GameManager m_GameManager;
-    private bool aggroActivated = false;
-
     protected override void Awake()
     {
         base.Awake();
