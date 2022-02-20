@@ -9,10 +9,10 @@ public class EnemyHealthUI : MonoBehaviour
     [SerializeField] GameObject m_HealthFolder;
     [SerializeField] Image m_HealthBar;
     [SerializeField] Image m_BufferBar;
-    [SerializeField] Image m_Backing;
     [SerializeField] Health m_Health;
 
     [Header("Variables to adjust")]
+    [SerializeField] bool m_InWorldSpace = true;
     [SerializeField] float m_MaxBufferTimer = 0.4f;
     [SerializeField] float m_FadeDuration = 0.7f;
     [SerializeField] float m_HealthLerpSpd = 0.25f;
@@ -33,7 +33,8 @@ public class EnemyHealthUI : MonoBehaviour
     void Update()
     {
         //Updating ui...
-        m_HealthFolder.transform.LookAt(Camera.main.transform, Camera.main.transform.up);
+        if (m_InWorldSpace)
+            m_HealthFolder.transform.LookAt(Camera.main.transform, Camera.main.transform.up);
 
         //Updating bars...
         UpdateHealthBar();
@@ -77,8 +78,11 @@ public class EnemyHealthUI : MonoBehaviour
         {
             for (float i = 1; i >= 0; i -= Time.deltaTime / m_FadeDuration)
             {
-                m_HealthBar.color = new Color(1, 1, 1, i);
-                m_Backing.color = new Color(1, 1, 1, i);
+                foreach (Transform child in m_HealthFolder.transform)
+                {
+                    child.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i);
+                }
+
                 yield return null;
             }
 
@@ -89,8 +93,11 @@ public class EnemyHealthUI : MonoBehaviour
         {
             for (float i = 0; i <= 1; i+= Time.deltaTime / m_FadeDuration)
             {
-                m_HealthBar.color = new Color(1, 1, 1, i);
-                m_Backing.color = new Color(1, 1, 1, i);
+                foreach (Transform child in m_HealthFolder.transform)
+                {
+                    child.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, i);
+                }
+
                 yield return null;
             }
         }

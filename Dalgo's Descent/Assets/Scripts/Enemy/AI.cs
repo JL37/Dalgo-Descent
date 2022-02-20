@@ -15,6 +15,7 @@ public class AI : MonoBehaviour
     }
 
     public AI_TYPE aiType;
+    public EnemyHealthUI m_EnemyHealthUI;
 
     protected GameManager m_GameManager;
 
@@ -45,12 +46,23 @@ public class AI : MonoBehaviour
     protected virtual void Update()
     {
         //Check for any signs of aggression, if have then bruh update the gamemanager
-        if (!m_AggroActivated && IsAggro())
-        {
-            //Add to the gamemanager to say got enemy here
-            m_AggroActivated = true;
-            // m_GameManager.AddToEnemyArray(gameObject);
-        }
+        if (!aggroActivated && IsAggro())
+            AddAggroToGameManager();
+    }
+
+    protected void AddAggroToGameManager()
+    {
+        //Add to the gamemanager to say got enemy here
+        aggroActivated = true;
+        m_GameManager.AddToEnemyArray(gameObject);
+
+        m_EnemyHealthUI.StartFadeAnimation(false);
+    }
+
+    protected void RemoveFromGameManager()
+    {
+        m_GameManager.RemoveFromEnemyArray(gameObject);
+        m_EnemyHealthUI.StartFadeAnimation(true);
     }
 
     public virtual bool IsAggro()

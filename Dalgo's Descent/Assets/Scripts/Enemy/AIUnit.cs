@@ -6,8 +6,6 @@ using UnityEngine.AI;
 public class AIUnit : AI
 {
     private new Rigidbody rigidbody;
-
-	public EnemyHealthUI enemyHealth;	
     public LayerMask groundLayer;
 
     protected override void Awake()
@@ -36,24 +34,6 @@ public class AIUnit : AI
         {
             EnemyHit(10);
         }
-
-        if (!aggroActivated && IsAggro())
-            AddAggroToGameManager();
-    }
-
-    protected void AddAggroToGameManager()
-    {
-        //Add to the gamemanager to say got enemy here
-        aggroActivated = true;
-        m_GameManager.AddToEnemyArray(gameObject);
-
-        enemyHealth.StartFadeAnimation(false);
-    }
-
-    protected void RemoveFromGameManager()
-    {
-        m_GameManager.RemoveFromEnemyArray(gameObject);
-        enemyHealth.StartFadeAnimation(true);
     }
 
     public override void Damage(float amount)
