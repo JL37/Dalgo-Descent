@@ -10,6 +10,7 @@ public class AIUnit : MonoBehaviour
     public GameObject playerRef;
     public Rigidbody rigidbody;
     public NavMeshAgent agent;
+    public EnemyHealthUI enemyHealth;
 
     public Vector3 targetPoint = new Vector3();
     public LayerMask groundLayer;
@@ -55,11 +56,22 @@ public class AIUnit : MonoBehaviour
         }
 
         if (!aggroActivated && IsAggro())
-        {
-            //Add to the gamemanager to say got enemy here
-            aggroActivated = true;
-            m_GameManager.AddToEnemyArray(gameObject);
-        }
+            AddAggroToGameManager();
+    }
+
+    protected void AddAggroToGameManager()
+    {
+        //Add to the gamemanager to say got enemy here
+        aggroActivated = true;
+        m_GameManager.AddToEnemyArray(gameObject);
+
+        enemyHealth.StartFadeAnimation(false);
+    }
+
+    protected void RemoveFromGameManager()
+    {
+        m_GameManager.RemoveFromEnemyArray(gameObject);
+        enemyHealth.StartFadeAnimation(true);
     }
 
     public void MoveTo(Vector3 Position)
@@ -86,15 +98,11 @@ public class AIUnit : MonoBehaviour
         }
 
         if (!aggroActivated)
-        {
-            //Add to the gamemanager to say got enemy here
-            aggroActivated = true;
-            m_GameManager.AddToEnemyArray(gameObject);
-        }
+            AddAggroToGameManager();
 
         m_Health.TakeDamage(amount);
         if (m_Health.currentHealth <= 0)
-            m_GameManager.RemoveFromEnemyArray(gameObject);
+            RemoveFromGameManager();
     }
 
     public void EnemyHit(/*Skill enum or smth idk*/) 
@@ -111,7 +119,7 @@ public class AIUnit : MonoBehaviour
 
     public void EnemyKnockup()
     {
-        if (animator.GetBool("IsAirborne"))
+        if (animator.GetBool("IsAirborne") || m_Health.currentHealth <= 0)
             return;
 
         Damage(10);
