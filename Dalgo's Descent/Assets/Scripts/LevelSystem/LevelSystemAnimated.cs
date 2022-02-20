@@ -22,7 +22,7 @@ public class LevelSystemAnimated
         SetLevelSystem(level_system);
         m_updateTimerMax = .016f; //CHANGE THIS VALUE TO SPEEED UP/ SLOW DOWN THE EXP PROGRESS BAR
 
-        Application.targetFrameRate = 10;
+       
     }
 
     public void SetLevelSystem(LevelSystem level_system)
@@ -59,7 +59,6 @@ public class LevelSystemAnimated
             }
 
         }
-        Debug.Log(m_level + " " + m_experience);
     }
 
     private void UpdateTypeAddExperience()

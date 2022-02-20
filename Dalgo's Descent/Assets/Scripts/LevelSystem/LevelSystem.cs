@@ -14,7 +14,7 @@ public class LevelSystem
     public LevelSystem()
     {
         //init var
-        this.m_level = 0;
+        this.m_level = 1;
         this.m_experience = 0;
         this.m_experienceToNextLevel = 100;
     }

@@ -7,13 +7,13 @@ public class Testing : MonoBehaviour
     [SerializeField] LevelWindow m_levelWindow;
     private void Awake()
     {
-        LevelSystem levelSystem = new LevelSystem();
+/*        LevelSystem levelSystem = new LevelSystem();
         Debug.Log(levelSystem.GetCurrentLevel());
         levelSystem.AddExperience(50);
         Debug.Log(levelSystem.GetCurrentLevel());
         levelSystem.AddExperience(60);
         Debug.Log(levelSystem.GetCurrentLevel());
 
-        m_levelWindow.SetLevelSystem(levelSystem);
+        m_levelWindow.SetLevelSystem(levelSystem);*/
     }
 }

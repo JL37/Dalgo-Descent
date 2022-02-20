@@ -6,8 +6,8 @@ using System;
 
 public class LevelWindow : MonoBehaviour
 {
-    private Image m_experienceBarImage;
-    private Text m_levelText;
+    public Image m_experienceBarImage;
+    public Text m_levelText;
     private LevelSystem m_levelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
@@ -49,7 +49,7 @@ public class LevelWindow : MonoBehaviour
     {
         this.m_levelSystemAnimated = levelSystemAnimated;
 
-        setLevelNum(levelSystemAnimated.GetCurrentLevel());
+        //setLevelNum(levelSystemAnimated.GetCurrentLevel());
         SetExperienceBarSize(levelSystemAnimated.GetExperienceNormalized());
 
         levelSystemAnimated.OnExperienceChanged += LevelSystemAnimated_OnExperienceChanged;
