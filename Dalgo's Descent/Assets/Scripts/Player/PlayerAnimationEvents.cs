@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAnimationEvents : MonoBehaviour
 {
     private PlayerController m_playerController;
+    public WeaponCollider weaponCollider;
 
     private void Start()
     {
@@ -14,5 +15,12 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void Attack()
     {
+        foreach (Collider c in weaponCollider.collisionEvents)
+        {
+            if (c.gameObject.tag == "AI")
+            {
+                // c.GetComponent<>
+            }
+        }
     }
 }

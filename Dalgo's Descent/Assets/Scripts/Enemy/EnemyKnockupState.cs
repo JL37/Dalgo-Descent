@@ -11,13 +11,13 @@ public class EnemyKnockupState : EnemyBaseState
         animator.ResetTrigger("Knockup");
         animator.SetBool("IsAirborne", true);
 
-        aiUnit.rigidbody.isKinematic = false;
+        aiUnit.GetComponent<Rigidbody>().isKinematic = false;
         aiUnit.agent.enabled = false;
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (aiUnit.rigidbody.velocity.y < 0)
+        if (aiUnit.GetComponent<Rigidbody>().velocity.y < 0)
             animator.SetBool("IsFalling", true);
     }
 

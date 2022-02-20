@@ -15,7 +15,7 @@ public class EnemyHitState : EnemyBaseState
         if (aiUnit.agent.enabled)
             aiUnit.agent.ResetPath();
 
-        aiUnit.rigidbody.isKinematic = false;
+        aiUnit.GetComponent<Rigidbody>().isKinematic = false;
         aiUnit.agent.enabled = false;
         // aiUnit.m_rigidbody.velocity = Vector3.zero;
 
@@ -30,7 +30,7 @@ public class EnemyHitState : EnemyBaseState
     {
         animator.SetBool("IsHit", false);
         aiUnit.agent.enabled = true;
-        aiUnit.rigidbody.isKinematic = true;
+        aiUnit.GetComponent<Rigidbody>().isKinematic = true;
         animator.speed = 1f;
     }
 }

@@ -6,15 +6,8 @@ using UnityEngine.Animations.Rigging;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [DefaultExecutionOrder(1)]
-public class BossAI : MonoBehaviour
+public class BossAI : AI
 {
-    [Header("References")]
-    public GameObject playerRef;
-    public NavMeshAgent agent;
-    public Collider damageCollider;
-    public Health health;
-    public Vector3 targetPoint = new Vector3();
-
     [Header("Attack Choice")]
     [HideInInspector] public int attackChoice;
 
@@ -28,62 +21,33 @@ public class BossAI : MonoBehaviour
     public ParticleSystem shockwaveParticleSystem;
 
     [Header("Animation")]
-    public Animator animator;
     public Rig rig;
 
-
-    [HideInInspector] public bool m_inAttackRange = false;
     [HideInInspector] public float m_bossTimer;
     public float m_bossAttackIntervals;
 
     private GameManager m_GameManager;
     private bool m_rigActive = true;
-    private bool m_AggroActivated = false;
+    
 
-    void Awake()
+    protected override void Awake()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
-        health = GetComponent<Health>();
+        base.Awake();
         // m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    public void AttackPlayer()
+    protected override void Update()
     {
-        if (m_inAttackRange)
-        {
-            Debug.Log("Player Hit");
-        }
-    }
+        base.Update();
 
-    public void MoveTo(Vector3 position)
-    {
-        targetPoint = position;
-        agent.SetDestination(targetPoint);
-    }
-
-    void Update()
-    {
         rig.weight = m_rigActive ? rig.weight + Time.deltaTime * 2f : rig.weight - Time.deltaTime * 2f;
         if (Input.GetKeyDown(KeyCode.O))
         {
             Damage(10);
         }
-
-        //Check for any signs of aggression, if have then bruh update the gamemanager
-        if (!m_AggroActivated && IsAggro())
-        {
-            //Add to the gamemanager to say got enemy here
-            m_AggroActivated = true;
-            // m_GameManager.AddToEnemyArray(gameObject);
-        }
     }
 
-    public bool IsAggro()
-    {
-        return !animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Spawn");
-    }
-
-    public void Damage(float amount)
+    public override void Damage(float amount)
     {
 		if (health.currentHealth <= 0)
 			return;
@@ -99,11 +63,6 @@ public class BossAI : MonoBehaviour
 
         //if (health.currentHealth <= 0)
             // m_GameManager.RemoveFromEnemyArray(gameObject);
-    }
-
-    public void Die()
-    {
-        health.DieAnimation();
     }
 
     public void GrabWood()
@@ -135,4 +94,10 @@ public class BossAI : MonoBehaviour
     {
         m_rigActive = active;
     }
+
+    public override bool IsAggro()
+    {
+        return !animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Spawn");
+    }
+
 }
