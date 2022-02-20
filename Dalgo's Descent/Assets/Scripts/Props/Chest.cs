@@ -16,8 +16,10 @@ public class Chest : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject m_RingPrefab;
 
-    [Header("Font size set for name text")]
+    [Header("Variables to adjust")]
     [SerializeField] int m_MaxFontSize = 80;
+    [SerializeField] float m_HeightOffset = 1.5f;
+
     protected float m_CurrFontSize;
 
     protected bool m_WithinRange = false;
@@ -26,7 +28,6 @@ public class Chest : MonoBehaviour
     protected float m_Radian = 0;
     protected int m_AbValue = 0;
     protected int m_Cost = 1;
-    protected float m_HeightOffset = 1.5f;
     protected float m_ImageDimensions = 100;
 
     protected PlayerStats m_PlayerStats = null;

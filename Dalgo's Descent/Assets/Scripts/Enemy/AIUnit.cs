@@ -16,6 +16,7 @@ public class AIUnit : MonoBehaviour
 
     public Collider damageCollider;
     public bool inAttackRange = false;
+    public bool inPlayerAttackRange = false;
 
     [Header("Prefabs")]
     [SerializeField] GameObject damageTextPrefab;
@@ -48,7 +49,7 @@ public class AIUnit : MonoBehaviour
             EnemyKnockup();
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             EnemyHit();
         }
@@ -79,7 +80,10 @@ public class AIUnit : MonoBehaviour
         animator.speed = 1f;
         rigidbody.isKinematic = false;
         agent.enabled = false;
-        // m_aiUnit.m_rigidbody.velocity = Vector3.zero;
+        if (rigidbody.velocity.y < -100)
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
 
         if (!aggroActivated)
         {

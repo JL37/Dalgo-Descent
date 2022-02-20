@@ -21,8 +21,8 @@ public class PlayerStats : MonoBehaviour
 
     //Inventory
     protected int m_coin = 0;
-    protected List<Chest> m_ChestArr = new List<Chest>();
-    protected List<Item> m_ItemArr = new List<Item>();
+    protected List<Chest> m_ChestArr;
+    protected List<ItemUI> m_ItemArr;
 
     public event EventHandler onHealthChanged;
     public event EventHandler onEXPChanged;
@@ -32,6 +32,11 @@ public class PlayerStats : MonoBehaviour
     public event EventHandler onCriticalHealth;
     public event EventHandler onDead;
 
+    private void Start()
+    {
+        m_ItemArr = new List<ItemUI>();
+        m_ChestArr = new List<Chest>();
+    }
 
     public void Received_Damage(int damageAmount)
     {
@@ -196,14 +201,18 @@ public class PlayerStats : MonoBehaviour
         print("Item added to inventory");
 
         //Animation (If needed)
-        if (m_ItemArr.Count < 16) //This part is only for the front part (Ofc, there will be more than 16 but they'll have to access the tab to see them all).
+        GameObject itemUI = Instantiate(m_ItemUIPrefab);
+        itemUI.GetComponent<ItemUI>().Initialise(item, 0, animated);
+        itemUI.transform.SetParent(GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetItemPanelTransform());
+
+        //Shifts the existing items
+        for (int i = 0; i < m_ItemArr.Count; ++i)
         {
-            GameObject itemUI = Instantiate(m_ItemUIPrefab);
-            itemUI.GetComponent<ItemUI>().Initialise(item, m_ItemArr.Count, animated);
-            itemUI.transform.SetParent(GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetItemPanelTransform());
+            m_ItemArr[i].AddToIndex(1);
+            m_ItemArr[i].UpdatePositionFromIndex();
         }
 
         item.AffectStats(this);
-        m_ItemArr.Add(item);
+        m_ItemArr.Insert(0,itemUI.GetComponent<ItemUI>());
     }
 }

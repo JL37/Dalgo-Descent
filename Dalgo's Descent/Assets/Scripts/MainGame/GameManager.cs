@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>   
 {
     public Health_EXP status;
     public PlayerStats playerStats;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        playerStats = new PlayerStats();
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         status.Setup(playerStats);
 
         m_PauseController = GetComponent<PauseController>();
@@ -42,15 +42,23 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         m_levelSystemAnimated.Update();
+
+        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
+            return;
+
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            m_PauseController.CameraToggle(true);
         }
         if (Input.GetKeyUp(KeyCode.LeftAlt))
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            m_PauseController.CameraToggle(false);
         }
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {

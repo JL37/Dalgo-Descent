@@ -12,6 +12,7 @@ public class EnemyFallingState : EnemyBaseState
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log(Physics.CheckSphere(aiUnit.transform.position, 0.4f, aiUnit.groundLayer));
         if (Physics.CheckSphere(aiUnit.transform.position, 0.4f, aiUnit.groundLayer))
         {
             animator.SetBool("IsFalling", false);
