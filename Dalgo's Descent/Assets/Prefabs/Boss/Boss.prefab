@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  blinkDuration: 0.05
+  blinkDuration: 0.1
   models:
   - {fileID: 1009831589508365525}
   deathParticles: {fileID: 8979279360542071948}
@@ -104,11 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4623969db12a549a572d5428176790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRef: {fileID: 0}
-  agent: {fileID: 229982603349147799}
+  aiType: 0
   damageCollider: {fileID: 229982603570707368}
-  health: {fileID: 229982603349147802}
-  targetPoint: {x: 0, y: 0, z: 0}
+  damageTextPrefab: {fileID: 8663583582339724556, guid: 82c3a0c2ffcfc644eb000ae1897b9344, type: 3}
   attackChoice: 0
   woodPrefabs:
   - {fileID: 5312727187203838740, guid: b9574278bb95cd046ab6974264a40ff8, type: 3}
@@ -118,9 +116,7 @@ MonoBehaviour:
   projectileThrownHolder: {fileID: 0}
   centerOfRoom: {fileID: 0}
   shockwaveParticleSystem: {fileID: 0}
-  animator: {fileID: 229982603108584023}
   rig: {fileID: 229982604389995320}
-  m_inAttackRange: 0
   m_bossTimer: 0
   m_bossAttackIntervals: 2
 --- !u!1 &229982603508137411
@@ -249,7 +245,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229982603570707370}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.06
@@ -1151,6 +1147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
+--- !u!1 &1009831589508365525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 951011102456138778, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
+  m_PrefabInstance: {fileID: 229982604886339791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3907019083620130529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3821738444571110958, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
@@ -1186,9 +1187,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2787273872711760509, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
   m_PrefabInstance: {fileID: 229982604886339791}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3682417835667322496 stripped
+--- !u!4 &2354837465859872756 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -5752332063897844145, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
+  m_CorrespondingSourceObject: {fileID: -6656566784459593925, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
   m_PrefabInstance: {fileID: 229982604886339791}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8321980380836542816 stripped
@@ -1431,14 +1432,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
   m_PrefabInstance: {fileID: 229982604886339791}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2354837465859872756 stripped
+--- !u!4 &3682417835667322496 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -6656566784459593925, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
-  m_PrefabInstance: {fileID: 229982604886339791}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1009831589508365525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 951011102456138778, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
+  m_CorrespondingSourceObject: {fileID: -5752332063897844145, guid: e4b7bb3f8324cc4479e8b8c09cd559f1, type: 3}
   m_PrefabInstance: {fileID: 229982604886339791}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &229982603108584023
@@ -1550,6 +1546,18 @@ MonoBehaviour:
   - {fileID: 8946265099086531041}
   - {fileID: 6619194002477502769}
   - {fileID: 7472889021280413962}
+--- !u!114 &3564528298978476954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148530209931775390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14790b8059a2bd2499f41750f1eef485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2472937581654233247
 PrefabInstance:
   m_ObjectHideFlags: 0

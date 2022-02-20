@@ -7,6 +7,15 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class AI : MonoBehaviour
 {
+    public enum AI_TYPE
+    {
+        AI_TYPE_NONE = 0,
+        AI_TYPE_ENEMY,
+        AI_TYPE_BOSS,
+    }
+
+    public AI_TYPE aiType;
+
     protected GameManager m_GameManager;
 
     protected Animator m_Animator;
@@ -24,6 +33,7 @@ public class AI : MonoBehaviour
 
     protected virtual void Awake()
     {
+        aiType = AI_TYPE.AI_TYPE_NONE;
         m_Health = GetComponent<Health>();
         m_Animator = GetComponentInChildren<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
