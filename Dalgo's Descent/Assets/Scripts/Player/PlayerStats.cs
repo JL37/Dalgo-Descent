@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
 
     //Stats
 
-    protected Health m_Health;
+    public Health m_Health;
 
 /*    protected float m_Health = 100;
     protected float m_MaxHealth = 100;*/
