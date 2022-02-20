@@ -41,6 +41,7 @@ public class Health_UI : MonoBehaviour
 
     private void PlayerStats_onHealthChanged(object sender, EventArgs e)
     {
+        Debug.Log("Hello");
         healthBar.fillAmount = playerStats.GetHealthPerc();
 
     }

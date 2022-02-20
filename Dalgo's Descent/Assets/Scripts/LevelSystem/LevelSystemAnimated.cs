@@ -20,9 +20,9 @@ public class LevelSystemAnimated
     public LevelSystemAnimated(LevelSystem level_system)
     {
         SetLevelSystem(level_system);
-        m_updateTimerMax = .016f; //CHANGE THIS VALUE TO SPEEED UP/ SLOW DOWN THE EXP PROGRESS BAR
+        m_updateTimerMax = .022f; //CHANGE THIS VALUE TO SPEEED UP/ SLOW DOWN THE EXP PROGRESS BAR
 
-       
+        
     }
 
     public void SetLevelSystem(LevelSystem level_system)
