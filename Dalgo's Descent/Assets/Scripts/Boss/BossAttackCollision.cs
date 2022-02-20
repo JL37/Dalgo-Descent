@@ -11,7 +11,7 @@ public class BossAttackCollision : MonoBehaviour
         // Debug.Log("Hit Player");
         if (other.gameObject.tag == "Player")
         {
-            bossAI.m_inAttackRange = true;
+            bossAI.inAttackRange = true;
         }
     }
 
@@ -20,7 +20,7 @@ public class BossAttackCollision : MonoBehaviour
         // Debug.Log("Hit Player");
         if (other.gameObject.tag == "Player")
         {
-            bossAI.m_inAttackRange = false;
+            bossAI.inAttackRange = false;
         }
     }
 }

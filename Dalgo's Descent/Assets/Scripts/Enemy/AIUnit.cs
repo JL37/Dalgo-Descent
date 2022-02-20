@@ -3,37 +3,17 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [DefaultExecutionOrder(1)]
-public class AIUnit : MonoBehaviour
+public class AIUnit : AI
 {
-    [Header("Objects and variables")]
-    public Animator animator;
-    public GameObject playerRef;
-    public Rigidbody rigidbody;
-    public NavMeshAgent agent;
-    public EnemyHealthUI enemyHealth;
+    private new Rigidbody rigidbody;
 
-    public Vector3 targetPoint = new Vector3();
+	public EnemyHealthUI enemyHealth;	
     public LayerMask groundLayer;
 
-    public Collider damageCollider;
-    public bool inAttackRange = false;
-    public bool inPlayerAttackRange = false;
-
-    [Header("Prefabs")]
-    [SerializeField] GameObject damageTextPrefab;
-
-    private Health m_Health;
-    private GameManager m_GameManager;
-    private bool aggroActivated = false;
-
-    private void Awake()
+    protected override void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
-        m_Health = GetComponent<Health>();
+        base.Awake();
         rigidbody = GetComponent<Rigidbody>();
-        agent = GetComponent<NavMeshAgent>();
-        playerRef = GameObject.FindGameObjectWithTag("Player");
-        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Start()
@@ -44,6 +24,7 @@ public class AIUnit : MonoBehaviour
     public void Update()
     {
         //Debug.Log(IsAggro());
+        base.Update();
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -74,20 +55,7 @@ public class AIUnit : MonoBehaviour
         enemyHealth.StartFadeAnimation(true);
     }
 
-    public void MoveTo(Vector3 Position)
-    {
-        agent.SetDestination(Position);
-    }
-
-    public void AttackPlayer()
-    {
-        if (inAttackRange)
-        {
-            Debug.Log("Player Hit");
-        }
-    }
-
-    public void Damage(float amount)
+    public override void Damage(float amount)
     {
         animator.speed = 1f;
         rigidbody.isKinematic = false;
@@ -131,12 +99,7 @@ public class AIUnit : MonoBehaviour
         rigidbody.AddForce(new Vector3(0, 500, 0));
     }
 
-    public void Die()
-    {
-        m_Health.DieAnimation();
-    }
-
-    public bool IsAggro()
+    public override bool IsAggro()
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup");
     }

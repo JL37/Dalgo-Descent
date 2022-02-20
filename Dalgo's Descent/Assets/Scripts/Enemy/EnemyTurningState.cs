@@ -44,7 +44,7 @@ public class EnemyTurningState : EnemyBaseState
         if (!walkpointSet)
             return;
 
-        Vector3 target = aiUnit.targetPoint - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
+        Vector3 target = aiUnit.targetPosition - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
         var q = Quaternion.LookRotation(target);
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
@@ -69,7 +69,7 @@ public class EnemyTurningState : EnemyBaseState
 
     private void SearchWalkPoint()
     {
-        aiUnit.targetPoint = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
+        aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
         Debug.Log("Walkpoint Set");
         walkpointSet = true;
     }
