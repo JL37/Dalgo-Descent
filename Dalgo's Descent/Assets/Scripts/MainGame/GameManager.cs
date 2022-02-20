@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>   
 {
-    public Health_EXP status;
+    public Health_UI m_healthUI;
     public PlayerStats playerStats;
 
     [SerializeField] DynamicCamera m_Camera;
@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-        status.Setup(playerStats);
+        m_healthUI.Setup(playerStats);
 
         m_PauseController = GetComponent<PauseController>();
         m_EnemyArr = new List<GameObject>();
@@ -68,9 +68,8 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.N)) //testing for exp
         {
-            Debug.Log("EXP");
             m_LevelSystem.AddExperience(60);
-            print("EXP now is : " + playerStats.EXP);
+
         }
         if (Input.GetKeyDown(KeyCode.L)) //testing too add health
         {

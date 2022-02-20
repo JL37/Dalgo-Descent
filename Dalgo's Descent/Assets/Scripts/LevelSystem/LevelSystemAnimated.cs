@@ -15,7 +15,7 @@ public class LevelSystemAnimated
 
     private int m_level;
     private int m_experience;
-    private int m_experienceToNextLevel;
+
 
     public LevelSystemAnimated(LevelSystem level_system)
     {
@@ -31,7 +31,7 @@ public class LevelSystemAnimated
 
         this.m_level = m_levelSystem.GetCurrentLevel();
         this.m_experience = m_levelSystem.GetExperience();
-        this.m_experienceToNextLevel = m_levelSystem.GetExperienceToNextLevel();
+    
 
         level_system.OnExperienceChanged += LevelSystem_OnExperienceChanged;
         level_system.OnLevelChanged += LevelSystem_OnLevelChanged;
@@ -77,7 +77,7 @@ public class LevelSystemAnimated
     private void AddExperience()
     {
         m_experience++;
-        if (m_experience >= m_experienceToNextLevel)
+        if (m_experience >= m_levelSystem.GetExperienceToNextLevel(m_level))
         {
             m_level++;
             m_experience = 0;
@@ -95,7 +95,7 @@ public class LevelSystemAnimated
 
     public float GetExperienceNormalized()
     {
-        return (float)m_experience / m_experienceToNextLevel;
+        return (float)m_experience / m_levelSystem.GetExperienceToNextLevel(m_level);
     }
 
 

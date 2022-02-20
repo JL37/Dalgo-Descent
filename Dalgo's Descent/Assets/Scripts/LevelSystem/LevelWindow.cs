@@ -20,14 +20,7 @@ public class LevelWindow : MonoBehaviour
 
     private void Update()
     {
-/*        LevelSystem levelSystem = new LevelSystem();
-        Debug.Log(levelSystem.GetCurrentLevel());
-        levelSystem.AddExperience(50);
-        Debug.Log(levelSystem.GetCurrentLevel());
-        levelSystem.AddExperience(60);
-        Debug.Log(levelSystem.GetCurrentLevel());
 
-        SetLevelSystem(levelSystem);*/
             
     }
 

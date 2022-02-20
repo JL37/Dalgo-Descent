@@ -12,8 +12,6 @@ public class PlayerStats : MonoBehaviour
     //Stats
     protected float m_Health = 100;
     protected float m_MaxHealth = 100;
-    protected float m_EXP = 0;
-    protected float m_MaxEXP = 100;
     protected float m_AtkSpd = 1f;
     protected float m_LifeSteal = 0f;
     protected float m_CritChance = 0.03f;
@@ -25,7 +23,6 @@ public class PlayerStats : MonoBehaviour
     protected List<ItemUI> m_ItemArr;
 
     public event EventHandler onHealthChanged;
-    public event EventHandler onEXPChanged;
 
     public event EventHandler onHealthy;
     public event EventHandler onHalfHealth;
@@ -62,15 +59,7 @@ public class PlayerStats : MonoBehaviour
             onHealthChanged(this, EventArgs.Empty);
 
     }
-    public void EXP_Update(int amount)
-    {
-        m_EXP += amount;
-        if (m_EXP > 101)
-            m_EXP = 0;
-        if (onEXPChanged != null)
-            onEXPChanged(this, EventArgs.Empty);
 
-    }
 
     public void UpdatePlayerIcon()
     {
@@ -97,17 +86,7 @@ public class PlayerStats : MonoBehaviour
                 onDead(this, EventArgs.Empty);
         }
     }
-    public float EXP
-    {
-        get { return m_EXP; }
-        set { m_EXP = value; }
-    }
 
-    public float MaxEXP
-    {
-        get { return m_MaxEXP; }
-        set { m_MaxEXP = value; }
-    }
 
 
     public float Health
@@ -148,11 +127,6 @@ public class PlayerStats : MonoBehaviour
     public float GetHealthPerc()
     {
         return m_Health / m_MaxHealth;
-    }
-
-    public float GetEXPPerc()
-    {
-        return m_EXP / m_MaxEXP;
     }
 
     //Coins bruh

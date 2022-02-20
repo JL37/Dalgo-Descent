@@ -7,26 +7,28 @@ public class LevelSystem
 {
     public event EventHandler OnExperienceChanged;
     public event EventHandler OnLevelChanged;
+
+    
     private int m_level;
     private int m_experience;
-    private int m_experienceToNextLevel;
+
 
     public LevelSystem()
     {
         //init var
         this.m_level = 1;
         this.m_experience = 0;
-        this.m_experienceToNextLevel = 100;
+
     }
 
     public void AddExperience(int _amount)
     {
         m_experience += _amount;
 
-        while (m_experience>=m_experienceToNextLevel) //if enough exp to lvl up
+        while (m_experience>=GetExperienceToNextLevel(m_level)) //if enough exp to lvl up
         {
+            m_experience -= GetExperienceToNextLevel(m_level);
             m_level++;
-            m_experience -= m_experienceToNextLevel;
             if(OnLevelChanged != null)
                 OnLevelChanged(this,EventArgs.Empty);
         }
@@ -41,7 +43,7 @@ public class LevelSystem
 
     public float GetExperienceNormalized()
     {
-        return (float)m_experience / m_experienceToNextLevel;
+        return (float)m_experience / GetExperienceToNextLevel(m_level);
     }
 
     public int GetExperience()
@@ -49,8 +51,8 @@ public class LevelSystem
         return m_experience;
     }
 
-    public int GetExperienceToNextLevel()
+    public int GetExperienceToNextLevel(int level)
     {
-        return m_experienceToNextLevel;
+        return level * 10;
     }
 }
