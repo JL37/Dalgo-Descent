@@ -10,8 +10,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] GameObject m_ItemUIPrefab;
 
     //Stats
-    protected float m_Health = 100;
-    protected float m_MaxHealth = 100;
+
+    protected Health m_Health;
+
     protected float m_AtkSpd = 1f;
     protected float m_LifeSteal = 0f;
     protected float m_CritChance = 0.03f;
@@ -37,11 +38,11 @@ public class PlayerStats : MonoBehaviour
 
     public void Received_Damage(int damageAmount)
     {
-        m_Health -= damageAmount;
+        m_Health.currentHealth -= damageAmount;
         UpdatePlayerIcon();
-        if (m_Health <= 0)
+        if (m_Health.currentHealth <= 0)
         {
-            m_Health = 0;
+            m_Health.currentHealth = 0;
         }
         if (onHealthChanged != null)
             onHealthChanged(this, EventArgs.Empty);
@@ -49,11 +50,11 @@ public class PlayerStats : MonoBehaviour
     }
     public void Replenish_Health(int amount)
     {
-        m_Health += amount;
+        m_Health.currentHealth += amount;
         UpdatePlayerIcon();
-        if (m_Health >= 100)
+        if (m_Health.currentHealth >= 100)
         {
-            m_Health = 100;
+            m_Health.currentHealth = 100;
         }
         if (onHealthChanged != null)
             onHealthChanged(this, EventArgs.Empty);
@@ -63,25 +64,25 @@ public class PlayerStats : MonoBehaviour
 
     public void UpdatePlayerIcon()
     {
-        if (m_Health > 50)
+        if (m_Health.currentHealth > 50)
         {
             if (onHealthy != null)
                 onHealthy(this, EventArgs.Empty);
         }
-        if (m_Health <= 50)
+        if (m_Health.currentHealth <= 50)
         {
             if (onHalfHealth != null)
                 onHalfHealth(this, EventArgs.Empty);
 
         }
-        if (m_Health <= 25)
+        if (m_Health.currentHealth <= 25)
         {
             if (onCriticalHealth != null)
                 onCriticalHealth(this, EventArgs.Empty);
         }
-        if (m_Health <= 0)
+        if (m_Health.currentHealth <= 0)
         {
-            m_Health = 0;
+            m_Health.currentHealth = 0;
             if (onDead != null)
                 onDead(this, EventArgs.Empty);
         }
@@ -91,13 +92,13 @@ public class PlayerStats : MonoBehaviour
 
     public float Health
     {
-        get { return m_Health; }
-        set { m_Health = value; }
+        get { return m_Health.currentHealth; }
+        set { m_Health.currentHealth = value; }
     }
     public float MaxHealth
     {
-        get { return m_MaxHealth; }
-        set { m_Health = value; }
+        get { return m_Health.currentHealth; }
+        set { m_Health.currentHealth = value; }
     }
 
     public float AtkSpd
@@ -126,7 +127,7 @@ public class PlayerStats : MonoBehaviour
 
     public float GetHealthPerc()
     {
-        return m_Health / m_MaxHealth;
+        return m_Health.currentHealth / m_Health.maxHealth;
     }
 
     //Coins bruh
