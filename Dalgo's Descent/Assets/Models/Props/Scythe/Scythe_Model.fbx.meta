@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 627531f401474e740a28fe96042cf29b
+guid: 72c57ed783639514387f2325d38ebd27
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -8,47 +8,47 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Blades_PBS
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Fasteners_PBS
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Handle_PBS
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PBS_Hook
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PBS_Leaves
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PBS_Pick
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ropes_PBS
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wedge_PBS
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Weights_PBS
-    second: {fileID: 2100000, guid: 058d7b69fed940e4b985540554df8f98, type: 2}
+    second: {fileID: 2100000, guid: 60a75fc90e97d7c4b97e22819f56b2c1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -84,10 +84,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0

@@ -334,7 +334,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -383,6 +387,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: {x: 0.30010474, y: 0.9309605, z: 0.053522456, w: -0.20096034}
@@ -428,6 +442,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5833333
         value: {x: 0.28300822, y: 0.9335053, z: -0.00828939, w: -0.2200127}
@@ -494,7 +518,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -579,6 +607,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5416667
         value: {x: -0.11817387, y: -0.7238631, z: -0.043589886, w: 0.6783488}
@@ -597,6 +635,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7083333
         value: {x: -0.22927134, y: -0.70107466, z: 0.12349388, w: 0.663836}
@@ -615,6 +663,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.875
         value: {x: -0.118174024, y: -0.72386307, z: -0.043590013, w: 0.6783488}
@@ -645,7 +703,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -670,7 +732,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -692,6 +758,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: {x: -0.17337286, y: 0.10990299, z: 0.431962, w: 0.8782209}
@@ -1147,6 +1223,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.9166667
         value: {x: -0.019437417, y: 0.7904644, z: 0.1601651, w: 0.59087676}
@@ -1168,7 +1254,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1193,7 +1283,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1414,6 +1508,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.16666667
         value: {x: 0.050026394, y: 0.0120512275, z: 0.0055066454, w: 0.99866}
@@ -1432,6 +1536,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7083333
         value: {x: 0.1728822, y: 0.012638655, z: 0.003977392, w: 0.9848534}
@@ -1453,7 +1567,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2269,7 +2387,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1/EarSmall_R2/EarSmall_R3
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2408,6 +2530,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.75
         value: {x: 0.9974978, y: -0.052748293, z: -0.007242047, w: -0.046511203}
@@ -2465,7 +2597,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Leg_L
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4831,7 +4967,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4871,6 +5011,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: {x: -0, y: 0.04647022, z: -0.0024320134}
@@ -4907,6 +5057,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.45833334
         value: {x: -0, y: 0.04, z: -3.216066e-10}
@@ -4925,6 +5085,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.625
         value: {x: -0, y: 0.040479273, z: -0.00018014945}
@@ -4943,6 +5113,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.75
         value: {x: -0, y: 0.044792756, z: -0.0018014915}
@@ -4980,10 +5160,17 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
         time: 0.9583333
         value: {x: -0, y: 0.04, z: -3.216066e-10}
         inSlope: {x: -0, y: 0.00000074117617, z: -0.00000008180838}
         outSlope: {x: -0, y: 0.00000074117617, z: -0.00000008180838}
+=======
+        time: 0.6333333
+        value: {x: -0.000000016828386, y: 0.1734734, z: 0.00000009445923}
+        inSlope: {x: -0.0000000019011024, y: -0.00000029802325, z: -0.000000043180215}
+        outSlope: {x: -0.0000000019011024, y: -0.00000029802325, z: -0.000000043180215}
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -4991,7 +5178,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Head
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5014,14 +5205,31 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
         time: 0.08333333
         value: {x: 0.032238636, y: -0.00417196, z: 0.00032243552}
         inSlope: {x: 0.02746762, y: -0.026787005, z: 0.1169462}
         outSlope: {x: 0.027467424, y: -0.026786914, z: 0.116946}
+=======
+        time: 0.6333333
+        value: {x: -0.00000017184624, y: 0.04878268, z: 0.00000012979928}
+        inSlope: {x: 0.00000006596626, y: 0.000000083819025, z: -0.00000006647135}
+        outSlope: {x: 0.00000006596626, y: 0.000000083819025, z: -0.00000006647135}
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.125
         value: {x: 0.033075836, y: -0.0049884063, z: 0.004947238}
@@ -5049,6 +5257,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: {x: 0.033061884, y: -0.004991798, z: 0.0059032473}
@@ -5067,6 +5285,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.375
         value: {x: 0.03174762, y: -0.0036931145, z: -0.0015258228}
@@ -5085,6 +5313,16 @@ AnimationClip:
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.45833334
         value: {x: 0.030093944, y: -0.0020804303, z: -0.0070026615}
@@ -6742,7 +6980,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Leg_R/Knee_R/Heel_R/MidToe_R1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6767,7 +7009,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Leg_R/Knee_R/Heel_R/MidToe_R1/MidToe_R2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6792,7 +7038,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Leg_R/Knee_R/Heel_R/MidToe_R1/MidToe_R2/MidToe_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6817,7 +7067,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Leg_R/Knee_R/Heel_R/SmallToe_R1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6942,8 +7196,12 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Tail/Tail1/Tail2
   m_ScaleCurves:
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6968,7 +7226,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6993,7 +7255,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7018,7 +7284,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7118,7 +7388,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7143,7 +7417,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7243,7 +7521,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7268,7 +7550,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7443,7 +7729,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarSmall_L1
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7468,7 +7758,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarSmall_L1/EarSmall_L2
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7493,7 +7787,11 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarSmall_L1/EarSmall_L2/EarSmall_L3
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8436,7 +8734,11 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 4232970460
+=======
+      path: 492697205
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -8506,56 +8808,88 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 1996096932
+=======
+      path: 807304272
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 911655421
+=======
+      path: 492697205
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2010223422
+=======
+      path: 100643356
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3531889484
+=======
+      path: 2385958261
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2994470760
+=======
+      path: 4156082716
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 828851831
+=======
+      path: 2311083278
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2735972530
+=======
+      path: 1694391247
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2051225028
+=======
+      path: 304749830
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8633,6 +8967,16 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1891595100
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2221225962
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8723,21 +9067,96 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3550302829
+=======
+      path: 3129737482
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 551367339
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3996570906
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 807304272
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 100643356
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2385958261
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4156082716
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2311083278
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1694391247
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 304749830
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3976069608
+=======
+      path: 1604908012
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 815199250
+=======
+      path: 1225817494
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -8982,6 +9401,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 40026137
       attribute: 1
       script: {fileID: 0}
@@ -8991,11 +9411,16 @@ AnimationClip:
     - serializedVersion: 2
       path: 3086217534
       attribute: 1
+=======
+      path: 1604908012
+      attribute: 2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 1251011100
       attribute: 1
       script: {fileID: 0}
@@ -9088,27 +9513,42 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1393476043
+=======
+      path: 1225817494
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3896825259
+=======
+      path: 113917251
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3550302829
+=======
+      path: 716397136
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 815199250
+=======
+      path: 2347979637
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -9122,28 +9562,44 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2541745591
+=======
+      path: 2308694229
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 1407407583
+=======
+      path: 817770800
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3475672877
+=======
+      path: 1305088478
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2068020021
+=======
+      path: 2879469034
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -9241,56 +9697,90 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3927902477
       attribute: 2
+=======
+      path: 807304272
+      attribute: 3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 1393450394
       attribute: 2
+=======
+      path: 492697205
+      attribute: 3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 1393476043
+=======
+      path: 100643356
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3896825259
+=======
+      path: 2385958261
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 3550302829
+=======
+      path: 4156082716
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 4232970460
+=======
+      path: 2311083278
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 582236975
+=======
+      path: 1694391247
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2614922016
+=======
+      path: 304749830
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -9318,14 +9808,22 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 1996096932
+=======
+      path: 716397136
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 911655421
+=======
+      path: 2347979637
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -9353,14 +9851,22 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2994470760
+=======
+      path: 817770800
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2541745591
+=======
+      path: 1305088478
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -9409,21 +9915,33 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 2380181085
+=======
+      path: 1891595100
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 4198861662
+=======
+      path: 2221225962
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
       path: 456712201
+=======
+      path: 2879469034
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -10645,6 +11163,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.4166667
         value: -0.010926834
@@ -10730,7 +11261,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10817,6 +11352,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5833333
         value: -0.47566995
@@ -10908,6 +11456,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: 0.8828913
@@ -10953,6 +11514,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.4166667
         value: 0.91842604
@@ -11037,8 +11611,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.w
     path: Spine/Spine1/Neck/Wing_R1
+=======
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11089,6 +11668,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: 0.30010474
@@ -11134,6 +11726,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5833333
         value: 0.28300822
@@ -11201,7 +11806,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11252,6 +11861,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: 0.9309605
@@ -11297,6 +11919,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5833333
         value: 0.9335053
@@ -11363,8 +11998,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.y
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11415,6 +12055,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: 0.053522456
@@ -11460,6 +12113,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5833333
         value: -0.00828939
@@ -11527,7 +12193,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11578,6 +12248,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: -0.20096034
@@ -11659,6 +12342,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.875
         value: -0.2452415
@@ -11750,6 +12446,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.33333334
         value: -0.15722032
@@ -11843,8 +12552,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.x
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11931,6 +12645,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5416667
         value: -0.7238631
@@ -11949,6 +12676,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7083333
         value: -0.70107466
@@ -11967,6 +12707,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.875
         value: -0.72386307
@@ -11997,8 +12750,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.y
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12022,6 +12780,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: -0.0074282517
@@ -12040,6 +12811,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.20833333
         value: 0.12349388
@@ -12058,6 +12842,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.33333334
         value: 0.04093822
@@ -12076,6 +12873,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.45833334
         value: -0.15646726
@@ -12094,6 +12904,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5833333
         value: 0.04093822
@@ -12112,6 +12935,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.8333333
         value: 0.04093822
@@ -12130,6 +12966,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.9166667
         value: -0.12354123
@@ -12152,7 +13001,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12176,6 +13029,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: 0.6762429
@@ -12194,6 +13060,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.20833333
         value: 0.663836
@@ -12212,6 +13091,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.33333334
         value: 0.67106307
@@ -12230,6 +13122,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.45833334
         value: 0.6739485
@@ -12306,7 +13211,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12334,7 +13243,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12362,7 +13275,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12390,7 +13307,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12418,7 +13339,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -14474,7 +15399,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -14502,7 +15431,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -14530,7 +15463,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -14558,7 +15495,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -14582,6 +15523,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: -0.3952931
@@ -14600,6 +15554,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7083333
         value: -0.31111157
@@ -14618,6 +15585,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.9166667
         value: -0.48826534
@@ -14639,8 +15619,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.x
     path: Spine/Spine1/Neck/Ear_L
+=======
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -14664,6 +15649,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: -0.022285663
@@ -14682,6 +15680,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7083333
         value: -0.01753971
@@ -14700,6 +15711,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.9166667
         value: -0.02752721
@@ -14721,8 +15745,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.y
     path: Spine/Spine1/Neck/Ear_L
+=======
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -15682,6 +16711,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.25000003
         value: 0.10463242
@@ -15700,6 +16742,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.4166667
         value: 0.18606785
@@ -15730,8 +16785,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.x
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    attribute: m_LocalRotation.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -15755,6 +16815,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.25000003
         value: 0.030586677
@@ -15773,6 +16846,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.4166667
         value: 0.026897792
@@ -15804,7 +16890,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -15877,7 +16967,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -15950,7 +17044,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -15978,7 +17076,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2/EarMid_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16006,7 +17108,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2/EarMid_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16034,7 +17140,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2/EarMid_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16062,7 +17172,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2/EarMid_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -18075,8 +19189,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.y
     path: Spine/Spine1/Neck/Ear_R/EarMid_R1/EarMid_R2
+=======
+    attribute: m_LocalRotation.x
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -18278,7 +19397,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarMid_R1/EarMid_R2/EarMid_R3
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -18479,8 +19602,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.y
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1
+=======
+    attribute: m_LocalRotation.z
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -18626,7 +19754,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -18750,6 +19882,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.33333334
         value: -0.012623843
@@ -18898,8 +20043,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.z
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1/EarSmall_R2
+=======
+    attribute: m_LocalRotation.y
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -19074,7 +20224,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1/EarSmall_R2/EarSmall_R3
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -19225,6 +20379,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.6666667
         value: 0.9881458
@@ -19243,6 +20410,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.75
         value: 0.9974978
@@ -19261,6 +20441,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.8333333
         value: 0.8859666
@@ -19279,6 +20472,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.9166667
         value: 0.7608253
@@ -19300,8 +20506,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalRotation.x
     path: Spine/Leg_L
+=======
+    attribute: m_LocalRotation.w
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -31997,6 +33208,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7916666
         value: 0.022890758
@@ -32028,7 +33252,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32052,6 +33280,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.16666666
         value: 0.0000768672
@@ -32088,6 +33329,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.33333334
         value: 5.182441e-18
@@ -32124,6 +33378,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7083333
         value: 0.0001562963
@@ -32173,7 +33440,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32201,7 +33472,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32256,8 +33531,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalPosition.z
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3
+=======
+    attribute: m_LocalPosition.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32312,8 +33592,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalPosition.y
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    attribute: m_LocalPosition.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32340,8 +33625,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: m_LocalPosition.z
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    attribute: m_LocalPosition.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32361,6 +33651,179 @@ AnimationClip:
         value: -0.017879
         inSlope: 0
         outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+    attribute: m_LocalPosition.x
+    path: Spine/Spine1/Neck/Ear_L
+=======
+    attribute: m_LocalPosition.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.023402
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9583333
+        value: 0.023402
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+    attribute: m_LocalPosition.y
+    path: Spine/Spine1/Neck/Ear_L
+=======
+    attribute: m_LocalPosition.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.0013240799
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9583333
+        value: 0.0013240799
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+    attribute: m_LocalPosition.z
+    path: Spine/Spine1/Neck/Ear_L
+=======
+    attribute: m_LocalPosition.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -1.786096e-20
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9583333
+        value: -1.786096e-20
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+    attribute: m_LocalPosition.x
+    path: Spine/Spine1/Neck/Ear_L/EarBig_L1
+=======
+    attribute: m_LocalPosition.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.013128362
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9583333
+        value: 0.013128362
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+    attribute: m_LocalPosition.y
+    path: Spine/Spine1/Neck/Ear_L/EarBig_L1
+=======
+    attribute: m_LocalPosition.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.000000016550018
+        inSlope: -2.12703e-22
+        outSlope: -2.12703e-22
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.4333334
+        value: -0.000000016551141
+        inSlope: -4.135652e-10
+        outSlope: -4.1348336e-10
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6333333
+        value: -0.000000016828386
+        inSlope: -0.0000000019011024
+        outSlope: -0.0000000019011024
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -32369,7 +33832,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Spine/Spine1/Neck/Ear_L
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32377,18 +33840,27 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.023402
-        inSlope: 0
-        outSlope: 0
+        value: 0.17347345
+        inSlope: 1.3877751e-15
+        outSlope: 1.3877751e-15
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9583333
-        value: 0.023402
-        inSlope: 0
-        outSlope: 0
+        time: 0.4333334
+        value: 0.17347345
+        inSlope: 5.947608e-16
+        outSlope: 1.38778e-15
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6333333
+        value: 0.1734734
+        inSlope: -0.00000029802325
+        outSlope: -0.00000029802325
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -32397,7 +33869,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Spine/Spine1/Neck/Ear_L
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32405,18 +33877,27 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.0013240799
-        inSlope: 0
-        outSlope: 0
+        value: 0.000000099292215
+        inSlope: 2.6469709e-21
+        outSlope: 2.6469709e-21
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9583333
-        value: 0.0013240799
-        inSlope: 0
-        outSlope: 0
+        time: 0.4333334
+        value: 0.00000009928395
+        inSlope: -0.0000000030568197
+        outSlope: -0.0000000030596394
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6333333
+        value: 0.00000009445923
+        inSlope: -0.000000043180215
+        outSlope: -0.000000043180215
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -32425,7 +33906,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Spine/Spine1/Neck/Ear_L
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32433,18 +33914,27 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -1.786096e-20
-        inSlope: 0
-        outSlope: 0
+        value: -0.00000017914968
+        inSlope: -0
+        outSlope: -0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9583333
-        value: -1.786096e-20
-        inSlope: 0
-        outSlope: 0
+        time: 0.4333334
+        value: -0.00000017913769
+        inSlope: 0.000000004433515
+        outSlope: 0.000000004434163
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6333333
+        value: -0.00000017184624
+        inSlope: 0.00000006596626
+        outSlope: 0.00000006596626
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -32453,7 +33943,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Spine/Spine1/Neck/Ear_L/EarBig_L1
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32461,18 +33951,27 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.013128362
-        inSlope: 0
-        outSlope: 0
+        value: 0.048782673
+        inSlope: 1.0408313e-15
+        outSlope: 1.0408313e-15
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9583333
-        value: 0.013128362
-        inSlope: 0
-        outSlope: 0
+        time: 0.4333334
+        value: 0.048782673
+        inSlope: 4.460706e-16
+        outSlope: 1.040835e-15
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6333333
+        value: 0.04878268
+        inSlope: 0.000000083819025
+        outSlope: 0.000000083819025
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -32481,7 +33980,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Spine/Spine1/Neck/Ear_L/EarBig_L1
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32509,7 +34009,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarBig_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32537,7 +34041,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarBig_L1/EarBig_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32565,7 +34073,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarBig_L1/EarBig_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32593,7 +34105,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarBig_L1/EarBig_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32621,7 +34137,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarBig_L1/EarBig_L2/EarBig_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32649,7 +34169,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarBig_L1/EarBig_L2/EarBig_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32677,7 +34201,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarBig_L1/EarBig_L2/EarBig_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32705,7 +34233,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32733,7 +34265,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -32761,7 +34297,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36317,7 +37857,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36345,7 +37889,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36373,7 +37921,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36401,7 +37953,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36429,7 +37985,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36457,7 +38017,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36485,7 +38049,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36513,7 +38081,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36541,7 +38113,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36569,7 +38145,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Head
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36597,7 +38177,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Head
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36625,7 +38209,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Head
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36653,7 +38241,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36681,7 +38273,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36709,7 +38305,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36737,7 +38337,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36765,7 +38369,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36793,7 +38401,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36821,7 +38433,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36849,7 +38465,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36877,7 +38497,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36905,7 +38529,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36933,7 +38561,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -36961,7 +38593,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37241,7 +38877,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37269,7 +38909,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37297,7 +38941,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3/WingTip_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37325,7 +38973,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37353,7 +39005,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37381,7 +39037,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37661,7 +39321,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37689,7 +39353,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37717,7 +39385,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37745,7 +39417,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37773,7 +39449,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -37801,7 +39481,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38333,7 +40017,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarBig_R1/EarBig_R2
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38361,7 +40049,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarBig_R1/EarBig_R2
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38389,7 +40081,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarBig_R1/EarBig_R2
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38417,7 +40113,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarBig_R1/EarBig_R2/EarBig_R3
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38445,7 +40145,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarBig_R1/EarBig_R2/EarBig_R3
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38473,7 +40177,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarBig_R1/EarBig_R2/EarBig_R3
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38501,7 +40209,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarMid_R1
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38529,7 +40241,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarMid_R1
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -38557,7 +40273,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarMid_R1
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -42338,6 +44058,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.45833334
         value: 14.43903
@@ -42422,8 +44155,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.x
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -42510,6 +44248,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5416667
         value: -149.76634
@@ -42555,6 +44306,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.875
         value: -149.76634
@@ -42610,6 +44374,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: 31.083902
@@ -42655,6 +44432,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.37500003
         value: 30.23028
@@ -42700,6 +44490,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.75
         value: 33.096054
@@ -42748,8 +44551,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.z
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2
+=======
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -42800,6 +44608,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: -7.551682
@@ -42845,6 +44666,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5833333
         value: -8.730188
@@ -42902,8 +44736,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.x
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -42954,6 +44793,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: -95.72564
@@ -43035,6 +44887,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.9166667
         value: -93.17217
@@ -43126,6 +44991,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.37500003
         value: 6.5948935
@@ -43211,7 +45089,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -43239,7 +45121,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -43267,7 +45153,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -43295,7 +45185,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_R1/Wing_R2/Wing_R3/WingTip_R
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -43319,6 +45213,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: -23.544872
@@ -43337,6 +45244,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.20833333
         value: -16.349918
@@ -43355,6 +45275,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.37500003
         value: -24.456507
@@ -43373,6 +45306,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5416667
         value: -24.45651
@@ -43391,6 +45337,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.7083333
         value: -16.349918
@@ -43409,6 +45368,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.875
         value: -24.456507
@@ -43440,7 +45412,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -43464,6 +45440,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: 2.7045362
@@ -43482,6 +45471,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.20833333
         value: 2.3621461
@@ -43500,6 +45502,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.37500003
         value: 4.0041904
@@ -43585,7 +45600,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -43609,6 +45628,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: 51.81773
@@ -44677,6 +46709,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: -7.8469152
@@ -44695,6 +46740,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.16666667
         value: -26.769144
@@ -44705,10 +46763,36 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
         time: 0.25000003
         value: -27.372643
         inSlope: 65.312325
         outSlope: 65.31236
+=======
+        time: 0.6333333
+        value: 69.99999
+        inSlope: 0.000036139245
+        outSlope: 0.000036139245
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.00000011920929
+        value: 0.0000017075472
+        inSlope: -0.000008088383
+        outSlope: -0.000008088383
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -44722,6 +46806,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.37500003
         value: -2.303134
@@ -44740,6 +46837,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.5416667
         value: -2.3031461
@@ -44758,6 +46868,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.6666667
         value: -27.372643
@@ -44776,6 +46899,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.8333333
         value: -15.540506
@@ -44794,6 +46930,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.9166667
         value: 9.49506
@@ -44816,7 +46965,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Wing_L1/Wing_L2/Wing_L3
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -45615,7 +47768,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -45670,7 +47827,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -45694,6 +47855,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.2916667
         value: 0.7083741
@@ -45724,8 +47898,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.z
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1
+=======
+    attribute: localEulerAngles.x
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -45749,6 +47928,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.25000003
         value: 12.150538
@@ -45776,6 +47968,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.8333333
         value: 21.386833
@@ -45798,7 +48003,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -45831,6 +48040,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.33333334
         value: 2.3072102
@@ -45870,8 +48092,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.y
     path: Spine/Spine1/Neck/Ear_L/EarMid_L1/EarMid_L2
+=======
+    attribute: localEulerAngles.z
+    path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -47877,8 +50104,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.y
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1
+=======
+    attribute: localEulerAngles.x
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -48041,8 +50273,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.x
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1/EarSmall_R2
+=======
+    attribute: localEulerAngles.y
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -48224,7 +50461,11 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     path: Spine/Spine1/Neck/Ear_R/EarSmall_R1/EarSmall_R2
+=======
+    path: Spine/Leg_L/Knee_L/Heel_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -48395,6 +50636,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.x
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.45833334
         value: -5.244198
@@ -48540,6 +50794,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.125
         value: -173.073
@@ -48675,6 +50942,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.875
         value: -167.81339
@@ -48705,8 +50985,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
     attribute: localEulerAngles.y
     path: Spine/Leg_L
+=======
+    attribute: localEulerAngles.x
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -48730,6 +51015,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.y
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.08333333
         value: -171.78941
@@ -48748,6 +51046,19 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD:Dalgo's Descent/Assets/Prefabs/Boss/ThimbleBird_Run.anim
+=======
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAngles.z
+    path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+>>>>>>> Movement:Dalgo's Descent/Assets/Models/Projectiles/Animation/Dalgo Attack 2.anim
       - serializedVersion: 3
         time: 0.20833333
         value: -172.90723
