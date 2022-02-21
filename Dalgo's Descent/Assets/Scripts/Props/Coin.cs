@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 {
     [Header("Linked objects")]
     [SerializeField] Transform m_ModelTransform;
+    [SerializeField] ParticleSystem m_ParticleSystem;
 
     [Header("Variables to adjust")]
     [SerializeField] float m_RotationSpd = 280f;
@@ -15,6 +16,11 @@ public class Coin : MonoBehaviour
 
     //variables to reset la if not what
     protected float m_CurrRadians = 0;
+
+    public GameObject GetModel()
+    {
+        return m_ModelTransform.gameObject;
+    }
 
     private void Update()
     {
@@ -43,14 +49,17 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && m_ModelTransform.gameObject.activeSelf)
         {
             //Pick up coin la if not what bro?
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             playerStats.AddCoin();
 
-            //Delete self from world
-            Destroy(gameObject);
+            m_ModelTransform.gameObject.SetActive(false);
+            m_ParticleSystem.Play();
+
+            //Delete self from world //Dont do this cos we are doing the instantiating style now
+            //Destroy(gameObject);
         }
     }
 }
