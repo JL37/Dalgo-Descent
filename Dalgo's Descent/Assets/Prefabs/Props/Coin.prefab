@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6282389628908025672}
   - component: {fileID: 3164902817295438857}
   - component: {fileID: 2757138128415367794}
+  - component: {fileID: 2495647810724114192}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5400744083052752265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 6588871742122540100}
   m_RootOrder: 1
@@ -42,7 +43,7 @@ ParticleSystem:
   serializedVersion: 7
   lengthInSec: 0.5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -115,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 7.5
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -804,8 +805,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
-      spread: 0.75
+      mode: 3
+      spread: 0
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -918,7 +919,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4862,6 +4863,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2495647810724114192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400744083052752265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f258f5dd8b8c3544cad82ceb8d9cf794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6588871742122540099
 GameObject:
   m_ObjectHideFlags: 0
