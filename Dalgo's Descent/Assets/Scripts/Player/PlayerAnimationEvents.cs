@@ -17,20 +17,20 @@ public class PlayerAnimationEvents : MonoBehaviour
     {
         foreach (Collider c in weaponCollider.collisionEvents)
         {
+            if (c == null) continue;
+
             if (c.gameObject.tag == "AI")
             {
                 AI ai = c.gameObject.GetComponent<AI>();
                 if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
                 {
+                    Debug.Log("Hit");
                     ((AIUnit)ai).EnemyHit(10);
                 }
                 else if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
                 {
                     ((BossAI)ai).Damage(10);
                 }
-
-                if (ai.health.currentHealth <= 0)
-                    weaponCollider.collisionEvents.Remove(c);
             }
         }
     }
