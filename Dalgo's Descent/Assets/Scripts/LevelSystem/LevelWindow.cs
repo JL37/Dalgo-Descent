@@ -13,8 +13,8 @@ public class LevelWindow : MonoBehaviour
 
     private void Awake()
     {
-        m_levelText = transform.Find("level_text").GetComponent<Text>();
-        m_experienceBarImage = transform.Find("lv_bar").Find("lv_fill").GetComponent<Image>();
+/*        m_levelText = transform.Find("level_text").GetComponent<Text>();
+        m_experienceBarImage = transform.Find("lv_bar").Find("lv_fill").GetComponent<Image>();*/
 
     }
 
