@@ -17,10 +17,6 @@ public class GameManager : Singleton<GameManager>
     private LevelSystem m_LevelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
-    public Texture2D cursorTexture;
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
-
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
@@ -41,6 +37,7 @@ public class GameManager : Singleton<GameManager>
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 
+        m_levelSystemAnimated.Update();
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {
             Debug.Log("Attack");
@@ -51,14 +48,6 @@ public class GameManager : Singleton<GameManager>
         {
             m_LevelSystem.AddExperience(60);
 
-        }
-        if(Input.GetMouseButtonDown(0))
-        {
-            OnMouseEnter();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            OnMouseExit();
         }
         if (Input.GetKeyDown(KeyCode.L)) //testing too add health
         {
@@ -71,16 +60,6 @@ public class GameManager : Singleton<GameManager>
             m_InCombat = true;
         else
             m_InCombat = false;
-    }
-
-    void OnMouseEnter()
-    {
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
-    }
-
-    void OnMouseExit()
-    {
-        Cursor.SetCursor(null, Vector2.zero, cursorMode);
     }
 
     public bool GetInCombat() { return m_InCombat; }

@@ -26,8 +26,8 @@ public class MouseCursor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             m_PauseController.CameraToggle(true);
         }
         if (Input.GetKeyUp(KeyCode.LeftAlt))
