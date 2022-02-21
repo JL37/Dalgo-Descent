@@ -7,12 +7,15 @@ public class AIUnit : AI
 {
     private new Rigidbody rigidbody;
     public LayerMask groundLayer;
-
+    public Texture2D[] enemyTextures; 
     protected override void Awake()
     {
         base.Awake();
         aiType = AI_TYPE.AI_TYPE_ENEMY;
         rigidbody = GetComponent<Rigidbody>();
+
+        SkinnedMeshRenderer mr = GetComponentInChildren<SkinnedMeshRenderer>();
+        mr.materials[0].SetTexture("_DiffuseTexture", enemyTextures[Random.Range(0, enemyTextures.Length)]);
     }
 
     private void Start()

@@ -110,6 +110,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  enemyTextures:
+  - {fileID: 2800000, guid: 3664b8829cff6ef47a67a3d4fa5e5ef3, type: 3}
+  - {fileID: 2800000, guid: f400035bdc814564e8f844dd6363dec8, type: 3}
+  - {fileID: 2800000, guid: 613b7e732f3026645aa8d87f2c7c9ae6, type: 3}
 --- !u!136 &3676725544286473720
 CapsuleCollider:
   m_ObjectHideFlags: 0

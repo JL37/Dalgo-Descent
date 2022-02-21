@@ -43,6 +43,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DiffuseTexture:
+        m_Texture: {fileID: 2800000, guid: c42df2b64f4e8664c82aca9897f03f93, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -81,10 +85,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_1c08e7ae5b384a93b4132279fb36725c: 0.2
-    - Vector1_1e61e8e9a590431fa3bccb6621aabf5c: 800
-    - Vector1_29d5ec840670429ab28cc4e252007915: 0.2
-    - Vector1_936905cfb8d64585894ec2501bf56d30: 0.4
-    - Vector1_cf971128cec047a29f1e47661ad467ee: 0.3
+    - Vector1_1e61e8e9a590431fa3bccb6621aabf5c: 0
+    - Vector1_224bc7ad034242479f534340219fa788: 50
+    - Vector1_29d5ec840670429ab28cc4e252007915: 0.35
+    - Vector1_6cb7e9225bfc4c72816c5b3e6c3ee943: 0.05
+    - Vector1_936905cfb8d64585894ec2501bf56d30: 0
+    - Vector1_b2934355fd044eb89f8b64ecd291f953: 1
+    - Vector1_cf971128cec047a29f1e47661ad467ee: 0.228
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -92,6 +99,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _CutoffHeight: 5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -112,8 +120,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_4ec777cfb9ab4c6596ed2d8132634d32: {r: 0, g: 3.137255, b: 23.96863, a: 1}
     - Color_9e111a71bad1406bae154bd696110170: {r: 1, g: 1, b: 1, a: 0}
-    - Color_ac6c395b873e4c0b82f59fec29361afe: {r: 1, g: 1, b: 1, a: 0}
+    - Color_ac6c395b873e4c0b82f59fec29361afe: {r: 0, g: 0, b: 0, a: 0}
     - Color_adc87a0451ed45c1a76c5ea913ac5e49: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
