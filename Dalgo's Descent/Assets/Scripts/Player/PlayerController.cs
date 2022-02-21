@@ -3,30 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Collections;
 using UnityEngine.InputSystem;
+using System.Threading.Tasks;
 public class PlayerController : MonoBehaviour
 {
-    [Header("Modifer")]
+    [Header("Physics")]
     [SerializeField] private Vector3 Gravity = new Vector3 (0,-10.0f,0);
     [SerializeField][Min(1)] private float Mass;
+    [Range(0, 5)] [SerializeField] private float SlowSpeed;
+    [Range(0, 10)] [SerializeField] private float TurnSpeed;
+
+    [Header("Jump Modifier")]
     [Range(5, 20)][SerializeField] private float JumpForce;
+    [Range(0, 3)][SerializeField] private float JumpDelay;
+
+    [Header("Walk/Run Modifier")]
     [Range(0, 10)][SerializeField] private float RunSpeed;
     [Range(0, 10)][SerializeField] private float WalkSpeed;
-    [Range(0, 5)][SerializeField] private float SlowSpeed;
-    [Range(0, 10)][SerializeField] private float TurnSpeed;
-    [Range(0, 1)][SerializeField] private double AttackInputGracePeriod;
-    [Range(0, 2)][SerializeField] private double AttackDuration;
+    private float TargetSpeed;
+    [Header("Attack Modifier")]
+    [Range(0, 1)][SerializeField] private double AttackCoolDown; //Start Recording after this period
+    [Range(0, 1)][SerializeField] private double AttackInputDelay; //Start Recording after this period
+    [SerializeField] private List<AnimationClip> Combos;
+
+    public int CurrentCombo;
+    public int CurrentSlash;
+    public double AttackCDTimer = 0;
+    public double AttackInputTimer = 0;
+    public bool IsAttacking;
+    public bool AttackTriggered;
+    public bool HasAttackInput;
 
     private Vector3 Impact;
-    private double AttackInputTimer = 0;
 
     [Header("Variables")]
     [SerializeField] private LayerMask GroundLayer;
     public CharacterController Controller;
+    public Weapon[] PlayerWeapon; // 0 for weapon in hands, 1 for weapon on back
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
     public List<SlashScript> SlashVFXPrefabs;
-    public int AttackStage;
-
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
     public float Velocity { get; private set; }
@@ -35,8 +50,7 @@ public class PlayerController : MonoBehaviour
     public bool IsJump { get; private set; }
     public bool IsLanding { get; private set; }
     public bool IsGrounded { get; private set; }
-    public bool IsAttack { get; private set; }
-    
+
     //Animator Parameter Hashes
     private int IsWalkingHash;
     private int JumpTriggerHash;
@@ -62,40 +76,99 @@ public class PlayerController : MonoBehaviour
         IsGroundedHash = Animator.StringToHash("IsGrounded");
         VelocityHash = Animator.StringToHash("Velocity");
         IsAttackHash = Animator.StringToHash("IsAttack");
-
         AttackTriggerHash = Animator.StringToHash("AttackTrigger");
     }
 
     void Update()
     {
         IsGrounded = Physics.CheckSphere(gameObject.transform.position, 0.2f, GroundLayer) && !IsJump;
-        //Set to Landing - Going Down + Not Grounded
-        if (Controller.velocity.y < -0.0001f && !IsGrounded) 
+
+        if (Controller.velocity.y < -0.0001f && !IsGrounded)  //Set to Landing - Going Down + Not Grounded
         {
             IsJump = false;
             IsLanding = true;
         }
-        //Set to Grounded
-        else if (IsGrounded)
+        else if (IsGrounded) //Set to Grounded
         {
             IsLanding = false;
             IsGrounded = true;
         }
 
-        if(AttackInputTimer >= AttackDuration)
-            IsAttack = false;
-        else
+        if(AttackCDTimer > 0)
+            AttackCDTimer -= Time.deltaTime;
+
+        if(IsAttacking)
+        {
+            PlayerWeapon[0].GetComponent<WeaponVisibility>().SetVisible(true);
+            PlayerWeapon[1].GetComponent<WeaponVisibility>().SetVisible(false);
             AttackInputTimer += Time.deltaTime;
 
-
+            if (CurrentCombo <= Combos.Count)
+            {
+                if (AttackInputTimer >= AttackInputDelay) // Wait 0.1s after Start of Attack
+                {
+                    if (AttackInputTimer < Combos[CurrentCombo - 1].length)
+                    {
+                        if (HasAttackInput && !AttackTriggered)
+                        {
+                            HasAttackInput = false;
+                            if(CurrentCombo != Combos.Count)
+                            {
+                                AttackTriggered = true;
+                                PlayerAnimator.SetTrigger(AttackTriggerHash);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        AttackInputTimer = 0;
+                        if(AttackTriggered)
+                        {
+                            CurrentCombo++;
+                            AttackTriggered = false;
+                        }
+                        else
+                        {
+                            CurrentCombo = 0;
+                            CurrentSlash = 0;
+                            IsAttacking = false;
+                            AttackCDTimer = AttackCoolDown;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                IsAttacking = false;
+                AttackTriggered = false;
+            }
+        }
+        else
+        {
+            if(HasAttackInput && AttackCDTimer <= 0 && !AttackTriggered)
+            {
+                HasAttackInput = false;
+                IsAttacking = true;
+                CurrentCombo++;
+                //AttackTriggered = true;
+                PlayerAnimator.SetTrigger(AttackTriggerHash);
+            }
+            else
+            {
+                AttackTriggered = false;
+                CurrentCombo = 0;
+                CurrentSlash = 0;
+            }
+            PlayerWeapon[0].GetComponent<WeaponVisibility>().SetVisible(false);
+            PlayerWeapon[1].GetComponent<WeaponVisibility>().SetVisible(true);
+        }
 
         PlayerAnimator.SetBool(IsWalkingHash, IsMoving);
         PlayerAnimator.SetFloat(VelocityHash, Velocity * 0.1f);
         PlayerAnimator.SetBool(IsLandingHash, IsLanding);
         PlayerAnimator.SetBool(IsGroundedHash, IsGrounded);
-        PlayerAnimator.SetBool(IsAttackHash, IsAttack);
+        PlayerAnimator.SetBool(IsAttackHash, IsAttacking);
     }
-
     private void FixedUpdate()
     {
         if (IsMoving)
@@ -108,32 +181,36 @@ public class PlayerController : MonoBehaviour
 
             //Apply Movement Direction based on Camera Direction
             Rotation = Rotation * Quaternion.LookRotation(MoveDirection);
+
+            Velocity = Mathf.MoveTowards(Velocity, TargetSpeed, 30 * Time.fixedDeltaTime);
         }
         else
         {
             Velocity = Mathf.Lerp(Velocity, 0, SlowSpeed * Time.fixedDeltaTime);
         }
 
-        Controller.Move(Impact * Time.deltaTime);
-        // consumes the impact energy each cycle:
-        Impact += Gravity * Mass * Time.fixedDeltaTime;
 
-        Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
+        if (!IsAttacking)
+        {
 
-        var ForwardVelocity = Rotation * Vector3.forward * Velocity;
-        Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
+            Impact += Gravity * Mass * Time.fixedDeltaTime;
+            Impact.x = Mathf.Lerp(Impact.x, 0, SlowSpeed * Time.fixedDeltaTime);
+            Impact.z = Mathf.Lerp(Impact.z, 0, SlowSpeed * Time.fixedDeltaTime);
+            Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
+            var ForwardVelocity = Rotation * Vector3.forward * Velocity;
+            Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
+        }
     }
 
-    public void Slash()
+    public void Slash() // Called by Animation
     {
-        Instantiate(SlashVFXPrefabs[AttackStage], transform);
-        AttackStage++;
-
-        if (AttackStage > 2)
-            AttackStage = 0;
+        Instantiate(SlashVFXPrefabs[CurrentSlash], transform);
+        CurrentSlash++;
     }
+
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -143,7 +220,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsMoving && !IsRunning)
         {
-            Velocity = WalkSpeed;
+            TargetSpeed = WalkSpeed;
         }
     }
 
@@ -162,21 +239,20 @@ public class PlayerController : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
+        TargetSpeed = !context.canceled ? RunSpeed : WalkSpeed;
         if (IsMoving)
         {
             IsRunning = !context.canceled;
-            Velocity = !context.canceled ? RunSpeed : WalkSpeed;
+
+            if (context.started)
+                AddImpact(transform.rotation * Vector3.forward, 10);
         }
     }
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (context.started && AttackInputTimer >= AttackInputGracePeriod) 
-        {
-            AttackInputTimer = 0;
-            PlayerAnimator.SetTrigger(AttackTriggerHash);
-            IsAttack = true;
-        }
+        if (context.started && AttackCDTimer <= 0)
+            HasAttackInput = true;
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -184,11 +260,17 @@ public class PlayerController : MonoBehaviour
         if (context.started && !IsJump && IsGrounded)
         {
             PlayerAnimator.SetTrigger(JumpTriggerHash);
-            AddImpact(new Vector3(0, 1, 0), JumpForce);
+            Jump();
 
             IsJump = true;
             IsGrounded = false;
         }
+    }
+    private async void Jump()
+    {
+        await Task.Delay((int)(JumpDelay * 1000));
+        AddImpact(new Vector3(0, 1, 0), JumpForce);
+
     }
     #endregion
 
@@ -236,5 +318,4 @@ public class PlayerController : MonoBehaviour
 
         return target;
     }
-
 }
