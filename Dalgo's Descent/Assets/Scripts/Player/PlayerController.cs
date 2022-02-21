@@ -26,12 +26,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<AnimationClip> Combos;
 
     public int CurrentCombo;
+    public int CurrentSlash;
     public double AttackCDTimer = 0;
     public double AttackInputTimer = 0;
     public bool IsAttacking;
     public bool AttackTriggered;
     public bool HasAttackInput;
-    public int SlashStage;
 
     private Vector3 Impact;
 
@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
     public List<SlashScript> SlashVFXPrefabs;
-
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
     public float Velocity { get; private set; }
@@ -129,8 +128,8 @@ public class PlayerController : MonoBehaviour
                         }
                         else
                         {
-                            SlashStage = 0;
                             CurrentCombo = 0;
+                            CurrentSlash = 0;
                             IsAttacking = false;
                             AttackCDTimer = AttackCoolDown;
                         }
@@ -157,6 +156,7 @@ public class PlayerController : MonoBehaviour
             {
                 AttackTriggered = false;
                 CurrentCombo = 0;
+                CurrentSlash = 0;
             }
             PlayerWeapon.gameObject.SetActive(false);
         }
@@ -205,14 +205,10 @@ public class PlayerController : MonoBehaviour
 
     public void Slash() // Called by Animation
     {
-        Instantiate(SlashVFXPrefabs[CurrentCombo - 1], transform);
-        SlashStage++;
+        Instantiate(SlashVFXPrefabs[CurrentSlash], transform);
+        CurrentSlash++;
     }
 
-    public void EndAttack()
-    {
-        SlashStage = 0;
-    }
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -241,12 +237,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
+        TargetSpeed = !context.canceled ? RunSpeed : WalkSpeed;
         if (IsMoving)
         {
             IsRunning = !context.canceled;
-            TargetSpeed = !context.canceled ? RunSpeed : WalkSpeed;
 
-            if (context.performed)
+            if (context.started)
                 AddImpact(transform.rotation * Vector3.forward, 10);
         }
     }
@@ -320,5 +316,4 @@ public class PlayerController : MonoBehaviour
 
         return target;
     }
-
 }
