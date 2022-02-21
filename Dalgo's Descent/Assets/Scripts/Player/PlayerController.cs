@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
 
     public void Slash() // Called by Animation
     {
-        Instantiate(SlashVFXPrefabs[SlashStage], transform);
+        Instantiate(SlashVFXPrefabs[CurrentCombo], transform);
         SlashStage++;
     }
 
