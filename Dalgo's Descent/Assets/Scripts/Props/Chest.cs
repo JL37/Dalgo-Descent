@@ -13,8 +13,9 @@ public class Chest : MonoBehaviour
 
     protected GameUI m_GameUI;
 
-    [Header("Prefabs")]
-    [SerializeField] GameObject m_RingPrefab;
+    [Header("Pool manager")]
+    [SerializeField] string m_PoolManagerStr;
+    protected ObjectPoolManager m_ItemPoolManager;
 
     [Header("Variables to adjust")]
     [SerializeField] int m_MaxFontSize = 80;
@@ -37,7 +38,6 @@ public class Chest : MonoBehaviour
     void Start()
     {
         //GetComponent<MeshRenderer>().material.color = Color.yellow;
-
         m_Canvas.gameObject.SetActive(true);
         m_CurrFontSize = 0;
 
@@ -50,6 +50,9 @@ public class Chest : MonoBehaviour
 
         m_GameUI = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>();
         m_PlayerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
+        //Get pool manager
+        m_ItemPoolManager = GameObject.Find(m_PoolManagerStr).GetComponent<ObjectPoolManager>();
     }
 
     public void RemoveSpawnedItem()
@@ -199,7 +202,7 @@ public class Chest : MonoBehaviour
             print("CHEST HAS BEEN OPENED");
 
             //Start Create item
-            GameObject itemObj = Instantiate(m_RingPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject itemObj = m_ItemPoolManager.GetFromPool();
             itemObj.transform.position = transform.position;
             itemObj.GetComponent<ItemPickup>().Initialise(this);
 

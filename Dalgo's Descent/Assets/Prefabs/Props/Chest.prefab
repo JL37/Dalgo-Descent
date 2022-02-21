@@ -114,7 +114,7 @@ MonoBehaviour:
   m_NameText: {fileID: 5690725582811989972}
   m_Canvas: {fileID: 5724665402285688498}
   m_ParticleSystem: {fileID: 8613840575767261943}
-  m_RingPrefab: {fileID: 1831854861363122610, guid: f29f99aa0f416b84d9992ae016c9f169, type: 3}
+  m_PoolManagerStr: ItemPool
   m_MaxFontSize: 72
   m_HeightOffset: 1
 --- !u!135 &460454829852956835

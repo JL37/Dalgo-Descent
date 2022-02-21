@@ -71,8 +71,36 @@ public class ItemPickup : MonoBehaviour
 
     public void Initialise(Chest chest)
     {
+        //Randomise item str8 up
+        m_Item = null;
+        m_Item = new Item();
+        m_Item.InitialiseRandomStats();
+        //For now, give all items same image
+        m_Item.SetCurrTexture(m_Texture);
+
+
+        //Change desc box text
+        if (m_DescBox != null)
+            m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item.GetName(), m_Item.GetInfo());
+
+        m_OriginalPos = gameObject.transform.position;
+
+        if (m_Canvas != null)
+            m_Canvas.gameObject.SetActive(true);
+
+        if (m_DescBox != null)
+            m_DescBox.transform.localScale = new Vector3(0, 0, 0);
+
         m_Chest = chest;
-    }
+
+        //Reset variables
+        m_CurrScaleLerp = 0f;
+        m_YToAdd = 0f;
+
+        m_InRange = true;
+        m_Interacted = false;
+        m_Animating = false;
+}
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -100,7 +128,10 @@ public class ItemPickup : MonoBehaviour
             LerpDescBoxScale(0,0.5f);
 
             if (transform.localScale.x < 0.01f)
-                Destroy(gameObject);
+            {
+                transform.localScale = Vector3.zero;
+                gameObject.SetActive(false);
+            }
         }
     }
 

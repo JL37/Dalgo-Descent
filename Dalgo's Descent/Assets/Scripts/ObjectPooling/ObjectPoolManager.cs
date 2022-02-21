@@ -30,6 +30,7 @@ public class ObjectPoolManager : MonoBehaviour
         for (int i = 0; i < m_InitialSize;++i)
         {
             GameObject obj = Instantiate(prefab, transform);
+            obj.SetActive(false);
             poolArr.Add(obj);
         }
     }
@@ -56,7 +57,10 @@ public class ObjectPoolManager : MonoBehaviour
         for (int i = 0; i < poolArr.Count;++i)
         {
             if (!poolArr[i].activeSelf)
+            {
+                poolArr[i].SetActive(true);
                 return poolArr[i];
+            }
         }
 
         //Create if there's noone free

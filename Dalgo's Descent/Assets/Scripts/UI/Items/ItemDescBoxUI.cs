@@ -32,5 +32,11 @@ public class ItemDescBoxUI : MonoBehaviour
 
         m_HeaderTxt = header;
         m_BodyTxt = body;
+
+        if (m_Header)
+            m_Header.text = m_HeaderTxt;
+
+        if (m_Body)
+            m_Body.text = m_BodyTxt;
     }
 }
