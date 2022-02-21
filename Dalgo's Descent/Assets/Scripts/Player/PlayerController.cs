@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("Walk/Run Modifier")]
     [Range(0, 10)][SerializeField] private float RunSpeed;
     [Range(0, 10)][SerializeField] private float WalkSpeed;
-    
+    private float TargetSpeed;
     [Header("Attack Modifier")]
     [Range(0, 1)][SerializeField] private double AttackCoolDown; //Start Recording after this period
     [Range(0, 1)][SerializeField] private double AttackInputDelay; //Start Recording after this period
@@ -179,24 +179,33 @@ public class PlayerController : MonoBehaviour
 
             //Apply Movement Direction based on Camera Direction
             Rotation = Rotation * Quaternion.LookRotation(MoveDirection);
+
+            Velocity = Mathf.MoveTowards(Velocity, TargetSpeed, 30 * Time.fixedDeltaTime);
         }
         else
         {
             Velocity = Mathf.Lerp(Velocity, 0, SlowSpeed * Time.fixedDeltaTime);
         }
 
-        Impact += Gravity * Mass * Time.fixedDeltaTime;
-        Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
 
-        var ForwardVelocity = Rotation * Vector3.forward * Velocity;
-        Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
+        if (!IsAttacking)
+        {
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
+            Impact += Gravity * Mass * Time.fixedDeltaTime;
+            Impact.x = Mathf.Lerp(Impact.x, 0, SlowSpeed * Time.fixedDeltaTime);
+            Impact.z = Mathf.Lerp(Impact.z, 0, SlowSpeed * Time.fixedDeltaTime);
+            Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
+
+            var ForwardVelocity = Rotation * Vector3.forward * Velocity;
+            Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
+        }
     }
 
     public void Slash() // Called by Animation
     {
-        Instantiate(SlashVFXPrefabs[CurrentCombo], transform);
+        Instantiate(SlashVFXPrefabs[CurrentCombo - 1], transform);
         SlashStage++;
     }
 
@@ -213,7 +222,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsMoving && !IsRunning)
         {
-            Velocity = WalkSpeed;
+            TargetSpeed = WalkSpeed;
         }
     }
 
@@ -235,7 +244,10 @@ public class PlayerController : MonoBehaviour
         if (IsMoving)
         {
             IsRunning = !context.canceled;
-            Velocity = !context.canceled ? RunSpeed : WalkSpeed;
+            TargetSpeed = !context.canceled ? RunSpeed : WalkSpeed;
+
+            if (context.performed)
+                AddImpact(transform.rotation * Vector3.forward, 10);
         }
     }
 
@@ -262,7 +274,6 @@ public class PlayerController : MonoBehaviour
         AddImpact(new Vector3(0, 1, 0), JumpForce);
 
     }
-
     #endregion
 
     void OnEnable()

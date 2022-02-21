@@ -59,8 +59,214 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MainCtrl
+        weight: 0
+      - path: MainCtrl/FootCtrl_L
+        weight: 1
+      - path: MainCtrl/FootCtrl_L/HeelLoc_L
+        weight: 1
+      - path: MainCtrl/FootCtrl_L/HeelLoc_L/ToeLoc_L
+        weight: 1
+      - path: MainCtrl/FootCtrl_L/HeelLoc_L/ToeLoc_L/FootIK_L
+        weight: 1
+      - path: MainCtrl/FootCtrl_L/HeelLoc_L/ToeLoc_L/LegIK_L
+        weight: 1
+      - path: MainCtrl/FootCtrl_L/HeelLoc_L/ToeLoc_L/ToeIK_L
+        weight: 1
+      - path: MainCtrl/FootCtrl_R
+        weight: 1
+      - path: MainCtrl/FootCtrl_R/HeelLoc_R
+        weight: 1
+      - path: MainCtrl/FootCtrl_R/HeelLoc_R/Toe_Loc_R
+        weight: 1
+      - path: MainCtrl/FootCtrl_R/HeelLoc_R/Toe_Loc_R/FootIK_R
+        weight: 1
+      - path: MainCtrl/FootCtrl_R/HeelLoc_R/Toe_Loc_R/LegIK_R
+        weight: 1
+      - path: MainCtrl/FootCtrl_R/HeelLoc_R/Toe_Loc_R/ToeIK_R
+        weight: 1
+      - path: MainCtrl/KneeCtrl_L
+        weight: 1
+      - path: MainCtrl/KneeCtrl_R
+        weight: 1
+      - path: MainCtrl/SpineCtrl
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_L1
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_L1/EarCtrl_L2
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_L1/EarCtrl_L2/EarCtrl_L3
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_L1/EarCtrl_L2/EarCtrl_L3/EarCtrl_L4
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_R1
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_R1/EarCtrl_R2
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_R1/EarCtrl_R2/EarCtrl_R3
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EarCtrl_R1/EarCtrl_R2/EarCtrl_R3/EarCtrl_R4
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/Eyebrows_Ctrl
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EyeCtrl_L
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/NeckCtrl/EyeCtrl_R
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_L
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_L/ElbowCtrl_L
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_L/ElbowCtrl_L/WristCtrl_L
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_L/ElbowCtrl_L/WristCtrl_L/HandCtrl_L
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_R
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_R/ElbowCtrl_R
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_R/ElbowCtrl_R/WristCtrl_R
+        weight: 1
+      - path: MainCtrl/SpineCtrl/SpineCtrl1/SpineCtrl2/SpineCtrl3/ShoulderCtrl_R/ElbowCtrl_R/WristCtrl_R/HandCtrl_R
+        weight: 1
+      - path: MainCtrl/SpineCtrl/TailCtrl
+        weight: 1
+      - path: MainCtrl/SpineCtrl/TailCtrl/TailCtrl1
+        weight: 1
+      - path: MainCtrl/SpineCtrl/TailCtrl/TailCtrl1/TailCtrl2
+        weight: 1
+      - path: MainCtrl/SpineCtrl/TailCtrl/TailCtrl1/TailCtrl2/TailCtrl3
+        weight: 1
+      - path: Model
+        weight: 0
+      - path: Model/Dalgo
+        weight: 1
+      - path: Model/Face
+        weight: 1
+      - path: Model/Face/Eye_L
+        weight: 1
+      - path: Model/Face/Eye_R
+        weight: 1
+      - path: Model/Face/Eyebrow_L
+        weight: 1
+      - path: Model/Face/Eyebrow_R
+        weight: 1
+      - path: Scythe
+        weight: 1
+      - path: Spine
+        weight: 0
+      - path: Spine/Leg_L
+        weight: 1
+      - path: Spine/Leg_L/Knee_L
+        weight: 1
+      - path: Spine/Leg_L/Knee_L/Heel_L
+        weight: 1
+      - path: Spine/Leg_L/Knee_L/Heel_L/Foot_L
+        weight: 1
+      - path: Spine/Leg_L/Knee_L/Heel_L/Foot_L/Toe_L
+        weight: 1
+      - path: Spine/Leg_R
+        weight: 1
+      - path: Spine/Leg_R/Knee_R
+        weight: 1
+      - path: Spine/Leg_R/Knee_R/Heel_R
+        weight: 1
+      - path: Spine/Leg_R/Knee_R/Heel_R/Foot_R
+        weight: 1
+      - path: Spine/Leg_R/Knee_R/Heel_R/Foot_R/Toe_R
+        weight: 1
+      - path: Spine/Spine1
+        weight: 0
+      - path: Spine/Spine1/Spine2
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Ear_L1/Ear_L2/Ear_L3/Ear_L4/Ear_L5
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Eye_L 1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Eye_R 1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_L 1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/Eyebrow_R 1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Head/Head1/R_Ear_01/R_Ear_02/R_Ear_03/R_Ear_04/Ear_R
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Finger_L1/Finger_L2
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_L/Elbow_L/Wrist_L/Thumb_L1/Thumb_L2/Thumb_L3
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Finger_R1/Finger_R2
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2
+        weight: 1
+      - path: Spine/Spine1/Spine2/Neck/Shoulder_R/Elbow_R/Wrist_R/Thumb_R1/Thumb_R2/Thumb_R3
+        weight: 1
+      - path: Spine/Tail1
+        weight: 1
+      - path: Spine/Tail1/Tail2
+        weight: 1
+      - path: Spine/Tail1/Tail2/Tail3
+        weight: 1
+      - path: Spine/Tail1/Tail2/Tail3/Tail4
+        weight: 1
+      - path: Spine/Tail1/Tail2/Tail3/Tail4/Tail5
+        weight: 1
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0
