@@ -43,7 +43,6 @@ public class Health_UI : MonoBehaviour
     {
         Debug.Log("Hello");
         healthBar.fillAmount = playerStats.GetHealthPerc();
-
     }
 
     private void Update()
