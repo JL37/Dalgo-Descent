@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -5723269835074617633}
   - component: {fileID: 8826347839270322612}
   - component: {fileID: 6744575648568604030}
+  - component: {fileID: 6105786301905361840}
   m_Layer: 0
   m_Name: Scythe
   m_TagString: Untagged
@@ -104,3 +105,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6105786301905361840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087228788991972523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffa0611c5c31664bb9fb8536ec20dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visible: 1
+  visiblitySpeed: 1
