@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0.0f && playDeathAnimation)
         {
             m_deathTimer += Time.deltaTime;
-            Debug.Log(m_deathTimer);
+            //Debug.Log(m_deathTimer);
             lerp2 = Mathf.Lerp(lerp2, deathDuration, Time.deltaTime);
         }
 

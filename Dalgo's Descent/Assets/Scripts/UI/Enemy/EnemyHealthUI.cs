@@ -32,6 +32,10 @@ public class EnemyHealthUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Stop when pause
+        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
+            return;
+
         //Updating ui...
         if (m_InWorldSpace)
             m_HealthFolder.transform.LookAt(Camera.main.transform, Camera.main.transform.up);

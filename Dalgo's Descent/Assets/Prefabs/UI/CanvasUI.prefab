@@ -157,10 +157,6 @@ PrefabInstance:
       propertyPath: m_levelWindow
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1716855283324548538, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 9.1
-      objectReference: {fileID: 0}
     - target: {fileID: 2414295374759415457, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -205,26 +201,6 @@ PrefabInstance:
       propertyPath: criticalHealth
       value: 
       objectReference: {fileID: 21300000, guid: a941f844ebbf0e544acaa33cbb132be0, type: 3}
-    - target: {fileID: 7001902010683932644, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7001902010683932644, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7001902010683932644, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7001902010683932644, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7001902010683932644, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -39.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
 --- !u!224 &391110961848077237 stripped
@@ -232,15 +208,26 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1404026794082159704, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
   m_PrefabInstance: {fileID: 1590223352928307181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &94414554381015672 stripped
+--- !u!114 &3311792255859777678 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1684054063933775253, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4315647135186675555, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
   m_PrefabInstance: {fileID: 1590223352928307181}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150514c4dcad3f749b8b02e810baafb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8307064003246058428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7302873787361979473, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
+  m_PrefabInstance: {fileID: 1590223352928307181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314837a0ed23be34e950868c00234ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1035663491852224417 stripped
@@ -276,11 +263,11 @@ PrefabInstance:
     - target: {fileID: 5254464211624626338, guid: dd5c05ef690c3324c9b22e2b79a9b522, type: 3}
       propertyPath: m_healthUI
       value: 
-      objectReference: {fileID: 94414554381015672}
+      objectReference: {fileID: 3311792255859777678}
     - target: {fileID: 5254464211624626338, guid: dd5c05ef690c3324c9b22e2b79a9b522, type: 3}
       propertyPath: levelWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8307064003246058428}
     - target: {fileID: 5254464211624626339, guid: dd5c05ef690c3324c9b22e2b79a9b522, type: 3}
       propertyPath: m_PausePanel
       value: 

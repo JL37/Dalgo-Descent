@@ -38,8 +38,6 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
-        m_levelSystemAnimated.Update();
-
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 

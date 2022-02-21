@@ -1675,6 +1675,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 954478481935445908, guid: f8873f7808e94544dbb1594ace86469f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3615326289966500257, guid: f8873f7808e94544dbb1594ace86469f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1758,6 +1762,22 @@ PrefabInstance:
     - target: {fileID: 3615326289966500257, guid: f8873f7808e94544dbb1594ace86469f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203982549509897561, guid: f8873f7808e94544dbb1594ace86469f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203982549509897561, guid: f8873f7808e94544dbb1594ace86469f, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203982549509897561, guid: f8873f7808e94544dbb1594ace86469f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203982549509897561, guid: f8873f7808e94544dbb1594ace86469f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8873f7808e94544dbb1594ace86469f, type: 3}

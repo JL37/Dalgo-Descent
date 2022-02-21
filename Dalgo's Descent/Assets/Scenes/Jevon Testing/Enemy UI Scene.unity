@@ -362,15 +362,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17470372
+      value: 0.17470373
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008470883
+      value: 0.000000008470883
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000015030095
+      value: -0.0000000015030095
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.w
@@ -854,10 +854,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 111696238}
     - target: {fileID: 1002164032045380634, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
-      propertyPath: m_healthUI
-      value: 
-      objectReference: {fileID: 327971099}
-    - target: {fileID: 1002164032045380634, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 1335389330}
@@ -933,17 +929,6 @@ Transform:
   m_Father: {fileID: 1034682192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -60.0574, y: 90, z: 0}
---- !u!114 &327971099 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 94414554381015672, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
-  m_PrefabInstance: {fileID: 295365502}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150514c4dcad3f749b8b02e810baafb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &362604659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1281,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 229982603349147797, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
+      propertyPath: centerOfRoom
+      value: 
+      objectReference: {fileID: 568088169}
+    - target: {fileID: 229982603349147797, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
       propertyPath: m_constraint
       value: 
       objectReference: {fileID: 688589826}
@@ -1322,7 +1311,7 @@ PrefabInstance:
     - target: {fileID: 229982603349147797, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
       propertyPath: projectileThrownHolder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 568088169}
     - target: {fileID: 229982603349147797, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
       propertyPath: woodPrefabs.Array.size
       value: 3
