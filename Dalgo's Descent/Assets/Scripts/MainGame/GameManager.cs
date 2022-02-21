@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>
     public PlayerStats playerStats;
 
     [SerializeField] DynamicCamera m_Camera;
-    protected PauseController m_PauseController;
+
 
     protected List<GameObject> m_EnemyArr;
     protected bool m_InCombat = false;
@@ -17,18 +17,15 @@ public class GameManager : Singleton<GameManager>
     private LevelSystem m_LevelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
+
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         m_healthUI.Setup(playerStats);
-
-        m_PauseController = GetComponent<PauseController>();
-        m_EnemyArr = new List<GameObject>();
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-       
+        m_EnemyArr = new List<GameObject>();       
     }
 
     void Awake()
@@ -46,20 +43,6 @@ public class GameManager : Singleton<GameManager>
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-
-            m_PauseController.CameraToggle(true);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
-            m_PauseController.CameraToggle(false);
-        }
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {
             Debug.Log("Attack");
@@ -70,6 +53,14 @@ public class GameManager : Singleton<GameManager>
         {
             m_LevelSystem.AddExperience(60);
 
+        }
+        if(Input.GetMouseButtonDown(0))
+        {
+            OnMouseEnter();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnMouseExit();
         }
         if (Input.GetKeyDown(KeyCode.L)) //testing too add health
         {
@@ -82,6 +73,16 @@ public class GameManager : Singleton<GameManager>
             m_InCombat = true;
         else
             m_InCombat = false;
+    }
+
+    void OnMouseEnter()
+    {
+        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+    }
+
+    void OnMouseExit()
+    {
+        Cursor.SetCursor(null, Vector2.zero, cursorMode);
     }
 
     public bool GetInCombat() { return m_InCombat; }
