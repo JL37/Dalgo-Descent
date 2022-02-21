@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 6061ab73c1515b948a2fd607584bfa5f
+guid: deeb21c37ea9c804f96d0ab6121e58a6
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Dalgo Run
+    second: Dalgo Jump
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Dalgo Run
+      name: Dalgo Jump
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 43
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
