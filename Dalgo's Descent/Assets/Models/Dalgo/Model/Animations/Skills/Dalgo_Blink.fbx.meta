@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b0ad4c24fc953b647861662262831e06
+guid: d43048ffb3bf5034e8ae87af494e30be
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Dalgo Attack 2
+    second: Dalgo Blink
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Dalgo Attack 2
+      name: Dalgo Blink
       takeName: Take 001
       internalID: 0
-      firstFrame: 31
-      lastFrame: 50
+      firstFrame: 1
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
