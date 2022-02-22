@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         InputScript = GetComponent<PlayerInput>();
+        InputScript.camera = Camera.main;
         PlayerAnimator = GetComponent<Animator>();
         Controller = GetComponent<CharacterController>();
         GameStateManager.Get_Instance.OnGameStateChanged += OnGameStateChanged;
