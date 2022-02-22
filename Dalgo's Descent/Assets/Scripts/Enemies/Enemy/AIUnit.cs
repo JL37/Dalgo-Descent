@@ -7,16 +7,21 @@ public class AIUnit : AI
 {
     private new Rigidbody rigidbody;
     public LayerMask groundLayer;
-    public Texture2D[] enemyTextures; 
+    public Texture2D[] enemyTextures;
+    SkinnedMeshRenderer[] mr;
     protected override void Awake()
     {
         base.Awake();
         aiType = AI_TYPE.AI_TYPE_ENEMY;
         rigidbody = GetComponent<Rigidbody>();
 
-        SkinnedMeshRenderer[] mr = GetComponentsInChildren<SkinnedMeshRenderer>();
-        mr[0].materials[0].SetTexture("_DiffuseTexture", enemyTextures[Random.Range(0, enemyTextures.Length)]);
-        mr[1].materials[0].SetTexture("_DiffuseTexture", enemyTextures[Random.Range(0, enemyTextures.Length)]);
+        mr = GetComponentsInChildren<SkinnedMeshRenderer>();
+        int randomSkin = Random.Range(0, enemyTextures.Length);
+        foreach (SkinnedMeshRenderer smr in mr)
+        {
+            smr.materials[0].SetFloat("_CutoffHeight", -1);
+            smr.materials[0].SetTexture("_DiffuseTexture", enemyTextures[randomSkin]);
+        }
     }
 
     private void Start()
@@ -28,6 +33,11 @@ public class AIUnit : AI
     {
         //Debug.Log(IsAggro());
         base.Update();
+        foreach (SkinnedMeshRenderer smr in mr)
+        {
+            smr.materials[0].SetFloat("_CutoffHeight", smr.materials[0].GetFloat("_CutoffHeight") + Time.deltaTime * 2f);
+            smr.materials[0].SetFloat("_CutoffHeight", Mathf.Clamp(smr.materials[0].GetFloat("_CutoffHeight"), -1f, 1.4f));
+        }
 
         if (Input.GetKeyDown(KeyCode.P))
         {

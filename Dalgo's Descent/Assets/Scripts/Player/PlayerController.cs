@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     public Weapon[] PlayerWeapon; // 0 for weapon in hands, 1 for weapon on back
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
-    public List<SlashScript> SlashVFXPrefabs;
+    public List<GameObject> SlashVFXPrefabs;
     public Vector3 MoveDirection { get; private set; }
     public Quaternion Rotation { get; private set; }
     public float Velocity { get; private set; }
@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         InputScript = GetComponent<PlayerInput>();
+        InputScript.camera = Camera.main;
         PlayerAnimator = GetComponent<Animator>();
         Controller = GetComponent<CharacterController>();
         GameStateManager.Get_Instance.OnGameStateChanged += OnGameStateChanged;
