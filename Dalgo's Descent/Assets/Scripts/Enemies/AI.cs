@@ -41,6 +41,8 @@ public class AI : MonoBehaviour
         m_Agent = GetComponent<NavMeshAgent>();
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
         m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+
     }
 
     // Update is called once per frame

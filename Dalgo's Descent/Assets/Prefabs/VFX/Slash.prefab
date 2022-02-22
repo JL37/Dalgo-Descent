@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 507048411608423275}
   m_Layer: 0
   m_Name: SlashHitBox
-  m_TagString: Untagged
+  m_TagString: Slash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnHitDelay: 0.3499999940395355
-  HitDuration: 0.4000000059604645
+  HitDuration: 0.3700000047683716
   SlashCollider: {fileID: 507048411608423275}
   SlashParticle: {fileID: 527750048378405808}
 --- !u!199 &8203584011735622373

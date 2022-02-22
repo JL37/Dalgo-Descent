@@ -25,9 +25,6 @@ public class SlashVFXScript : MonoBehaviour
             SlashCollider.enabled = false;
     }
 
-
-
-
     private void OnParticleSystemStopped()
     {
         Destroy(transform.parent.gameObject);
