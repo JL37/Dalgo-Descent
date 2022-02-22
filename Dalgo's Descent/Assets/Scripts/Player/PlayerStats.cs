@@ -27,15 +27,37 @@ public class PlayerStats : MonoBehaviour
 
     public event EventHandler onHealthChanged;
 
+    //Event handler for player icon
     public event EventHandler onHealthy;
     public event EventHandler onHalfHealth;
     public event EventHandler onCriticalHealth;
     public event EventHandler onDead;
 
+    //Player skill
+    private PlayerSkills m_playerskills;
+
+    private void Awake()
+    {
+        m_playerskills = new PlayerSkills(); //create a new instance of playerskill
+        m_playerskills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
+    }
+
+    private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
+    {
+        switch(e.skilltype)
+        {
+            case PlayerSkills.SkillType.Health_Upgrade:
+                SetMaxHealth(10);
+                m_playerskills.RemoveSkill(e.skilltype);
+                break;
+        }
+    }
+
     private void Start()
     {
         m_ItemArr = new List<ItemUI>();
         m_ChestArr = new List<Chest>();
+
     }
 
     public void Received_Damage(int damageAmount)
@@ -72,6 +94,12 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public void SetMaxHealth(int amount)
+    {
+        m_Health.maxHealth += amount;
+        Debug.Log("Max health now is : " + m_Health.maxHealth);
+    }
+
 
     public void UpdatePlayerIcon()
     {
@@ -101,6 +129,31 @@ public class PlayerStats : MonoBehaviour
             if (onDead != null)
                 onDead(this, EventArgs.Empty);
         }
+    }
+
+    public bool CanUseSkill1()
+    {
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_1);
+    }
+
+    public bool CanUseSkill2()
+    {
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_2);
+    }
+
+    public bool CanUseSkill3()
+    {
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_3);
+    }
+
+    public bool CanUseSkill4()
+    {
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_4);
+    }
+
+    public PlayerSkills GetPlayerSkills()
+    {
+        return m_playerskills;
     }
 
 
