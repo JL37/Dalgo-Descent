@@ -9,6 +9,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] TMP_Text m_ErrorText;
     [SerializeField] GameObject m_ItemPanel;
     [SerializeField] GameObject m_TempPanel;
+    [SerializeField] EnemyHealthUI m_BossHealth;
 
     [Header("Timers")]
     protected float m_CurrErrorTimer = 0f;
@@ -45,6 +46,18 @@ public class GameUI : MonoBehaviour
                 m_ErrorText.color = new Color(1, 1, 1, 1);
             }
         }
+    }
+
+    public void EnableBossUI(Health bossHealth)
+    {
+        m_BossHealth.gameObject.SetActive(true);
+        m_BossHealth.SetHealth(bossHealth);
+        m_BossHealth.StartFadeAnimation(false);
+    }
+
+    public void DisableBossUI()
+    {
+        m_BossHealth.StartFadeAnimation(true);
     }
 
     public Vector2 GetItemPanelLocalPos()

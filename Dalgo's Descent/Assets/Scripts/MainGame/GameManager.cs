@@ -7,9 +7,11 @@ public class GameManager : Singleton<GameManager>
     public Health_UI m_healthUI;
     public PlayerStats playerStats;
 
+    [Header("Objects")]
     [SerializeField] DynamicCamera m_Camera;
+    [SerializeField] GameUI m_VisibleCanvas;
 
-
+    [Header("Enemy")]
     [SerializeField] GameObject m_EnemyPrefab;
     [SerializeField] Transform m_Enemies;
     protected List<GameObject> m_EnemyArr;
@@ -66,6 +68,16 @@ public class GameManager : Singleton<GameManager>
             m_InCombat = true;
         else
             m_InCombat = false;
+    }
+
+    public void EnableBossHealthUI(Health health)
+    {
+        m_VisibleCanvas.EnableBossUI(health);
+    }
+
+    public void DisableBossHealthUI()
+    {
+        m_VisibleCanvas.DisableBossUI();
     }
 
     public bool GetInCombat() { return m_InCombat; }

@@ -16,7 +16,7 @@ public class AI : MonoBehaviour
     }
 
     public AI_TYPE aiType;
-    public EnemyHealthUI m_EnemyHealthUI;
+    //public EnemyHealthUI m_EnemyHealthUI;
 
     protected GameManager m_GameManager;
 
@@ -53,19 +53,17 @@ public class AI : MonoBehaviour
             AddAggroToGameManager();
     }
 
-    protected void AddAggroToGameManager()
+    protected virtual void AddAggroToGameManager()
     {
         //Add to the gamemanager to say got enemy here
         aggroActivated = true;
         m_GameManager.AddToEnemyArray(gameObject);
-
-        m_EnemyHealthUI.StartFadeAnimation(false);
     }
 
-    protected void RemoveFromGameManager()
+    protected virtual void RemoveFromGameManager()
     {
         m_GameManager.RemoveFromEnemyArray(gameObject);
-        m_EnemyHealthUI.StartFadeAnimation(true);
+        //m_EnemyHealthUI.StartFadeAnimation(true);
     }
 
     public virtual bool IsAggro()

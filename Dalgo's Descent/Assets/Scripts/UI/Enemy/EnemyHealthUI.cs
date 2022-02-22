@@ -25,13 +25,20 @@ public class EnemyHealthUI : MonoBehaviour
     void Start()
     {
         m_CurrBufferTimer = m_MaxBufferTimer;
-        GetComponent<Canvas>().worldCamera = Camera.main;
+        //GetComponent<Canvas>().worldCamera = Camera.main;
         m_Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Disable if enemy is gone/ dead
+        if (!m_Health)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         //Stop when pause
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
@@ -43,6 +50,11 @@ public class EnemyHealthUI : MonoBehaviour
         //Updating bars...
         UpdateHealthBar();
         UpdateBufferBar();
+    }
+
+    public void SetHealth(Health health)
+    {
+        m_Health = health;
     }
 
     protected void UpdateBufferBar()
@@ -91,6 +103,7 @@ public class EnemyHealthUI : MonoBehaviour
             }
 
             //Set to false after successfully fading out
+            m_Health = null;
             gameObject.SetActive(false);
         } 
         else

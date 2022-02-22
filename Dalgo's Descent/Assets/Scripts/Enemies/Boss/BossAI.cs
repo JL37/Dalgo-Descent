@@ -93,6 +93,18 @@ public class BossAI : AI
         m_rigActive = active;
     }
 
+    protected override void AddAggroToGameManager()
+    {
+        base.AddAggroToGameManager();
+        m_GameManager.EnableBossHealthUI(GetComponent<Health>());
+    }
+
+    protected override void RemoveFromGameManager()
+    {
+        base.RemoveFromGameManager();
+        m_GameManager.DisableBossHealthUI();
+    }
+
     public override bool IsAggro()
     {
         return !animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Spawn");
