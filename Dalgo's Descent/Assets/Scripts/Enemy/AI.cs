@@ -85,6 +85,7 @@ public class AI : MonoBehaviour
     {
         if (m_inAttackRange)
         {
+            playerRef.GetComponent<PlayerStats>().Received_Damage(10);
             Debug.Log("Player Hit");
         }
     }
@@ -94,6 +95,20 @@ public class AI : MonoBehaviour
         health.DieAnimation();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Slash"))
+        {
+            if (aiType == AI_TYPE.AI_TYPE_ENEMY)
+            {
+                ((AIUnit)this).EnemyHit(playerRef.GetComponent<PlayerStats>().BasicAtk);
+            }
+            if (aiType == AI_TYPE.AI_TYPE_BOSS)
+            {
+                ((BossAI)this).Damage(playerRef.GetComponent<PlayerStats>().BasicAtk);
+            }
+        }
+    }
 
     public Animator animator { get { return m_Animator; } }
     public Health health { get { return m_Health; } }

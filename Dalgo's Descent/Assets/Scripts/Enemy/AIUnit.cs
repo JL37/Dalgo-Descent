@@ -24,7 +24,7 @@ public class AIUnit : AI
         
     }
 
-    public void Update()
+    protected override void Update()
     {
         //Debug.Log(IsAggro());
         base.Update();
