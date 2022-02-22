@@ -694,6 +694,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &524150981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4370292908945612870, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+  m_PrefabInstance: {fileID: 1929034101807002516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc2bc17b7906a443b80ada018ed659f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581308813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,6 +2058,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 197103870}
+    - target: {fileID: 1704681914332765364, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 524150981}
+    - target: {fileID: 1704681914332765364, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAttackManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1821134458895564582, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2131,6 +2150,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4370292908945612870, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: SlashVFXPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370292908945612870, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: SlashVFXPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6721626657244074687, guid: c1980d213a616f947b19fffe1f428570, type: 3}
+    - target: {fileID: 4370292908945612870, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: SlashVFXPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 562516265818062796, guid: cddfab3158fe7df45bf4fb6f6314f77a, type: 3}
+    - target: {fileID: 4370292908945612870, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: SlashVFXPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7131839695108628179, guid: 48977c978bbf50a489bab9ce0c871123, type: 3}
     - target: {fileID: 4587254079288709571, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2270,15 +2305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17470369
+      value: 0.1747037
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000014671999
+      value: 2.7318508e-17
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701381566797, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000002603288
+      value: 8.8291485e-17
       objectReference: {fileID: 0}
     - target: {fileID: 5196599701439414840, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
       propertyPath: m_LocalPosition.x

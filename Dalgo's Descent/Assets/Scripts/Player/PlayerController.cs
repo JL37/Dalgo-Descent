@@ -108,7 +108,6 @@ public class PlayerController : MonoBehaviour
         PlayerAnimator.SetFloat(VelocityHash, Velocity * 0.1f);
         PlayerAnimator.SetBool(IsLandingHash, IsLanding);
         PlayerAnimator.SetBool(IsGroundedHash, IsGrounded);
-        PlayerAnimator.SetBool(IsAttackHash, IsAttacking);
     }
     private void FixedUpdate()
     {
@@ -130,26 +129,15 @@ public class PlayerController : MonoBehaviour
             Velocity = Mathf.Lerp(Velocity, 0, SlowSpeed * Time.fixedDeltaTime);
         }
 
+        Impact += Gravity * Mass * Time.fixedDeltaTime;
+        Impact.x = Mathf.Lerp(Impact.x, 0, SlowSpeed * Time.fixedDeltaTime);
+        Impact.z = Mathf.Lerp(Impact.z, 0, SlowSpeed * Time.fixedDeltaTime);
+        Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
 
-        if (!IsAttacking)
-        {
+        var ForwardVelocity = Rotation * Vector3.forward * Velocity;
+        Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
 
-            Impact += Gravity * Mass * Time.fixedDeltaTime;
-            Impact.x = Mathf.Lerp(Impact.x, 0, SlowSpeed * Time.fixedDeltaTime);
-            Impact.z = Mathf.Lerp(Impact.z, 0, SlowSpeed * Time.fixedDeltaTime);
-            Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
-
-            var ForwardVelocity = Rotation * Vector3.forward * Velocity;
-            Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
-        }
-    }
-
-    public void Slash() // Called by Animation
-    {
-        Instantiate(SlashVFXPrefabs[CurrentSlash], transform);
-        CurrentSlash++;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
     }
 
     #region InputAction
@@ -188,12 +176,6 @@ public class PlayerController : MonoBehaviour
             if (context.started)
                 AddImpact(transform.rotation * Vector3.forward, 10);
         }
-    }
-
-    public void Attack(InputAction.CallbackContext context)
-    {
-        if (context.started && AttackCDTimer <= 0)
-            HasAttackInput = true;
     }
 
     public void OnJump(InputAction.CallbackContext context)
