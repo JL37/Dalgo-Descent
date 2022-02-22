@@ -118,7 +118,7 @@ MonoBehaviour:
   m_ChestAnimation: {fileID: 1941261986565593167}
   m_PoolManagerStr: ItemPool
   m_MaxFontSize: 72
-  m_HeightOffset: 1
+  m_HeightOffset: 1.25
 --- !u!135 &460454829852956835
 SphereCollider:
   m_ObjectHideFlags: 0
