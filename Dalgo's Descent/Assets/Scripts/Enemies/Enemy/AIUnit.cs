@@ -53,14 +53,14 @@ public class AIUnit : AI
         if (!aggroActivated)
             AddAggroToGameManager();
 
-        m_Health.TakeDamage(amount);
-        if (m_Health.currentHealth <= 0)
+        enemyStats.health.TakeDamage(amount);
+        if (enemyStats.health.currentHealth <= 0)
             RemoveFromGameManager();
     }
 
     public void EnemyHit(float damage) 
     {
-        if (m_Health.currentHealth <= 0.0f)
+        if (enemyStats.health.currentHealth <= 0.0f)
             return;
 
         animator.SetTrigger("Hit");
@@ -72,7 +72,7 @@ public class AIUnit : AI
 
     public void EnemyKnockup(float damage)
     {
-        if (animator.GetBool("IsAirborne") || m_Health.currentHealth <= 0)
+        if (animator.GetBool("IsAirborne") || enemyStats.health.currentHealth <= 0)
             return;
 
         Damage(damage);
