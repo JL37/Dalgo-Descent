@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class SkillManager : MonoBehaviour
+public class SkillSet : MonoBehaviour
 {
     public PlayerInput InputScript;
     public List<Image> skill = new List<Image>();

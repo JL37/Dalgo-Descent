@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>
     public PlayerStats playerStats;
 
     [SerializeField] DynamicCamera m_Camera;
-    protected PauseController m_PauseController;
+
 
     [SerializeField] GameObject m_EnemyPrefab;
     [SerializeField] Transform m_Enemies;
@@ -23,14 +23,7 @@ public class GameManager : Singleton<GameManager>
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         m_healthUI.Setup(playerStats);
-
-        m_PauseController = GetComponent<PauseController>();
-        m_EnemyArr = new List<GameObject>();
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-       
+        m_EnemyArr = new List<GameObject>();       
     }
 
     void Awake()
@@ -47,21 +40,6 @@ public class GameManager : Singleton<GameManager>
             return;
 
         m_levelSystemAnimated.Update();
-
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-
-            m_PauseController.CameraToggle(true);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
-            m_PauseController.CameraToggle(false);
-        }
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {
             Debug.Log("Attack");
