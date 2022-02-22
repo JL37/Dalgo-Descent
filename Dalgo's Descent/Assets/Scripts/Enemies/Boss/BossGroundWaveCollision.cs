@@ -25,6 +25,7 @@ public class BossGroundWaveCollision : MonoBehaviour
             {
                 Vector3 direction = (other.transform.position - part.transform.position).normalized;
                 other.gameObject.GetComponent<PlayerController>().AddImpact(new Vector3(direction.x, direction.y, direction.z).normalized, 40f);
+                other.gameObject.GetComponent<PlayerStats>().Received_Damage(10);
                 Debug.Log("Player Hit");
             }
             i++;

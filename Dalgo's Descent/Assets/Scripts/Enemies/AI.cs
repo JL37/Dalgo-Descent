@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(EnemyStats))]
 [DefaultExecutionOrder(1)]
 public class AI : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class AI : MonoBehaviour
 
     protected GameManager m_GameManager;
 
+    protected EnemyStats m_EnemyStats;
     protected Animator m_Animator;
-    protected Health m_Health;
     protected NavMeshAgent m_Agent;
     protected Vector3 m_TargetPosition;
     protected GameObject m_PlayerRef;
@@ -35,7 +36,7 @@ public class AI : MonoBehaviour
     protected virtual void Awake()
     {
         aiType = AI_TYPE.AI_TYPE_NONE;
-        m_Health = GetComponent<Health>();
+        m_EnemyStats = GetComponent<EnemyStats>();
         m_Animator = GetComponentInChildren<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
@@ -85,18 +86,33 @@ public class AI : MonoBehaviour
     {
         if (m_inAttackRange)
         {
+            playerRef.GetComponent<PlayerStats>().Received_Damage(enemyStats.FinalDamage());
             Debug.Log("Player Hit");
         }
     }
 
     public void Die()
     {
-        health.DieAnimation();
+        m_EnemyStats.health.DieAnimation();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Slash"))
+        {
+            if (aiType == AI_TYPE.AI_TYPE_ENEMY)
+            {
+                ((AIUnit)this).EnemyHit(playerRef.GetComponent<PlayerStats>().BasicAtk);
+            }
+            if (aiType == AI_TYPE.AI_TYPE_BOSS)
+            {
+                ((BossAI)this).Damage(playerRef.GetComponent<PlayerStats>().BasicAtk);
+            }
+        }
+    }
 
+    public EnemyStats enemyStats { get { return m_EnemyStats; } }
     public Animator animator { get { return m_Animator; } }
-    public Health health { get { return m_Health; } }
     public NavMeshAgent agent { get { return m_Agent; } }
     public Vector3 targetPosition { 
         get { return m_TargetPosition; } 
