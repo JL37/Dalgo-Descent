@@ -130,7 +130,11 @@ public class ItemPickup : MonoBehaviour
             if (transform.localScale.x < 0.01f)
             {
                 transform.localScale = Vector3.zero;
-                gameObject.SetActive(false);
+
+                if (transform.parent.GetComponent<ObjectPoolManager>() == null)
+                    Destroy(gameObject);
+                else
+                    gameObject.SetActive(false);
             }
         }
     }
@@ -253,5 +257,6 @@ public class ItemPickup : MonoBehaviour
 
         //Remove reference from chest
         m_Chest.RemoveSpawnedItem();
+        m_Chest.GetParticleSystem().Stop();
     }
 }

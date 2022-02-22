@@ -59,7 +59,8 @@ public class Coin : MonoBehaviour
             m_ParticleSystem.Play();
 
             //Delete self from world //Dont do this cos we are doing the instantiating style now
-            //Destroy(gameObject);
+            if (transform.parent.GetComponent<ObjectPoolManager>() == null)
+                Destroy(gameObject);
         }
     }
 }

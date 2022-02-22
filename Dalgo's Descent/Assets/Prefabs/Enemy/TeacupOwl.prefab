@@ -2404,6 +2404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1143430327469766875, guid: 27171e7f121210247a56a71f2a3d6e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2710792871799666519, guid: 27171e7f121210247a56a71f2a3d6e1a, type: 3}
       propertyPath: m_Health
       value: 
