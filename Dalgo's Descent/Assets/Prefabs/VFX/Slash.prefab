@@ -121,6 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b85c63ded5bce459bd46ed1cb01c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitDelay: 0.3499999940395355
+  HitDuration: 0.4000000059604645
+  SlashCollider: {fileID: 507048411608423275}
+  SlashParticle: {fileID: 527750048378405808}
 --- !u!199 &8203584011735622373
 ParticleSystemRenderer:
   serializedVersion: 6
