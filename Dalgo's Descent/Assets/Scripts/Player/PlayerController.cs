@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private LayerMask GroundLayer;
     public CharacterController Controller;
-    public Weapon PlayerWeapon;
+    public Weapon[] PlayerWeapon; // 0 for weapon in hands, 1 for weapon on back
     public Animator PlayerAnimator;
     public PlayerInput InputScript;
     public List<SlashScript> SlashVFXPrefabs;
@@ -99,7 +99,8 @@ public class PlayerController : MonoBehaviour
 
         if(IsAttacking)
         {
-            PlayerWeapon.gameObject.SetActive(true);
+            PlayerWeapon[0].GetComponent<WeaponVisibility>().SetVisible(true);
+            PlayerWeapon[1].GetComponent<WeaponVisibility>().SetVisible(false);
             AttackInputTimer += Time.deltaTime;
 
             if (CurrentCombo <= Combos.Count)
@@ -158,7 +159,8 @@ public class PlayerController : MonoBehaviour
                 CurrentCombo = 0;
                 CurrentSlash = 0;
             }
-            PlayerWeapon.gameObject.SetActive(false);
+            PlayerWeapon[0].GetComponent<WeaponVisibility>().SetVisible(false);
+            PlayerWeapon[1].GetComponent<WeaponVisibility>().SetVisible(true);
         }
 
         PlayerAnimator.SetBool(IsWalkingHash, IsMoving);

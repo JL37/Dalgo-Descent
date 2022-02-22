@@ -10,8 +10,11 @@ public class WeaponVisibility : MonoBehaviour
 
     void Awake()
     {
-        visible = true;
         m_Renderer = GetComponent<MeshRenderer>();
+        foreach (Material m in m_Renderer.materials)
+        {
+            m.SetFloat("_CutoffHeight", visible ? 1.8f : -1f);
+        }
     }
 
     void Update()
@@ -19,9 +22,13 @@ public class WeaponVisibility : MonoBehaviour
         foreach (Material m in m_Renderer.materials) {
             float currentCutoff = m.GetFloat("_CutoffHeight");
             float newCutoff = visible ? currentCutoff + Time.deltaTime * visiblitySpeed : currentCutoff - Time.deltaTime * visiblitySpeed;
-            Debug.Log(newCutoff);
-            newCutoff = Mathf.Clamp(newCutoff, -1f, 1.2f);
+            newCutoff = Mathf.Clamp(newCutoff, -1f, 1.8f);
             m.SetFloat("_CutoffHeight", newCutoff);
         }
+    }
+
+    public void SetVisible(bool visibility)
+    {
+        visible = visibility;
     }
 }
