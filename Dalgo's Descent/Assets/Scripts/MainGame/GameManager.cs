@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Objects")]
     [SerializeField] DynamicCamera m_Camera;
     [SerializeField] GameUI m_VisibleCanvas;
+    [SerializeField] ObjectPoolManager m_WorldCanvasPool;
 
     [Header("Enemy")]
     [SerializeField] GameObject m_EnemyPrefab;
@@ -78,6 +79,16 @@ public class GameManager : Singleton<GameManager>
     public void DisableBossHealthUI()
     {
         m_VisibleCanvas.DisableBossUI();
+    }
+
+    public EnemyHealthUI ActivateEnemyHealthUI(Health health)
+    {
+        EnemyHealthUI enemyHealth = m_WorldCanvasPool.GetFromPool().GetComponent<EnemyHealthUI>();
+        enemyHealth.SetHealth(health);
+        enemyHealth.StartFadeAnimation(false);
+        enemyHealth.SetTarget(health.gameObject);
+
+        return enemyHealth;
     }
 
     public bool GetInCombat() { return m_InCombat; }
