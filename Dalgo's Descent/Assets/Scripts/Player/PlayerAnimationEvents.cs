@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAnimationEvents : MonoBehaviour
 {
     private PlayerController m_playerController;
-    public WeaponCollider weaponCollider;
+    public Weapon weapon;
 
     private void Start()
     {
@@ -15,23 +15,23 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void PlayerAttack()
     {
-        foreach (Collider c in weaponCollider.collisionEvents)
-        {
-            if (c == null) continue;
+        //foreach (Collider c in weapon.collisionEvents)
+        //{
+        //    if (c == null) continue;
 
-            if (c.gameObject.tag == "AI")
-            {
-                AI ai = c.gameObject.GetComponent<AI>();
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
-                {
-                    Debug.Log("Hit");
-                    ((AIUnit)ai).EnemyHit(10);
-                }
-                else if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
-                {
-                    ((BossAI)ai).Damage(10);
-                }
-            }
-        }
+        //    if (c.gameObject.tag == "AI")
+        //    {
+        //        AI ai = c.gameObject.GetComponent<AI>();
+        //        if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
+        //        {
+        //            Debug.Log("Hit");
+        //            ((AIUnit)ai).EnemyHit(GetComponent<PlayerStats>().BasicAtk);
+        //        }
+        //        else if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
+        //        {
+        //            ((BossAI)ai).Damage(GetComponent<PlayerStats>().BasicAtk);
+        //        }
+        //    }
+        //}
     }
 }
