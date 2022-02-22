@@ -1867,6 +1867,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &1932654718 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5333321146213063752, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+  m_PrefabInstance: {fileID: 1929034101807002516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011114455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +1983,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 36f8dc5dbc3dbfe44a529672d3faaa5c, type: 2}
+    - target: {fileID: 593059752815348491, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: PlayerAnimator
+      value: 
+      objectReference: {fileID: 1932654718}
+    - target: {fileID: 593059752815348491, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: Skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e30f8cddc1e766246a741d315995e455, type: 2}
     - target: {fileID: 873890699682914784, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1989,6 +2002,10 @@ PrefabInstance:
     - target: {fileID: 1704681914332765320, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704681914332765323, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: IdleInterval
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1704681914332765323, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: PlayerWeapon

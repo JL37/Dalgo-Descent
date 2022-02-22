@@ -60,9 +60,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skills",
+                    "name": "Cleave",
                     "type": "Button",
-                    "id": "42a60fcd-9427-4b0b-9ba9-a3c6dfba939e",
+                    "id": "258f407c-7c4e-42f8-b36b-bd415678a465",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShovelCut",
+                    "type": "Button",
+                    "id": "b593c1b4-ad8b-43a6-a10b-8b359565dd9c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SlamDunk",
+                    "type": "Button",
+                    "id": "67204fe9-186c-4dd4-a05b-75514d8528f5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -182,45 +200,34 @@
                 },
                 {
                     "name": "",
-                    "id": "e6b83875-731b-422b-af6e-0c5bd7c3fade",
+                    "id": "bf0c3bb6-510c-4ebf-97e7-b1cf831fcfee",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skills",
+                    "action": "Cleave",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "321871a1-67ee-4f93-ba20-c7dece8c2f1f",
+                    "id": "e371cb78-b458-4448-8bf6-3eebd2a6883f",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skills",
+                    "action": "ShovelCut",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b33cd24f-251b-4b63-8ffa-3f8b7a641f7a",
+                    "id": "8ea77149-d18d-4a3e-9fdf-9056a837a4cb",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Skills",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9a931b3e-39dd-4af0-ab89-c3332aa2dbac",
-                    "path": "<Keyboard>/t",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Skills",
+                    "action": "SlamDunk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
