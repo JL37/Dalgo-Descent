@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] DynamicCamera m_Camera;
     protected PauseController m_PauseController;
 
+    [SerializeField] GameObject m_EnemyPrefab;
+    [SerializeField] Transform m_Enemies;
     protected List<GameObject> m_EnemyArr;
     protected bool m_InCombat = false;
 
@@ -77,8 +79,12 @@ public class GameManager : Singleton<GameManager>
             playerStats.Replenish_Health(5);
             print("health now is  : " + playerStats.Health);
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            SpawnEnemies(1, 5, new Vector3(10, 0, 10));
+        }
 
-        if (m_EnemyArr.Count > 0)
+            if (m_EnemyArr.Count > 0)
             m_InCombat = true;
         else
             m_InCombat = false;
@@ -111,5 +117,27 @@ public class GameManager : Singleton<GameManager>
 
         print("Enemy to remove from game manager array is not even in array.");
 
+    }
+
+    public void SpawnEnemies(float timeToSpawnEnemies, int EnemyCount, Vector3 position)
+    {
+        StartCoroutine(DoSpawnEnemies(timeToSpawnEnemies, EnemyCount, position));
+    }
+
+    IEnumerator DoSpawnEnemies(float timeToSpawnEnemies, int EnemyCount, Vector3 position)
+    {
+        float radiusOffset = 5f;
+        int enemiesSpawned = 0;
+        WaitForSeconds wfs = new WaitForSeconds(timeToSpawnEnemies / (float)EnemyCount);
+        while (enemiesSpawned < EnemyCount)
+        {
+            Debug.Log("Spawning enemy " + enemiesSpawned);
+            Vector3 newPosition = new Vector3(position.x + Random.Range(-radiusOffset, radiusOffset), position.y, position.z + Random.Range(-radiusOffset, radiusOffset));
+            GameObject newEnemy = Instantiate(m_EnemyPrefab, m_Enemies);
+            newEnemy.transform.position = newPosition;
+            newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
+            enemiesSpawned++;
+            yield return wfs;   
+        }
     }
 }

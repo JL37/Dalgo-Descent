@@ -7,16 +7,21 @@ public class AIUnit : AI
 {
     private new Rigidbody rigidbody;
     public LayerMask groundLayer;
-    public Texture2D[] enemyTextures; 
+    public Texture2D[] enemyTextures;
+    SkinnedMeshRenderer[] mr;
     protected override void Awake()
     {
         base.Awake();
         aiType = AI_TYPE.AI_TYPE_ENEMY;
         rigidbody = GetComponent<Rigidbody>();
 
-        SkinnedMeshRenderer[] mr = GetComponentsInChildren<SkinnedMeshRenderer>();
-        mr[0].materials[0].SetTexture("_DiffuseTexture", enemyTextures[Random.Range(0, enemyTextures.Length)]);
-        mr[1].materials[0].SetTexture("_DiffuseTexture", enemyTextures[Random.Range(0, enemyTextures.Length)]);
+        mr = GetComponentsInChildren<SkinnedMeshRenderer>();
+        int randomSkin = Random.Range(0, enemyTextures.Length);
+        foreach (SkinnedMeshRenderer smr in mr)
+        {
+            smr.materials[0].SetFloat("_CutoffHeight", -1);
+            smr.materials[0].SetTexture("_DiffuseTexture", enemyTextures[randomSkin]);
+        }
     }
 
     private void Start()
@@ -24,10 +29,15 @@ public class AIUnit : AI
         
     }
 
-    public void Update()
+    protected override void Update()
     {
         //Debug.Log(IsAggro());
         base.Update();
+        foreach (SkinnedMeshRenderer smr in mr)
+        {
+            smr.materials[0].SetFloat("_CutoffHeight", smr.materials[0].GetFloat("_CutoffHeight") + Time.deltaTime * 2f);
+            smr.materials[0].SetFloat("_CutoffHeight", Mathf.Clamp(smr.materials[0].GetFloat("_CutoffHeight"), -1f, 1.4f));
+        }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -53,14 +63,14 @@ public class AIUnit : AI
         if (!aggroActivated)
             AddAggroToGameManager();
 
-        m_Health.TakeDamage(amount);
-        if (m_Health.currentHealth <= 0)
+        enemyStats.health.TakeDamage(amount);
+        if (enemyStats.health.currentHealth <= 0)
             RemoveFromGameManager();
     }
 
     public void EnemyHit(float damage) 
     {
-        if (m_Health.currentHealth <= 0.0f)
+        if (enemyStats.health.currentHealth <= 0.0f)
             return;
 
         animator.SetTrigger("Hit");
@@ -72,7 +82,7 @@ public class AIUnit : AI
 
     public void EnemyKnockup(float damage)
     {
-        if (animator.GetBool("IsAirborne") || m_Health.currentHealth <= 0)
+        if (animator.GetBool("IsAirborne") || enemyStats.health.currentHealth <= 0)
             return;
 
         Damage(damage);

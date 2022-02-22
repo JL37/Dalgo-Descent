@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3676725544286473721}
   - component: {fileID: 5909913483210117502}
   - component: {fileID: 6497596899322655008}
+  - component: {fileID: 74359565629077186}
   m_Layer: 0
   m_Name: TeacupOwl
   m_TagString: AI
@@ -182,6 +183,20 @@ MonoBehaviour:
   angle: 60
   playerRef: {fileID: 0}
   canSeeTarget: 0
+--- !u!114 &74359565629077186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676725544286473702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38033edfebaebc143ac222ae55ae04b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 10
+  damageModifier: 1
 --- !u!1 &3676725544338649552
 GameObject:
   m_ObjectHideFlags: 0

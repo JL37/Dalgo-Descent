@@ -25,8 +25,11 @@ public class BossAI : AI
     private bool m_rigActive = true;
 
     [HideInInspector] public float m_bossTimer;
-    public float m_bossAttackIntervals;
-    
+    public float bossAttackIntervals;
+
+    [Header("Boss Attack Modifiers")]
+    public float woodThrowModifier = 1f;
+    public float groundSlamModifier = 1f;
 
     protected override void Awake()
     {
@@ -48,28 +51,28 @@ public class BossAI : AI
 
     public override void Damage(float amount)
     {
-		if (health.currentHealth <= 0)
+		if (enemyStats.health.currentHealth <= 0)
 			return;
 		
         if (!aggroActivated)
             AddAggroToGameManager();
 
-        health.TakeDamage(amount);
+        enemyStats.health.TakeDamage(amount);
 
-        if (health.currentHealth <= 0)
+        if (enemyStats.health.currentHealth <= 0)
             RemoveFromGameManager();
     }
 
     public void GrabWood()
     {
-        Instantiate(woodPrefabs[Random.Range(0, woodPrefabs.Length - 1)], projectileHolder);
+        Instantiate(woodPrefabs[Random.Range(0, woodPrefabs.Length - 1)], projectileHolder).GetComponent<Projectile>().Init((int)(enemyStats.FinalDamage() * woodThrowModifier));
     }
 
     public void TossWood()
     {
         Transform projectile = projectileHolder.GetChild(0);
         projectile.parent = projectileThrownHolder;
-        projectile.GetComponent<Projectile>().directionVelocity = (new Vector3(playerRef.transform.position.x, 0.5f, playerRef.transform.position.z) - projectile.transform.position).normalized;
+        projectile.GetComponent<Projectile>().directionVelocity = (new Vector3(playerRef.transform.position.x, playerRef.transform.position.y, playerRef.transform.position.z) - projectile.transform.position).normalized;
     }
 
     public void GroundSlam()
@@ -80,8 +83,8 @@ public class BossAI : AI
 
     public void ChooseAttack()
     {
-        attackChoice = (health.currentHealth < health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 3);
-        attackChoice = 3;
+        attackChoice = (enemyStats.health.currentHealth < enemyStats.health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 3);
+        // attackChoice = 3;
         Debug.Log(attackChoice);
     }
 

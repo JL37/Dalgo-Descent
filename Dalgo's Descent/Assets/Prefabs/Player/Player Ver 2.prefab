@@ -122,7 +122,7 @@ Transform:
   m_Children:
   - {fileID: 8910936713655045972}
   m_Father: {fileID: 2081770819304162866}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328716364961090943
 GameObject:
@@ -390,7 +390,7 @@ Transform:
   - {fileID: 2161249596224222407}
   - {fileID: 7166785524832800872}
   m_Father: {fileID: 2081770819304162866}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &913381121851003116
 GameObject:
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 1704681914332765321}
   - component: {fileID: 1704681914332765364}
   - component: {fileID: 5333321146213063752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Ver 2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -644,11 +644,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 652693160093189193}
+  - {fileID: 8952806046916684563}
   - {fileID: 4294988516784234303}
   - {fileID: 5746491752241090636}
   - {fileID: 5765029060538981715}
   - {fileID: 1929034102956108769}
-  - {fileID: 8952806046916684563}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -695,9 +695,9 @@ MonoBehaviour:
   PlayerAnimator: {fileID: 5333321146213063752}
   InputScript: {fileID: 1704681914332765364}
   SlashVFXPrefabs:
-  - {fileID: 887079323997128464, guid: fc0eb50dc8fa44543baf825970c11fbc, type: 3}
-  - {fileID: 3931193058578832647, guid: 24da779993046184cbf806cccce9a3bf, type: 3}
-  - {fileID: 984755920481674496, guid: 3b8771a22f857564c955713286e09bba, type: 3}
+  - {fileID: 6721626657244074687, guid: c1980d213a616f947b19fffe1f428570, type: 3}
+  - {fileID: 562516265818062796, guid: cddfab3158fe7df45bf4fb6f6314f77a, type: 3}
+  - {fileID: 7131839695108628179, guid: 48977c978bbf50a489bab9ce0c871123, type: 3}
 --- !u!114 &3915971352079489196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,7 +915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2081770819304162866}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2037187563144140579
 GameObject:
@@ -2113,7 +2113,7 @@ Transform:
   - {fileID: 876922975655676248}
   - {fileID: 1883135917375529472}
   m_Father: {fileID: 2081770819304162866}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7724446473331962974
 GameObject:
@@ -2503,11 +2503,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5087228788991972523, guid: d1136bd4a50fd7544a47911532a1cc5a, type: 3}
       propertyPath: m_Name
-      value: Scythe (1)
+      value: Scythe (Back)
       objectReference: {fileID: 0}
     - target: {fileID: 5607728163555741201, guid: d1136bd4a50fd7544a47911532a1cc5a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5607728163555741201, guid: d1136bd4a50fd7544a47911532a1cc5a, type: 3}
       propertyPath: m_LocalPosition.x

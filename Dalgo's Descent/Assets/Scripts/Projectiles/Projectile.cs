@@ -5,12 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Projectile : MonoBehaviour
 {
+    protected int m_Damage;
     public Vector3 directionVelocity;
     public ParticleSystem woodThrowParticleSystemPrefab;
 
     private void Start()
     {
         directionVelocity = new Vector3();
+    }
+
+    public void Init(int damage)
+    {
+        m_Damage = damage;
     }
 
     private void Update()
@@ -34,6 +40,7 @@ public class Projectile : MonoBehaviour
             if (c.gameObject.tag == "Player")
             {
                 // deal damage
+                c.GetComponent<PlayerStats>().Received_Damage(m_Damage);
             }
         }
 

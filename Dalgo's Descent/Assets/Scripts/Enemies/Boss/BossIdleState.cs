@@ -8,7 +8,7 @@ public class BossIdleState : SceneLinkedSMB<MyMonoBehaviour>
     public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         bossAI = animator.transform.parent.GetComponent<BossAI>();
-        bossAI.m_bossTimer = bossAI.m_bossAttackIntervals;
+        bossAI.m_bossTimer = bossAI.bossAttackIntervals;
         bossAI.SetRigActive(true);
         bossAI.ChooseAttack();
     }
