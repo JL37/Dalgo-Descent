@@ -84,7 +84,7 @@ public class BossAI : AI
     public void ChooseAttack()
     {
         attackChoice = (enemyStats.health.currentHealth < enemyStats.health.maxHealth * 0.5) ? Random.Range(1, 5) : Random.Range(1, 3);
-        attackChoice = 3;
+        // attackChoice = 3;
         Debug.Log(attackChoice);
     }
 
