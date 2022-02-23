@@ -94,6 +94,7 @@ public class PlayerAttackManager : MonoBehaviour
 
     public void ResetState(bool isFirst = false)
     {
+        PlayerAnimator.ResetTrigger(AttackTriggerHash);
         AttackInputTimer = 0;
         CurrentCombo = 0;
         CurrentSlash = 0;
@@ -107,7 +108,9 @@ public class PlayerAttackManager : MonoBehaviour
 
     public void Slash() // Called by Animation
     {
-        Instantiate(SlashVFXPrefabs[CurrentSlash], transform);
+        var slash = Instantiate(SlashVFXPrefabs[CurrentSlash], transform);
+        //slash.transform.position += transform.position;
+        //slash.transform.rotation = transform.rotation * slash.transform.rotation;
         CurrentSlash++;
     }
 
