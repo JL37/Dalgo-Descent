@@ -9,10 +9,13 @@ public class SlashVFXScript : MonoBehaviour
     public Collider SlashCollider;
     public ParticleSystem SlashParticle;
 
+    public List<AI> hitEnemies;
+
     private double DelayTimer;
     void Start()
     {
         SlashCollider.enabled = false;    
+        hitEnemies = new List<AI>();
     }
 
     void Update()
