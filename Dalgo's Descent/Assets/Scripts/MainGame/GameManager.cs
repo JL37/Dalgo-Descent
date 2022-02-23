@@ -26,7 +26,9 @@ public class GameManager : Singleton<GameManager>
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         m_healthUI.Setup(playerStats);
-        m_EnemyArr = new List<GameObject>();       
+        m_EnemyArr = new List<GameObject>();
+        Tooltip.HideTooltip_Static();
+        Tooltip_Warning.HideTooltip_Static();
     }
 
     void Awake()
