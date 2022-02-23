@@ -46,5 +46,10 @@ public class UI_SkillTree : MonoBehaviour
         this.m_playerskills = playerskill;
     }
 
+    public PlayerSkills GetPlayerSkills()
+    {
+        return this.m_playerskills;
+    }
+
 
 }
