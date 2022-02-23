@@ -8,7 +8,10 @@ public class PlayerSkillsManager : MonoBehaviour
 {
     public Animator PlayerAnimator;
     public List<SkillObject> Skills;
-    private PlayerSkills playerSkills;
+    public UI_SkillTree Cleave;
+    public UI_SkillTree ShovelCut;
+    public UI_SkillTree Dunk;
+
 
 
     public int ActiveSkillIndex { get; private set; }
@@ -20,6 +23,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         ActiveSkillIndex = -1;
         SkillLayerIndex = PlayerAnimator.GetLayerIndex("Skill Layer");
+        
     }
 
     // Update is called once per frame
@@ -39,8 +43,9 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
-            if(playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
+            if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
             {
+                Debug.Log("USING SKILL 1 LIAO");
                 UseSkill(0);
 
             }
@@ -51,8 +56,10 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
+            if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
             {
+                Debug.Log("USING SKILL 2 LIAO");
+
                 UseSkill(1);
 
             }
@@ -62,8 +69,10 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
+            if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
             {
+                Debug.Log("USING SKILL 3 LIAO");
+
                 UseSkill(2);
 
             }
