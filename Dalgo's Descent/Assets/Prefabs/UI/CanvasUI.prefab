@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1661295953734103423}
   - component: {fileID: 8476032389738134573}
   - component: {fileID: 396163911266628181}
+  - component: {fileID: 1852303365236328324}
   m_Layer: 5
   m_Name: SkillButton4
   m_TagString: Untagged
@@ -111,9 +112,9 @@ RectTransform:
   m_Father: {fileID: 7329056424408839764}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 530}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7949449333479967836
@@ -200,7 +201,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1661295953734103423}
         m_TargetAssemblyTypeName: UI_SkillTree, Assembly-CSharp
-        m_MethodName: OnClicked
+        m_MethodName: Skill4_Clicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -234,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 7891457116094549526}
+  canvas: {fileID: 5517580681016065096}
 --- !u!114 &396163911266628181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +249,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   details: This is skill 4 salakau
+--- !u!225 &1852303365236328324
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348973515064060848}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2519062700960719529
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +276,7 @@ GameObject:
   - component: {fileID: 6274945225424374535}
   - component: {fileID: 8746447427907259818}
   - component: {fileID: 6772796875235057643}
+  - component: {fileID: 9134358759955738881}
   m_Layer: 5
   m_Name: SkillButton2
   m_TagString: Untagged
@@ -284,9 +298,9 @@ RectTransform:
   m_Father: {fileID: 7329056424408839764}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 530}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6315209941003728844
@@ -373,7 +387,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6274945225424374535}
         m_TargetAssemblyTypeName: UI_SkillTree, Assembly-CSharp
-        m_MethodName: OnClicked
+        m_MethodName: Skill2_Clicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -407,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 7891457116094549526}
+  canvas: {fileID: 5517580681016065096}
 --- !u!114 &6772796875235057643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +435,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   details: This is skill 2 salakau
+--- !u!225 &9134358759955738881
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519062700960719529}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2549757637679612021
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +921,7 @@ GameObject:
   - component: {fileID: 8345816920731676331}
   - component: {fileID: 7603409902516598120}
   - component: {fileID: 8159211507874675911}
+  - component: {fileID: 1996730934324474307}
   m_Layer: 5
   m_Name: SkillButton3
   m_TagString: Untagged
@@ -916,9 +943,9 @@ RectTransform:
   m_Father: {fileID: 7329056424408839764}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 530}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4165439277581793994
@@ -1005,7 +1032,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8345816920731676331}
         m_TargetAssemblyTypeName: UI_SkillTree, Assembly-CSharp
-        m_MethodName: OnClicked
+        m_MethodName: Skill3_Clicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1039,7 +1066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 7891457116094549526}
+  canvas: {fileID: 5517580681016065096}
 --- !u!114 &8159211507874675911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,6 +1080,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   details: This is skill 3 salakau
+--- !u!225 &1996730934324474307
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921976821361129264}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5644870388843958202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1215,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3502937035357616463}
         m_TargetAssemblyTypeName: UI_SkillTree, Assembly-CSharp
-        m_MethodName: OnClicked
+        m_MethodName: Health_Upgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1263,6 +1302,8 @@ GameObject:
   - component: {fileID: 4419534025031240053}
   - component: {fileID: 270362115769101430}
   - component: {fileID: 83154368886942018}
+  - component: {fileID: 931675369532247291}
+  - component: {fileID: 8699508651380037846}
   m_Layer: 5
   m_Name: SkillButton1
   m_TagString: Untagged
@@ -1284,9 +1325,9 @@ RectTransform:
   m_Father: {fileID: 7329056424408839764}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 530}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9175244379157199545
@@ -1407,7 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683cb81b5d2a18445ba634d624b8d4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 7891457116094549526}
+  canvas: {fileID: 5517580681016065096}
 --- !u!114 &83154368886942018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,6 +1462,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   details: This is skill 1 salakau
+--- !u!225 &931675369532247291
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118747338088581333}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8699508651380037846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118747338088581333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8be9607b2687945ab1dc79f7f8d845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7507685403584117553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1919,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &391110961848077237 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1404026794082159704, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
+  m_PrefabInstance: {fileID: 1590223352928307181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6061683099608927816 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4760013570404469157, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
@@ -1865,11 +1935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4bb48761a4470428a1679919d39897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &391110961848077237 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1404026794082159704, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
-  m_PrefabInstance: {fileID: 1590223352928307181}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3311792255859777678 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4315647135186675555, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
@@ -2132,14 +2197,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbdfe1d563674444ab20522760440ab8, type: 3}
---- !u!224 &4532216488091417399 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6247980435901974993, guid: cbdfe1d563674444ab20522760440ab8, type: 3}
-  m_PrefabInstance: {fileID: 7516758434324968166}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4532216488091417394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6247980435901974996, guid: cbdfe1d563674444ab20522760440ab8, type: 3}
+  m_PrefabInstance: {fileID: 7516758434324968166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4532216488091417399 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6247980435901974993, guid: cbdfe1d563674444ab20522760440ab8, type: 3}
   m_PrefabInstance: {fileID: 7516758434324968166}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7929321551896478771
@@ -2318,10 +2383,5 @@ PrefabInstance:
 --- !u!224 &7891457116094549527 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 256297943377168932, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
-  m_PrefabInstance: {fileID: 7929321551896478771}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &7891457116094549526 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 256297943377168933, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
   m_PrefabInstance: {fileID: 7929321551896478771}
   m_PrefabAsset: {fileID: 0}
