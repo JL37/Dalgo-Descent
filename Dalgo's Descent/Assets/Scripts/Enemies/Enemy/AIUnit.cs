@@ -85,23 +85,25 @@ public class AIUnit : AI
 
         animator.SetTrigger("Hit");
         // m_animator.SetBool("IsHit", true);
-        Damage(damage);
         Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
         rigidbody.AddForce(directionFromPlayer * 100f);
+        Damage(damage);
     }
 
     public void EnemyKnockup(float damage)
     {
-        if (animator.GetBool("IsAirborne") || enemyStats.health.currentHealth <= 0)
+        if (animator.GetBool("IsAirborne"))
             return;
 
         Damage(damage);
-        animator.speed = 1f;
-        animator.SetTrigger("Knockup");
         rigidbody.isKinematic = false;
         agent.enabled = false;
         rigidbody.velocity = Vector3.zero;
         rigidbody.AddForce(new Vector3(0, 500, 0));
+        if (enemyStats.health.currentHealth <= 0)
+            return;
+
+        animator.SetTrigger("Knockup");
     }
 
     public override bool IsAggro()
