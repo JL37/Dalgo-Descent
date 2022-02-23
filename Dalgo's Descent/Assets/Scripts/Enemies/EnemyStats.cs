@@ -8,9 +8,15 @@ public class EnemyStats : MonoBehaviour
     public int baseDamage;
     public float damageModifier; // Difficulty Modifier for enemy damage
 
-    void Start()
+    void Awake()
     {
         m_Health = GetComponent<Health>();
+    }
+
+    public void Init(float strength)
+    {
+        m_Health.maxHealth = m_Health.currentHealth = m_Health.maxHealth * strength;
+        baseDamage = (int)(baseDamage * strength);
     }
         
     public int FinalDamage() { return (int)(baseDamage * damageModifier); }

@@ -62,18 +62,13 @@ public class PlayerStats : MonoBehaviour
 
     public void Received_Damage(int damageAmount)
     {
+        if (m_Health.currentHealth <= 0.0f)
+            return;
+
         //m_Health -= damageAmount;
         m_Health.TakeDamage(damageAmount);
         UpdatePlayerIcon();
-/*        if (m_Health.currentHealth <= 0)
-        {
-            m_Health = 0;
-            m_Health.currentHealth = 0;
-        }*/
-        if (m_Health.currentHealth <= 0)
-        {
-            m_Health.currentHealth = 0;
-        }
+
         if (onHealthChanged != null)
             onHealthChanged(this, EventArgs.Empty);
 

@@ -33,6 +33,12 @@ public class AIUnit : AI
         
     }
 
+    public void Init(float strength) 
+    {
+        transform.localScale = new Vector3(strength, strength, strength);
+        enemyStats.Init(strength);
+    }
+
     protected override void Update()
     {
         //Debug.Log(IsAggro());
