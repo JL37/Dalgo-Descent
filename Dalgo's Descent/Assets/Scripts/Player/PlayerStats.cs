@@ -330,11 +330,11 @@ public class PlayerStats : MonoBehaviour
         switch (slashType)
         {
             case SLASH_TYPE.SLASH_1:
-                return (int)(BasicAtk * 0.8f);
+                return (int)(BasicAtk * 0.5f);
             case SLASH_TYPE.SLASH_2:
-                return (int)(BasicAtk);
+                return (int)(BasicAtk * 0.7f);
             case SLASH_TYPE.SLASH_3:
-                return (int)(BasicAtk * 1.5f);
+                return (int)(BasicAtk * 1.2f);
             case SLASH_TYPE.CLEAVE:
                 return (int)(BasicAtk * 2.5f);
             default:

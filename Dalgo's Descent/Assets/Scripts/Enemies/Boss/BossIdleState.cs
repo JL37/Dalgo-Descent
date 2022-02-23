@@ -15,6 +15,9 @@ public class BossIdleState : SceneLinkedSMB<MyMonoBehaviour>
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (bossAI.playerRef == null)
+            return;
+
         Vector3 directionToPlayer = (bossAI.playerRef.transform.position - bossAI.transform.position).normalized;
         float angle = Vector3.Angle(directionToPlayer, bossAI.transform.forward);
         if (angle > 30)

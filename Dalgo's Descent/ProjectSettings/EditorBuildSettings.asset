@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Jevon Testing/Enemy UI Scene.unity
     guid: 80886ed405e6e82488af5d212a605ddf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuScene.unity
     guid: 7e367b01b44843f43b97b095659a0de0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlayGameScene.unity
     guid: 0b42edb326a5e354aa836ce62532f3a5
   - enabled: 1
