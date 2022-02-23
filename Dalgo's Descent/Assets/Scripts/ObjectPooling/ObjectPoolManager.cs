@@ -65,11 +65,24 @@ public class ObjectPoolManager : MonoBehaviour
     
     public GameObject GetFromPool()
     {
+        IObjectPooling validInit;
+
         for (int i = 0; i < poolArr.Count;++i)
         {
             if (!poolArr[i].activeSelf)
             {
                 poolArr[i].SetActive(true);
+                validInit = poolArr[i].GetComponent<IObjectPooling>();
+                if (validInit != null)
+                {
+                    validInit.Initialise();
+                    print("Object initialised in pool for " + gameObject.name);
+                }
+                else
+                {
+                    print("Invalid objectpooling interface for " + gameObject.name);
+                }
+
                 return poolArr[i];
             }
         }
@@ -77,6 +90,17 @@ public class ObjectPoolManager : MonoBehaviour
         //Create if there's noone free
         GameObject obj = Instantiate(prefab, transform);
         poolArr.Add(obj);
+
+        validInit = obj.GetComponent<IObjectPooling>();
+        if (validInit != null)
+        {
+            validInit.Initialise();
+            print("Object initialised in pool for " + gameObject.name);
+        }
+        else
+        {
+            print("Invalid objectpooling interface for " + gameObject.name);
+        }
 
         return obj;
     }

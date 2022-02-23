@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : MonoBehaviour, IObjectPooling
 {
     [Header("Objects")]
     [SerializeField] Canvas m_Canvas;
@@ -70,6 +70,11 @@ public class ItemPickup : MonoBehaviour
     }
 
     public Item GetItemRef() { return m_Item; }
+
+    public void Initialise()
+    {
+        //Do nothing
+    }
 
     public void Initialise(Chest chest)
     {

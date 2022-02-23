@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviour, IObjectPooling
 {
     [Header("Objects")]
     [SerializeField] TMP_Text m_NameText;
@@ -59,7 +59,7 @@ public class Chest : MonoBehaviour
 
     public ParticleSystem GetParticleSystem() { return m_ParticleSystem; }
 
-    public void Reset()
+    public void Initialise()
     {
         m_Cost = Random.Range(15, 30);
         m_ChestAnimation.Play("Closed");
