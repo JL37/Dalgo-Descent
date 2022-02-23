@@ -7,11 +7,26 @@ public class BossGroundWaveCollision : MonoBehaviour
     public ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents;
     private static bool hasBeenHitBySmash = false;
+    private float m_timeElapsed;
 
     void Start()
     {
+        m_timeElapsed = 0f;
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
+    }
+
+    private void Update()
+    {
+        if (hasBeenHitBySmash)
+        {
+            m_timeElapsed += Time.deltaTime;
+            if (m_timeElapsed > 3f)
+            {
+                hasBeenHitBySmash = false;
+                m_timeElapsed = 0f;
+            }
+        }
     }
 
     void OnParticleCollision(GameObject other)
@@ -33,10 +48,5 @@ public class BossGroundWaveCollision : MonoBehaviour
             i++;
 
         }
-    }
-
-    private void OnParticleSystemStopped()
-    {
-        hasBeenHitBySmash = false;
     }
 }

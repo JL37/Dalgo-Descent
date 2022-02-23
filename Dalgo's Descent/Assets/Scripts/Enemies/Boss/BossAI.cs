@@ -72,7 +72,7 @@ public class BossAI : AI
     {
         Transform projectile = projectileHolder.GetChild(0);
         projectile.parent = projectileThrownHolder;
-        projectile.GetComponent<Projectile>().directionVelocity = (new Vector3(playerRef.transform.position.x, playerRef.transform.position.y, playerRef.transform.position.z) - projectile.transform.position).normalized;
+        projectile.GetComponent<Projectile>().directionVelocity = (new Vector3(playerRef.transform.position.x, transform.position.y, playerRef.transform.position.z) - projectile.transform.position).normalized;
     }
 
     public void GroundSlam()
