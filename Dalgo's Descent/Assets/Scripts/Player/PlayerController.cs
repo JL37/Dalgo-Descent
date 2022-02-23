@@ -98,6 +98,9 @@ public class PlayerController : MonoBehaviour
         if(AttackCDTimer > 0)
             AttackCDTimer -= Time.deltaTime;
 
+        if (Input.GetKeyDown(KeyCode.H))
+            GetComponent<PlayerStats>().Received_Damage(20);
+
         if(IsAttacking)
         {
             PlayerWeapon[0].GetComponent<WeaponVisibility>().SetVisible(true);
@@ -172,6 +175,9 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (GetComponent<PlayerStats>().m_Health.currentHealth <= 0)
+            return;
+
         if (IsMoving)
         {
             Vector3 cameraForward = InputScript.camera.transform.forward;

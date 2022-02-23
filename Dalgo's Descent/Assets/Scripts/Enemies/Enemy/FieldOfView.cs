@@ -34,7 +34,8 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return wait;
-            canSeeTarget = CanSeeTarget(transform, playerRef.transform, angle, viewRadius);
+            if (playerRef != null)
+                canSeeTarget = CanSeeTarget(transform, playerRef.transform, angle, viewRadius);
         }
     }
 
