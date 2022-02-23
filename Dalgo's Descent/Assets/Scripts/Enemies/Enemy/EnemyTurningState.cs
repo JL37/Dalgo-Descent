@@ -69,8 +69,14 @@ public class EnemyTurningState : EnemyBaseState
 
     private void SearchWalkPoint()
     {
-        aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
-        Debug.Log("Walkpoint Set");
-        walkpointSet = true;
+        while (!walkpointSet)
+        {
+            aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
+            Debug.Log("Walkpoint Set");
+
+            NavMeshPath path = new NavMeshPath();
+            if (agent.CalculatePath(aiUnit.targetPosition, path) && path.status == NavMeshPathStatus.PathComplete)
+                walkpointSet = true;
+        }
     }
 }
