@@ -11,19 +11,13 @@ public class PlayerSkillsManager : MonoBehaviour
 
     public int ActiveSkillIndex { get; private set; }
 
-    public List<int> SkillTriggers { get; private set; }
     private int SkillLayerIndex;
     private double SkillAnimationTimer;
     // Start is called before the first frame update
     void Start()
     {
-        SkillTriggers = new List<int>();
         ActiveSkillIndex = -1;
         SkillLayerIndex = PlayerAnimator.GetLayerIndex("Skill Layer");
-        for (int i = 0; i < Skills.Count; i++)
-        {
-            SkillTriggers.Add(Animator.StringToHash(Skills[i].AnimationTrigger));
-        }
     }
 
     // Update is called once per frame
@@ -39,16 +33,26 @@ public class PlayerSkillsManager : MonoBehaviour
 
     }
 
-    public void Cleave()
-    {
-        UseSkill(0);
-    }
-    
     public void OnCleavePressed(InputAction.CallbackContext context)
     {
         if(context.started)
         {
-            Cleave();
+            UseSkill(0);
+        }
+    }
+
+    public void OnShovelCutPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseSkill(1);
+        }
+    }
+    public void OnSlamDunkPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseSkill(2);
         }
     }
 
@@ -60,9 +64,10 @@ public class PlayerSkillsManager : MonoBehaviour
     }
     private void UseSkill(int index)
     {
+        SkillAnimationTimer = 0;
         GetComponent<PlayerAttackManager>().ResetState();
         ActiveSkillIndex = index;
-        PlayerAnimator.SetTrigger(SkillTriggers[index]);
+        PlayerAnimator.Play(Skills[index].SkillAnimation.name, SkillLayerIndex);
         PlayerAnimator.SetLayerWeight(SkillLayerIndex, 1);
     }
 }

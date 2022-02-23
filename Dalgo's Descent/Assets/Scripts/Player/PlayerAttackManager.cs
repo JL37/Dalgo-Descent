@@ -99,6 +99,7 @@ public class PlayerAttackManager : MonoBehaviour
         CurrentSlash = 0;
         IsAttacking = false;
         AttackTriggered = false;
+        HasAttackInput = false;
 
         if(!isFirst)
             AttackCDTimer = AttackCoolDown;

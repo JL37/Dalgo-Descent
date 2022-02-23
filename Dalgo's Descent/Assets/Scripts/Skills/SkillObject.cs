@@ -9,5 +9,4 @@ public class SkillObject : ScriptableObject
     public string Name;
     public Sprite SkillSprite;
     public AnimationClip SkillAnimation;
-    public string AnimationTrigger;
 }
