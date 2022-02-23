@@ -12,14 +12,15 @@ public class PlayerSkills
     }
     public enum SkillType
     {
-        Skill_1,
-        Skill_2,
-        Skill_3,
-        Skill_4,
-        Health_Upgrade,
+        Skill_1 = 0, //Cleave
+        Skill_2 = 1, //shove up
+        Skill_3 = 2, //slam dunk
+        Skill_4 = 3, //nothing yet idk
+        Health_Upgrade = 4, //health upgrade to increase health stats
     }
 
     private List<SkillType> unlockedSkillTypeList;
+  
 
     public PlayerSkills()
     {
