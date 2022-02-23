@@ -100,6 +100,11 @@ public class AI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Slash"))
         {
+            if (other.gameObject.transform.parent.GetComponentInChildren<SlashVFXScript>().hitEnemies.Contains(this))
+                return;
+
+            other.gameObject.transform.parent.GetComponentInChildren<SlashVFXScript>().hitEnemies.Add(this);
+
             if (aiType == AI_TYPE.AI_TYPE_ENEMY)
             {
                 ((AIUnit)this).EnemyHit(playerRef.GetComponent<PlayerStats>().BasicAtk);
