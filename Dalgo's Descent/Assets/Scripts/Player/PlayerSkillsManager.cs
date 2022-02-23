@@ -12,7 +12,12 @@ public class PlayerSkillsManager : MonoBehaviour
     public UI_SkillTree ShovelCut;
     public UI_SkillTree Dunk;
 
+    private PlayerStats m_playerStats;
 
+    [Header("Skill Prefabs")]
+    [SerializeField] GameObject CleaveVFXPrefab;
+    [SerializeField] GameObject ShovelCutVFXPrefab;
+    [SerializeField] GameObject SlamDunkVFXPrefab;
 
     public int ActiveSkillIndex { get; private set; }
 
@@ -23,6 +28,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         ActiveSkillIndex = -1;
         SkillLayerIndex = PlayerAnimator.GetLayerIndex("Skill Layer");
+        m_playerStats = GetComponent<PlayerStats>();
         
     }
 
@@ -65,6 +71,30 @@ public class PlayerSkillsManager : MonoBehaviour
             }
         }
     }
+
+    public void ShovelCutEvent()
+    {
+        Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
+        Instantiate(ShovelCutVFXPrefab, instantiationPosition, Quaternion.identity);
+
+        Collider[] colliders = Physics.OverlapSphere(instantiationPosition, 3f);
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.tag == "AI")
+            {
+                AI ai = c.gameObject.GetComponent<AI>();
+                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
+                {
+                    ((AIUnit)ai).EnemyKnockup((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                }
+                if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
+                {
+                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                }
+            }
+        }
+    }
+
     public void OnSlamDunkPressed(InputAction.CallbackContext context)
     {
         if (context.started)
