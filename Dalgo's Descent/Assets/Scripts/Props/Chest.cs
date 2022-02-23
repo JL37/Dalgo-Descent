@@ -48,7 +48,7 @@ public class Chest : MonoBehaviour
         //m_Cost = Random.Range(15, 30);
 
         //Set text to the cost
-        m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(E)</color>";
+        m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(F)</color>";
 
         m_GameUI = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>();
         m_PlayerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();

@@ -181,6 +181,10 @@ public class PlayerController : MonoBehaviour
                 pStats.GetChest().OnInteract();
                 return;
             }
+            else
+            {
+                print("NO CHEST LA");
+            }
         }
     }
 
