@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slash_3
       objectReference: {fileID: 0}
+    - target: {fileID: 5773179452797310580, guid: c3b2a503f6de22948af98806f7477154, type: 3}
+      propertyPath: SlashType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6243119901445027249, guid: c3b2a503f6de22948af98806f7477154, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
