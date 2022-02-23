@@ -30,6 +30,7 @@ public class ObjectPoolManager : MonoBehaviour
         for (int i = 0; i < m_InitialSize;++i)
         {
             GameObject obj = Instantiate(prefab, transform);
+            obj.SetActive(false);
             poolArr.Add(obj);
         }
     }
@@ -38,16 +39,27 @@ public class ObjectPoolManager : MonoBehaviour
     void Update()
     {
         if (poolArr.Count > m_MaxObject)
+            Flush();
+    }
+
+    public void Flush()
+    {
+        for (int i = 0; i < poolArr.Count; ++i)
         {
-            for (int i = 0; i < poolArr.Count; ++i)
+            if (!poolArr[i].activeSelf) //Destroy object if inactive
             {
-                if (!poolArr[i].activeSelf) //Destroy object if inactive
-                {
-                    Destroy(poolArr[i]);
-                    poolArr.RemoveAt(i);
-                    i -= 1;
-                }
+                Destroy(poolArr[i]);
+                poolArr.RemoveAt(i);
+                i -= 1;
             }
+        }
+    }
+
+    public void DisableAll()
+    {
+        for (int i = 0; i < poolArr.Count; ++i)
+        {
+            poolArr[i].SetActive(false);
         }
     }
     
@@ -56,7 +68,10 @@ public class ObjectPoolManager : MonoBehaviour
         for (int i = 0; i < poolArr.Count;++i)
         {
             if (!poolArr[i].activeSelf)
+            {
+                poolArr[i].SetActive(true);
                 return poolArr[i];
+            }
         }
 
         //Create if there's noone free

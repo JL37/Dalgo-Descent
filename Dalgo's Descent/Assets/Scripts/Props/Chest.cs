@@ -10,11 +10,13 @@ public class Chest : MonoBehaviour
     [SerializeField] TMP_Text m_NameText;
     [SerializeField] Canvas m_Canvas;
     [SerializeField] ParticleSystem m_ParticleSystem;
+    [SerializeField] Animator m_ChestAnimation;
 
     protected GameUI m_GameUI;
 
-    [Header("Prefabs")]
-    [SerializeField] GameObject m_RingPrefab;
+    [Header("Pool manager")]
+    [SerializeField] string m_PoolManagerStr;
+    protected ObjectPoolManager m_ItemPoolManager;
 
     [Header("Variables to adjust")]
     [SerializeField] int m_MaxFontSize = 80;
@@ -24,6 +26,7 @@ public class Chest : MonoBehaviour
 
     protected bool m_WithinRange = false;
     protected bool m_Opened = false;
+    protected bool m_ItemSpawned = false;
 
     protected float m_Radian = 0;
     protected int m_AbValue = 0;
@@ -37,7 +40,6 @@ public class Chest : MonoBehaviour
     void Start()
     {
         //GetComponent<MeshRenderer>().material.color = Color.yellow;
-
         m_Canvas.gameObject.SetActive(true);
         m_CurrFontSize = 0;
 
@@ -50,6 +52,16 @@ public class Chest : MonoBehaviour
 
         m_GameUI = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>();
         m_PlayerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
+        //Get pool manager
+        m_ItemPoolManager = GameObject.Find(m_PoolManagerStr).GetComponent<ObjectPoolManager>();
+    }
+
+    public ParticleSystem GetParticleSystem() { return m_ParticleSystem; }
+
+    public void Reset()
+    {
+        m_ChestAnimation.Play("Closed");
     }
 
     public void RemoveSpawnedItem()
@@ -76,16 +88,23 @@ public class Chest : MonoBehaviour
         m_WithinRange = m_PlayerStats.GetChest() == this ? true : false;
 
         if (m_Item)
-        {
             m_Item.InRange = m_WithinRange;
 
-            if (!m_ParticleSystem.isPlaying)
-                m_ParticleSystem.Play();
-        } 
-        else if (m_ParticleSystem.isPlaying)
-        {
-            m_ParticleSystem.Stop();
-        }
+        //Debug to check if reset works
+        //if (Input.GetMouseButtonDown(1))
+        //   Reset();
+    }
+
+    protected bool AnimationNotPlaying(string name)
+    {
+        AnimatorStateInfo stateInfo = m_ChestAnimation.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName(name))
+            return true;
+
+        if (m_ChestAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+            return true;
+
+        return false;
     }
 
     protected void LerpFontSize(int newSize)
@@ -132,8 +151,6 @@ public class Chest : MonoBehaviour
         }
 
         m_Radian += spd;
-        //if (Mathf.Deg2Rad * angleClamp < m_Radian)
-        //    m_ItemAnimation = false;
     }
 
     protected void UpdateNameTextPos()
@@ -185,30 +202,50 @@ public class Chest : MonoBehaviour
         if (!m_WithinRange) //If within range or not
             return;
 
-        if (m_Opened && m_Item)
+        if (m_Opened)
         {
-            m_Item.OnInteract(); //Interacting with items
+            if (m_Item)
+                m_Item.OnInteract(); //Interacting with items
             return;
         }
 
         //Check if player has enough coins la
         if (m_PlayerStats.DeductCoin(m_Cost))
         {
+            //SpawnRing();
             m_Opened = true;
-            GetComponent<MeshRenderer>().material.color = Color.red;
-            print("CHEST HAS BEEN OPENED");
 
-            //Start Create item
-            GameObject itemObj = Instantiate(m_RingPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            itemObj.transform.position = transform.position;
-            itemObj.GetComponent<ItemPickup>().Initialise(this);
-
-            m_Item = itemObj.GetComponent<ItemPickup>();
-        } 
+            m_ChestAnimation.SetTrigger("Opening");
+            StartCoroutine(Coroutine_SpawnRing(1.5f));
+        }
         else
         {
             //Show error
             m_GameUI.ShowError("Not enough coins!");
         }
+    }
+
+    protected IEnumerator Coroutine_SpawnRing(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        m_ParticleSystem.Play();
+        SpawnRing();
+    }
+
+    protected void SpawnRing()
+    {
+        m_ItemSpawned = true;
+        m_Opened = true;
+
+        GetComponent<MeshRenderer>().material.color = Color.red;
+        print("CHEST HAS BEEN OPENED");
+
+        //Start Create item
+        GameObject itemObj = m_ItemPoolManager.GetFromPool();
+        itemObj.transform.position = transform.position;
+        itemObj.GetComponent<ItemPickup>().Initialise(this);
+
+        m_Item = itemObj.GetComponent<ItemPickup>();
     }
 }

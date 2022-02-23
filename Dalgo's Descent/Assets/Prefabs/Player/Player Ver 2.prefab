@@ -728,8 +728,8 @@ MonoBehaviour:
   currentHealth: 0
   blinkDuration: 0.05
   models:
-  - {fileID: 3695485813453009440}
-  deathParticles: {fileID: 6831235651928427539, guid: 465c9f7552d962746ab057e84756a5b2, type: 3}
+  - {fileID: 7510418889641983847}
+  deathParticles: {fileID: 0}
   deathDuration: 1
   playDeathAnimation: 0
 --- !u!143 &1704681914332765321
@@ -844,7 +844,19 @@ MonoBehaviour:
     m_ActionId: e6661964-b136-48d0-8edd-78332480e5cc
     m_ActionName: Player/Sprint[/Keyboard/shift]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1704681914332765323}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8974d3c0-24ea-43ab-90d0-6e4a2e0ba284
     m_ActionName: Player/Interaction[/Keyboard/e]
   - m_PersistentCalls:

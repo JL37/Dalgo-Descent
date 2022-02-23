@@ -9,6 +9,10 @@ public class AIUnit : AI
     public LayerMask groundLayer;
     public Texture2D[] enemyTextures;
     SkinnedMeshRenderer[] mr;
+
+    //Reference
+    private EnemyHealthUI m_HealthUI;
+
     protected override void Awake()
     {
         base.Awake();
@@ -97,5 +101,17 @@ public class AIUnit : AI
     public override bool IsAggro()
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup");
+    }
+
+    protected override void AddAggroToGameManager()
+    {
+        base.AddAggroToGameManager();
+        m_HealthUI = m_GameManager.ActivateEnemyHealthUI(GetComponent<Health>());
+    }
+
+    protected override void RemoveFromGameManager()
+    {
+        base.RemoveFromGameManager();
+        m_HealthUI.StartFadeAnimation(true);
     }
 }
