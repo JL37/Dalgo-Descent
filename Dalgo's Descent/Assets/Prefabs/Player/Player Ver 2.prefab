@@ -674,7 +674,7 @@ MonoBehaviour:
   IdleInterval: 0
   JumpForce: 15
   JumpDelay: 0.2
-  RunSpeed: 8
+  RunSpeed: 5
   WalkSpeed: 4
   OnHandWeapon: {fileID: 8380829046194582663}
   BackWeapon: {fileID: 107728842921778141}

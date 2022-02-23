@@ -33,7 +33,10 @@ public class SlashVFXScript : MonoBehaviour
         DelayTimer += Time.deltaTime;
 
         if (DelayTimer >= OnHitDelay && DelayTimer < HitDuration)
+        {
+            transform.parent.parent = null;
             SlashCollider.enabled = true;
+        }
         else
             SlashCollider.enabled = false;
     }
