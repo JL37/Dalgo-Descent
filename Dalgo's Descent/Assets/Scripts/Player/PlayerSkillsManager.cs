@@ -8,6 +8,8 @@ public class PlayerSkillsManager : MonoBehaviour
 {
     public Animator PlayerAnimator;
     public List<SkillObject> Skills;
+    private PlayerSkills playerSkills;
+
 
     public int ActiveSkillIndex { get; private set; }
 
@@ -37,7 +39,11 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
-            UseSkill(0);
+            if(playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
+            {
+                UseSkill(0);
+
+            }
         }
     }
 
@@ -45,14 +51,22 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            UseSkill(1);
+            if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
+            {
+                UseSkill(1);
+
+            }
         }
     }
     public void OnSlamDunkPressed(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            UseSkill(2);
+            if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
+            {
+                UseSkill(2);
+
+            }
         }
     }
 
