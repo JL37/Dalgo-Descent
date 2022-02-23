@@ -676,6 +676,8 @@ MonoBehaviour:
   JumpDelay: 0.2
   RunSpeed: 5
   WalkSpeed: 4
+  DashImpact: 0
+  IFrameDuration: 0
   OnHandWeapon: {fileID: 8380829046194582663}
   BackWeapon: {fileID: 107728842921778141}
   GroundLayer:
@@ -703,7 +705,10 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 4af001dddf51592499b2cb0f8dce39c3, type: 2}
   - {fileID: 7400000, guid: 460b48d7d1675ef46b4dc9f4064d9f27, type: 2}
   - {fileID: 7400000, guid: a409c87d70e6b464b94c8ad1a4623091, type: 2}
-  SlashVFXPrefabs: []
+  SlashVFXPrefabs:
+  - {fileID: 6721626657244074687, guid: c1980d213a616f947b19fffe1f428570, type: 3}
+  - {fileID: 562516265818062796, guid: cddfab3158fe7df45bf4fb6f6314f77a, type: 3}
+  - {fileID: 7131839695108628179, guid: 48977c978bbf50a489bab9ce0c871123, type: 3}
   CurrentCombo: 0
   CurrentSlash: 0
   AttackCDTimer: 0
