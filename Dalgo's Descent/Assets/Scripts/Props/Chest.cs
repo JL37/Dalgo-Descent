@@ -61,6 +61,7 @@ public class Chest : MonoBehaviour
 
     public void Reset()
     {
+        m_Cost = Random.Range(15, 30);
         m_ChestAnimation.Play("Closed");
     }
 
@@ -229,8 +230,14 @@ public class Chest : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-        m_ParticleSystem.Play();
+        //Spawning of ring
         SpawnRing();
+
+        //Changing particle effects accordingly and then playing it
+        Color rarityCol = m_Item.GetItemRef().GetRarityColor();
+        var main = m_ParticleSystem.main;
+        main.startColor = rarityCol;
+        m_ParticleSystem.Play();
     }
 
     protected void SpawnRing()

@@ -13,7 +13,8 @@ public class MouseCursor : MonoBehaviour
 
     private void Start()
     {
-        
+        hotSpot.x = mouseCursor.width * 0.1f;
+        hotSpot.y = mouseCursor.height * 0.22f;
         Cursor.SetCursor(mouseCursor, hotSpot, cursorMode);
         m_PauseController = GetComponent<PauseController>();
         Cursor.visible = false;
@@ -24,6 +25,9 @@ public class MouseCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
+            return;
+
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.visible = true;

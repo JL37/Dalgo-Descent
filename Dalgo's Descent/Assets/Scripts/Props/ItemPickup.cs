@@ -56,7 +56,7 @@ public class ItemPickup : MonoBehaviour
 
 
         //Change desc box text
-        m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item.GetName(), m_Item.GetInfo());
+        m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item);
     }
 
     // Start is called before the first frame update
@@ -68,6 +68,8 @@ public class ItemPickup : MonoBehaviour
         m_Canvas.gameObject.SetActive(true);
         m_DescBox.transform.localScale = new Vector3(0, 0,0);
     }
+
+    public Item GetItemRef() { return m_Item; }
 
     public void Initialise(Chest chest)
     {
@@ -81,7 +83,7 @@ public class ItemPickup : MonoBehaviour
 
         //Change desc box text
         if (m_DescBox != null)
-            m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item.GetName(), m_Item.GetInfo());
+            m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item);
 
         m_OriginalPos = gameObject.transform.position;
 

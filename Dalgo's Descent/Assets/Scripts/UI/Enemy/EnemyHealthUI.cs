@@ -91,6 +91,7 @@ public class EnemyHealthUI : MonoBehaviour
         float currScale = m_BufferBar.transform.localScale.x;
 
         currScale = Mathf.Lerp(currScale, targetScale, m_BufferLerpSpd);
+        currScale = currScale < 0 ? 0 : currScale;
         m_BufferBar.transform.localScale = new Vector3(currScale, 1, 1);
     }
 
@@ -137,6 +138,7 @@ public class EnemyHealthUI : MonoBehaviour
     {
         //Updating scaling of health (Using lerp as animation)
         float healthBarScale = Mathf.Lerp(m_HealthBar.transform.localScale.x, m_Health.currentHealth / m_Health.maxHealth, m_HealthLerpSpd);
+        healthBarScale = healthBarScale < 0 ? 0 : healthBarScale;
         m_HealthBar.transform.localScale = new Vector3(healthBarScale, 1, 1);
     }
 }

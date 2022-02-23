@@ -12,13 +12,21 @@ public class PlayerStats : MonoBehaviour
     //Stats
     public Health m_Health;
 
-/*    protected float m_Health = 100;
-    protected float m_MaxHealth = 100;*/
+    protected int m_BaseHealth = 100;
+    protected int m_HealthAdd = 0;
 
     protected float m_AtkSpd = 1f;
     protected float m_LifeSteal = 0f;
-    protected float m_CritChance = 0.03f;
-    protected int m_BasicAtk = 15;
+
+    protected int m_BaseBasicAtk = 15;
+    protected int m_BasicAtkAddOn = 0;
+
+    protected float m_DmgTakenMultiplier = 1f;
+
+    protected float m_BaseCoolDown = 1f;
+    protected float m_BaseSkillDmg = 1f;
+
+    protected float m_MovementSpd = 1f;
 
     //Inventory
     protected int m_coin = 0;
@@ -57,7 +65,7 @@ public class PlayerStats : MonoBehaviour
     {
         m_ItemArr = new List<ItemUI>();
         m_ChestArr = new List<Chest>();
-
+        m_BaseHealth = (int)m_Health.maxHealth;
     }
 
     public void Received_Damage(int damageAmount)
@@ -156,17 +164,52 @@ public class PlayerStats : MonoBehaviour
         return m_playerskills;
     }
 
-
-
-    public float Health
+    protected void AdjustHealth()
     {
-        get { return m_Health.currentHealth; }
-        set { m_Health.currentHealth = value; }
+        float ogMaxHealth = m_Health.maxHealth;
+        m_Health.maxHealth = m_BaseHealth + m_HealthAdd;
+        float ratio = m_Health.maxHealth / (float)ogMaxHealth;
+        m_Health.currentHealth *= ratio;
     }
-    public float MaxHealth
+
+    public int CalculateHealthAdd(float perc) //Value from 0 to 1
     {
-        get { return m_Health.currentHealth; }
-        set { m_Health.currentHealth = value; }
+        return Mathf.RoundToInt(m_BaseHealth * perc);
+    }
+
+    public int BaseHealth
+    {
+        get { return m_BaseHealth; }
+        set {
+            m_BaseHealth = value;
+            AdjustHealth();
+        }
+    }
+    public int HealthAdd
+    {
+        get { return m_HealthAdd; }
+        set { 
+            m_HealthAdd = value;
+            AdjustHealth();
+        }
+    }
+
+    public float DamageTakenMultiplier
+    {
+        get { return m_DmgTakenMultiplier; }
+        set { m_DmgTakenMultiplier = value; }
+    }
+
+    public float SkillCD
+    {
+        get { return m_BaseCoolDown; }
+        set { m_BaseCoolDown = value; }
+    }
+
+    public float SkillDmg
+    {
+        get { return m_BaseSkillDmg; }
+        set { m_BaseSkillDmg = value; }
     }
 
     public float AtkSpd
@@ -181,17 +224,44 @@ public class PlayerStats : MonoBehaviour
         set { m_LifeSteal = value; }
     }
 
-    public float CritChance
+    public float MovementSpd
     {
-        get { return m_CritChance; }
-        set { m_CritChance = value; }
+        get { return m_MovementSpd; }
+        set { m_MovementSpd = value; }
     }
 
     public int BasicAtk
     {
-        get { return m_BasicAtk; }
-        set { m_BasicAtk = value; }
+        get { return m_BaseBasicAtk + m_BasicAtkAddOn; }
     }
+
+    public int BaseBasicAtk
+    {
+        get { return m_BaseBasicAtk; }
+        set { m_BaseBasicAtk = value; }
+    }
+
+    public void AddPercToBasicAtk(float perc) //Must be 0 to 1
+    {
+        m_BasicAtkAddOn += Mathf.RoundToInt(m_BaseBasicAtk * perc);
+    }
+
+    public void AddToAllStats(float perc) //Must be between 0 to 1
+    {
+        m_HealthAdd += CalculateHealthAdd(perc);
+
+        m_AtkSpd += perc;
+        m_LifeSteal += perc;
+
+        AddPercToBasicAtk(perc);
+
+        m_DmgTakenMultiplier -= perc;
+
+        m_BaseCoolDown -= perc;
+        m_BaseSkillDmg += perc;
+
+        m_MovementSpd += perc;
+}
 
     public float GetHealthPerc()
     {

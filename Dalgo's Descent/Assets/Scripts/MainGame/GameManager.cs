@@ -47,7 +47,7 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("Attack");
             playerStats.Received_Damage(5);
-            print("health now is : " + playerStats.Health);
+            //print("health now is : " + playerStats.Health);
         }
         if (Input.GetKeyDown(KeyCode.N)) //testing for exp
         {
@@ -58,7 +58,7 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("Heal");
             playerStats.Replenish_Health(5);
-            print("health now is  : " + playerStats.Health);
+            //print("health now is  : " + playerStats.Health);
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
