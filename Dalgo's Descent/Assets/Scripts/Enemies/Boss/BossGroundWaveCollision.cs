@@ -6,11 +6,27 @@ public class BossGroundWaveCollision : MonoBehaviour
 {
     public ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents;
+    private static bool hasBeenHitBySmash = false;
+    private float m_timeElapsed;
 
     void Start()
     {
+        m_timeElapsed = 0f;
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
+    }
+
+    private void Update()
+    {
+        if (hasBeenHitBySmash)
+        {
+            m_timeElapsed += Time.deltaTime;
+            if (m_timeElapsed > 3f)
+            {
+                hasBeenHitBySmash = false;
+                m_timeElapsed = 0f;
+            }
+        }
     }
 
     void OnParticleCollision(GameObject other)
@@ -21,8 +37,9 @@ public class BossGroundWaveCollision : MonoBehaviour
 
         while (i < numCollisionEvents)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" && !hasBeenHitBySmash)
             {
+                hasBeenHitBySmash = true;
                 Vector3 direction = (other.transform.position - part.transform.position).normalized;
                 other.gameObject.GetComponent<PlayerController>().AddImpact(new Vector3(direction.x, direction.y, direction.z).normalized, 40f);
                 other.gameObject.GetComponent<PlayerStats>().Received_Damage(10);

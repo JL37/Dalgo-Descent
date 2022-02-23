@@ -982,6 +982,7 @@ MonoBehaviour:
   m_FadeDuration: 0.45
   m_HealthLerpSpd: 0.25
   m_BufferLerpSpd: 0.1
+  m_HeightOffset: 1.5
 --- !u!1 &4490501779732369713
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
 
         Debug.Log("Particle Collided");
         Instantiate(woodThrowParticleSystemPrefab, transform.position, Quaternion.identity);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 4f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 2f);
         foreach (Collider c in colliders)
         {
             if (c.gameObject.tag == "Player")

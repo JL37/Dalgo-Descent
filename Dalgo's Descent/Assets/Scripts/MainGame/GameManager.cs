@@ -22,11 +22,22 @@ public class GameManager : Singleton<GameManager>
     private LevelSystem m_LevelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
+    [SerializeField] private PlayerStats playerStat;
+    public UI_SkillTree skill1,skill2,skill3,skill4,healthUpgrade;
+
+
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         m_healthUI.Setup(playerStats);
-        m_EnemyArr = new List<GameObject>();       
+        m_EnemyArr = new List<GameObject>();
+        skill1.SetPlayerSkills(playerStat.GetPlayerSkills());
+        skill2.SetPlayerSkills(playerStat.GetPlayerSkills());
+        skill3.SetPlayerSkills(playerStat.GetPlayerSkills());
+        skill4.SetPlayerSkills(playerStat.GetPlayerSkills());
+        healthUpgrade.SetPlayerSkills(playerStat.GetPlayerSkills());
+        Tooltip.HideTooltip_Static();
+        Tooltip_Warning.HideTooltip_Static();
     }
 
     void Awake()
@@ -135,6 +146,7 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("Spawning enemy " + enemiesSpawned);
             Vector3 newPosition = new Vector3(position.x + Random.Range(-radiusOffset, radiusOffset), position.y, position.z + Random.Range(-radiusOffset, radiusOffset));
             GameObject newEnemy = Instantiate(m_EnemyPrefab, m_Enemies);
+            newEnemy.GetComponent<AIUnit>().Init(Random.Range(0.7f, 1.5f));
             newEnemy.transform.position = newPosition;
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
             enemiesSpawned++;

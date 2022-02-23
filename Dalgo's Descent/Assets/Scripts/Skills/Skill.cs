@@ -1,5 +1,14 @@
-public enum Skill //add in the game state u want in this enum
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class Skill : MonoBehaviour
 {
-    Skill1,
-    Skill2
+    public SkillObject SkillScriptable;
+
+
+    private void Start()
+    {
+        
+    }
 }

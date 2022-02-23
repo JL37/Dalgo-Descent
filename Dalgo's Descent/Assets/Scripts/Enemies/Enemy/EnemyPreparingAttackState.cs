@@ -22,6 +22,9 @@ public class EnemyPreparingAttackState : EnemyBaseState
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (Player == null)
+            return;
+
         destinationChangeTime -= Time.deltaTime;
 
         if (destinationChangeTime < 0f)

@@ -70,18 +70,13 @@ public class PlayerStats : MonoBehaviour
 
     public void Received_Damage(int damageAmount)
     {
+        if (m_Health.currentHealth <= 0.0f)
+            return;
+
         //m_Health -= damageAmount;
         m_Health.TakeDamage(damageAmount);
         UpdatePlayerIcon();
-/*        if (m_Health.currentHealth <= 0)
-        {
-            m_Health = 0;
-            m_Health.currentHealth = 0;
-        }*/
-        if (m_Health.currentHealth <= 0)
-        {
-            m_Health.currentHealth = 0;
-        }
+
         if (onHealthChanged != null)
             onHealthChanged(this, EventArgs.Empty);
 
@@ -328,5 +323,22 @@ public class PlayerStats : MonoBehaviour
 
         item.AffectStats(this);
         m_ItemArr.Insert(0,itemUI.GetComponent<ItemUI>());
+    }
+
+    public int GetSlashDamage(SLASH_TYPE slashType)
+    {
+        switch (slashType)
+        {
+            case SLASH_TYPE.SLASH_1:
+                return (int)(m_BasicAtk * 0.8f);
+            case SLASH_TYPE.SLASH_2:
+                return (int)(m_BasicAtk);
+            case SLASH_TYPE.SLASH_3:
+                return (int)(m_BasicAtk * 1.5f);
+            case SLASH_TYPE.CLEAVE:
+                return (int)(m_BasicAtk * 2.5f);
+            default:
+                return m_BasicAtk;
+        }
     }
 }
