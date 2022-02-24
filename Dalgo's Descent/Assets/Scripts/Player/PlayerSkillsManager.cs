@@ -64,8 +64,8 @@ public class PlayerSkillsManager : MonoBehaviour
         {
             if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
             {
-                Debug.Log("USING SKILL 2 LIAO");
                 UseSkill(1);
+                Debug.Log("USING SKILL 2 LIAO");
             }
         }
     }
