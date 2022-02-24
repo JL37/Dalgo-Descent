@@ -22,8 +22,6 @@ public class GameManager : Singleton<GameManager>
     
     public UI_SkillTree skill1,skill2,skill3,skill4,healthUpgrade;
 
-    public GameObject settingsPanel;
-
 
     void Start()
     {
@@ -70,13 +68,6 @@ public class GameManager : Singleton<GameManager>
             playerStats.Replenish_Health(5);
             //print("health now is  : " + playerStats.Health);
         }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            settingsPanel.SetActive(!settingsPanel.activeSelf);
-        }
-
-
         if (m_EnemyArr.Count > 0)
             m_InCombat = true;
         else
