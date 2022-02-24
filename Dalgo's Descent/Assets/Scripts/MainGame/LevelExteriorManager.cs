@@ -45,6 +45,7 @@ public class LevelExteriorManager : MonoBehaviour
         enabled = true;
         ExteriorLayer.SetActive(true);
         ExteriorVCam = GetComponent<GameLevelManager>().SetCinemachine(GameLevelManager.CMMode.Exterior);
+        Material mat;
     }
 
     public void OnLevelEnter()
