@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerSkillsManager : MonoBehaviour
 {
+    [Header("Objects")]
     public Animator PlayerAnimator;
     public List<SkillObject> Skills;
     public UI_SkillTree Cleave;
@@ -19,10 +20,15 @@ public class PlayerSkillsManager : MonoBehaviour
     [SerializeField] GameObject ShovelCutVFXPrefab;
     [SerializeField] GameObject SlamDunkVFXPrefab;
 
+    [Header("Adjustable variables")]
+    [SerializeField] Vector3 m_TargetedGravity;
+
     public int ActiveSkillIndex { get; private set; }
+
 
     private int SkillLayerIndex;
     private double SkillAnimationTimer;
+    private Vector3 m_OriginalGravity;
 
     //References 
     protected AnimationController m_AController;
@@ -36,6 +42,7 @@ public class PlayerSkillsManager : MonoBehaviour
         m_playerStats = GetComponent<PlayerStats>();
         m_AController = GetComponent<AnimationController>();
         m_PlayerController = GetComponent<PlayerController>();
+        m_OriginalGravity = m_PlayerController.GetGravity();
     }
 
     // Update is called once per frame
@@ -113,22 +120,52 @@ public class PlayerSkillsManager : MonoBehaviour
     public void SlamDunkInAirEvent()
     {
         m_AController.PauseAnimation();
+
         StartCoroutine(ResumeAnimationWhenOnGround());
+        StartCoroutine(ChangeGravity());
     }
 
     public void SlamDunkGroundedEvent()
     {
         Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
         Instantiate(SlamDunkVFXPrefab, instantiationPosition, Quaternion.identity);
+
+        float distLimit = 2.5f; //Distancing from player to enemies
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("AI");
+        foreach (GameObject enemy in enemies)
+        {
+            float dist = (enemy.transform.position - gameObject.transform.position).magnitude;
+            if (dist < distLimit)
+            {
+                AIUnit normalEnemy = enemy.GetComponent<AIUnit>();
+                BossAI bossEnemy = enemy.GetComponent<BossAI>();
+
+                if (normalEnemy)
+                    normalEnemy.EnemyHit(10, 500f);
+                else if (bossEnemy)
+                    bossEnemy.Damage(10);
+            }
+        }
     }
     #endregion
+
+    protected IEnumerator ChangeGravity()
+    {
+        while (!m_PlayerController.IsLanding)
+            yield return null;
+
+        m_PlayerController.SetGravity(m_TargetedGravity);
+    }
 
     protected IEnumerator ResumeAnimationWhenOnGround()
     {
         //Wait until player is on ground, then continue animation!
         while (!m_PlayerController.IsGrounded)
-            yield return null;
+        {
+            yield return new WaitForEndOfFrame();
+        }
 
+        m_PlayerController.SetGravity(m_OriginalGravity);
         m_AController.ResumeAnimation();
     }
 

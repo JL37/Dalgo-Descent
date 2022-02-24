@@ -743,6 +743,7 @@ MonoBehaviour:
   CleaveVFXPrefab: {fileID: 6371809469109501248, guid: 416b2dc49c2c1984db52dd77170dc1ed, type: 3}
   ShovelCutVFXPrefab: {fileID: 2942891464061095720, guid: e5f22ca24ef429b41872fc2b7e150fa6, type: 3}
   SlamDunkVFXPrefab: {fileID: 2942891464061095720, guid: e5f22ca24ef429b41872fc2b7e150fa6, type: 3}
+  m_TargetedGravity: {x: 0, y: -15, z: 0}
 --- !u!114 &3915971352079489196
 MonoBehaviour:
   m_ObjectHideFlags: 0

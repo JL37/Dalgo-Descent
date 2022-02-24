@@ -158,6 +158,23 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
     }
 
+    public void ForceSetOnGround()
+    {
+        IsLanding = false;
+        IsGrounded = true;
+        IsJump = false;
+    }
+
+    public Vector3 GetGravity()
+    {
+        return Gravity;
+    }
+
+    public void SetGravity(Vector3 Grav)
+    {
+        Gravity = Grav;
+    }
+
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
     {
