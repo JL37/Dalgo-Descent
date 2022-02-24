@@ -49,9 +49,9 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
-            UseSkill(0);
             if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
             {
+                UseSkill(0);
                 Debug.Log("USING SKILL 1 LIAO");
 
             }
