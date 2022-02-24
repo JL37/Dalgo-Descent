@@ -114,7 +114,7 @@ public class AIUnit : AI
         rigidbody.isKinematic = false;
         agent.enabled = false;
         rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(new Vector3(0, 0, directionFromPlayer.z * 600.0f));
+        rigidbody.AddForce(new Vector3(0, 0, directionFromPlayer.z * 400.0f));
         if (enemyStats.health.currentHealth <= 0)
             return;
 
