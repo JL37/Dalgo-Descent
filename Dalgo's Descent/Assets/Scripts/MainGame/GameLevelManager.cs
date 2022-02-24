@@ -5,9 +5,17 @@ using UnityEngine.Events;
 using Cinemachine;
 public class GameLevelManager : Singleton<GameLevelManager>
 {
+    [Header("Level Generation")]
+    public int TotalLevels;
+    public int CurrentLevel;
+    public float LevelOffset;
+    public GameObject LevelContainer;
+    public GameObject StartLevel;
+    public GameObject LastLevel;
+    public List<GameObject> LevelPrefabs;
+    [Header("Camera Setup")]
     public CMMode Mode;
     public CinemachineFreeLook ActiveCM;
-    
     public CinemachineFreeLook PlayerCM;
     public CinemachineFreeLook ExteriorCM;
 
@@ -16,6 +24,29 @@ public class GameLevelManager : Singleton<GameLevelManager>
     void Start()
     {
         SetCinemachine(Mode);
+        CreateLevel();
+    }
+
+    void CreateLevel()
+    {
+        if (CurrentLevel > TotalLevels)
+            return;
+
+        CurrentLevel++;
+        if(CurrentLevel == 1)
+        {
+            Instantiate(StartLevel, new Vector3(0, 0, 0), Quaternion.identity, LevelContainer.transform); //Spawn Start
+            Instantiate(LevelPrefabs[0], new Vector3(0,-LevelOffset, 0), Quaternion.identity, LevelContainer.transform); //Spawn Next Stage
+        }
+        else if (CurrentLevel == TotalLevels)
+        {
+
+        }
+        else
+        {
+
+        }
+
     }
     public CinemachineFreeLook SetCinemachine(CMMode mode)
     {
