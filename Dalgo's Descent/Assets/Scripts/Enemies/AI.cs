@@ -18,8 +18,6 @@ public class AI : MonoBehaviour
     public AI_TYPE aiType;
     //public EnemyHealthUI m_EnemyHealthUI;
 
-    protected GameManager m_GameManager;
-
     protected EnemyStats m_EnemyStats;
     protected Animator m_Animator;
     protected NavMeshAgent m_Agent;
@@ -40,9 +38,6 @@ public class AI : MonoBehaviour
         m_Animator = GetComponentInChildren<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
-        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-
     }
 
     // Update is called once per frame
@@ -57,12 +52,12 @@ public class AI : MonoBehaviour
     {
         //Add to the gamemanager to say got enemy here
         aggroActivated = true;
-        m_GameManager.AddToEnemyArray(gameObject);
+        GameManager.Instance.AddToEnemyArray(gameObject);
     }
 
     protected virtual void RemoveFromGameManager()
     {
-        m_GameManager.RemoveFromEnemyArray(gameObject);
+        GameManager.Instance.RemoveFromEnemyArray(gameObject);
         //m_EnemyHealthUI.StartFadeAnimation(true);
     }
 
@@ -133,7 +128,7 @@ public class AI : MonoBehaviour
         set { m_inAttackRange = value;}
     }
 
-    public GameManager gameManager { get { return m_GameManager; } }
+    public GameManager gameManager { get { return GameManager.Instance; } }
     public bool aggroActivated { 
         get { return m_AggroActivated; } 
         set { m_AggroActivated = value; }

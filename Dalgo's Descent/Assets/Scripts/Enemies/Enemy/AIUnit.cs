@@ -119,16 +119,16 @@ public class AIUnit : AI
     {
         base.AddAggroToGameManager();
         if (isMiniboss)
-            m_GameManager.EnableBossHealthUI(GetComponent<Health>());
+            GameManager.Instance.EnableBossHealthUI(GetComponent<Health>());
         else
-            m_HealthUI = m_GameManager.ActivateEnemyHealthUI(GetComponent<Health>());
+            m_HealthUI = GameManager.Instance.ActivateEnemyHealthUI(GetComponent<Health>());
     }
 
     protected override void RemoveFromGameManager()
     {
         base.RemoveFromGameManager();
         if (isMiniboss)
-            m_GameManager.DisableBossHealthUI();
+            GameManager.Instance.DisableBossHealthUI();
         else
             m_HealthUI.StartFadeAnimation(true);
     }

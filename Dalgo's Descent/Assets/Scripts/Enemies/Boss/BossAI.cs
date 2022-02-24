@@ -96,13 +96,13 @@ public class BossAI : AI
     protected override void AddAggroToGameManager()
     {
         base.AddAggroToGameManager();
-        m_GameManager.EnableBossHealthUI(GetComponent<Health>());
+        GameManager.Instance.EnableBossHealthUI(GetComponent<Health>());
     }
 
     protected override void RemoveFromGameManager()
     {
         base.RemoveFromGameManager();
-        m_GameManager.DisableBossHealthUI();
+        GameManager.Instance.DisableBossHealthUI();
     }
 
     public override bool IsAggro()

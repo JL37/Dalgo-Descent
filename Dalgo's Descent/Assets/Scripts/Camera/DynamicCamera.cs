@@ -5,9 +5,6 @@ using Cinemachine;
 
 public class DynamicCamera : MonoBehaviour
 {
-    [Header("Objects in scene")]
-    [SerializeField] GameManager m_GameManager;
-
     [Header("Adjustable variables")]
     [SerializeField] float m_NonCombatDistance = 5f;
     [SerializeField] float m_CombatDistance = 10f;
@@ -34,17 +31,17 @@ public class DynamicCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!m_GameManager)
+        if (!GameManager.Instance)
             return;
 
         //Update camera
-        if (m_GameManager.GetInCombat() ? m_CurrDistance != m_CombatDistance : m_CurrDistance != m_NonCombatDistance)
+        if (GameManager.Instance.GetInCombat() ? m_CurrDistance != m_CombatDistance : m_CurrDistance != m_NonCombatDistance)
             UpdateCameraRadius();
     }
 
     protected void UpdateCameraRadius()
     {
-        float targetDist = m_GameManager.GetInCombat() ? m_CombatDistance : m_NonCombatDistance;
+        float targetDist = GameManager.Instance.GetInCombat() ? m_CombatDistance : m_NonCombatDistance;
         m_CurrDistance = Mathf.Lerp(m_CurrDistance, targetDist, m_LerpSpd);
 
         if (Mathf.Abs(targetDist - m_CurrDistance) < 0.01f)

@@ -22,7 +22,6 @@ public class GameManager : Singleton<GameManager>
     
     public UI_SkillTree skill1,skill2,skill3,skill4,healthUpgrade;
 
-
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();

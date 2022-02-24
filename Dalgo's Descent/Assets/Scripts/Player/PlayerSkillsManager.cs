@@ -145,7 +145,7 @@ public class PlayerSkillsManager : MonoBehaviour
                 BossAI bossEnemy = enemy.GetComponent<BossAI>();
 
                 if (normalEnemy)
-                    normalEnemy.EnemyHit(10, normalEnemy.isMiniboss ? 0 : 500f);
+                    normalEnemy.EnemyHit(10, normalEnemy.isMiniboss ? 250f : 500f);
                 else if (bossEnemy)
                     bossEnemy.Damage(10);
             }

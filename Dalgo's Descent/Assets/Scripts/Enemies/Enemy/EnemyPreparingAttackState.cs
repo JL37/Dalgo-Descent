@@ -31,7 +31,7 @@ public class EnemyPreparingAttackState : EnemyBaseState
         {
             destinationChangeTime = maxDestinationChangeTime;
             aiUnit.agent.SetDestination(Player.transform.position);
-            aiUnit.MoveTo(Player.transform.position);
+            aiUnit.MoveTo(new Vector3(Player.transform.position.x,aiUnit.transform.position.y,Player.transform.position.z));
         }
 
         var q = Quaternion.LookRotation(new Vector3(Player.transform.position.x, 0, Player.transform.position.z) - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z));
