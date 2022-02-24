@@ -48,14 +48,13 @@ public class PlayerSkillsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ActiveSkillIndex >= 0)
+        if (ActiveSkillIndex >= 0 && ActiveSkillIndex != 2)
             if (SkillAnimationTimer <= Skills[ActiveSkillIndex].SkillAnimation.length)
                 SkillAnimationTimer += Time.deltaTime;
             else
                 SkillFinish();
-        else
+        else if (ActiveSkillIndex != 2)
             SkillFinish();
-
     }
 
     public void OnCleavePressed(InputAction.CallbackContext context)
