@@ -116,6 +116,9 @@ public class PlayerAttackManager : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
+        if (Cursor.visible)
+            return;
+
         if (context.started && AttackCDTimer <= 0 && GetComponent<PlayerSkillsManager>().ActiveSkillIndex < 0)
             HasAttackInput = true;
     }

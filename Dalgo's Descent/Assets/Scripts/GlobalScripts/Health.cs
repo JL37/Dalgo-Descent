@@ -82,6 +82,8 @@ public class Health : MonoBehaviour
 
         //Initialisation
         obj.GetComponent<DamageTextUI>().Initialise(transform, txt, 1f);
+
+        print("TEXT SUCCESSFULLY SPAWNED!");
     }
 
     public void Die()

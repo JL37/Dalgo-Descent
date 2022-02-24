@@ -158,6 +158,23 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
     }
 
+    public void ForceSetOnGround()
+    {
+        IsLanding = false;
+        IsGrounded = true;
+        IsJump = false;
+    }
+
+    public Vector3 GetGravity()
+    {
+        return Gravity;
+    }
+
+    public void SetGravity(Vector3 Grav)
+    {
+        Gravity = Grav;
+    }
+
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -269,6 +286,16 @@ public class PlayerController : MonoBehaviour
         dir.Normalize();
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
         Impact += dir.normalized * force / Mass;
+    }
+
+    public void ResetImpactForJump(bool resetAllAxes = true) //Resetting for additional jump (3RD SKILL)
+    {
+        PlayerAnimator.SetTrigger(JumpTriggerHash);
+        IsJump = true;
+        IsGrounded = false;
+        Impact.y = 0;
+
+        Impact = resetAllAxes ? new Vector3(0, 0, 0) : Impact;
     }
 
     private static Vector3 ClampValue (Vector3 target, Vector3 min, Vector3 max)
