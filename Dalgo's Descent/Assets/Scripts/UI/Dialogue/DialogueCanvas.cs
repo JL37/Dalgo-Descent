@@ -28,5 +28,6 @@ public class DialogueCanvas : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         m_DialogueFolder.SetActive(true);
+        m_DialogueFolder.GetComponent<DialogueSystem>().AnimateText();
     }
 }
