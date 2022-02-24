@@ -106,9 +106,24 @@ public class AIUnit : AI
         animator.SetTrigger("Knockup");
     }
 
+    public void EnemyPushBack(float damage)
+    {
+
+        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
+        Damage(damage);
+        rigidbody.isKinematic = false;
+        agent.enabled = false;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.AddForce(new Vector3(0, 0, directionFromPlayer.z * 600.0f));
+        if (enemyStats.health.currentHealth <= 0)
+            return;
+
+        animator.SetTrigger("Pushback");
+    }
+
     public override bool IsAggro()
     {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup");
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pushback");
     }
 
     protected override void AddAggroToGameManager()

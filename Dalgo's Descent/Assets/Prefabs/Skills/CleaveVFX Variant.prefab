@@ -67,5 +67,9 @@ PrefabInstance:
       propertyPath: SlashType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5773179452797310580, guid: c3b2a503f6de22948af98806f7477154, type: 3}
+      propertyPath: hitEnemies.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b2a503f6de22948af98806f7477154, type: 3}
