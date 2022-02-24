@@ -23,7 +23,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
         m_RectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor; //this object will follow the mouse cursor
         
     }
@@ -43,5 +42,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
         eventData.useDragThreshold = false; //double make sure object move exactly where i go 
+    }
+
+    public RectTransform getCurrentRect()
+    {
+        return this.m_RectTransform;
     }
 }
