@@ -116,6 +116,8 @@ public class AI : MonoBehaviour
                 ((BossAI)this).Damage(playerRef.GetComponent<PlayerStats>().GetSlashDamage(slashComponent.SlashType));
             }
         }
+
+        
     }
 
     public EnemyStats enemyStats { get { return m_EnemyStats; } }

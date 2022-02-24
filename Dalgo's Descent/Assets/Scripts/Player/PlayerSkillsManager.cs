@@ -51,8 +51,8 @@ public class PlayerSkillsManager : MonoBehaviour
         {
             if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
             {
-                Debug.Log("USING SKILL 1 LIAO");
                 UseSkill(0);
+                Debug.Log("USING SKILL 1 LIAO");
 
             }
         }
@@ -66,6 +66,46 @@ public class PlayerSkillsManager : MonoBehaviour
             {
                 UseSkill(1);
                 Debug.Log("USING SKILL 2 LIAO");
+            }
+        }
+    } 
+
+    public void OnSlamDunkPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
+            {
+                Debug.Log("USING SKILL 3 LIAO");
+
+                UseSkill(2);
+
+            }
+        }
+    }
+
+    #region SkillEvents
+     public void CleaveEvent()
+    {
+        Vector3 Position = transform.position + transform.forward;
+        Quaternion rotation = transform.rotation;
+        Instantiate(CleaveVFXPrefab, Position, rotation);
+        print(rotation);
+
+        Collider[] colliders = Physics.OverlapSphere(Position, 3f);
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.tag == "AI")
+            {
+                AI ai = c.gameObject.GetComponent<AI>();
+                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
+                {
+                    ((AIUnit)ai).EnemyPushBack((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                }
+                if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
+                {
+                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                }
             }
         }
     }
@@ -92,20 +132,7 @@ public class PlayerSkillsManager : MonoBehaviour
             }
         }
     }
-
-    public void OnSlamDunkPressed(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
-            {
-                Debug.Log("USING SKILL 3 LIAO");
-
-                UseSkill(2);
-
-            }
-        }
-    }
+    #endregion
 
     private void SkillFinish()
     {
