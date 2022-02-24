@@ -130,10 +130,13 @@ public class PlayerSkillsManager : MonoBehaviour
         Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
         Instantiate(SlamDunkVFXPrefab, instantiationPosition, Quaternion.identity);
 
-        float distLimit = 2.5f; //Distancing from player to enemies
+        float distLimit = 5f; //Distancing from player to enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("AI");
         foreach (GameObject enemy in enemies)
         {
+            if (!enemy.activeSelf)
+                continue;
+
             float dist = (enemy.transform.position - gameObject.transform.position).magnitude;
             if (dist < distLimit)
             {
