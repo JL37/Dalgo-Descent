@@ -2,20 +2,11 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     public Sound[] soundsArr;
-    public static AudioManager instance;
-    void Awake()
+    protected override void OnAwake()
     {
-        if (instance == null)
-            instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
         foreach(Sound sound in soundsArr)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
@@ -36,13 +27,41 @@ public class AudioManager : MonoBehaviour
             return;
         }
         sound_ToPlay.source.Play();
+        print(sound_ToPlay.volume);
     }
 
     private void Start()
     {
-        Play("Testing");
+        Play("Test");
     }
 
+    public Sound GetSound(string name)
+    {
+        Sound sound_ToPlay = Array.Find(soundsArr, sound => sound.name == name);
+        if (sound_ToPlay == null)
+        {
+            Debug.LogError("SOUND " + name + " CANT BE RETURNED, CHECK SPELLING OF THE SONG");
+            return null;
+        }
+        else
+        {
+            return sound_ToPlay;
+        }
+    }
+
+    public void SetVolume(float vol,string name)
+    {
+        Sound sound_ToPlay = Array.Find(soundsArr, sound => sound.name == name);
+        if(sound_ToPlay == null)
+        {
+            Debug.LogError("SOUND " + name + " CANT BE ADJUSTED, CHECK SPELLING OF THE SONG");
+            return;
+        }
+        else
+        {
+            sound_ToPlay.source.volume = vol;
+        }
+    }
 
     void Update()
     {

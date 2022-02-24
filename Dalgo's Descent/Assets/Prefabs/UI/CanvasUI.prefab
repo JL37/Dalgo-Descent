@@ -1486,6 +1486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8be9607b2687945ab1dc79f7f8d845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragdrop: {fileID: 0}
 --- !u!1 &7507685403584117553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,6 +1516,7 @@ Transform:
   m_Children:
   - {fileID: 7329056424408839764}
   - {fileID: 4532216488091417399}
+  - {fileID: 391110961848077237}
   - {fileID: 7891457116094549527}
   - {fileID: 391110961848077237}
   - {fileID: 2814812894043761918}

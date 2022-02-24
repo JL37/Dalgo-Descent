@@ -61,9 +61,9 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
-            UseSkill(0);
-            if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
+            // if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
             {
+                UseSkill(0);
                 Debug.Log("USING SKILL 1 LIAO");
 
             }
@@ -74,9 +74,9 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            UseSkill(1);
-            if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
+            // if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
             {
+                UseSkill(1);
                 Debug.Log("USING SKILL 2 LIAO");
             }
         }
@@ -114,6 +114,22 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
         Instantiate(ShovelCutVFXPrefab, instantiationPosition, Quaternion.identity);
+        Collider[] colliders = Physics.OverlapSphere(instantiationPosition, 3f);
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.tag == "AI")
+            {
+                AI ai = c.gameObject.GetComponent<AI>();
+                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
+                {
+                    ((AIUnit)ai).EnemyKnockup((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                }
+                if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
+                {
+                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                }
+            }
+        }
     }
 
     public void SlamDunkInAirEvent()

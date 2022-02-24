@@ -37,7 +37,7 @@ public class GameManager : Singleton<GameManager>
         Tooltip_Warning.HideTooltip_Static();
     }
 
-    void Awake()
+    protected override void OnAwake()
     {
         m_LevelSystem = new LevelSystem();
         levelWindow.SetLevelSystem(m_LevelSystem);
@@ -75,9 +75,7 @@ public class GameManager : Singleton<GameManager>
             playerStats.Replenish_Health(5);
             //print("health now is  : " + playerStats.Health);
         }
-
-
-            if (m_EnemyArr.Count > 0)
+        if (m_EnemyArr.Count > 0)
             m_InCombat = true;
         else
             m_InCombat = false;

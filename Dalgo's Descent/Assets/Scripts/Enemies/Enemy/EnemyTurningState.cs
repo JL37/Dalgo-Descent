@@ -71,7 +71,7 @@ public class EnemyTurningState : EnemyBaseState
     {
         while (!walkpointSet)
         {
-            aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
+            aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), aiUnit.transform.position.y, aiUnit.transform.position.z + Random.Range(5, -5));
             Debug.Log("Walkpoint Set");
 
             NavMeshPath path = new NavMeshPath();

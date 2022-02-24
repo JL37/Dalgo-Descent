@@ -7,6 +7,7 @@ public class PauseController : MonoBehaviour
 {
     [Header("Objects")]
     public GameObject m_PausePanel;
+    public GameObject m_OptionPanel;
     [SerializeField] CinemachineFreeLook m_FreeLookCamera = null;
 
     protected float m_CamSpdX = 0;
@@ -30,13 +31,20 @@ public class PauseController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
             TogglePause();
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            m_OptionPanel.SetActive(!m_OptionPanel.activeSelf);
+        }
     }
     public void ButtonClicked()
     {
         if(m_PausePanel.activeInHierarchy == true)
             TogglePause();
         else
+        {
             m_PausePanel.SetActive(true);
+            m_OptionPanel.SetActive(false);
+        }
     }    
 
     public bool IsPaused()
@@ -51,6 +59,7 @@ public class PauseController : MonoBehaviour
         GameStateManager.Get_Instance.SetState(newGameState);
 
         m_PausePanel.SetActive(!m_PausePanel.activeSelf);
+        m_OptionPanel.SetActive(false);
         if (m_PausePanel.activeSelf)
         {
             Cursor.visible = true;
