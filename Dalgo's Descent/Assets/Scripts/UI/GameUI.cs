@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] GameObject m_ItemPanel;
     [SerializeField] GameObject m_TempPanel;
     [SerializeField] EnemyHealthUI m_BossHealth;
+    [SerializeField] Image m_GameOverBg;
 
     [Header("Timers")]
     protected float m_CurrErrorTimer = 0f;
@@ -46,6 +49,26 @@ public class GameUI : MonoBehaviour
                 m_ErrorText.color = new Color(1, 1, 1, 1);
             }
         }
+    }
+
+    public void FadeOutGame()
+    {
+        m_GameOverBg.gameObject.SetActive(true);
+        StartCoroutine(I_FadeOut(0.5f));
+    }
+
+    protected IEnumerator I_FadeOut(float duration)
+    {
+        for (float i = 0; i <= 1; i += Time.deltaTime / duration)
+        {
+            Color ogColor = m_GameOverBg.color;
+            ogColor.a = i;
+            m_GameOverBg.color = ogColor;
+
+            yield return null;
+        }
+
+        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
     }
 
     public void EnableBossUI(Health bossHealth)

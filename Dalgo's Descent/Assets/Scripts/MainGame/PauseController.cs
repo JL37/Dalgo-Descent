@@ -25,6 +25,9 @@ public class PauseController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.ReturnGameOver())
+            return;
+
         if(Input.GetKeyDown(KeyCode.Escape))
             TogglePause();
     }

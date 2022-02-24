@@ -77,6 +77,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        GameStateManager.Get_Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
     void Update()
     {
 

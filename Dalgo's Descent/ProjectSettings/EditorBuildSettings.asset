@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: c4c7144906966ac4faa0bd51216d20f6
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: 3fda87bd2f1d6fa4687246bbcb660d49
   - enabled: 0
     path: Assets/Scenes/Jevon Testing/Enemy UI Scene.unity
     guid: 80886ed405e6e82488af5d212a605ddf

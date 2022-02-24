@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
 
     protected List<GameObject> m_EnemyArr;
     protected bool m_InCombat = false;
+    protected bool m_GameOver = false;
 
     [SerializeField] LevelWindow levelWindow;
     private LevelSystem m_LevelSystem;
@@ -49,6 +50,13 @@ public class GameManager : Singleton<GameManager>
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 
+        if (!playerStats && !m_GameOver)
+        {
+            //Run animation
+            m_VisibleCanvas.FadeOutGame();
+            m_GameOver = true;
+        }
+
         m_levelSystemAnimated.Update();
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {
@@ -74,6 +82,8 @@ public class GameManager : Singleton<GameManager>
         else
             m_InCombat = false;
     }
+
+    public bool ReturnGameOver() { return m_GameOver; }
 
     public void EnableBossHealthUI(Health health)
     {
