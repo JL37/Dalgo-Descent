@@ -98,13 +98,14 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
-            {
-                Debug.Log("USING SKILL 3 LIAO");
+            UseSkill(2);
+            //if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
+            //{
+            //    Debug.Log("USING SKILL 3 LIAO");
 
-                UseSkill(2);
+            //    UseSkill(2);
 
-            }
+            //}
         }
     }
 

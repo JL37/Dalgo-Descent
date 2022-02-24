@@ -17,6 +17,7 @@ public class Coin : MonoBehaviour, IObjectPooling
 
     //variables to reset la if not what
     protected float m_CurrRadians = 0;
+    protected bool m_IsCollected = false;
 
     public GameObject GetModel()
     {
@@ -26,16 +27,36 @@ public class Coin : MonoBehaviour, IObjectPooling
     private void Update()
     {
         UpdateRotate();
-        UpdatePosition();
+
+        if (!m_IsCollected)
+            UpdatePosition();
+        else
+            UpdateMovingUp();
+    }
+
+    protected void UpdateMovingUp()
+    {
+        float spdY = 15 * Time.deltaTime;
+        Vector3 pos = m_ModelTransform.localPosition;
+        pos.y += spdY;
+
+        float limitY = 1.25f;
+        if (pos.y > limitY)
+            pos.y = limitY;
+
+        m_ModelTransform.localPosition = pos;
     }
 
     public void Initialise()
     {
-        m_Animator.Play("Nothing");
+        if (m_Animator)
+            m_Animator.Play("Nothing");
 
         //Random ass position test
         Vector3 pos = new Vector3(Random.Range(0f, 7f), -2.627f, Random.Range(0f, 7f));
         transform.position = pos;
+
+        m_IsCollected = false;
     }
 
     public void UpdatePosition()
@@ -67,6 +88,7 @@ public class Coin : MonoBehaviour, IObjectPooling
 
             m_ParticleSystem.Play();
             m_Animator.SetTrigger("PickedUp");
+            m_IsCollected = true;
 
             StartCoroutine(Disable(0.3f));
         }
