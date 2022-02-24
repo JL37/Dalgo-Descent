@@ -293,4 +293,9 @@ public class PlayerController : MonoBehaviour
 
         return target;
     }
+
+    public PlayerInput GetInput()
+    {
+        return this.InputScript;
+    }
 }

@@ -36,6 +36,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         sound_ToPlay.source.Play();
+        print(sound_ToPlay.volume);
     }
 
     private void Start()
@@ -43,6 +44,33 @@ public class AudioManager : MonoBehaviour
         Play("Testing");
     }
 
+    public Sound GetSound(string name)
+    {
+        Sound sound_ToPlay = Array.Find(soundsArr, sound => sound.name == name);
+        if (sound_ToPlay == null)
+        {
+            Debug.LogError("SOUND " + name + " CANT BE RETURNED, CHECK SPELLING OF THE SONG");
+            return null;
+        }
+        else
+        {
+            return sound_ToPlay;
+        }
+    }
+
+    public void SetVolume(float vol,string name)
+    {
+        Sound sound_ToPlay = Array.Find(soundsArr, sound => sound.name == name);
+        if(sound_ToPlay == null)
+        {
+            Debug.LogError("SOUND " + name + " CANT BE ADJUSTED, CHECK SPELLING OF THE SONG");
+            return;
+        }
+        else
+        {
+            sound_ToPlay.source.volume = vol;
+        }
+    }
 
     void Update()
     {

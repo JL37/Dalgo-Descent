@@ -17,8 +17,8 @@ public class MouseCursor : MonoBehaviour
         hotSpot.y = mouseCursor.height * 0.22f;
         Cursor.SetCursor(mouseCursor, hotSpot, cursorMode);
         m_PauseController = GetComponent<PauseController>();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
         
     }
 
