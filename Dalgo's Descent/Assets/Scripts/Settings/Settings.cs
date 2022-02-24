@@ -4,12 +4,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 public class Settings : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-    public AudioSource audioSource;
-
     public void SetVolume(float volume)
     {
-        AudioManager.instance.SetVolume(volume, "Testing");
+        AudioManager.Instance.SetVolume(volume, "Testing");
     }
 
     public void SetQuality(int qualityIndex) //this does not work hmmm
