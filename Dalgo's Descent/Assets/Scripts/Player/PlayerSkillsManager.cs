@@ -66,8 +66,6 @@ public class PlayerSkillsManager : MonoBehaviour
             {
                 Debug.Log("USING SKILL 2 LIAO");
                 UseSkill(1);
-
-
             }
         }
     }
