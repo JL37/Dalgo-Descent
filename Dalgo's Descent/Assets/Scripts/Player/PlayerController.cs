@@ -271,6 +271,16 @@ public class PlayerController : MonoBehaviour
         Impact += dir.normalized * force / Mass;
     }
 
+    public void ResetImpactForJump(bool resetAllAxes = true) //Resetting for additional jump (3RD SKILL)
+    {
+        PlayerAnimator.SetTrigger(JumpTriggerHash);
+        IsJump = true;
+        IsGrounded = false;
+        Impact.y = 0;
+
+        Impact = resetAllAxes ? new Vector3(0, 0, 0) : Impact;
+    }
+
     private static Vector3 ClampValue (Vector3 target, Vector3 min, Vector3 max)
     {
         if (target.x <= min.x)

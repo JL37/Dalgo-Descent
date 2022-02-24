@@ -23,13 +23,19 @@ public class PlayerSkillsManager : MonoBehaviour
 
     private int SkillLayerIndex;
     private double SkillAnimationTimer;
+
+    //References 
+    protected AnimationController m_AController;
+    protected PlayerController m_PlayerController;
+
     // Start is called before the first frame update
     void Start()
     {
         ActiveSkillIndex = -1;
         SkillLayerIndex = PlayerAnimator.GetLayerIndex("Skill Layer");
         m_playerStats = GetComponent<PlayerStats>();
-        
+        m_AController = GetComponent<AnimationController>();
+        m_PlayerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -62,9 +68,9 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
+            UseSkill(1);
             if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
             {
-                UseSkill(1);
                 Debug.Log("USING SKILL 2 LIAO");
             }
         }
@@ -72,15 +78,20 @@ public class PlayerSkillsManager : MonoBehaviour
 
     public void OnSlamDunkPressed(InputAction.CallbackContext context)
     {
-        if (context.started)
+        PlayerController playerController = GetComponent<PlayerController>();
+
+        if (context.started && !playerController.IsGrounded)
         {
             UseSkill(2);
+
+            //Make him go up first
+            playerController.ResetImpactForJump();
+            playerController.AddImpact(Vector3.up, 15f);
+
             //if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
             //{
             //    Debug.Log("USING SKILL 3 LIAO");
-
             //    UseSkill(2);
-
             //}
         }
     }
@@ -98,7 +109,28 @@ public class PlayerSkillsManager : MonoBehaviour
         Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
         Instantiate(ShovelCutVFXPrefab, instantiationPosition, Quaternion.identity);
     }
+
+    public void SlamDunkInAirEvent()
+    {
+        m_AController.PauseAnimation();
+        StartCoroutine(ResumeAnimationWhenOnGround());
+    }
+
+    public void SlamDunkGroundedEvent()
+    {
+        Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
+        Instantiate(SlamDunkVFXPrefab, instantiationPosition, Quaternion.identity);
+    }
     #endregion
+
+    protected IEnumerator ResumeAnimationWhenOnGround()
+    {
+        //Wait until player is on ground, then continue animation!
+        while (!m_PlayerController.IsGrounded)
+            yield return null;
+
+        m_AController.ResumeAnimation();
+    }
 
     private void SkillFinish()
     {
