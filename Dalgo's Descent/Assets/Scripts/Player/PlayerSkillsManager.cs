@@ -87,7 +87,7 @@ public class PlayerSkillsManager : MonoBehaviour
     #region SkillEvents
      public void CleaveEvent()
     {
-        Vector3 Position = transform.position + transform.forward;
+        Vector3 Position = transform.position;
         Quaternion rotation = transform.rotation;
         Instantiate(CleaveVFXPrefab, Position, rotation);
         print(rotation);
