@@ -3901,7 +3901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3915971352079489196, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4370292908945612870, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: AttackInputDelay
@@ -3937,6 +3937,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6168128962939491256, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168128962939491256, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: currentHealth
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9054460257259992263, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
