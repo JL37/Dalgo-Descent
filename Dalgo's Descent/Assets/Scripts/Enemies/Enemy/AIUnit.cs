@@ -5,6 +5,8 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class AIUnit : AI
 {
+    public bool isMiniboss;
+
     private new Rigidbody rigidbody;
     public LayerMask groundLayer;
     public Texture2D[] enemyTextures;
@@ -126,15 +128,23 @@ public class AIUnit : AI
         return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pushback");
     }
 
+
+
     protected override void AddAggroToGameManager()
     {
         base.AddAggroToGameManager();
-        m_HealthUI = m_GameManager.ActivateEnemyHealthUI(GetComponent<Health>());
+        if (isMiniboss)
+            m_GameManager.EnableBossHealthUI(GetComponent<Health>());
+        else
+            m_HealthUI = m_GameManager.ActivateEnemyHealthUI(GetComponent<Health>());
     }
 
     protected override void RemoveFromGameManager()
     {
         base.RemoveFromGameManager();
-        m_HealthUI.StartFadeAnimation(true);
+        if (isMiniboss)
+            m_GameManager.DisableBossHealthUI();
+        else
+            m_HealthUI.StartFadeAnimation(true);
     }
 }
