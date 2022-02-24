@@ -128,7 +128,8 @@ public class PlayerSkillsManager : MonoBehaviour
     public void SlamDunkGroundedEvent()
     {
         Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
-        Instantiate(SlamDunkVFXPrefab, instantiationPosition, Quaternion.identity);
+        GameObject particle = Instantiate(SlamDunkVFXPrefab, instantiationPosition, Quaternion.identity);
+        particle.transform.localScale = new Vector3(1.5f, 1.5f, 2);
 
         float distLimit = 5f; //Distancing from player to enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("AI");
