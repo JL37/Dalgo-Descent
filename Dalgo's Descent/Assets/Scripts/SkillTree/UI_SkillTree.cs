@@ -7,7 +7,6 @@ public class UI_SkillTree : MonoBehaviour
     private PlayerSkills m_playerskills;
     private void Awake()
     {
-        
     }
     public void Test()
     {

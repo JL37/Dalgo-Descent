@@ -883,7 +883,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1754,6 +1754,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1404026794082159706, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1404026794082159708, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
       propertyPath: m_Name
       value: VIsibleCanvas
@@ -1881,6 +1885,10 @@ PrefabInstance:
     - target: {fileID: 6797362825592575947, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007758992507755958, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 179
       objectReference: {fileID: 0}
     - target: {fileID: 7111290184857099844, guid: 16d0f7a1879f7564f8f0da1848a1c6ec, type: 3}
       propertyPath: m_Color.b
@@ -2223,6 +2231,10 @@ PrefabInstance:
     - target: {fileID: 256297943377168928, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
       propertyPath: m_Name
       value: Skill_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 256297943377168930, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 256297943377168932, guid: ac82d8a86868564428802d4880c9acfe, type: 3}
       propertyPath: m_Pivot.x

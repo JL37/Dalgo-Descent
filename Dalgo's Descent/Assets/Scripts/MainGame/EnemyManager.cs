@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            SpawnEnemies(1, 5, new Vector3(10, 0, 10));
+            SpawnEnemies(1, 5, new Vector3(0, 0f, 0));
         }
     }
 
@@ -28,12 +29,17 @@ public class EnemyManager : MonoBehaviour
         int enemiesSpawned = 0;
         WaitForSeconds wfs = new WaitForSeconds(timeToSpawnEnemies / (float)EnemyCount);
         while (enemiesSpawned < EnemyCount)
-        {
+        { 
             Debug.Log("Spawning enemy " + enemiesSpawned);
             Vector3 newPosition = new Vector3(position.x + Random.Range(-radiusOffset, radiusOffset), position.y, position.z + Random.Range(-radiusOffset, radiusOffset));
             GameObject newEnemy = Instantiate(m_EnemyPrefab, m_Enemies);
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(newPosition, out hit, 5f, NavMesh.AllAreas))
+                newEnemy.GetComponent<NavMeshAgent>().Warp(hit.position);
+
             newEnemy.GetComponent<AIUnit>().Init(Random.Range(0.7f, 1.5f));
-            newEnemy.transform.position = newPosition;
+            // newEnemy.transform.position = newPosition;
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
             enemiesSpawned++;
             yield return wfs;

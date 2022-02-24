@@ -46,7 +46,7 @@ public class AIUnit : AI
         foreach (SkinnedMeshRenderer smr in mr)
         {
             smr.materials[0].SetFloat("_CutoffHeight", smr.materials[0].GetFloat("_CutoffHeight") + Time.deltaTime * 2f);
-            smr.materials[0].SetFloat("_CutoffHeight", Mathf.Clamp(smr.materials[0].GetFloat("_CutoffHeight"), -1f, 1.4f));
+            smr.materials[0].SetFloat("_CutoffHeight", Mathf.Clamp(smr.materials[0].GetFloat("_CutoffHeight"), -1f, 1.8f));
         }
 
         if (Input.GetKeyDown(KeyCode.P))

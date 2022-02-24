@@ -161,6 +161,12 @@ public class PlayerController : MonoBehaviour
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
     {
+        if (GetComponent<PlayerStats>().m_Health.currentHealth <= 0)
+        {
+            MoveDirection = Vector3.zero;
+            return;
+        }
+
         var contextDirection = context.ReadValue<Vector2>();
         IsMoving = !context.canceled;
         MoveDirection = IsMoving ? WalkSpeed * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
@@ -206,7 +212,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && Impact.y <= 0 && IsGrounded)
+        if (context.started && Impact.y <= 0 && IsGrounded && GetComponent<PlayerStats>().m_Health.currentHealth > 0)
         {
             PlayerAnimator.SetTrigger(JumpTriggerHash);
             Jump();

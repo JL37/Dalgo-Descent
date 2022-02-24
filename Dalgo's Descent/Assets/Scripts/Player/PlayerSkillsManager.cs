@@ -62,17 +62,30 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            UseSkill(1);
             if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
             {
+                UseSkill(1);
                 Debug.Log("USING SKILL 2 LIAO");
+            }
+        }
+    } 
 
+    public void OnSlamDunkPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
+            {
+                Debug.Log("USING SKILL 3 LIAO");
+
+                UseSkill(2);
 
             }
         }
     }
 
-    public void CleaveEvent()
+    #region SkillEvents
+     public void CleaveEvent()
     {
         Vector3 Position = transform.position + transform.forward;
         Quaternion rotation = transform.rotation;
@@ -119,20 +132,7 @@ public class PlayerSkillsManager : MonoBehaviour
             }
         }
     }
-
-    public void OnSlamDunkPressed(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
-            {
-                Debug.Log("USING SKILL 3 LIAO");
-
-                UseSkill(2);
-
-            }
-        }
-    }
+    #endregion
 
     private void SkillFinish()
     {

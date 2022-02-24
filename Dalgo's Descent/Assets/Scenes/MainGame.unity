@@ -2418,6 +2418,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 391110961848077239, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 732160042012863722, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
       propertyPath: m_MatchWidthOrHeight
       value: 0.5
@@ -2445,6 +2449,14 @@ PrefabInstance:
     - target: {fileID: 7507685403584117553, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
       propertyPath: m_Name
       value: CanvasUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7891457116094549521, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597675265984551515, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 179
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d18a1686876c64db7d178d65620c0d, type: 3}
