@@ -84,7 +84,7 @@ public class AI : MonoBehaviour
 
     public void AttackPlayer()
     {
-        if (m_inAttackRange)
+        if (m_inAttackRange && playerRef)
         {
             playerRef.GetComponent<PlayerStats>().Received_Damage(enemyStats.FinalDamage());
             Debug.Log("Player Hit");
