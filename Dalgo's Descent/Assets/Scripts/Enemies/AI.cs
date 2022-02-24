@@ -109,13 +109,15 @@ public class AI : MonoBehaviour
 
             if (aiType == AI_TYPE.AI_TYPE_ENEMY)
             {
-                ((AIUnit)this).EnemyHit(playerRef.GetComponent<PlayerStats>().GetSlashDamage(slashComponent.SlashType));
+                ((AIUnit)this).EnemyHit(playerRef.GetComponent<PlayerStats>().GetSlashDamage(slashComponent.SlashType), playerRef.GetComponent<PlayerStats>().GetKnockbackForce(slashComponent.SlashType));
             }
             if (aiType == AI_TYPE.AI_TYPE_BOSS)
             {
                 ((BossAI)this).Damage(playerRef.GetComponent<PlayerStats>().GetSlashDamage(slashComponent.SlashType));
             }
         }
+
+        
     }
 
     public EnemyStats enemyStats { get { return m_EnemyStats; } }

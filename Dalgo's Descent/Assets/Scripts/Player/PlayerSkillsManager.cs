@@ -49,10 +49,10 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
+            UseSkill(0);
             if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
             {
                 Debug.Log("USING SKILL 1 LIAO");
-                UseSkill(0);
 
             }
         }
@@ -62,37 +62,13 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            UseSkill(1);
-            //if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
-            //{
-            //    Debug.Log("USING SKILL 2 LIAO");
-            //    UseSkill(1);
-            //}
-        }
-    }
-
-    public void ShovelCutEvent()
-    {
-        Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
-        Instantiate(ShovelCutVFXPrefab, instantiationPosition, Quaternion.identity);
-
-        Collider[] colliders = Physics.OverlapSphere(instantiationPosition, 3f);
-        foreach (Collider c in colliders)
-        {
-            if (c.gameObject.tag == "AI")
+            if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
             {
-                AI ai = c.gameObject.GetComponent<AI>();
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
-                {
-                    ((AIUnit)ai).EnemyKnockup((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
-                {
-                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
+                UseSkill(1);
+                Debug.Log("USING SKILL 2 LIAO");
             }
         }
-    }
+    } 
 
     public void OnSlamDunkPressed(InputAction.CallbackContext context)
     {
@@ -108,6 +84,21 @@ public class PlayerSkillsManager : MonoBehaviour
             //}
         }
     }
+
+    #region SkillEvents
+    public void CleaveEvent()
+    {
+        Vector3 Position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        Instantiate(CleaveVFXPrefab, transform);
+        // print(rotation);
+    }
+
+    public void ShovelCutEvent()
+    {
+        Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
+        Instantiate(ShovelCutVFXPrefab, instantiationPosition, Quaternion.identity);
+    }
+    #endregion
 
     private void SkillFinish()
     {

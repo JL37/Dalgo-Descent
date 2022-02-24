@@ -341,4 +341,21 @@ public class PlayerStats : MonoBehaviour
                 return BasicAtk;
         }
     }
+
+    public float GetKnockbackForce(SLASH_TYPE slashType)
+    {
+        switch (slashType)
+        {
+            case SLASH_TYPE.SLASH_1:
+                return 70f;
+            case SLASH_TYPE.SLASH_2:
+                return 100f;
+            case SLASH_TYPE.SLASH_3:
+                return 150f;
+            case SLASH_TYPE.CLEAVE:
+                return 300f;
+            default:
+                return 100f;
+        }
+    }
 }
