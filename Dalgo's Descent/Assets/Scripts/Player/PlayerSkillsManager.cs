@@ -49,9 +49,9 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
+            UseSkill(0);
             if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
             {
-                UseSkill(0);
                 Debug.Log("USING SKILL 1 LIAO");
 
             }
@@ -85,52 +85,17 @@ public class PlayerSkillsManager : MonoBehaviour
     }
 
     #region SkillEvents
-     public void CleaveEvent()
+    public void CleaveEvent()
     {
-        Vector3 Position = transform.position;
-        Quaternion rotation = transform.rotation;
-        Instantiate(CleaveVFXPrefab, Position, rotation);
-        print(rotation);
-
-        Collider[] colliders = Physics.OverlapSphere(Position, 3f);
-        foreach (Collider c in colliders)
-        {
-            if (c.gameObject.tag == "AI")
-            {
-                AI ai = c.gameObject.GetComponent<AI>();
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
-                {
-                    ((AIUnit)ai).EnemyPushBack((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
-                {
-                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
-            }
-        }
+        Vector3 Position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        Instantiate(CleaveVFXPrefab, transform);
+        // print(rotation);
     }
 
     public void ShovelCutEvent()
     {
         Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
         Instantiate(ShovelCutVFXPrefab, instantiationPosition, Quaternion.identity);
-
-        Collider[] colliders = Physics.OverlapSphere(instantiationPosition, 3f);
-        foreach (Collider c in colliders)
-        {
-            if (c.gameObject.tag == "AI")
-            {
-                AI ai = c.gameObject.GetComponent<AI>();
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
-                {
-                    ((AIUnit)ai).EnemyKnockup((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
-                {
-                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
-            }
-        }
     }
     #endregion
 

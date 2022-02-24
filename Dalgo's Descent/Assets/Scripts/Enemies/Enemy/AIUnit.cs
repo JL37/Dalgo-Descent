@@ -58,7 +58,7 @@ public class AIUnit : AI
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            EnemyHit(10);
+            EnemyHit(10, 100f);
         }
     }
 
@@ -80,16 +80,16 @@ public class AIUnit : AI
             RemoveFromGameManager();
     }
 
-    public void EnemyHit(float damage) 
+    public void EnemyHit(float damage, float force) 
     {
         if (enemyStats.health.currentHealth <= 0.0f)
             return;
 
+        Damage(damage);
         animator.SetTrigger("Hit");
         // m_animator.SetBool("IsHit", true);
         Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
-        rigidbody.AddForce(directionFromPlayer * 100f);
-        Damage(damage);
+        rigidbody.AddForce(directionFromPlayer * force);
     }
 
     public void EnemyKnockup(float damage)
@@ -106,21 +106,6 @@ public class AIUnit : AI
             return;
 
         animator.SetTrigger("Knockup");
-    }
-
-    public void EnemyPushBack(float damage)
-    {
-
-        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
-        Damage(damage);
-        rigidbody.isKinematic = false;
-        agent.enabled = false;
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(new Vector3(0, 0, directionFromPlayer.z * 400.0f));
-        if (enemyStats.health.currentHealth <= 0)
-            return;
-
-        animator.SetTrigger("Pushback");
     }
 
     public override bool IsAggro()
