@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 481131366}
   - component: {fileID: 481131368}
   - component: {fileID: 481131367}
+  - component: {fileID: 481131369}
   m_Layer: 5
   m_Name: DialogueArrow
   m_TagString: Untagged
@@ -645,6 +646,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481131365}
   m_CullTransparentMesh: 1
+--- !u!114 &481131369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481131365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eddcd36cf12c9c4bb76163bdc7f47cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Duration: 0.25
+  m_MaxHeight: 0.3
 --- !u!1 &524469834
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed61b7f5253170c439bc9da900b7bca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DownOffSet: {x: 0, y: -20, z: 0}
+  m_DownOffSet: {x: 0, y: -9, z: 0}
+  m_LerpSpd: 0.1
 --- !u!1 &1227001170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DialogueTextObject: {fileID: 454573371}
   m_CurrFace: {fileID: 1031191757}
+  m_Arrow: {fileID: 481131367}
   m_DefaultFaceSprite: {fileID: 21300000, guid: e8cafa71c77584747b246db30f1b8a61, type: 3}
   m_FaceApperanceIdx: 1
   m_Timer: 0.03

@@ -9,6 +9,7 @@ public class DialogueSystem : MonoBehaviour
     [Header("Objects")]
     [SerializeField] TMP_Text m_DialogueTextObject;
     [SerializeField] Image m_CurrFace;
+    [SerializeField] Image m_Arrow;
 
     [Header("Adjustable variable")]
     [SerializeField] Sprite m_DefaultFaceSprite;
@@ -21,6 +22,8 @@ public class DialogueSystem : MonoBehaviour
     protected Sprite m_CurrFaceSprite;
 
     protected int m_CurrIDx = 0;
+
+    protected bool m_RiggedTimer = false;
     protected bool m_Animating = false;
     protected bool m_AnimationDone = true;
 
@@ -29,10 +32,14 @@ public class DialogueSystem : MonoBehaviour
         m_DialogueList = new List<(string dialogue, float duration)>();
         m_FaceExeption = new List<(Sprite img, int specialIdx)>();
 
+        m_Arrow.gameObject.SetActive(false);
+
+
         m_DialogueList.Add(("Au ah au salakau aiwdjaiowjdoaidjai wojdoajiwjdio awjiodjawjdiaj dioawjoidj??", 0));
         m_DialogueList.Add(("Cibai la salakau", 0));
         m_DialogueList.Add(("YOUR MOTHER IS FROM MY FATHER PUSSY SON DAUGHTER UNCLE!!!!!11!!!", 0));
-        m_DialogueList.Add(("FUCK yOU la cibaI dOG", 0));
+        m_DialogueList.Add(("FUCK yOU la cibaI dOG", 2.3f));
+        m_DialogueList.Add(("Sorry idk what came over me i love you man", 0f));
     }
 
     // Start is called before the first frame update
@@ -44,27 +51,46 @@ public class DialogueSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
+        if (!m_Animating)
         {
-            OnClick();
+            if (!m_RiggedTimer && m_DialogueList[m_CurrIDx].duration > 0)
+                StartCoroutine(WaitThenAnimateNext(m_DialogueList[m_CurrIDx].duration));
+            else if (!m_Arrow.gameObject.activeSelf && !m_RiggedTimer)
+                m_Arrow.gameObject.SetActive(true);
         }
+
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
+            OnClick();
+    }
+
+    protected IEnumerator WaitThenAnimateNext(float duration)
+    {
+        //print("Man moment");
+        m_RiggedTimer = true;
+        yield return new WaitForSecondsRealtime(duration);
+
+        m_RiggedTimer = false;
+        AnimateNextLine();
     }
 
     protected void OnClick()
     {
+        if (m_DialogueList[m_CurrIDx].duration > 0) //remove control to skip if there is a rigged duration
+            return;
+
         //If text animation not done, force it to finish
-        if (!m_AnimationDone && m_FaceExeption[m_CurrIDx].specialIdx != m_CurrIDx)
-        {
+        if (!m_AnimationDone)
             m_AnimationDone = true;
-        }
-        else if (!m_Animating) //If done liao, then bruh moment just animate the next line if theres any
-        {
+        else if (!m_Animating && m_CurrIDx < m_DialogueList.Count - 1) //If done liao, then bruh moment just animate the next line if theres any
             AnimateNextLine();
-        }
     }
 
-    protected void AnimateNextLine(bool firstLine = false)
+    public void AnimateNextLine(bool firstLine = false)
     {
+        //m_Animating = true;
+        //m_AnimationDone = false;
+        m_Arrow.gameObject.SetActive(false);
+
         if (firstLine)
         {
             ResetDialogueText();
@@ -92,7 +118,7 @@ public class DialogueSystem : MonoBehaviour
         m_DialogueTextObject.text = "";
     }
 
-    public void AnimateText()
+    protected void AnimateText()
     {
         //Text animation
         StartCoroutine(I_AnimateText());

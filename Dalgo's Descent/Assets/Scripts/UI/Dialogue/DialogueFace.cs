@@ -7,6 +7,7 @@ public class DialogueFace : MonoBehaviour
 {
     [Header("Variables to adjust")]
     [SerializeField] Vector3 m_DownOffSet = new Vector3(0,-25,0);
+    [SerializeField] float m_LerpSpd = 0.15f;
 
     protected Vector3 originalPos;
 
@@ -17,13 +18,13 @@ public class DialogueFace : MonoBehaviour
         GetComponent<RectTransform>().position += m_DownOffSet;
 
         gameObject.SetActive(false);
-        print("Face start la");
+        //print("Face start la");
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateToTarget(originalPos,0.09f);
+        UpdateToTarget(originalPos, m_LerpSpd);
     }
 
     public void Initialise(Sprite defFace)
@@ -37,7 +38,7 @@ public class DialogueFace : MonoBehaviour
         if ((GetComponent<RectTransform>().position - pos).magnitude > 0.01f)
         {
             //Math
-            print("LERP LA");
+            //print("LERP LA");
             Vector3 newPos = GetComponent<RectTransform>().position;
             newPos.x = Mathf.Lerp(newPos.x, pos.x, lerp);
             newPos.y = Mathf.Lerp(newPos.y, pos.y, lerp);

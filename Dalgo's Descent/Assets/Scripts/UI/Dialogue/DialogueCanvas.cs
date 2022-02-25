@@ -21,7 +21,9 @@ public class DialogueCanvas : MonoBehaviour
     void Start()
     {
         m_DialogueFolder.SetActive(false);
+
         m_DialogueFolder.GetComponent<DialogueSystem>().AddFaceException((m_SomewhatAnnoyed, 2));
+        m_DialogueFolder.GetComponent<DialogueSystem>().AddFaceException((m_Acceptance, 4));
 
         StartCoroutine(InitialiseDialogue(m_TimerStart));
     }
@@ -37,6 +39,6 @@ public class DialogueCanvas : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         m_DialogueFolder.SetActive(true);
-        m_DialogueFolder.GetComponent<DialogueSystem>().AnimateText();
+        m_DialogueFolder.GetComponent<DialogueSystem>().AnimateNextLine(true);
     }
 }
