@@ -27,7 +27,6 @@ public class GameLevelManager : Singleton<GameLevelManager>
     {
         CreateNextLevel();
     }
-
    
     public void OnNextLevelEnter()
     { 
@@ -70,4 +69,6 @@ public class GameLevelManager : Singleton<GameLevelManager>
         Destroy(PlayArea.gameObject);
         PlayArea = null;
     }
+
+    public bool IsLastLevel() { return CurrentLevel == TotalLevels; }
 }
