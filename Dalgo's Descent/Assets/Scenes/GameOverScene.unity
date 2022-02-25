@@ -814,7 +814,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed61b7f5253170c439bc9da900b7bca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Listeners:
+  - {fileID: 1526604145}
   m_DownOffSet: {x: 0, y: -9, z: 0}
+  m_Center: {x: 0, y: -225, z: 0}
+  m_InitialCenterSize: {x: 1500, y: 1500}
+  m_DialogueText: {fileID: 454573371}
+  m_ZoomInSlowSpd: 75
+  m_ScreenShakeDuration: 0.4
+  m_ScreenShakeRandom: {x: 10, y: 10}
   m_LerpSpd: 0.1
 --- !u!1 &1227001170
 GameObject:
@@ -873,7 +881,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aoshi
+  m_text: ???
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1035,6 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526604143}
   - component: {fileID: 1526604144}
+  - component: {fileID: 1526604145}
   m_Layer: 5
   m_Name: DialogueFolder
   m_TagString: Untagged
@@ -1084,7 +1093,20 @@ MonoBehaviour:
   m_Arrow: {fileID: 481131367}
   m_DefaultFaceSprite: {fileID: 21300000, guid: e8cafa71c77584747b246db30f1b8a61, type: 3}
   m_FaceApperanceIdx: 1
-  m_Timer: 0.03
+  m_Timer: 0.015
+--- !u!114 &1526604145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526604142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210c3b892a62e2b47b557489ebb6c728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ManualOverride: 1
 --- !u!1 &1766794203
 GameObject:
   m_ObjectHideFlags: 0
