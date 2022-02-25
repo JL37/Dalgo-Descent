@@ -32,7 +32,7 @@ public class AudioManager : Singleton<AudioManager>
 
     private void Start()
     {
-        Play("Test");
+        
     }
 
     public Sound GetSound(string name)

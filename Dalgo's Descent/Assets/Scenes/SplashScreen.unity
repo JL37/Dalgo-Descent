@@ -628,12 +628,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 1
   soundsArr:
-  - clip: {fileID: 8300000, guid: a2286628633bfaf4fa232e4ee9290e40, type: 3}
-    name: Test
+  - clip: {fileID: 8300000, guid: d0b0ed0761dcbf4499aef58b9e51f211, type: 3}
+    name: Splashscreen
     volume: 0.415
     pitch: 1
     source: {fileID: 0}
-    loop: 1
+    loop: 0
 --- !u!4 &1367620068
 Transform:
   m_ObjectHideFlags: 0

@@ -61,4 +61,9 @@ public class ImageFadeIn : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    void PlaySlapSound()
+    {
+        AudioManager.Instance.Play("Splashscreen");
+    }
 }
