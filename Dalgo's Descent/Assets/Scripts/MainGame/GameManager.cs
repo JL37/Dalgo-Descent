@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
         healthUpgrade.SetPlayerSkills(playerStats.GetPlayerSkills());
         Tooltip.HideTooltip_Static();
         Tooltip_Warning.HideTooltip_Static();
+        
     }
 
     protected override void OnAwake()
@@ -50,7 +51,7 @@ public class GameManager : Singleton<GameManager>
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 
-        m_levelSystemAnimated.Update();
+            m_levelSystemAnimated.Update();
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {
             Debug.Log("Attack");

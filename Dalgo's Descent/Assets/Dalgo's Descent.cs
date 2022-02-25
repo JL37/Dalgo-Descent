@@ -107,6 +107,33 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShowCursor"",
+                    ""type"": ""Button"",
+                    ""id"": ""9837d378-f3a3-4c66-a993-40c62c5f51b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Settings"",
+                    ""type"": ""Button"",
+                    ""id"": ""17db0843-1983-45ce-9aab-c191749a4ca6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkillTree"",
+                    ""type"": ""Button"",
+                    ""id"": ""4caeca5e-6ee1-4e46-8321-ee4992b0632a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -252,6 +279,39 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                     ""action"": ""SlamDunk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18087291-2e8a-41a5-8364-b56d2a9f7260"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowCursor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9bbc7a2-0a4e-463a-a9ef-2f5d3b7a6aa7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Settings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cee869d0-97b2-4eb3-96a0-ee1829f5e5fb"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkillTree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -358,6 +418,9 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
         m_Player_Cleave = m_Player.FindAction("Cleave", throwIfNotFound: true);
         m_Player_ShovelCut = m_Player.FindAction("ShovelCut", throwIfNotFound: true);
         m_Player_SlamDunk = m_Player.FindAction("SlamDunk", throwIfNotFound: true);
+        m_Player_ShowCursor = m_Player.FindAction("ShowCursor", throwIfNotFound: true);
+        m_Player_Settings = m_Player.FindAction("Settings", throwIfNotFound: true);
+        m_Player_SkillTree = m_Player.FindAction("SkillTree", throwIfNotFound: true);
         // Sample
         m_Sample = asset.FindActionMap("Sample", throwIfNotFound: true);
         m_Sample_Newaction = m_Sample.FindAction("New action", throwIfNotFound: true);
@@ -429,6 +492,9 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Cleave;
     private readonly InputAction m_Player_ShovelCut;
     private readonly InputAction m_Player_SlamDunk;
+    private readonly InputAction m_Player_ShowCursor;
+    private readonly InputAction m_Player_Settings;
+    private readonly InputAction m_Player_SkillTree;
     public struct PlayerActions
     {
         private @DalgosDescent m_Wrapper;
@@ -442,6 +508,9 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
         public InputAction @Cleave => m_Wrapper.m_Player_Cleave;
         public InputAction @ShovelCut => m_Wrapper.m_Player_ShovelCut;
         public InputAction @SlamDunk => m_Wrapper.m_Player_SlamDunk;
+        public InputAction @ShowCursor => m_Wrapper.m_Player_ShowCursor;
+        public InputAction @Settings => m_Wrapper.m_Player_Settings;
+        public InputAction @SkillTree => m_Wrapper.m_Player_SkillTree;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -478,6 +547,15 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 @SlamDunk.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamDunk;
                 @SlamDunk.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamDunk;
                 @SlamDunk.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamDunk;
+                @ShowCursor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowCursor;
+                @ShowCursor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowCursor;
+                @ShowCursor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowCursor;
+                @Settings.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSettings;
+                @Settings.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSettings;
+                @Settings.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSettings;
+                @SkillTree.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillTree;
+                @SkillTree.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillTree;
+                @SkillTree.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillTree;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -509,6 +587,15 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 @SlamDunk.started += instance.OnSlamDunk;
                 @SlamDunk.performed += instance.OnSlamDunk;
                 @SlamDunk.canceled += instance.OnSlamDunk;
+                @ShowCursor.started += instance.OnShowCursor;
+                @ShowCursor.performed += instance.OnShowCursor;
+                @ShowCursor.canceled += instance.OnShowCursor;
+                @Settings.started += instance.OnSettings;
+                @Settings.performed += instance.OnSettings;
+                @Settings.canceled += instance.OnSettings;
+                @SkillTree.started += instance.OnSkillTree;
+                @SkillTree.performed += instance.OnSkillTree;
+                @SkillTree.canceled += instance.OnSkillTree;
             }
         }
     }
@@ -602,6 +689,9 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
         void OnCleave(InputAction.CallbackContext context);
         void OnShovelCut(InputAction.CallbackContext context);
         void OnSlamDunk(InputAction.CallbackContext context);
+        void OnShowCursor(InputAction.CallbackContext context);
+        void OnSettings(InputAction.CallbackContext context);
+        void OnSkillTree(InputAction.CallbackContext context);
     }
     public interface ISampleActions
     {
