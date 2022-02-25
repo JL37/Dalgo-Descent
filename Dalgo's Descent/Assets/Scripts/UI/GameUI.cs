@@ -62,6 +62,9 @@ public class GameUI : MonoBehaviour
 
     protected IEnumerator I_BlurOut(float duration)
     {
+        GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        GetComponent<Canvas>().worldCamera = Camera.main;
+
         for (float i = 0; i <= 1; i += Time.deltaTime / duration)
         {
             float focal_length = 50 * i;
