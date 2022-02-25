@@ -22,13 +22,16 @@ public class EnemyPreparingAttackState : EnemyBaseState
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (Player == null)
+            return;
+
         destinationChangeTime -= Time.deltaTime;
 
         if (destinationChangeTime < 0f)
         {
             destinationChangeTime = maxDestinationChangeTime;
             aiUnit.agent.SetDestination(Player.transform.position);
-            aiUnit.MoveTo(Player.transform.position);
+            aiUnit.MoveTo(new Vector3(Player.transform.position.x,aiUnit.transform.position.y,Player.transform.position.z));
         }
 
         var q = Quaternion.LookRotation(new Vector3(Player.transform.position.x, 0, Player.transform.position.z) - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z));

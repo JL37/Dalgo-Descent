@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float maxHealth;
-    [HideInInspector]
+    // [HideInInspector]
     public float currentHealth;
 
     [Header("Blink Effect")]
@@ -28,7 +28,11 @@ public class Health : MonoBehaviour
         playDeathAnimation = false;
         m_SkinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         currentHealth = maxHealth;
-        m_UIPoolManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetObjectPoolManager();
+
+        if (GameObject.FindGameObjectWithTag("HUD"))
+            m_UIPoolManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetObjectPoolManager();
+        else
+            m_UIPoolManager = null;
     }
 
     private void Update()
@@ -82,6 +86,8 @@ public class Health : MonoBehaviour
 
         //Initialisation
         obj.GetComponent<DamageTextUI>().Initialise(transform, txt, 1f);
+
+        print("TEXT SUCCESSFULLY SPAWNED!");
     }
 
     public void Die()

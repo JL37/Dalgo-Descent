@@ -78,6 +78,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        GameStateManager.Get_Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
     void Update()
     {
         if (IdleTimer >= IdleInterval)
@@ -159,9 +164,32 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
     }
 
+    public void ForceSetOnGround()
+    {
+        IsLanding = false;
+        IsGrounded = true;
+        IsJump = false;
+    }
+
+    public Vector3 GetGravity()
+    {
+        return Gravity;
+    }
+
+    public void SetGravity(Vector3 Grav)
+    {
+        Gravity = Grav;
+    }
+
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
     {
+        if (GetComponent<PlayerStats>().m_Health.currentHealth <= 0)
+        {
+            MoveDirection = Vector3.zero;
+            return;
+        }
+
         var contextDirection = context.ReadValue<Vector2>();
         IsMoving = !context.canceled;
         MoveDirection = IsMoving ? WalkSpeed * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
@@ -181,6 +209,10 @@ public class PlayerController : MonoBehaviour
             {
                 pStats.GetChest().OnInteract();
                 return;
+            }
+            else
+            {
+                print("NO CHEST LA");
             }
         }
     }
@@ -203,7 +235,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && Impact.y <= 0 && IsGrounded)
+        if (context.started && Impact.y <= 0 && IsGrounded && GetComponent<PlayerStats>().m_Health.currentHealth > 0)
         {
             PlayerAnimator.SetTrigger(JumpTriggerHash);
             Jump();
@@ -275,6 +307,16 @@ public class PlayerController : MonoBehaviour
             IsGrounded = false;
         }
     }
+    
+    public void ResetImpactForJump(bool resetAllAxes = true) //Resetting for additional jump (3RD SKILL)
+    {
+        PlayerAnimator.SetTrigger(JumpTriggerHash);
+        IsJump = true;
+        IsGrounded = false;
+        Impact.y = 0;
+
+        Impact = resetAllAxes ? new Vector3(0, 0, 0) : Impact;
+    }
 
     private static Vector3 ClampValue (Vector3 target, Vector3 min, Vector3 max)
     {
@@ -297,5 +339,10 @@ public class PlayerController : MonoBehaviour
             target.z = max.z;
 
         return target;
+    }
+
+    public PlayerInput GetInput()
+    {
+        return this.InputScript;
     }
 }

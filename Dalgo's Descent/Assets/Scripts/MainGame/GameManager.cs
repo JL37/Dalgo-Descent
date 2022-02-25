@@ -7,31 +7,36 @@ public class GameManager : Singleton<GameManager>
     public Health_UI m_healthUI;
     public PlayerStats playerStats;
 
+    [Header("Objects")]
     [SerializeField] DynamicCamera m_Camera;
-    protected PauseController m_PauseController;
+    [SerializeField] GameUI m_VisibleCanvas;
+    [SerializeField] ObjectPoolManager m_WorldCanvasPool;
 
     protected List<GameObject> m_EnemyArr;
     protected bool m_InCombat = false;
+    protected bool m_GameOver = false;
 
     [SerializeField] LevelWindow levelWindow;
     private LevelSystem m_LevelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
+    protected PostGameInfo m_PostGameInfo;
+    
+    // public UI_SkillTree skill1,skill2,skill3,skill4,healthUpgrade;
+
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         m_healthUI.Setup(playerStats);
-
-        m_PauseController = GetComponent<PauseController>();
         m_EnemyArr = new List<GameObject>();
+        Tooltip.HideTooltip_Static();
+        Tooltip_Warning.HideTooltip_Static();
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-       
+        m_PostGameInfo = PostGameInfo.GetInstance();
+        m_PostGameInfo.Reset();
     }
 
-    void Awake()
+    protected override void OnAwake()
     {
         m_LevelSystem = new LevelSystem();
         levelWindow.SetLevelSystem(m_LevelSystem);
@@ -44,27 +49,21 @@ public class GameManager : Singleton<GameManager>
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 
+        m_PostGameInfo.UpdateTime(Time.deltaTime);
+
+        if (!playerStats && !m_GameOver)
+        {
+            //Run animation
+            m_VisibleCanvas.FadeOutGame();
+            m_GameOver = true;
+        }
+
         m_levelSystemAnimated.Update();
-
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-
-            m_PauseController.CameraToggle(true);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
-            m_PauseController.CameraToggle(false);
-        }
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {
             Debug.Log("Attack");
             playerStats.Received_Damage(5);
-            print("health now is : " + playerStats.Health);
+            //print("health now is : " + playerStats.Health);
         }
         if (Input.GetKeyDown(KeyCode.N)) //testing for exp
         {
@@ -75,13 +74,34 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("Heal");
             playerStats.Replenish_Health(5);
-            print("health now is  : " + playerStats.Health);
+            //print("health now is  : " + playerStats.Health);
         }
-
         if (m_EnemyArr.Count > 0)
             m_InCombat = true;
         else
             m_InCombat = false;
+    }
+
+    public bool ReturnGameOver() { return m_GameOver; }
+
+    public void EnableBossHealthUI(Health health)
+    {
+        m_VisibleCanvas.EnableBossUI(health);
+    }
+
+    public void DisableBossHealthUI()
+    {
+        m_VisibleCanvas.DisableBossUI();
+    }
+
+    public EnemyHealthUI ActivateEnemyHealthUI(Health health)
+    {
+        EnemyHealthUI enemyHealth = m_WorldCanvasPool.GetFromPool().GetComponent<EnemyHealthUI>();
+        enemyHealth.SetHealth(health);
+        enemyHealth.StartFadeAnimation(false);
+        enemyHealth.SetTarget(health.gameObject);
+
+        return enemyHealth;
     }
 
     public bool GetInCombat() { return m_InCombat; }
@@ -112,4 +132,6 @@ public class GameManager : Singleton<GameManager>
         print("Enemy to remove from game manager array is not even in array.");
 
     }
+
+
 }

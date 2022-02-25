@@ -17,32 +17,56 @@ public class EnemyHealthUI : MonoBehaviour
     [SerializeField] float m_FadeDuration = 0.7f;
     [SerializeField] float m_HealthLerpSpd = 0.25f;
     [SerializeField] float m_BufferLerpSpd = 0.1f;
+    [SerializeField] float m_HeightOffset = 1.5f;
 
     protected float m_CurrBufferTimer = 0f;
-    protected GameObject m_Player;
+    protected GameObject m_Target;
 
     // Start is called before the first frame update
     void Start()
     {
         m_CurrBufferTimer = m_MaxBufferTimer;
-        GetComponent<Canvas>().worldCamera = Camera.main;
-        m_Player = GameObject.FindGameObjectWithTag("Player");
+        //GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Disable if enemy is gone/ dead
+        if (!m_Health)
+        {
+            gameObject.SetActive(false);
+            m_Target = null;
+            return;
+        }
+
         //Stop when pause
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
 
         //Updating ui...
         if (m_InWorldSpace)
+        {
+            Vector3 pos = m_Target.transform.position;
+            pos.y += m_HeightOffset;
+            transform.position = pos;
+
             m_HealthFolder.transform.LookAt(Camera.main.transform, Camera.main.transform.up);
+        }
 
         //Updating bars...
         UpdateHealthBar();
         UpdateBufferBar();
+    }
+
+    public void SetHealth(Health health)
+    {
+        m_Health = health;
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        m_Target = target;
     }
 
     protected void UpdateBufferBar()
@@ -67,6 +91,7 @@ public class EnemyHealthUI : MonoBehaviour
         float currScale = m_BufferBar.transform.localScale.x;
 
         currScale = Mathf.Lerp(currScale, targetScale, m_BufferLerpSpd);
+        currScale = currScale < 0 ? 0 : currScale;
         m_BufferBar.transform.localScale = new Vector3(currScale, 1, 1);
     }
 
@@ -91,7 +116,9 @@ public class EnemyHealthUI : MonoBehaviour
             }
 
             //Set to false after successfully fading out
+            m_Health = null;
             gameObject.SetActive(false);
+            m_Target = null;
         } 
         else
         {
@@ -111,6 +138,7 @@ public class EnemyHealthUI : MonoBehaviour
     {
         //Updating scaling of health (Using lerp as animation)
         float healthBarScale = Mathf.Lerp(m_HealthBar.transform.localScale.x, m_Health.currentHealth / m_Health.maxHealth, m_HealthLerpSpd);
+        healthBarScale = healthBarScale < 0 ? 0 : healthBarScale;
         m_HealthBar.transform.localScale = new Vector3(healthBarScale, 1, 1);
     }
 }

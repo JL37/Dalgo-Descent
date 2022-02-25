@@ -29,7 +29,7 @@ public class DamageTextUI : MonoBehaviour
         m_TextCmpt.fontSize = 0;
         m_Canvas = GameObject.FindGameObjectWithTag("HUD").GetComponent<Canvas>();
 
-        if (m_ShowText)
+        if (!m_ShowText)
             gameObject.SetActive(false);
     }
 

@@ -16,9 +16,7 @@ public class AI : MonoBehaviour
     }
 
     public AI_TYPE aiType;
-    public EnemyHealthUI m_EnemyHealthUI;
-
-    protected GameManager m_GameManager;
+    //public EnemyHealthUI m_EnemyHealthUI;
 
     protected EnemyStats m_EnemyStats;
     protected Animator m_Animator;
@@ -40,7 +38,6 @@ public class AI : MonoBehaviour
         m_Animator = GetComponentInChildren<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
-        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -51,19 +48,17 @@ public class AI : MonoBehaviour
             AddAggroToGameManager();
     }
 
-    protected void AddAggroToGameManager()
+    protected virtual void AddAggroToGameManager()
     {
         //Add to the gamemanager to say got enemy here
         aggroActivated = true;
-        m_GameManager.AddToEnemyArray(gameObject);
-
-        m_EnemyHealthUI.StartFadeAnimation(false);
+        GameManager.Instance.AddToEnemyArray(gameObject);
     }
 
-    protected void RemoveFromGameManager()
+    protected virtual void RemoveFromGameManager()
     {
-        m_GameManager.RemoveFromEnemyArray(gameObject);
-        m_EnemyHealthUI.StartFadeAnimation(true);
+        GameManager.Instance.RemoveFromEnemyArray(gameObject);
+        //m_EnemyHealthUI.StartFadeAnimation(true);
     }
 
     public virtual bool IsAggro()
@@ -84,7 +79,7 @@ public class AI : MonoBehaviour
 
     public void AttackPlayer()
     {
-        if (m_inAttackRange)
+        if (m_inAttackRange && playerRef)
         {
             playerRef.GetComponent<PlayerStats>().Received_Damage(enemyStats.FinalDamage());
             Debug.Log("Player Hit");
@@ -100,15 +95,24 @@ public class AI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Slash"))
         {
+            SlashVFXScript slashComponent = other.gameObject.transform.parent.GetComponentInChildren<SlashVFXScript>();
+
+            if (slashComponent.hitEnemies.Contains(this))
+                return;
+
+            slashComponent.hitEnemies.Add(this);
+
             if (aiType == AI_TYPE.AI_TYPE_ENEMY)
             {
-                ((AIUnit)this).EnemyHit(playerRef.GetComponent<PlayerStats>().BasicAtk);
+                ((AIUnit)this).EnemyHit(playerRef.GetComponent<PlayerStats>().GetSlashDamage(slashComponent.SlashType), playerRef.GetComponent<PlayerStats>().GetKnockbackForce(slashComponent.SlashType));
             }
             if (aiType == AI_TYPE.AI_TYPE_BOSS)
             {
-                ((BossAI)this).Damage(playerRef.GetComponent<PlayerStats>().BasicAtk);
+                ((BossAI)this).Damage(playerRef.GetComponent<PlayerStats>().GetSlashDamage(slashComponent.SlashType));
             }
         }
+
+        
     }
 
     public EnemyStats enemyStats { get { return m_EnemyStats; } }
@@ -124,7 +128,7 @@ public class AI : MonoBehaviour
         set { m_inAttackRange = value;}
     }
 
-    public GameManager gameManager { get { return m_GameManager; } }
+    public GameManager gameManager { get { return GameManager.Instance; } }
     public bool aggroActivated { 
         get { return m_AggroActivated; } 
         set { m_AggroActivated = value; }

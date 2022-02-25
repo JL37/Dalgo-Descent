@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5254464211624626348}
   - component: {fileID: 5254464211624626339}
   - component: {fileID: 5254464211624626338}
+  - component: {fileID: 3109200290797273054}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PausePanel: {fileID: 0}
+  m_FreeLookCamera: {fileID: 0}
 --- !u!114 &5254464211624626338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,3 +59,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47eef325664a27042895b7ef7b23077c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
+  m_healthUI: {fileID: 0}
+  playerStats: {fileID: 0}
+  m_Camera: {fileID: 0}
+  m_VisibleCanvas: {fileID: 0}
+  m_WorldCanvasPool: {fileID: 0}
+  m_EnemyPrefab: {fileID: 3676725544286473702, guid: 293c6e76fd666e74c8046c77cef45f6f, type: 3}
+  m_Enemies: {fileID: 0}
+  levelWindow: {fileID: 0}
+--- !u!114 &3109200290797273054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254464211624626337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403bfe66b166af34cb6e9193495d67a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseCursor: {fileID: 2800000, guid: cad8ba206f6cca44c8c8e60e697493f1, type: 3}

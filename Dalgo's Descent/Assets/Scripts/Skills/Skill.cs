@@ -2,21 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public enum Skill //add in the game state u want in this enum
+public class Skill : TooltipTrigger
 {
-    Skill1,
-    Skill2
-}
+    public SkillObject SkillScriptable;
+    private Image m_SkillImage;
 
-
-public class SkillClass : MonoBehaviour
-{
-    SkillObject SkillScriptable;
-
-
-    private void Awake()
+    private void Start()
     {
-        
+        details = SkillScriptable.SkillDescription;
+        m_SkillImage = GetComponent<Image>();
+    }
+
+    
+    private void Update()
+    {
+        if (SkillScriptable.CurrentSkillPoints == 0)
+            m_SkillImage.color = new Color(0.6f, 0.6f, 0.6f, 1);
+        else m_SkillImage.color = Color.white;
+
+
+        #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SkillScriptable.CurrentSkillPoints++;
+            Debug.Log(SkillScriptable.SkillName + ": " + SkillScriptable.CurrentSkillPoints + " points");
+        }
+        #endif
     }
 }

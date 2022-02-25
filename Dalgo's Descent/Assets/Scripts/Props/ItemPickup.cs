@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : MonoBehaviour, IObjectPooling
 {
     [Header("Objects")]
     [SerializeField] Canvas m_Canvas;
@@ -56,7 +56,7 @@ public class ItemPickup : MonoBehaviour
 
 
         //Change desc box text
-        m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item.GetName(), m_Item.GetInfo());
+        m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item);
     }
 
     // Start is called before the first frame update
@@ -69,10 +69,45 @@ public class ItemPickup : MonoBehaviour
         m_DescBox.transform.localScale = new Vector3(0, 0,0);
     }
 
+    public Item GetItemRef() { return m_Item; }
+
+    public void Initialise()
+    {
+        //Do nothing
+    }
+
     public void Initialise(Chest chest)
     {
+        //Randomise item str8 up
+        m_Item = null;
+        m_Item = new Item();
+        m_Item.InitialiseRandomStats();
+        //For now, give all items same image
+        m_Item.SetCurrTexture(m_Texture);
+
+
+        //Change desc box text
+        if (m_DescBox != null)
+            m_DescBox.GetComponent<ItemDescBoxUI>().Initialise(m_Item);
+
+        m_OriginalPos = gameObject.transform.position;
+
+        if (m_Canvas != null)
+            m_Canvas.gameObject.SetActive(true);
+
+        if (m_DescBox != null)
+            m_DescBox.transform.localScale = new Vector3(0, 0, 0);
+
         m_Chest = chest;
-    }
+
+        //Reset variables
+        m_CurrScaleLerp = 0f;
+        m_YToAdd = 0f;
+
+        m_InRange = true;
+        m_Interacted = false;
+        m_Animating = false;
+}
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -100,7 +135,14 @@ public class ItemPickup : MonoBehaviour
             LerpDescBoxScale(0,0.5f);
 
             if (transform.localScale.x < 0.01f)
-                Destroy(gameObject);
+            {
+                transform.localScale = Vector3.zero;
+
+                if (transform.parent.GetComponent<ObjectPoolManager>() == null)
+                    Destroy(gameObject);
+                else
+                    gameObject.SetActive(false);
+            }
         }
     }
 
@@ -222,5 +264,6 @@ public class ItemPickup : MonoBehaviour
 
         //Remove reference from chest
         m_Chest.RemoveSpawnedItem();
+        m_Chest.GetParticleSystem().Stop();
     }
 }

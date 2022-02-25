@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41d909ee20ae744f87ce55ed62446a8, type: 3}
   m_Name: Cleave
   m_EditorClassIdentifier: 
-  Name: Dalgo Cleave
-  SkillSprite: {fileID: 21300000, guid: 9d195cbdf93368845b393160dd97a674, type: 3}
-  SkillAnimation: {fileID: 7400000, guid: b684110adb4fb644d9d7d007f83c6143, type: 2}
+  m_SkillName: Cleave
+  m_SkillDescription: 'Dalgo does a wide area swing to deal AOE damage to enemies
+    around him '
+  m_SkillSprite: {fileID: 21300000, guid: 9d195cbdf93368845b393160dd97a674, type: 3}
+  m_SkillAnimation: {fileID: 7400000, guid: b684110adb4fb644d9d7d007f83c6143, type: 2}
+  m_SkillCooldown: 10
+  m_Unlocked: 0
+  m_MaxSkillPoints: 4

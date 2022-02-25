@@ -60,7 +60,10 @@ public class BossAI : AI
         enemyStats.health.TakeDamage(amount);
 
         if (enemyStats.health.currentHealth <= 0)
+        {
+            PostGameInfo.GetInstance().UpdateEnemy(true);
             RemoveFromGameManager();
+        }
     }
 
     public void GrabWood()
@@ -72,7 +75,7 @@ public class BossAI : AI
     {
         Transform projectile = projectileHolder.GetChild(0);
         projectile.parent = projectileThrownHolder;
-        projectile.GetComponent<Projectile>().directionVelocity = (new Vector3(playerRef.transform.position.x, playerRef.transform.position.y, playerRef.transform.position.z) - projectile.transform.position).normalized;
+        projectile.GetComponent<Projectile>().directionVelocity = (new Vector3(playerRef.transform.position.x, transform.position.y, playerRef.transform.position.z) - projectile.transform.position).normalized;
     }
 
     public void GroundSlam()
@@ -91,6 +94,18 @@ public class BossAI : AI
     public void SetRigActive(bool active)
     {
         m_rigActive = active;
+    }
+
+    protected override void AddAggroToGameManager()
+    {
+        base.AddAggroToGameManager();
+        GameManager.Instance.EnableBossHealthUI(GetComponent<Health>());
+    }
+
+    protected override void RemoveFromGameManager()
+    {
+        base.RemoveFromGameManager();
+        GameManager.Instance.DisableBossHealthUI();
     }
 
     public override bool IsAggro()

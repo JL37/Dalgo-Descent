@@ -21,8 +21,7 @@ public class WeaponVisibility : MonoBehaviour
     {
         foreach (Material m in m_Renderer.materials) {
             float currentCutoff = m.GetFloat("_CutoffHeight");
-            float newCutoff = visible ? currentCutoff + Time.deltaTime * visiblitySpeed : currentCutoff - Time.deltaTime * visiblitySpeed;
-            newCutoff = Mathf.Clamp(newCutoff, -1f, 1.8f);
+            float newCutoff = visible ? Mathf.MoveTowards(currentCutoff, 1.8f, Time.deltaTime * visiblitySpeed) : Mathf.MoveTowards(currentCutoff, -1f, Time.deltaTime * visiblitySpeed);
             m.SetFloat("_CutoffHeight", newCutoff);
         }
     }

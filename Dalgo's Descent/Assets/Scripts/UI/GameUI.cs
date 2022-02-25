@@ -1,7 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameUI : MonoBehaviour
 {
@@ -9,6 +12,9 @@ public class GameUI : MonoBehaviour
     [SerializeField] TMP_Text m_ErrorText;
     [SerializeField] GameObject m_ItemPanel;
     [SerializeField] GameObject m_TempPanel;
+    [SerializeField] EnemyHealthUI m_BossHealth;
+    [SerializeField] Image m_GameOverBg;
+    [SerializeField] Volume m_Volume;
 
     [Header("Timers")]
     protected float m_CurrErrorTimer = 0f;
@@ -45,6 +51,60 @@ public class GameUI : MonoBehaviour
                 m_ErrorText.color = new Color(1, 1, 1, 1);
             }
         }
+    }
+
+    public void FadeOutGame()
+    {
+        m_GameOverBg.gameObject.SetActive(true);
+
+        StartCoroutine(I_BlurOut(0.4f));
+    }
+
+    protected IEnumerator I_BlurOut(float duration)
+    {
+        GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        GetComponent<Canvas>().worldCamera = Camera.main;
+
+        for (float i = 0; i <= 1; i += Time.deltaTime / duration)
+        {
+            float focal_length = 50 * i;
+            DepthOfField tmp;
+            if (m_Volume.profile.TryGet(out tmp))
+            {
+                //print("FOCAL LA DOG");
+                tmp.focalLength.value = focal_length;
+            }
+
+            yield return null;
+        }
+
+        StartCoroutine(I_FadeOut(0.5f));
+    }
+
+    protected IEnumerator I_FadeOut(float duration)
+    {
+        for (float i = 0; i <= 1; i += Time.deltaTime / duration)
+        {
+            Color ogColor = m_GameOverBg.color;
+            ogColor.a = i;
+            m_GameOverBg.color = ogColor;
+
+            yield return null;
+        }
+
+        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
+    }
+
+    public void EnableBossUI(Health bossHealth)
+    {
+        m_BossHealth.gameObject.SetActive(true);
+        m_BossHealth.SetHealth(bossHealth);
+        m_BossHealth.StartFadeAnimation(false);
+    }
+
+    public void DisableBossUI()
+    {
+        m_BossHealth.StartFadeAnimation(true);
     }
 
     public Vector2 GetItemPanelLocalPos()

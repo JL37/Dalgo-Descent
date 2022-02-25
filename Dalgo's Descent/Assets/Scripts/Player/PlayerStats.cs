@@ -12,13 +12,21 @@ public class PlayerStats : MonoBehaviour
     //Stats
     public Health m_Health;
 
-/*    protected float m_Health = 100;
-    protected float m_MaxHealth = 100;*/
+    protected int m_BaseHealth = 100;
+    protected int m_HealthAdd = 0;
 
     protected float m_AtkSpd = 1f;
     protected float m_LifeSteal = 0f;
-    protected float m_CritChance = 0.03f;
-    protected int m_BasicAtk = 15;
+
+    protected int m_BaseBasicAtk = 15;
+    protected int m_BasicAtkAddOn = 0;
+
+    protected float m_DmgTakenMultiplier = 1f;
+
+    protected float m_BaseCoolDown = 1f;
+    protected float m_BaseSkillDmg = 1f;
+
+    protected float m_MovementSpd = 1f;
 
     //Inventory
     protected int m_coin = 0;
@@ -27,31 +35,48 @@ public class PlayerStats : MonoBehaviour
 
     public event EventHandler onHealthChanged;
 
+    //Event handler for player icon
     public event EventHandler onHealthy;
     public event EventHandler onHalfHealth;
     public event EventHandler onCriticalHealth;
     public event EventHandler onDead;
 
+    //Player skill
+    private PlayerSkills m_playerskills;
+
+    private void Awake()
+    {
+        m_playerskills = new PlayerSkills(); //create a new instance of playerskill
+        m_playerskills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
+    }
+
+    private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
+    {
+        switch(e.skilltype)
+        {
+            case PlayerSkills.SkillType.Health_Upgrade:
+                SetMaxHealth(10);
+                m_playerskills.RemoveSkill(e.skilltype);
+                break;
+        }
+    }
+
     private void Start()
     {
         m_ItemArr = new List<ItemUI>();
         m_ChestArr = new List<Chest>();
+        m_BaseHealth = (int)m_Health.maxHealth;
     }
 
     public void Received_Damage(int damageAmount)
     {
+        if (m_Health.currentHealth <= 0.0f)
+            return;
+
         //m_Health -= damageAmount;
         m_Health.TakeDamage(damageAmount);
         UpdatePlayerIcon();
-/*        if (m_Health.currentHealth <= 0)
-        {
-            m_Health = 0;
-            m_Health.currentHealth = 0;
-        }*/
-        if (m_Health.currentHealth <= 0)
-        {
-            m_Health.currentHealth = 0;
-        }
+
         if (onHealthChanged != null)
             onHealthChanged(this, EventArgs.Empty);
 
@@ -70,6 +95,12 @@ public class PlayerStats : MonoBehaviour
         if (onHealthChanged != null)
             onHealthChanged(this, EventArgs.Empty);
 
+    }
+
+    public void SetMaxHealth(int amount)
+    {
+        m_Health.maxHealth += amount;
+        Debug.Log("Max health now is : " + m_Health.maxHealth);
     }
 
 
@@ -103,17 +134,77 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-
-
-    public float Health
+    public bool CanUseSkill1()
     {
-        get { return m_Health.currentHealth; }
-        set { m_Health.currentHealth = value; }
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_1);
     }
-    public float MaxHealth
+
+    public bool CanUseSkill2()
     {
-        get { return m_Health.currentHealth; }
-        set { m_Health.currentHealth = value; }
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_2);
+    }
+
+    public bool CanUseSkill3()
+    {
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_3);
+    }
+
+    public bool CanUseSkill4()
+    {
+        return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_4);
+    }
+
+    public PlayerSkills GetPlayerSkills()
+    {
+        return m_playerskills;
+    }
+
+    protected void AdjustHealth()
+    {
+        float ogMaxHealth = m_Health.maxHealth;
+        m_Health.maxHealth = m_BaseHealth + m_HealthAdd;
+        float ratio = m_Health.maxHealth / (float)ogMaxHealth;
+        m_Health.currentHealth *= ratio;
+    }
+
+    public int CalculateHealthAdd(float perc) //Value from 0 to 1
+    {
+        return Mathf.RoundToInt(m_BaseHealth * perc);
+    }
+
+    public int BaseHealth
+    {
+        get { return m_BaseHealth; }
+        set {
+            m_BaseHealth = value;
+            AdjustHealth();
+        }
+    }
+    public int HealthAdd
+    {
+        get { return m_HealthAdd; }
+        set { 
+            m_HealthAdd = value;
+            AdjustHealth();
+        }
+    }
+
+    public float DamageTakenMultiplier
+    {
+        get { return m_DmgTakenMultiplier; }
+        set { m_DmgTakenMultiplier = value; }
+    }
+
+    public float SkillCD
+    {
+        get { return m_BaseCoolDown; }
+        set { m_BaseCoolDown = value; }
+    }
+
+    public float SkillDmg
+    {
+        get { return m_BaseSkillDmg; }
+        set { m_BaseSkillDmg = value; }
     }
 
     public float AtkSpd
@@ -128,17 +219,44 @@ public class PlayerStats : MonoBehaviour
         set { m_LifeSteal = value; }
     }
 
-    public float CritChance
+    public float MovementSpd
     {
-        get { return m_CritChance; }
-        set { m_CritChance = value; }
+        get { return m_MovementSpd; }
+        set { m_MovementSpd = value; }
     }
 
     public int BasicAtk
     {
-        get { return m_BasicAtk; }
-        set { m_BasicAtk = value; }
+        get { return m_BaseBasicAtk + m_BasicAtkAddOn; }
     }
+
+    public int BaseBasicAtk
+    {
+        get { return m_BaseBasicAtk; }
+        set { m_BaseBasicAtk = value; }
+    }
+
+    public void AddPercToBasicAtk(float perc) //Must be 0 to 1
+    {
+        m_BasicAtkAddOn += Mathf.RoundToInt(m_BaseBasicAtk * perc);
+    }
+
+    public void AddToAllStats(float perc) //Must be between 0 to 1
+    {
+        m_HealthAdd += CalculateHealthAdd(perc);
+
+        m_AtkSpd += perc;
+        m_LifeSteal += perc;
+
+        AddPercToBasicAtk(perc);
+
+        m_DmgTakenMultiplier -= perc;
+
+        m_BaseCoolDown -= perc;
+        m_BaseSkillDmg += perc;
+
+        m_MovementSpd += perc;
+}
 
     public float GetHealthPerc()
     {
@@ -205,5 +323,39 @@ public class PlayerStats : MonoBehaviour
 
         item.AffectStats(this);
         m_ItemArr.Insert(0,itemUI.GetComponent<ItemUI>());
+    }
+
+    public int GetSlashDamage(SLASH_TYPE slashType)
+    {
+        switch (slashType)
+        {
+            case SLASH_TYPE.SLASH_1:
+                return (int)(BasicAtk * 0.5f);
+            case SLASH_TYPE.SLASH_2:
+                return (int)(BasicAtk * 0.7f);
+            case SLASH_TYPE.SLASH_3:
+                return (int)(BasicAtk * 1.2f);
+            case SLASH_TYPE.CLEAVE:
+                return (int)(BasicAtk * 2.5f);
+            default:
+                return BasicAtk;
+        }
+    }
+
+    public float GetKnockbackForce(SLASH_TYPE slashType)
+    {
+        switch (slashType)
+        {
+            case SLASH_TYPE.SLASH_1:
+                return 70f;
+            case SLASH_TYPE.SLASH_2:
+                return 100f;
+            case SLASH_TYPE.SLASH_3:
+                return 150f;
+            case SLASH_TYPE.CLEAVE:
+                return 300f;
+            default:
+                return 100f;
+        }
     }
 }

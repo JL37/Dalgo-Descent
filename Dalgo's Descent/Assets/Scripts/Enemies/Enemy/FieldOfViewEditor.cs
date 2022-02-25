@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(FieldOfView))]
 public class FieldOfViewEditor : Editor
 {
@@ -36,3 +38,5 @@ public class FieldOfViewEditor : Editor
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }
+
+#endif

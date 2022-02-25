@@ -46,7 +46,7 @@ public class ItemUI : MonoBehaviour
             m_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
 
         //Update description box
-        m_DescBox.Initialise(m_Item.GetName(), m_Item.GetInfo());
+        m_DescBox.Initialise(m_Item);
 
         //Set position
         UpdatePositionFromIndex();
@@ -194,5 +194,8 @@ public class ItemUI : MonoBehaviour
 
         if (animation)
             m_CurrAnim = Animation.EXPAND;
+
+        if (m_DescBox)
+            m_DescBox.Initialise(m_Item);
     }
 }
