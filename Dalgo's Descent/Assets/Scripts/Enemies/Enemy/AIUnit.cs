@@ -76,6 +76,8 @@ public class AIUnit : AI
             AddAggroToGameManager();
 
         enemyStats.health.TakeDamage(amount);
+        PostGameInfo.GetInstance().UpdateDamage((int)amount);
+
         if (enemyStats.health.currentHealth <= 0)
         {
             PostGameInfo.GetInstance().UpdateEnemy(isMiniboss);

@@ -17,6 +17,9 @@ public class PostGameInfo
     protected int m_TotalEnemies = 0;
     protected int m_TotalBosses = 0;
 
+    protected int m_CurrIdx = 0;
+    protected bool m_LoseFirstTime = true;
+
     public static PostGameInfo GetInstance()
     {
         if (null == m_Instance)
