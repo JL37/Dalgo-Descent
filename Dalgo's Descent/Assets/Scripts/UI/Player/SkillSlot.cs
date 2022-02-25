@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SkillSlot : MonoBehaviour,IDropHandler
+public class SkillSlot : TooltipTrigger, IDropHandler
 {
     // public DragDrop dragdrop;
     public SkillObject AnchoredSkill;
@@ -19,6 +19,7 @@ public class SkillSlot : MonoBehaviour,IDropHandler
             // newSkillObj.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             // eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = eventData.pointerDrag.GetComponent<DragDrop>().PreDragPosition;
             AnchoredSkill = eventData.pointerDrag.GetComponent<Skill>().SkillScriptable;
+            details = AnchoredSkill.SkillDescription;
             GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
         }
     }
