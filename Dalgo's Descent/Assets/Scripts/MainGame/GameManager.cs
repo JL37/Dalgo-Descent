@@ -21,18 +21,18 @@ public class GameManager : Singleton<GameManager>
     private LevelSystemAnimated m_levelSystemAnimated;
 
     
-    public UI_SkillTree skill1,skill2,skill3,skill4,healthUpgrade;
+    // public UI_SkillTree skill1,skill2,skill3,skill4,healthUpgrade;
 
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         m_healthUI.Setup(playerStats);
         m_EnemyArr = new List<GameObject>();
-        skill1.SetPlayerSkills(playerStats.GetPlayerSkills());
-        skill2.SetPlayerSkills(playerStats.GetPlayerSkills());
-        skill3.SetPlayerSkills(playerStats.GetPlayerSkills());
-        skill4.SetPlayerSkills(playerStats.GetPlayerSkills());
-        healthUpgrade.SetPlayerSkills(playerStats.GetPlayerSkills());
+        //skill1.SetPlayerSkills(playerStats.GetPlayerSkills());
+        //skill2.SetPlayerSkills(playerStats.GetPlayerSkills());
+        //skill3.SetPlayerSkills(playerStats.GetPlayerSkills());
+        //skill4.SetPlayerSkills(playerStats.GetPlayerSkills());
+        //healthUpgrade.SetPlayerSkills(playerStats.GetPlayerSkills());
         Tooltip.HideTooltip_Static();
         Tooltip_Warning.HideTooltip_Static();
     }
