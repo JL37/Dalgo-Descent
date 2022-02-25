@@ -57,7 +57,7 @@ public class GameUI : MonoBehaviour
     {
         m_GameOverBg.gameObject.SetActive(true);
 
-        StartCoroutine(I_BlurOut(0.5f));
+        StartCoroutine(I_BlurOut(0.4f));
     }
 
     protected IEnumerator I_BlurOut(float duration)

@@ -48,6 +48,8 @@ public class Tooltip : MonoBehaviour
 
     public static void HideTooltip_Static()
     {
+        if (getInstance == null)
+            return;
         getInstance.HideTooltip();
     }
 }
