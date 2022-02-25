@@ -58,7 +58,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
-            if (Skills[0].Unlocked) //check if skill has been unlock already
+            if (Skills[0].CurrentSkillPoints > 0) //check if skill has been unlock already
             {
                 UseSkill(0);
                 Debug.Log("USING SKILL 1 LIAO");
@@ -71,7 +71,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (Skills[1].Unlocked)
+            if (Skills[1].CurrentSkillPoints > 0)
             {
                 UseSkill(1);
                 Debug.Log("USING SKILL 2 LIAO");
@@ -85,7 +85,7 @@ public class PlayerSkillsManager : MonoBehaviour
 
         if (context.started && !playerController.IsGrounded)
         {
-            if (Skills[2].Unlocked)
+            if (Skills[2].CurrentSkillPoints > 0)
             {
                 UseSkill(2);
 
