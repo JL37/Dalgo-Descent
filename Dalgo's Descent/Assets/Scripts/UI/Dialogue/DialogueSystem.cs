@@ -31,6 +31,8 @@ public class DialogueSystem : MonoBehaviour
 
         m_DialogueList.Add(("Au ah au salakau aiwdjaiowjdoaidjai wojdoajiwjdio awjiodjawjdiaj dioawjoidj??", 0));
         m_DialogueList.Add(("Cibai la salakau", 0));
+        m_DialogueList.Add(("YOUR MOTHER IS FROM MY FATHER PUSSY SON DAUGHTER UNCLE!!!!!11!!!", 0));
+        m_DialogueList.Add(("FUCK yOU la cibaI dOG", 0));
     }
 
     // Start is called before the first frame update
@@ -51,7 +53,7 @@ public class DialogueSystem : MonoBehaviour
     protected void OnClick()
     {
         //If text animation not done, force it to finish
-        if (!m_AnimationDone)
+        if (!m_AnimationDone && m_FaceExeption[m_CurrIDx].specialIdx != m_CurrIDx)
         {
             m_AnimationDone = true;
         }
@@ -98,6 +100,19 @@ public class DialogueSystem : MonoBehaviour
         //Face animation
         if (!m_CurrFace.gameObject.activeSelf && m_CurrIDx == m_FaceApperanceIdx)
             m_CurrFace.GetComponent<DialogueFace>().Initialise(m_DefaultFaceSprite);
+        else if (m_CurrFace.gameObject.activeSelf)
+            m_CurrFace.GetComponent<DialogueFace>().Initialise(GetCurrentSprite(m_CurrIDx));
+    }
+
+    protected Sprite GetCurrentSprite(int idx)
+    {
+        for (int i = 0; i < m_FaceExeption.Count; ++i)
+        {
+            if (m_FaceExeption[i].specialIdx == idx)
+                return m_FaceExeption[i].img;
+        }
+
+        return m_DefaultFaceSprite;
     }
 
     protected IEnumerator I_AnimateText()

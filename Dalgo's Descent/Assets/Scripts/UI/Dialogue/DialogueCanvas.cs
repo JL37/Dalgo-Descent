@@ -10,10 +10,19 @@ public class DialogueCanvas : MonoBehaviour
     [Header("Variables")]
     [SerializeField] float m_TimerStart = 0.5f;
 
+    [Header("Sprites")]
+    [SerializeField] Sprite m_Happy;
+    [SerializeField] Sprite m_SomewhatAnnoyed;
+    [SerializeField] Sprite m_Annoyed;
+    [SerializeField] Sprite m_Angry;
+    [SerializeField] Sprite m_Acceptance;
+
     // Start is called before the first frame update
     void Start()
     {
         m_DialogueFolder.SetActive(false);
+        m_DialogueFolder.GetComponent<DialogueSystem>().AddFaceException((m_SomewhatAnnoyed, 2));
+
         StartCoroutine(InitialiseDialogue(m_TimerStart));
     }
 
