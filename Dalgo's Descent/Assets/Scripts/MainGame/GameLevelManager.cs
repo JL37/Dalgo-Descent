@@ -5,48 +5,70 @@ using UnityEngine.Events;
 using Cinemachine;
 public class GameLevelManager : Singleton<GameLevelManager>
 {
-    public CMMode Mode;
-    public CinemachineFreeLook ActiveCM;
+    [Header("Level Generation")]
+    public int TotalLevels;
+    public int CurrentLevel;
+    public float LevelOffset;
+    public GameObject LevelContainer;
+    public LevelStructure StartLevel;
+    public LevelStructure LastLevel;
+    public List<LevelStructure> LevelPrefabs;
     
-    public CinemachineFreeLook PlayerCM;
-    public CinemachineFreeLook ExteriorCM;
-
     public PlayerController Player;
 
+    public delegate void OnNextLevelListenDelegate();
+    public event OnNextLevelListenDelegate OnNextLevelEnterListener;
+
+    public delegate void OnCurrentLevelListenDelegate();
+    public event OnCurrentLevelListenDelegate OnCurrentLevelExitListener;
+
+    private LevelStructure PlayArea;
     void Start()
     {
-        SetCinemachine(Mode);
+        CreateNextLevel();
     }
-    public CinemachineFreeLook SetCinemachine(CMMode mode)
-    {
-        Mode = mode;
-        ActiveCM = GetCinemachineFromMode(mode);
+   
+    public void OnNextLevelEnter()
+    { 
+        CreateNextLevel();
 
-        foreach (var cm in FindObjectsOfType<CinemachineFreeLook>(true))
+        if(OnNextLevelEnterListener != null)OnNextLevelEnterListener.Invoke();
+    }
+
+    public void OnCurrentLevelExit()
+    {
+        if (OnCurrentLevelExitListener != null) OnCurrentLevelExitListener.Invoke();
+    }
+
+    void CreateNextLevel()
+    {
+        if (CurrentLevel > TotalLevels)
+            return;
+
+        CurrentLevel++;
+        if (CurrentLevel == 1)
         {
-            if (cm != ActiveCM)
-                cm.gameObject.SetActive(false);
-            else
-                cm.gameObject.SetActive(true);
+            PlayArea = Instantiate(StartLevel, new Vector3(0, 0, 0), Quaternion.identity, LevelContainer.transform); //Spawn Start
         }
-
-        return ActiveCM;
-    }
-
-    private CinemachineFreeLook GetCinemachineFromMode(CMMode mode)
-    {
-        switch (mode)
+        else if (CurrentLevel == TotalLevels)
         {
-            case CMMode.Player:         return PlayerCM;
-            case CMMode.Exterior:       return ExteriorCM;
+            var newArea = Instantiate(LastLevel, PlayArea.transform.position + new Vector3(0, -11 * 2, 0), PlayArea.NextLocation.rotation, LevelContainer.transform); //Spawn Start
+            DestroyPlayLevel();
+            PlayArea = newArea;
         }
+        else
+        {
+            var newArea = Instantiate(LevelPrefabs[0], PlayArea.transform.position + new Vector3(0, -11 * 2, 0), PlayArea.NextLocation.rotation, LevelContainer.transform); //Spawn Start
+            DestroyPlayLevel();
+            PlayArea = newArea;
+        }
+    }
 
-        Debug.LogError("Invalid Camera Mode!");
-        return null;
-    }
-    public enum CMMode
+    void DestroyPlayLevel()
     {
-        Player,
-        Exterior
+        Destroy(PlayArea.gameObject);
+        PlayArea = null;
     }
+
+    public bool IsLastLevel() { return CurrentLevel == TotalLevels; }
 }
