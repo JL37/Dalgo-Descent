@@ -77,7 +77,10 @@ public class AIUnit : AI
 
         enemyStats.health.TakeDamage(amount);
         if (enemyStats.health.currentHealth <= 0)
+        {
+            PostGameInfo.GetInstance().UpdateEnemy(isMiniboss);
             RemoveFromGameManager();
+        }
     }
 
     public void EnemyHit(float damage, float force) 

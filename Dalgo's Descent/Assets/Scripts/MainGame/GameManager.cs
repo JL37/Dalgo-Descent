@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     private LevelSystem m_LevelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
+    protected PostGameInfo m_PostGameInfo;
     
     // public UI_SkillTree skill1,skill2,skill3,skill4,healthUpgrade;
 
@@ -28,13 +29,11 @@ public class GameManager : Singleton<GameManager>
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         m_healthUI.Setup(playerStats);
         m_EnemyArr = new List<GameObject>();
-        //skill1.SetPlayerSkills(playerStats.GetPlayerSkills());
-        //skill2.SetPlayerSkills(playerStats.GetPlayerSkills());
-        //skill3.SetPlayerSkills(playerStats.GetPlayerSkills());
-        //skill4.SetPlayerSkills(playerStats.GetPlayerSkills());
-        //healthUpgrade.SetPlayerSkills(playerStats.GetPlayerSkills());
         Tooltip.HideTooltip_Static();
         Tooltip_Warning.HideTooltip_Static();
+
+        m_PostGameInfo = PostGameInfo.GetInstance();
+        m_PostGameInfo.Reset();
     }
 
     protected override void OnAwake()
@@ -49,6 +48,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (GameStateManager.Get_Instance.CurrentGameState == GameState.Paused) //Ignore key presses when paused
             return;
+
+        m_PostGameInfo.UpdateTime(Time.deltaTime);
 
         if (!playerStats && !m_GameOver)
         {

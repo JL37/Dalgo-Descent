@@ -34,7 +34,6 @@ public class DialogueSystem : MonoBehaviour
 
         m_Arrow.gameObject.SetActive(false);
 
-
         m_DialogueList.Add(("Au ah au salakau aiwdjaiowjdoaidjai wojdoajiwjdio awjiodjawjdiaj dioawjoidj??", 0));
         m_DialogueList.Add(("Cibai la salakau", 0));
         m_DialogueList.Add(("YOUR MOTHER IS FROM MY FATHER PUSSY SON DAUGHTER UNCLE!!!!!11!!!", 0));

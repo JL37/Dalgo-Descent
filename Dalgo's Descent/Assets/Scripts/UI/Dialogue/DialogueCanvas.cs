@@ -17,6 +17,8 @@ public class DialogueCanvas : MonoBehaviour
     [SerializeField] Sprite m_Angry;
     [SerializeField] Sprite m_Acceptance;
 
+    protected PostGameInfo m_PostGameInfo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class DialogueCanvas : MonoBehaviour
 
         m_DialogueFolder.GetComponent<DialogueSystem>().AddFaceException((m_SomewhatAnnoyed, 2));
         m_DialogueFolder.GetComponent<DialogueSystem>().AddFaceException((m_Acceptance, 4));
+
+        m_PostGameInfo = PostGameInfo.GetInstance();
 
         StartCoroutine(InitialiseDialogue(m_TimerStart));
     }

@@ -60,7 +60,10 @@ public class BossAI : AI
         enemyStats.health.TakeDamage(amount);
 
         if (enemyStats.health.currentHealth <= 0)
+        {
+            PostGameInfo.GetInstance().UpdateEnemy(true);
             RemoveFromGameManager();
+        }
     }
 
     public void GrabWood()

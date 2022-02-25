@@ -28,7 +28,11 @@ public class Health : MonoBehaviour
         playDeathAnimation = false;
         m_SkinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         currentHealth = maxHealth;
-        m_UIPoolManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetObjectPoolManager();
+
+        if (GameObject.FindGameObjectWithTag("HUD"))
+            m_UIPoolManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>().GetObjectPoolManager();
+        else
+            m_UIPoolManager = null;
     }
 
     private void Update()
