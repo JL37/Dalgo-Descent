@@ -24,24 +24,25 @@ public class EnemyPatrolState : EnemyBaseState
         Player = GameObject.FindGameObjectWithTag("Player");
         FOV = agent.transform.GetComponent<FieldOfView>();
 
+        SearchWalkPoint();
         agent.SetDestination(aiUnit.targetPosition);
     }
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        Vector3 target = aiUnit.targetPosition - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
+        Vector3 target = agent.nextPosition - new Vector3(animator.transform.parent.position.x, 0, animator.transform.parent.position.z);
         var q = Quaternion.LookRotation(target);
         float velocity = agent.velocity.magnitude; /// agent.speed;
         animator.SetFloat("Speed", velocity);
-        animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 90 * Time.deltaTime);
+        animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 120 * Time.deltaTime);
 
         // Quaternion lookat = Quaternion.RotateTowards(animator.transform.rotation, walkpoint, Time.deltaTime * 10f);
         // animator.transform.LookAt(new Vector3(, animator.transform.position.y, walkpoint.z));
         Vector3 distanceToWalkpoint = animator.transform.position - aiUnit.targetPosition;
 
         // walkpoint reached
-        if (distanceToWalkpoint.magnitude < 1f)
+        if (distanceToWalkpoint.magnitude < 1.5f)
             animator.SetBool("IsPatrolling", false);
 
         if (FOV.canSeeTarget)
@@ -56,8 +57,16 @@ public class EnemyPatrolState : EnemyBaseState
 
     private void SearchWalkPoint()
     {
-        aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
-        Debug.Log("Walkpoint Set");
-        walkpointSet = true;
+        while (!walkpointSet)
+        {
+            aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), aiUnit.transform.position.y, aiUnit.transform.position.z + Random.Range(5, -5));
+            Debug.Log("Walkpoint Set");
+
+            NavMeshPath path = new NavMeshPath();
+            if (agent.CalculatePath(aiUnit.targetPosition, path) && path.status == NavMeshPathStatus.PathComplete)
+            {
+                walkpointSet = true;
+            }
+        }
     }
 }

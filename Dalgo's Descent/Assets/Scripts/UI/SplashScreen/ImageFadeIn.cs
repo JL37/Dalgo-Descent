@@ -41,7 +41,7 @@ public class ImageFadeIn : MonoBehaviour
         while (spriteRenderer.color.a < 1)
         {
             
-            spriteRenderer.color = new Color(1, 1, 1, Mathf.Lerp(spriteRenderer.color.a, 1.1f, Time.deltaTime));
+            spriteRenderer.color = new Color(1, 1, 1, Mathf.Lerp(spriteRenderer.color.a, 1.1f, Time.deltaTime * 2f));
             yield return null;
         }
     }
@@ -50,7 +50,7 @@ public class ImageFadeIn : MonoBehaviour
     {
         while (spriteRenderer.color.a > 0)
         {
-            spriteRenderer.color = new Color(1, 1, 1, Mathf.Lerp(spriteRenderer.color.a, -0.1f, Time.deltaTime));
+            spriteRenderer.color = new Color(1, 1, 1, Mathf.Lerp(spriteRenderer.color.a, -0.1f, Time.deltaTime * 2f));
             yield return null;
         }
 
@@ -60,5 +60,10 @@ public class ImageFadeIn : MonoBehaviour
     void SwitchToMainMenu()
     {
         SceneManager.LoadScene(1);
+    }
+
+    void PlaySlapSound()
+    {
+        AudioManager.Instance.Play("Splashscreen");
     }
 }
