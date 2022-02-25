@@ -3,7 +3,12 @@ guid: 02cacde3bf5d72b4c83946ddae3d2dc8
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LevelBaseMesh2
+    second: {fileID: 2100000, guid: e1874d9edd710a7498fc4bb2ff8e4ee8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

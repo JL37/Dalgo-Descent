@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Min(1)] private float Mass;
     [SerializeField] [Range(0, 5)] private float SlowSpeed;
     [SerializeField] [Range(0, 10)] private float TurnSpeed;
+    [SerializeField] [Range(0, 103)] private float DistToGround = 1f;
 
     [Header("Idle Modifier")]
     [SerializeField] [Range(0, 10)] private float IdleInterval;
@@ -79,32 +80,32 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
         if (IdleTimer >= IdleInterval)
         {
             if (!IsMoving && IsGrounded && !GetComponent<PlayerAttackManager>().IsAttacking)
                 PlayerAnimator.SetTrigger(IdleTriggerHash);
             IdleTimer = 0;
         }
-        else
-            IdleTimer += Time.deltaTime;
+        else IdleTimer += Time.deltaTime;
 
-        if (IFrameTimer >= IFrameDuration)
-            IsIFrame = true;
-        else
-            IFrameTimer += Time.deltaTime;
+        if (IFrameTimer >= IFrameDuration) IsIFrame = true;
+        else IFrameTimer += Time.deltaTime;
 
-        IsGrounded = Physics.CheckBox(gameObject.transform.position, new Vector3(0.1f, 0.2f, 0.1f), transform.rotation, GroundLayer) && !IsJump;
+        GroundCheck();
         if (Controller.velocity.y < -0.0001f && !IsGrounded)  //Set to Landing - Going Down + Not Grounded
         {
             IsJump = false;
             IsLanding = true;
         }
-        else if (IsGrounded) //Set to Grounded
+        else
         {
             IsLanding = false;
-            IsGrounded = true;
         }
+        //else if (IsGrounded) //Set to Grounded
+        //{
+        //    IsLanding = false;
+        //    IsGrounded = true;
+        //}
 
         if (GetComponent<PlayerSkillsManager>().ActiveSkillIndex >= 0 || GetComponent<PlayerAttackManager>().IsAttacking)
         {
@@ -259,6 +260,20 @@ public class PlayerController : MonoBehaviour
         dir.Normalize();
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
         Impact += dir.normalized * force / Mass;
+    }
+
+    public void GroundCheck()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, DistToGround + 0.1f))
+        {
+            //_slopeAngle = (Vector3.Angle(hit.normal, transform.forward) - 90);
+            IsGrounded = true;
+        }
+        else
+        {
+            IsGrounded = false;
+        }
     }
 
     private static Vector3 ClampValue (Vector3 target, Vector3 min, Vector3 max)

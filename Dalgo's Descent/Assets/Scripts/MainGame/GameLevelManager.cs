@@ -10,24 +10,19 @@ public class GameLevelManager : Singleton<GameLevelManager>
     public int CurrentLevel;
     public float LevelOffset;
     public GameObject LevelContainer;
-    public GameObject StartLevel;
-    public GameObject LastLevel;
-    public List<GameObject> LevelPrefabs;
-    [Header("Camera Setup")]
-    public CMMode Mode;
-    public CinemachineFreeLook ActiveCM;
-    public CinemachineFreeLook PlayerCM;
-    public CinemachineFreeLook ExteriorCM;
-
+    public LevelStructure StartLevel;
+    public LevelStructure LastLevel;
+    public List<LevelStructure> LevelPrefabs;
+    
     public PlayerController Player;
 
+    private LevelStructure PlayArea;
     void Start()
     {
-        SetCinemachine(Mode);
-        CreateLevel();
+        CreateNextLevel();
     }
 
-    void CreateLevel()
+    void CreateNextLevel()
     {
         if (CurrentLevel > TotalLevels)
             return;
@@ -35,49 +30,33 @@ public class GameLevelManager : Singleton<GameLevelManager>
         CurrentLevel++;
         if(CurrentLevel == 1)
         {
-            Instantiate(StartLevel, new Vector3(0, 0, 0), Quaternion.identity, LevelContainer.transform); //Spawn Start
-            Instantiate(LevelPrefabs[0], new Vector3(0,-LevelOffset, 0), Quaternion.identity, LevelContainer.transform); //Spawn Next Stage
+            PlayArea = Instantiate(StartLevel, new Vector3(0, 0, 0), Quaternion.identity, LevelContainer.transform); //Spawn Start
         }
         else if (CurrentLevel == TotalLevels)
         {
-
+           var newArea = Instantiate(LastLevel, PlayArea.transform.position - new Vector3(0, -11 * 2,0), PlayArea.NextLocation.rotation * PlayArea.transform.rotation, LevelContainer.transform); //Spawn Start
+           DestroyPlayLevel();
+           PlayArea = newArea;
         }
         else
         {
-
+            var newArea = Instantiate(LevelPrefabs[0], PlayArea.transform.position + new Vector3(0, -11 * 2, 0), PlayArea.NextLocation.rotation, LevelContainer.transform); //Spawn Start
+            DestroyPlayLevel();
+            PlayArea = newArea;
         }
-
+        //GetComponent<LevelExteriorManager>().SetLevelVariables();
     }
-    public CinemachineFreeLook SetCinemachine(CMMode mode)
+
+    public void OnLevelNext()
     {
-        Mode = mode;
-        ActiveCM = GetCinemachineFromMode(mode);
-
-        foreach (var cm in FindObjectsOfType<CinemachineFreeLook>(true))
-        {
-            if (cm != ActiveCM)
-                cm.gameObject.SetActive(false);
-            else
-                cm.gameObject.SetActive(true);
-        }
-
-        return ActiveCM;
+        CameraController.Instance.SetCinemachineMode(CameraController.CMMode.Player);
+        CreateNextLevel();
     }
 
-    private CinemachineFreeLook GetCinemachineFromMode(CMMode mode)
+    void DestroyPlayLevel()
     {
-        switch (mode)
-        {
-            case CMMode.Player:         return PlayerCM;
-            case CMMode.Exterior:       return ExteriorCM;
-        }
+        Destroy(PlayArea.gameObject);
+        PlayArea = null;
+    }
 
-        Debug.LogError("Invalid Camera Mode!");
-        return null;
-    }
-    public enum CMMode
-    {
-        Player,
-        Exterior
-    }
 }

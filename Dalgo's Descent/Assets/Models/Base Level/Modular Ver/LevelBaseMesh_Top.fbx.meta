@@ -3,7 +3,27 @@ guid: 1f77eb75259fcfb40978c7b93104ef8e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkWood
+    second: {fileID: 2100000, guid: 0096408feedb52c41a68e924cc8c3444, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material
+    second: {fileID: 2100000, guid: b252e6008e3aaf14f9f3a576b42c6b25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LevelBaseMesh2
+    second: {fileID: 2100000, guid: e1874d9edd710a7498fc4bb2ff8e4ee8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightWood
+    second: {fileID: 2100000, guid: 23667b8ef4fde7744ad2f110af780a1e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

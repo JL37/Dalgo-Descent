@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelBarrierTrigger : MonoBehaviour
+public class LevelBarrierTrigger : Singleton<LevelBarrierTrigger>
 {
     public bool IsNextLevel;
     public Collider TriggerCollider;
@@ -28,14 +28,10 @@ public class LevelBarrierTrigger : MonoBehaviour
         BarrierMesh.enabled = true;
         BarrierCollider.enabled = true;
 
-        if(IsNextLevel)
-        {
-            GetComponentInParent<LevelExteriorManager>().OnLevelExit();
-        }
+        if (IsNextLevel)
+            GetComponentInParent<LevelStructure>().OnNextLevelEnter();
         else
-        {
-            GetComponentInParent<LevelExteriorManager>().OnLevelEnter();
-        }
+            GetComponentInParent<LevelStructure>().OnNextLevelTransition();
     }
 
 }
