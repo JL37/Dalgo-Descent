@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41d909ee20ae744f87ce55ed62446a8, type: 3}
   m_Name: ShovelCut
   m_EditorClassIdentifier: 
-  m_Name: Shovel Cut
+  m_SkillName: Shovel Cut
+  m_SkillDescription: Dalgo puts his scythe into the ground behind him and swings
+    upwards to dead damage and send enemies in front of him airborne
   m_SkillSprite: {fileID: 21300000, guid: b328b19d318ea334586903073fbd72db, type: 3}
   m_SkillAnimation: {fileID: 7400000, guid: 490e4b8acdce2274dabf57f604f1118d, type: 2}
+  m_SkillCooldown: 0
   m_Unlocked: 0
+  m_MaxSkillPoints: 4
