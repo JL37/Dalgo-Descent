@@ -8,42 +8,96 @@ public class DialogueSystem : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] TMP_Text m_DialogueTextObject;
+    [SerializeField] Image m_CurrFace;
 
     [Header("Adjustable variable")]
+    [SerializeField] Sprite m_DefaultFaceSprite;
     [SerializeField] int m_FaceApperanceIdx = 1; //Index in which face appears
     [SerializeField] float m_Timer = 0.1f;
     
     protected List<(string dialogue, float duration)> m_DialogueList;
-    protected List<(Image img, int specialIdx)> m_FaceExeption;
+    protected List<(Sprite img, int specialIdx)> m_FaceExeption;
+
+    protected Sprite m_CurrFaceSprite;
 
     protected int m_CurrIDx = 0;
     protected bool m_Animating = false;
-    protected bool m_AnimationDone = false;
+    protected bool m_AnimationDone = true;
 
     private void Awake()
     {
         m_DialogueList = new List<(string dialogue, float duration)>();
-        m_FaceExeption = new List<(Image img, int specialIdx)>();
+        m_FaceExeption = new List<(Sprite img, int specialIdx)>();
 
-        m_DialogueList.Add(("Au ah au salakau", 0));
+        m_DialogueList.Add(("Au ah au salakau aiwdjaiowjdoaidjai wojdoajiwjdio awjiodjawjdiaj dioawjoidj??", 0));
         m_DialogueList.Add(("Cibai la salakau", 0));
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        m_CurrFaceSprite = m_DefaultFaceSprite;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
+        {
+            OnClick();
+        }
+    }
+
+    protected void OnClick()
+    {
+        //If text animation not done, force it to finish
+        if (!m_AnimationDone)
+        {
+            m_AnimationDone = true;
+        }
+        else if (!m_Animating) //If done liao, then bruh moment just animate the next line if theres any
+        {
+            AnimateNextLine();
+        }
+    }
+
+    protected void AnimateNextLine(bool firstLine = false)
+    {
+        if (firstLine)
+        {
+            ResetDialogueText();
+            AnimateText();
+            return;
+        }
+
+        //m_DialogueTextObject.text = ""; //Make next line empty by default
+        if (IncreaseIndex())
+            AnimateText();
+    }
+
+    protected bool IncreaseIndex()
+    {
+        if (m_CurrIDx + 1 >= m_DialogueList.Count)
+            return false;
+
+        m_CurrIDx++;
+        return true;
+    }
+
+    public void ResetDialogueText()
+    {
+        m_CurrIDx = 0;
+        m_DialogueTextObject.text = "";
     }
 
     public void AnimateText()
     {
+        //Text animation
         StartCoroutine(I_AnimateText());
+
+        //Face animation
+        if (!m_CurrFace.gameObject.activeSelf && m_CurrIDx == m_FaceApperanceIdx)
+            m_CurrFace.GetComponent<DialogueFace>().Initialise(m_DefaultFaceSprite);
     }
 
     protected IEnumerator I_AnimateText()
@@ -79,7 +133,7 @@ public class DialogueSystem : MonoBehaviour
         m_DialogueList.Add(tuple);
     }
 
-    public void AddFaceException((Image img, int specialIdx) tuple)
+    public void AddFaceException((Sprite img, int specialIdx) tuple)
     {
         m_FaceExeption.Add(tuple);
     }

@@ -73,7 +73,9 @@ public class PauseController : MonoBehaviour
 
         Debug.Log("Paused Toggled");
 
+        Time.timeScale = GameStateManager.Get_Instance.CurrentGameState == GameState.Paused ? 0 : 1;
         CameraToggle(GameStateManager.Get_Instance.CurrentGameState == GameState.Paused);
+
     }
 
     public void CameraToggle(bool disable)
