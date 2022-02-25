@@ -6,15 +6,20 @@ using UnityEngine.UI;
 
 public class SkillSlot : MonoBehaviour,IDropHandler
 {
-    public DragDrop dragdrop;
+    // public DragDrop dragdrop;
+    public SkillObject AnchoredSkill;
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
-        Debug.Log(dragdrop.getCurrentRect());
+        // Debug.Log(dragdrop.getCurrentRect());
 
         if(eventData.pointerDrag != null) //if you are dragging a game object
         {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            // GameObject newSkillObj = Instantiate(eventData.pointerDrag.gameObject, transform.parent);
+            // newSkillObj.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            // eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = eventData.pointerDrag.GetComponent<DragDrop>().PreDragPosition;
+            AnchoredSkill = eventData.pointerDrag.GetComponent<Skill>().SkillScriptable;
+            GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
         }
     }
 

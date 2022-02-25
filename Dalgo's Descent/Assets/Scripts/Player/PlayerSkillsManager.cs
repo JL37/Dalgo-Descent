@@ -9,9 +9,6 @@ public class PlayerSkillsManager : MonoBehaviour
     [Header("Objects")]
     public Animator PlayerAnimator;
     public List<SkillObject> Skills;
-    public UI_SkillTree Cleave;
-    public UI_SkillTree ShovelCut;
-    public UI_SkillTree Dunk;
 
     private PlayerStats m_playerStats;
 
@@ -62,7 +59,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
-            // if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
+            if (Skills[0].Unlocked) //check if skill has been unlock already
             {
                 UseSkill(0);
                 Debug.Log("USING SKILL 1 LIAO");
@@ -75,7 +72,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            // if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
+            if (Skills[1].Unlocked)
             {
                 UseSkill(1);
                 Debug.Log("USING SKILL 2 LIAO");
@@ -89,11 +86,14 @@ public class PlayerSkillsManager : MonoBehaviour
 
         if (context.started && !playerController.IsGrounded)
         {
-            UseSkill(2);
+            if (Skills[2].Unlocked)
+            {
+                UseSkill(2);
 
-            //Make him go up first
-            playerController.ResetImpactForJump();
-            playerController.AddImpact(Vector3.up, 15f);
+                //Make him go up first
+                playerController.ResetImpactForJump();
+                playerController.AddImpact(Vector3.up, 15f);
+            }
 
             //if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
             //{

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41d909ee20ae744f87ce55ed62446a8, type: 3}
   m_Name: SlamDunk
   m_EditorClassIdentifier: 
-  Name: Dalgo Slam Dunk
-  SkillSprite: {fileID: 21300000, guid: f93fc45df270b1f4090b8ebf5a97ea58, type: 3}
-  SkillAnimation: {fileID: 7400000, guid: f83ec345c14aa8849a001fdf8bc454f2, type: 2}
-  AnimationTrigger: 
+  m_Name: Slam Dunk
+  m_SkillSprite: {fileID: 21300000, guid: e3ce7f5004267bb4a9e4ae8ca170a337, type: 3}
+  m_SkillAnimation: {fileID: 7400000, guid: f83ec345c14aa8849a001fdf8bc454f2, type: 2}
+  m_Unlocked: 0

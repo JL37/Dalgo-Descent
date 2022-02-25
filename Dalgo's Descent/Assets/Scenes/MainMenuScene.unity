@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 1512269356}
   - component: {fileID: 1512269355}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BGImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 1950595879}
   - component: {fileID: 1950595878}
   m_Layer: 5
-  m_Name: Title_Image
+  m_Name: TitleImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

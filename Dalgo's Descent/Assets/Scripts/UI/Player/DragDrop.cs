@@ -8,15 +8,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
     [SerializeField] private Canvas canvas;
 
     private RectTransform m_RectTransform;
+    public Vector2 PreDragPosition;
     private CanvasGroup m_canvasGroup;
     private void Awake()
     {
+        canvas = GameObject.FindGameObjectWithTag("HUD").GetComponent<Canvas>();
         m_RectTransform = GetComponent<RectTransform>();
         m_canvasGroup = GetComponent<CanvasGroup>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OnBeginDrag");
+        PreDragPosition = m_RectTransform.anchoredPosition;
         m_canvasGroup.alpha = .6f;
         m_canvasGroup.blocksRaycasts = false;
     }
@@ -32,6 +35,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
         Debug.Log("OnEndDrag");
         m_canvasGroup.alpha = 1.0f;
         m_canvasGroup.blocksRaycasts = true;
+        m_RectTransform.anchoredPosition = PreDragPosition;
     }
 
     public void OnPointerDown(PointerEventData eventData)
