@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            SpawnEnemies(1, 5, new Vector3(0, FindObjectOfType<PlayerController>().transform.position.y, 0));
+            SpawnEnemies(1, 1, new Vector3(0, FindObjectOfType<PlayerController>().transform.position.y, 0));
         }
     }
 
