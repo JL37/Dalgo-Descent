@@ -5,6 +5,8 @@ using UnityEngine.AI;
 [DefaultExecutionOrder(1)]
 public class AIUnit : AI
 {
+    public bool isMiniboss;
+
     private new Rigidbody rigidbody;
     public LayerMask groundLayer;
     public Texture2D[] enemyTextures;
@@ -56,7 +58,7 @@ public class AIUnit : AI
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            EnemyHit(10);
+            EnemyHit(10, 100f);
         }
     }
 
@@ -78,16 +80,16 @@ public class AIUnit : AI
             RemoveFromGameManager();
     }
 
-    public void EnemyHit(float damage) 
+    public void EnemyHit(float damage, float force) 
     {
         if (enemyStats.health.currentHealth <= 0.0f)
             return;
 
+        Damage(damage);
         animator.SetTrigger("Hit");
         // m_animator.SetBool("IsHit", true);
         Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
-        rigidbody.AddForce(directionFromPlayer * 100f);
-        Damage(damage);
+        rigidbody.AddForce(directionFromPlayer * force);
     }
 
     public void EnemyKnockup(float damage)
@@ -106,35 +108,28 @@ public class AIUnit : AI
         animator.SetTrigger("Knockup");
     }
 
-    public void EnemyPushBack(float damage)
-    {
-
-        Vector3 directionFromPlayer = Vector3.Normalize(transform.position - playerRef.transform.position);
-        Damage(damage);
-        rigidbody.isKinematic = false;
-        agent.enabled = false;
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(new Vector3(0, 0, directionFromPlayer.z * 400.0f));
-        if (enemyStats.health.currentHealth <= 0)
-            return;
-
-        animator.SetTrigger("Pushback");
-    }
-
     public override bool IsAggro()
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("PreparingAttack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || animator.GetCurrentAnimatorStateInfo(0).IsName("Knockup") || animator.GetCurrentAnimatorStateInfo(0).IsName("Pushback");
     }
 
+
+
     protected override void AddAggroToGameManager()
     {
         base.AddAggroToGameManager();
-        m_HealthUI = m_GameManager.ActivateEnemyHealthUI(GetComponent<Health>());
+        if (isMiniboss)
+            m_GameManager.EnableBossHealthUI(GetComponent<Health>());
+        else
+            m_HealthUI = m_GameManager.ActivateEnemyHealthUI(GetComponent<Health>());
     }
 
     protected override void RemoveFromGameManager()
     {
         base.RemoveFromGameManager();
-        m_HealthUI.StartFadeAnimation(true);
+        if (isMiniboss)
+            m_GameManager.DisableBossHealthUI();
+        else
+            m_HealthUI.StartFadeAnimation(true);
     }
 }

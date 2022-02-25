@@ -2,20 +2,11 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     public Sound[] soundsArr;
-    public static AudioManager instance;
-    void Awake()
+    protected override void OnAwake()
     {
-        if (instance == null)
-            instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
         foreach(Sound sound in soundsArr)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
@@ -41,7 +32,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("Testing");
+        
     }
 
     public Sound GetSound(string name)

@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: b9c32e559ec494d488f74d5746061845
+guid: 3ec9db8f1a9af8d478137e2ee67aa525
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LevelBaseMesh1
+    second: {fileID: 2100000, guid: b252e6008e3aaf14f9f3a576b42c6b25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LevelBaseMesh2
+    second: {fileID: 2100000, guid: e1874d9edd710a7498fc4bb2ff8e4ee8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LevelBaseMesh3
+    second: {fileID: 2100000, guid: 87f00766e8ed64841ab6e304c1f0678f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LevelExteriorDetails1
+    second: {fileID: 2100000, guid: aaa2a93325fcad44481524528060c5e2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -34,7 +54,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 200
+    globalScale: 100
     meshCompression: 0
     addColliders: 1
     useSRGBMaterialColor: 1
@@ -85,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 2
+    globalScale: 100
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

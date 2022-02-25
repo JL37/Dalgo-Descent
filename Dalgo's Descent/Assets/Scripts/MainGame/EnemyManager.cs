@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            SpawnEnemies(1, 5, new Vector3(0, 0f, 0));
+            SpawnEnemies(1, 1, new Vector3(0, FindObjectOfType<PlayerController>().transform.position.y, 0));
         }
     }
 
@@ -33,13 +33,14 @@ public class EnemyManager : MonoBehaviour
             Debug.Log("Spawning enemy " + enemiesSpawned);
             Vector3 newPosition = new Vector3(position.x + Random.Range(-radiusOffset, radiusOffset), position.y, position.z + Random.Range(-radiusOffset, radiusOffset));
             GameObject newEnemy = Instantiate(m_EnemyPrefab, m_Enemies);
+            
+            newEnemy.transform.position = newPosition;
 
             NavMeshHit hit;
             if (NavMesh.SamplePosition(newPosition, out hit, 5f, NavMesh.AllAreas))
-                newEnemy.GetComponent<NavMeshAgent>().Warp(hit.position);
+                newEnemy.GetComponent<NavMeshAgent>().Warp(newPosition);
 
             newEnemy.GetComponent<AIUnit>().Init(Random.Range(0.7f, 1.5f));
-            // newEnemy.transform.position = newPosition;
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
             enemiesSpawned++;
             yield return wfs;

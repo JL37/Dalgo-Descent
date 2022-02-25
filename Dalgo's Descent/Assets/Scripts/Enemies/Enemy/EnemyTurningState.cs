@@ -50,7 +50,9 @@ public class EnemyTurningState : EnemyBaseState
         animator.SetFloat("Speed", velocity);
         animator.speed = 0.42814f;
         animator.transform.parent.rotation = Quaternion.RotateTowards(animator.transform.parent.rotation, q, 55f * Time.deltaTime);
-        
+
+        Debug.Log(Quaternion.Angle(animator.transform.parent.rotation, q));
+
         if (Quaternion.Angle(animator.transform.parent.rotation, q) < 10f)
         {
             animator.SetBool("PatrolDoneTurning", true);
@@ -71,12 +73,14 @@ public class EnemyTurningState : EnemyBaseState
     {
         while (!walkpointSet)
         {
-            aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), 0, aiUnit.transform.position.z + Random.Range(5, -5));
+            aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), aiUnit.transform.position.y, aiUnit.transform.position.z + Random.Range(5, -5));
             Debug.Log("Walkpoint Set");
 
             NavMeshPath path = new NavMeshPath();
             if (agent.CalculatePath(aiUnit.targetPosition, path) && path.status == NavMeshPathStatus.PathComplete)
+            {
                 walkpointSet = true;
+            }
         }
     }
 }

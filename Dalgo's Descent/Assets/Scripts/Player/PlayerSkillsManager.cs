@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerSkillsManager : MonoBehaviour
 {
+    [Header("Objects")]
     public Animator PlayerAnimator;
     public List<SkillObject> Skills;
     public UI_SkillTree Cleave;
@@ -19,17 +20,29 @@ public class PlayerSkillsManager : MonoBehaviour
     [SerializeField] GameObject ShovelCutVFXPrefab;
     [SerializeField] GameObject SlamDunkVFXPrefab;
 
+    [Header("Adjustable variables")]
+    [SerializeField] Vector3 m_TargetedGravity;
+
     public int ActiveSkillIndex { get; private set; }
+
 
     private int SkillLayerIndex;
     private double SkillAnimationTimer;
+    private Vector3 m_OriginalGravity;
+
+    //References 
+    protected AnimationController m_AController;
+    protected PlayerController m_PlayerController;
+
     // Start is called before the first frame update
     void Start()
     {
         ActiveSkillIndex = -1;
         SkillLayerIndex = PlayerAnimator.GetLayerIndex("Skill Layer");
         m_playerStats = GetComponent<PlayerStats>();
-        
+        m_AController = GetComponent<AnimationController>();
+        m_PlayerController = GetComponent<PlayerController>();
+        m_OriginalGravity = m_PlayerController.GetGravity();
     }
 
     // Update is called once per frame
@@ -49,7 +62,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if(context.started)
         {
-            if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
+            // if(Cleave.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_1)) //check if skill has been unlock already
             {
                 UseSkill(0);
                 Debug.Log("USING SKILL 1 LIAO");
@@ -62,7 +75,7 @@ public class PlayerSkillsManager : MonoBehaviour
     {
         if (context.started)
         {
-            if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
+            // if (ShovelCut.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_2))
             {
                 UseSkill(1);
                 Debug.Log("USING SKILL 2 LIAO");
@@ -72,49 +85,36 @@ public class PlayerSkillsManager : MonoBehaviour
 
     public void OnSlamDunkPressed(InputAction.CallbackContext context)
     {
-        if (context.started)
+        PlayerController playerController = GetComponent<PlayerController>();
+
+        if (context.started && !playerController.IsGrounded)
         {
-            if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
-            {
-                Debug.Log("USING SKILL 3 LIAO");
+            UseSkill(2);
 
-                UseSkill(2);
+            //Make him go up first
+            playerController.ResetImpactForJump();
+            playerController.AddImpact(Vector3.up, 15f);
 
-            }
+            //if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
+            //{
+            //    Debug.Log("USING SKILL 3 LIAO");
+            //    UseSkill(2);
+            //}
         }
     }
 
     #region SkillEvents
-     public void CleaveEvent()
+    public void CleaveEvent()
     {
-        Vector3 Position = transform.position;
-        Quaternion rotation = transform.rotation;
-        Instantiate(CleaveVFXPrefab, Position, rotation);
-        print(rotation);
-
-        Collider[] colliders = Physics.OverlapSphere(Position, 3f);
-        foreach (Collider c in colliders)
-        {
-            if (c.gameObject.tag == "AI")
-            {
-                AI ai = c.gameObject.GetComponent<AI>();
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
-                {
-                    ((AIUnit)ai).EnemyPushBack((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
-                if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
-                {
-                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
-                }
-            }
-        }
+        Vector3 Position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        Instantiate(CleaveVFXPrefab, transform);
+        // print(rotation);
     }
 
     public void ShovelCutEvent()
     {
         Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
         Instantiate(ShovelCutVFXPrefab, instantiationPosition, Quaternion.identity);
-
         Collider[] colliders = Physics.OverlapSphere(instantiationPosition, 3f);
         foreach (Collider c in colliders)
         {
@@ -132,7 +132,61 @@ public class PlayerSkillsManager : MonoBehaviour
             }
         }
     }
+
+    public void SlamDunkInAirEvent()
+    {
+        m_AController.PauseAnimation();
+
+        StartCoroutine(ResumeAnimationWhenOnGround());
+        StartCoroutine(ChangeGravity());
+    }
+
+    public void SlamDunkGroundedEvent()
+    {
+        Vector3 instantiationPosition = transform.position + transform.forward * 1.2f;
+        Instantiate(SlamDunkVFXPrefab, instantiationPosition, Quaternion.identity);
+
+        float distLimit = 5f; //Distancing from player to enemies
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("AI");
+        foreach (GameObject enemy in enemies)
+        {
+            if (!enemy.activeSelf)
+                continue;
+
+            float dist = (enemy.transform.position - gameObject.transform.position).magnitude;
+            if (dist < distLimit)
+            {
+                AIUnit normalEnemy = enemy.GetComponent<AIUnit>();
+                BossAI bossEnemy = enemy.GetComponent<BossAI>();
+
+                if (normalEnemy)
+                    normalEnemy.EnemyHit(10, normalEnemy.isMiniboss ? 0 : 500f);
+                else if (bossEnemy)
+                    bossEnemy.Damage(10);
+            }
+        }
+    }
     #endregion
+
+    protected IEnumerator ChangeGravity()
+    {
+        while (!m_PlayerController.IsLanding)
+            yield return null;
+
+        m_PlayerController.SetGravity(m_TargetedGravity);
+    }
+
+    protected IEnumerator ResumeAnimationWhenOnGround()
+    {
+        //Wait until player is on ground, then continue animation!
+        while (!m_PlayerController.IsGrounded)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        m_PlayerController.SetGravity(m_OriginalGravity);
+        m_AController.ResumeAnimation();
+    }
 
     private void SkillFinish()
     {
