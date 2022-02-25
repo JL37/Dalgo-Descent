@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelBarrierTrigger : Singleton<LevelBarrierTrigger>
+public class LevelBarrierTrigger : MonoBehaviour
 {
     public bool IsNextLevel;
     public Collider TriggerCollider;
@@ -17,21 +17,15 @@ public class LevelBarrierTrigger : Singleton<LevelBarrierTrigger>
         BarrierCollider.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerExit(Collider other)
     {
         BarrierMesh.enabled = true;
         BarrierCollider.enabled = true;
 
         if (IsNextLevel)
-            GetComponentInParent<LevelStructure>().OnNextLevelEnter();
+            GameLevelManager.Instance.OnNextLevelEnter();
         else
-            GetComponentInParent<LevelStructure>().OnNextLevelTransition();
+            GameLevelManager.Instance.OnCurrentLevelExit();
     }
 
 }

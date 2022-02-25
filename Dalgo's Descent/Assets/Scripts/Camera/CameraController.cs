@@ -68,6 +68,29 @@ public class CameraController : Singleton<CameraController>
         Debug.LogError("Invalid Camera Mode!");
         return null;
     }
+
+    public void OnNextLevelEnter()
+    {
+        SetCinemachineMode(CMMode.Player);
+    }
+
+    public void OnCurrentLevelExit()
+    {
+        SetCinemachineMode(CMMode.Exterior);
+    }
+
+    void OnEnable()
+    {
+        GameLevelManager.Instance.OnNextLevelEnterListener += OnNextLevelEnter;
+        GameLevelManager.Instance.OnCurrentLevelExitListener += OnCurrentLevelExit;
+    }
+
+    void OnDisable()
+    {
+        GameLevelManager.Instance.OnNextLevelEnterListener -= OnNextLevelEnter;
+        GameLevelManager.Instance.OnCurrentLevelExitListener -= OnCurrentLevelExit;
+    }
+
     public enum CMMode
     {
         Player,

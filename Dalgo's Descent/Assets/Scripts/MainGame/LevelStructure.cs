@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class LevelStructure : MonoBehaviour
 {
-    public LevelBarrierTrigger ExitBarrier;
-    public LevelBarrierTrigger EntranceBarrier;
     public GameObject ExteriorLayer;
     public GameObject ExteriorColliders;
     public Transform ExteriorCheckpoints;
     public Transform NextLocation;
-    private void Awake()
+    void Start()
     {
         ExteriorLayer.SetActive(false);
 
@@ -19,16 +17,14 @@ public class LevelStructure : MonoBehaviour
     }
 
 
-    public void OnNextLevelTransition()
+    public void OnCurrentLevelExit()
     {
         ExteriorLayer.SetActive(true);
-        CameraController.Instance.SetCinemachineMode(CameraController.CMMode.Exterior);
     }
 
     public void OnNextLevelEnter()
     {
         ExteriorLayer.SetActive(false);
-        GameLevelManager.Instance.OnLevelNext();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,5 +45,18 @@ public class LevelStructure : MonoBehaviour
             }
             other.GetComponent<CharacterController>().Move((closestpoint.position + new Vector3(0, 5, 0)) - other.transform.position);
         }
+    }
+
+
+    void OnEnable()
+    {
+        GameLevelManager.Instance.OnNextLevelEnterListener += OnNextLevelEnter;    
+        GameLevelManager.Instance.OnCurrentLevelExitListener += OnCurrentLevelExit;    
+    }
+
+    void OnDisable()
+    {
+        GameLevelManager.Instance.OnNextLevelEnterListener -= OnNextLevelEnter;    
+        GameLevelManager.Instance.OnCurrentLevelExitListener -= OnCurrentLevelExit;    
     }
 }

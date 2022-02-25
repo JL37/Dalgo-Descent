@@ -16,10 +16,29 @@ public class GameLevelManager : Singleton<GameLevelManager>
     
     public PlayerController Player;
 
+    public delegate void OnNextLevelListenDelegate();
+    public event OnNextLevelListenDelegate OnNextLevelEnterListener;
+
+    public delegate void OnCurrentLevelListenDelegate();
+    public event OnCurrentLevelListenDelegate OnCurrentLevelExitListener;
+
     private LevelStructure PlayArea;
     void Start()
     {
         CreateNextLevel();
+    }
+
+   
+    public void OnNextLevelEnter()
+    { 
+        CreateNextLevel();
+
+        if(OnNextLevelEnterListener != null)OnNextLevelEnterListener.Invoke();
+    }
+
+    public void OnCurrentLevelExit()
+    {
+        if (OnCurrentLevelExitListener != null) OnCurrentLevelExitListener.Invoke();
     }
 
     void CreateNextLevel()
@@ -28,15 +47,15 @@ public class GameLevelManager : Singleton<GameLevelManager>
             return;
 
         CurrentLevel++;
-        if(CurrentLevel == 1)
+        if (CurrentLevel == 1)
         {
             PlayArea = Instantiate(StartLevel, new Vector3(0, 0, 0), Quaternion.identity, LevelContainer.transform); //Spawn Start
         }
         else if (CurrentLevel == TotalLevels)
         {
-           var newArea = Instantiate(LastLevel, PlayArea.transform.position - new Vector3(0, -11 * 2,0), PlayArea.NextLocation.rotation * PlayArea.transform.rotation, LevelContainer.transform); //Spawn Start
-           DestroyPlayLevel();
-           PlayArea = newArea;
+            var newArea = Instantiate(LastLevel, PlayArea.transform.position + new Vector3(0, -11 * 2, 0), PlayArea.NextLocation.rotation, LevelContainer.transform); //Spawn Start
+            DestroyPlayLevel();
+            PlayArea = newArea;
         }
         else
         {
@@ -44,13 +63,6 @@ public class GameLevelManager : Singleton<GameLevelManager>
             DestroyPlayLevel();
             PlayArea = newArea;
         }
-        //GetComponent<LevelExteriorManager>().SetLevelVariables();
-    }
-
-    public void OnLevelNext()
-    {
-        CameraController.Instance.SetCinemachineMode(CameraController.CMMode.Player);
-        CreateNextLevel();
     }
 
     void DestroyPlayLevel()
@@ -58,5 +70,4 @@ public class GameLevelManager : Singleton<GameLevelManager>
         Destroy(PlayArea.gameObject);
         PlayArea = null;
     }
-
 }

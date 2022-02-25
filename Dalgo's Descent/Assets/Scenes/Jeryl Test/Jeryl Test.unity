@@ -710,12 +710,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
-  TotalLevels: 5
+  TotalLevels: 3
   CurrentLevel: 0
   LevelOffset: 20
   LevelContainer: {fileID: 1801305206}
   StartLevel: {fileID: 7014152838185652986, guid: bc9171097eaab0f44b4a4489f0efeec3, type: 3}
-  LastLevel: {fileID: 0}
+  LastLevel: {fileID: 3131325238666363669, guid: 1dadba6468732ed43bc8f613fa479ccc, type: 3}
   LevelPrefabs:
   - {fileID: 140074839874931107, guid: bc89f95300d14dc4bb908f641d127952, type: 3}
   Player: {fileID: 1606305533}
