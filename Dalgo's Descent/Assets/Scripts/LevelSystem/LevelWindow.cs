@@ -21,7 +21,7 @@ public class LevelWindow : MonoBehaviour
 
     private void Update()
     {
-
+        
             
     }
 
@@ -81,5 +81,6 @@ public class LevelWindow : MonoBehaviour
     private void LevelSystemAnimated_OnExperienceChanged(object sender, EventArgs e)
     {
         SetExperienceBarSize(m_levelSystemAnimated.GetExperienceNormalized()); //exp lvl up, change the exp bar
+        m_levelText.text = "Lv " + m_levelSystem.GetCurrentLevel().ToString();
     }
 }
