@@ -736,6 +736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBaseMesh_Mid
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 833037742f325c54bb99bd2f2577ed32, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833037742f325c54bb99bd2f2577ed32, type: 3}
 --- !u!1 &1309422118718640114 stripped
@@ -1057,6 +1061,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c83fe2b48bd52cd46827bd4c2c032cc6, type: 3}
       propertyPath: m_Name
       value: LevelBaseMesh_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c83fe2b48bd52cd46827bd4c2c032cc6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83fe2b48bd52cd46827bd4c2c032cc6, type: 3}
