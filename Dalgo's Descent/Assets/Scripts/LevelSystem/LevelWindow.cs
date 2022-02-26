@@ -36,12 +36,21 @@ public class LevelWindow : MonoBehaviour
 
     public void setLevelNum(int num)
     {
-        m_levelText.text = "Skill Points Available: " + (num - 1);
+        m_levelText.text = "Skill Points Available: " + (num-1);
     }
 
     public void setLevel(int num)
     {
         m_levelSystemAnimated.SetCurrentLevel(num);
+    }
+
+    public int getSkillpoints()
+    {
+        return this.m_levelSystem.getSkillPoints();
+    }
+    public void setSkillpoints(int num)
+    {
+        this.m_levelSystem.setSkillpoints(num);
     }
     public void SetLevelSystem(LevelSystem levelSystem)
     {
@@ -59,9 +68,13 @@ public class LevelWindow : MonoBehaviour
         
     }
 
+    /*    private void LevelSystemAnimated_OnLevelChanged(object sender, EventArgs e)
+        {
+            setLevelNum(m_levelSystemAnimated.GetCurrentLevel()); //after level has been changed, change the text
+        }*/
     private void LevelSystemAnimated_OnLevelChanged(object sender, EventArgs e)
     {
-        setLevelNum(m_levelSystemAnimated.GetCurrentLevel()); //after level has been changed, change the text
+        setLevelNum(getSkillpoints()); //after level has been changed, change the text
     }
 
     private void LevelSystemAnimated_OnExperienceChanged(object sender, EventArgs e)
