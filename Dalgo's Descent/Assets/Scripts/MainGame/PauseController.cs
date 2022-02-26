@@ -59,7 +59,7 @@ public class PauseController : MonoBehaviour
         GameStateManager.Get_Instance.SetState(newGameState);
 
         m_PausePanel.SetActive(!m_PausePanel.activeSelf);
-        m_OptionPanel.SetActive(false);
+        PauseManager.Instance.OpenMenu("Options");
         if (m_PausePanel.activeSelf)
         {
             Cursor.visible = true;
