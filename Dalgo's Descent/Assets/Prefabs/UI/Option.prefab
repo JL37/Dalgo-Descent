@@ -26,13 +26,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460337955351191658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 657558320317642696}
-  m_Father: {fileID: 2631149059477647388}
-  m_RootOrder: 8
+  m_Father: {fileID: 2631149059580268198}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 2631149059477647390}
   - component: {fileID: 2631149059477647391}
   - component: {fileID: 2631149059477647384}
+  - component: {fileID: 1890176589006811571}
   m_Layer: 5
   m_Name: Option
   m_TagString: Untagged
@@ -509,7 +510,6 @@ RectTransform:
   - {fileID: 2631149060730462311}
   - {fileID: 2631149059580268198}
   - {fileID: 4600582002047689073}
-  - {fileID: 5182547236530080310}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -584,6 +584,37 @@ MonoBehaviour:
   actionText: {fileID: 2631149060350559901}
   rebindButton: {fileID: 2631149059997833629}
   rebindText: {fileID: 2631149060350559901}
+--- !u!114 &1890176589006811571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631149059477647389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3035637d9f16949af5df67364dd23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: 
+  AttackAction: {fileID: 6396083954967285697, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}
+  AttackButton: {fileID: 9072691671434589340}
+  AttackText: {fileID: 2631149061105041875}
+  JumpAction: {fileID: 1993302112964157593, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}
+  JumpButton: {fileID: 2631149059997833629}
+  JumpText: {fileID: 2631149060350559901}
+  InteractAction: {fileID: 5097956532160815520, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}
+  InteractButton: {fileID: 6068537739324523720}
+  InteractText: {fileID: 2631149060089784943}
+  SkillAction: {fileID: -707603284393112342, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}
+  SkillButton: {fileID: 81117734964287315}
+  SkillText: {fileID: 2631149061241933911}
+  SettingsAction: {fileID: 7785674592686529872, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}
+  SettingsButton: {fileID: 6578121440747035314}
+  SettingsText: {fileID: 2631149060848479303}
+  CursorAction: {fileID: -307650013197682346, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}
+  CursorButton: {fileID: 8301365697113583095}
+  CursorText: {fileID: 7316338398538775692}
 --- !u!1 &2631149059506767432
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +929,7 @@ RectTransform:
   - {fileID: 5448562631427623953}
   - {fileID: 7816303953269210663}
   - {fileID: 1937262407778944325}
+  - {fileID: 5182547236530080310}
   m_Father: {fileID: 2631149059477647388}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
