@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class LevelWindow : MonoBehaviour
 {
     public Image m_experienceBarImage;
-    public Text m_levelText;
+    public TMP_Text m_levelText;
     private LevelSystem m_levelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
@@ -36,7 +37,7 @@ public class LevelWindow : MonoBehaviour
 
     public void setLevelNum(int num)
     {
-        m_levelText.text = "Skill Points Available: " + (num-1);
+        m_levelText.text = "Lv " + (num-1);
     }
 
     public void setLevel(int num)
