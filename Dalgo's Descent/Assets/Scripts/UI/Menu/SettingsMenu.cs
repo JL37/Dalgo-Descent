@@ -161,26 +161,20 @@ public class SettingsMenu : MenuBase
         print(binding.ToDisplayString());
         startListen = false;
     }*/
-    public void ChangeBindingToKey(string bindingKey,int id, InputActionReference reference)
+    public void ChangeBinding(string bindingKey, int id, InputActionReference reference)
     {
-        InputBinding binding = reference.action.bindings[0];
-        bindingKey.ToLower();
-        binding.overridePath = "<Keyboard>/#(" + bindingKey + ")";
-        reference.action.ApplyBindingOverride(0, binding);
-        print(binding.ToDisplayString());
+        OverrideBinding(bindingKey, reference);
+        // print(binding.ToDisplayString());
         UpdateText(id);
         startListen = false;
 
     }
 
-    public void ChangeBindingToMouse(string mouseClick, int id, InputActionReference reference)
+    public static void OverrideBinding(string bindingKey, InputActionReference reference)
     {
         InputBinding binding = reference.action.bindings[0];
-        binding.overridePath = "<Mouse>/"+ mouseClick;
+        binding.overridePath = bindingKey;
         reference.action.ApplyBindingOverride(0, binding);
-        print(binding.ToDisplayString());
-        UpdateText(id);
-        startListen = false;
     }
 
     public void OnGUI() //keybind listener
@@ -194,7 +188,7 @@ public class SettingsMenu : MenuBase
                 string key = events.keyCode.ToString();
                 setText.text = key;
                 this.keycode = key;
-                ChangeBindingToKey(this.keycode, keyID, setAction);
+                ChangeBinding("<Keyboard>/" + this.keycode, keyID, setAction);
             }
             else if (events.isMouse)
             {
@@ -202,20 +196,20 @@ public class SettingsMenu : MenuBase
                 switch (mouse)
                 {
                     case "0":
-                        this.keycode = "leftButton";
+                        this.keycode = "<Mouse>/leftButton";
                         setText.text = "LMB";
                         break;
                     case "1":
-                        this.keycode = "rightButton";
+                        this.keycode = "<Mouse>/rightButton";
                         setText.text = "RMB";
                         break;
                     default:
-                        this.keycode = "leftButton";
+                        this.keycode = "<Mouse>/leftButton";
                         setText.text = "LMB";
                         break;
 
                 }
-                ChangeBindingToMouse(this.keycode, keyID, setAction);
+                ChangeBinding(this.keycode, keyID, setAction);
             }
         }
         

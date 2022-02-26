@@ -8,21 +8,38 @@ public class SkillSlot : TooltipTrigger, IDropHandler
 {
     // public DragDrop dragdrop;
     public SkillObject AnchoredSkill;
+    public string keycode;
+    public Sprite baseImage;
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
         // Debug.Log(dragdrop.getCurrentRect());
 
         if(eventData.pointerDrag != null) //if you are dragging a game object
-        {
-            // GameObject newSkillObj = Instantiate(eventData.pointerDrag.gameObject, transform.parent);
-            // newSkillObj.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            // eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = eventData.pointerDrag.GetComponent<DragDrop>().PreDragPosition;
+        {   
             AnchoredSkill = eventData.pointerDrag.GetComponent<Skill>().SkillScriptable;
-            header = AnchoredSkill.SkillName;
+
+            // Rebind Skill
+            string keyCodeStore;
+            keyCodeStore = (keycode == "LMB" || keycode == "RMB") ? "<Mouse>/" + keycode : "<Keyboard>/" + keycode;
+            AnchoredSkill.RebindKey(keyCodeStore);
+            Debug.Log("Rebinded \"" + AnchoredSkill.SkillName + "\" to " + keycode);
+
+            // Update tooltip info
+            header = AnchoredSkill.SkillName + " [" + keycode + "]";
             body = AnchoredSkill.SkillDescription;
+
+            // update skillslot image
             GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
+
+            SkillSlotManager.Instance.UpdateSkillSlots(this);
         }
+    }
+
+    public void ResetSkill()
+    {
+        GetComponent<Image>().sprite = baseImage;
+        AnchoredSkill = null;
     }
 
     void Update()
