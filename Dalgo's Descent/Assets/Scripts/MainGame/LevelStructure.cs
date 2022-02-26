@@ -47,6 +47,7 @@ public class LevelStructure : MonoBehaviour
         }
     }
 
+    
 
     void OnEnable()
     {

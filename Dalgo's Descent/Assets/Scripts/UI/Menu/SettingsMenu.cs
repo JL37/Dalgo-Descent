@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SettingsMenu : MenuBase
 {
@@ -160,7 +161,7 @@ public class SettingsMenu : MenuBase
         print(binding.ToDisplayString());
         startListen = false;
     }*/
-    public void ChangeBinding(string bindingKey,int id, InputActionReference reference)
+    public void ChangeBindingToKey(string bindingKey,int id, InputActionReference reference)
     {
         InputBinding binding = reference.action.bindings[0];
         bindingKey.ToLower();
@@ -170,6 +171,16 @@ public class SettingsMenu : MenuBase
         UpdateText(id);
         startListen = false;
 
+    }
+
+    public void ChangeBindingToMouse(string mouseClick, int id, InputActionReference reference)
+    {
+        InputBinding binding = reference.action.bindings[0];
+        binding.overridePath = "<Mouse>/"+ mouseClick;
+        reference.action.ApplyBindingOverride(0, binding);
+        print(binding.ToDisplayString());
+        UpdateText(id);
+        startListen = false;
     }
 
     public void OnGUI() //keybind listener
@@ -183,10 +194,36 @@ public class SettingsMenu : MenuBase
                 string key = events.keyCode.ToString();
                 setText.text = key;
                 this.keycode = key;
-                ChangeBinding(this.keycode, keyID, setAction);
+                ChangeBindingToKey(this.keycode, keyID, setAction);
+            }
+            else if (events.isMouse)
+            {
+                string mouse = events.button.ToString();
+                switch (mouse)
+                {
+                    case "0":
+                        this.keycode = "leftButton";
+                        setText.text = "LMB";
+                        break;
+                    case "1":
+                        this.keycode = "rightButton";
+                        setText.text = "RMB";
+                        break;
+                    default:
+                        this.keycode = "leftButton";
+                        setText.text = "LMB";
+                        break;
+
+                }
+                ChangeBindingToMouse(this.keycode, keyID, setAction);
             }
         }
         
+    }
+
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene(1);
     }
     #endregion
 }

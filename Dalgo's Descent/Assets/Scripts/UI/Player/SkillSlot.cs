@@ -19,10 +19,18 @@ public class SkillSlot : TooltipTrigger, IDropHandler
             // newSkillObj.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             // eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = eventData.pointerDrag.GetComponent<DragDrop>().PreDragPosition;
             AnchoredSkill = eventData.pointerDrag.GetComponent<Skill>().SkillScriptable;
-            details = AnchoredSkill.SkillDescription;
+            header = AnchoredSkill.SkillName;
+            body = AnchoredSkill.SkillDescription;
             GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
         }
     }
 
+    void Update()
+    {
+        if (AnchoredSkill)
+            TriggerActive = true;
+        else
+            TriggerActive = false;
+    }
 
 }
