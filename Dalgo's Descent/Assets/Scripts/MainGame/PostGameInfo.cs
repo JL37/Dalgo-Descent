@@ -34,6 +34,28 @@ public class PostGameInfo
         //Doing nothing la bastard if not what
     }
 
+    public string GetTimePassedText()
+    {
+        float seconds = (int)m_TimePassed % 60;
+        float minutes = (int)m_TimePassed / 60;
+
+        string str = "";
+
+        str += minutes + (minutes == 1 ? " minute" : " minutes");
+        str += " and " + seconds + (seconds == 1 ? " second" : " seconds");
+
+        return str;
+    }
+
+    public int GetTotalDmg() { return m_TotalDmgDealt; }
+    public int GetMaxDmg() { return m_MaxDmg; }
+
+    public int GetTotalEnemies() { return m_TotalEnemies; }
+    public int GetTotalBosses() { return m_TotalBosses; }
+
+    public int GetTotalMoney() { return m_MoneyEarned; }
+    public int GetTotalItems() { return m_TotalItems; }
+
     public static PostGameInfo ResetPostGameInfo()
     {
         m_Instance = null;

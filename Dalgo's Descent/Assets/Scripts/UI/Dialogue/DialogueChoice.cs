@@ -32,5 +32,10 @@ public class DialogueChoice : MonoBehaviour
             m_DialogueCanvas.ReceiveChoice(CHOICE.MENU);
             gameObject.SetActive(false);
         }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            m_DialogueCanvas.ReceiveChoice(CHOICE.STATS);
+            gameObject.SetActive(false);
+        }
     }
 }

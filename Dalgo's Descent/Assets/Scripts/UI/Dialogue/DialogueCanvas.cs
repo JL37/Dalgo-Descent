@@ -36,7 +36,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
     protected string m_RestartSignal = "RESET";
     protected string m_MenuSignal = "MENU";
 
-    protected string m_HappyIntroSignal = "HAPPY_INTRO";
+    protected string m_IntroSignal = "INTRO";
 
     // Start is called before the first frame update
     void Start()
@@ -61,14 +61,35 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
             case EMOTION.HAPPY:
                 AddHappyDialogue();
                 break;
+
+            case EMOTION.SOMEWHATANNOYED:
+                AddSomeWhatAnnoyedDialogue();
+                break;
         }
+    }
+
+    protected void AddSomeWhatAnnoyedDialogue()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.SetSignalText(m_IntroSignal);
+
+        d.AddToDialogueList((".......... Oh!", 0));
+        d.AddToDialogueList(("Hey, you. You're finally awake-", 0.5f));
+
+        i = d.AddToDialogueList(("Oh you? Didn't I revive you a few moments ago???", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+        d.AddDefaultFaceEvent((m_SomewhatAnnoyed,i));
+
+        d.AddToDialogueList(("You..... Wha- How-", 0));
+
     }
 
     protected void AddHappyDialogue()
     {
         int i = 0;
         DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
-        d.SetSignalText(m_HappyIntroSignal);
+        d.SetSignalText(m_IntroSignal);
 
         d.AddToDialogueList((".......... Oh!", 0));
         d.AddToDialogueList(("Hey, you. You're finally awake!", 0));
@@ -87,14 +108,14 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         i = d.AddToDialogueList(("", 2.5f));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.ZOOMIN_SLOW, i));
 
-        i = d.AddToDialogueList(("HOW THE HELL COULD YOU NOT KNOW YOUR GOD???", 0));
+        i = d.AddToDialogueList(("<color=red>HOW THE HELL COULD YOU NOT KNOW YOUR GOD???</color>", 0));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
         d.AddDefaultFaceEvent((m_Angry, i));
 
-        d.AddToDialogueList(("LITERALLY I WAS THERE THE MOMENT YOU WERE BORN.", 0));
-        d.AddToDialogueList(("THE MOMENT YOU WENT TO SCHOOL.", 0));
-        d.AddToDialogueList(("THEN GOT ADOPTED.", 0));
-        d.AddToDialogueList(("ONLY TO FIND THE LOVE OF YOUR LIFE THERE AND GET FIVE KIDS TO PAY CHILD SUPPORT FOR FOR THE REST OF YOUR LIFE AND", 0.7f));
+        d.AddToDialogueList(("<color=red>LITERALLY I WAS THERE THE MOMENT YOU WERE BORN.</color>", 0));
+        d.AddToDialogueList(("<color=red>THE MOMENT YOU WENT TO SCHOOL.</color>", 0));
+        d.AddToDialogueList(("<color=red>THEN GOT ADOPTED.</color>", 0));
+        d.AddToDialogueList(("<color=red>ONLY TO FIND THE LOVE OF YOUR LIFE THERE AND GET FIVE KIDS TO PAY CHILD SUPPORT FOR FOR THE REST OF YOUR LIFE AND</color>", 0.7f));
 
         i = d.AddToDialogueList(("-You know what? I think we've started off on the wrong foot and I'm sorry", 0));
         d.AddDefaultFaceEvent((m_Happy, i));
@@ -109,7 +130,6 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.AddFaceException((m_Annoyed, i));
 
         i = d.AddToDialogueList(("I will just add my name to the top left of that small little box.", 0));
-        print("nbruh " + i);
         d.AddDefaultNameEvent(("Aoshi", i));
 
         i = d.AddToDialogueList(("What even is that small little box anyway? Why's it copying what I'm saying?-", 0));
@@ -122,7 +142,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
 
         d.AddToDialogueList(("Right now, I will give you a few choices.", 0));
         d.AddToDialogueList(("Option A: I rewind back to the time before you died, and you get a second chance at escaping.", 0));
-        d.AddToDialogueList(("And option B: You just die and your wife and kids will never see you again.", 0));
+        d.AddToDialogueList(("Or option B: You just die and your wife and kids will never see you again.", 0));
         d.AddToDialogueList(("It is your choice.", 0));
         d.AddToDialogueList(("Also don't ask why I can't just spawn you out of the cage and let you escape.", 0));
         d.AddToDialogueList(("-Because there won't even be a game if I can just do that, and besides,", 0));
@@ -155,7 +175,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
     {
         print("received dialogue done event " + text + "!");
 
-        if (text == m_HappyIntroSignal)
+        if (text == m_IntroSignal)
         {
             m_ChoiceFolder.SetActive(true);
         } 
@@ -196,9 +216,96 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
                 m_DialogueFolder.GetComponent<DialogueSystem>().SetSignalText(m_MenuSignal);
                 HappyChoiceMenu();
                 break;
+            case DialogueChoice.CHOICE.STATS:
+                InitialiseStatDialogue();
+                break;
         }
 
         InitialiseDialogue();
+    }
+
+    protected void InitialiseStatDialogue()
+    {
+        EMOTION currEmotion = (EMOTION)m_CurrIdx;
+
+        if (currEmotion != EMOTION.ANGRY && currEmotion != EMOTION.KILLEDHIMSELF)
+            NormalStatsDialogue();
+        else if (currEmotion == EMOTION.ANGRY)
+            AggroStatsDialogue();
+        else
+            SummarisedStatsDialogue();
+
+        if (currEmotion == EMOTION.ACCEPTANCE)
+        {
+            DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+            d.AddToDialogueList(("Now please. Just get lost.", 0));
+        }
+        else if (currEmotion == EMOTION.ANNOYED)
+        {
+            DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+            d.AddToDialogueList(("Piece of advice, don't you dare die again.", 0));
+        }
+    }
+
+    protected void SummarisedStatsDialogue()
+    {
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+
+        d.AddToDialogueList(("Time Survived: <color=orange>" + m_PostGameInfo.GetTimePassedText() + "</color>.", 0));
+
+        string dmgText = "Total Damage is <color=orange>" + m_PostGameInfo.GetTotalDmg().ToString() + "</color>, max damage is <color=orange>" + m_PostGameInfo.GetMaxDmg() + "</color>.";
+        d.AddToDialogueList((dmgText, 0));
+
+        string enemyText = "Total Enemies is <color=orange> " + m_PostGameInfo.GetTotalEnemies() + "</color>, total bosses is <color=orange>" + m_PostGameInfo.GetTotalBosses() + "</color>.";
+        d.AddToDialogueList((enemyText, 0));
+
+        string moneyAndItemText = "Coins earned: <color=orange>" + m_PostGameInfo.GetTotalMoney() + " coins</color>, items collected <color=orange>" + m_PostGameInfo.GetTotalItems() + "</color>.";
+        d.AddToDialogueList((moneyAndItemText, 0));
+    }
+
+    protected void AggroStatsDialogue()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+
+        d.AddToDialogueList(("YOU ONLY SURVIVED FOR <color=orange>" + m_PostGameInfo.GetTimePassedText() + "</color>.", 0));
+
+        i = d.AddToDialogueList(("<color=red>MY GRANDMOTHER LIVED LONGER THAN YOU!!!!</color>",0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+
+        string dmgText = "YOU DID <color=orange>" + m_PostGameInfo.GetTotalDmg().ToString() + " TOTAL DAMAGE</color>, AND DID <color=orange>" + m_PostGameInfo.GetMaxDmg() + " MAX DAMAGE</color>.";
+        d.AddToDialogueList((dmgText, 0));
+
+        string enemyText = "AND YOU KILLED A TOTAL OF <color=orange> " + m_PostGameInfo.GetTotalEnemies() + " ENEMIES</color>, AND <color=orange>" + m_PostGameInfo.GetTotalBosses() + " OF THEM </color>ARE BOSSES.";
+        d.AddToDialogueList((enemyText, 0));
+
+        i = d.AddToDialogueList(("<color=red>MY SON WHO IS IN EIGHTH GRADE HAVE KILLED MORE BIRDS THAN IN YOUR WHOLE SAD ASS LIFE BY THE WAY.</color>", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+
+        string moneyAndItemText = "YOU GOT <color=orange>" + m_PostGameInfo.GetTotalMoney() + " COINS</color>, AND COLLECTED <color=orange>" + m_PostGameInfo.GetTotalItems() + " ITEMS</color> IN YOUR WHOLE LIFE.";
+        d.AddToDialogueList((moneyAndItemText, 0));
+
+        i = d.AddToDialogueList(("<color=red>NOW I KNOW WHY YOU CAN'T PAY FOR CHILD SUPPORT, YOU SAD POOR BASTARD.</color>", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+
+        i = d.AddToDialogueList(("<color=red>GET OUT OF MY SIGHT AND DON'T COME BACK.</color>", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+    }
+
+    protected void NormalStatsDialogue()
+    {
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+
+        d.AddToDialogueList(("You survived for a total of <color=orange>" + m_PostGameInfo.GetTimePassedText() + "</color>.", 0));
+
+        string dmgText = "You did a total of <color=orange>" + m_PostGameInfo.GetTotalDmg().ToString() + " damage</color>, with <color=orange>" + m_PostGameInfo.GetMaxDmg() + " damage </color>being your maximum.";
+        d.AddToDialogueList((dmgText, 0));
+
+        string enemyText = "Before your death, you slain a total of <color=orange> " + m_PostGameInfo.GetTotalEnemies() + " enemies</color>, <color=orange>" + m_PostGameInfo.GetTotalBosses() + " of them </color>being bosses.";
+        d.AddToDialogueList((enemyText, 0));
+
+        string moneyAndItemText = "You've accumulated <color=orange>" + m_PostGameInfo.GetTotalMoney() + " coins</color>, and have collected <color=orange>" + m_PostGameInfo.GetTotalItems() + " items</color> throughout your journey.";
+        d.AddToDialogueList((moneyAndItemText, 0));
     }
 
     protected void HappyChoiceMenu()

@@ -266,7 +266,44 @@ public class DialogueSystem : MonoBehaviour
         //Animate letter by letter
         for (int i = 0; i < m_DialogueList[m_CurrIdx].dialogue.Length; ++i)
         {
-            //print("animatin..." + m_DialogueList[m_CurrIDx].dialogue);
+            if (m_DialogueList[m_CurrIdx].dialogue[i] == '<')
+            {
+                string checkingStr = "<color";
+                string checkingStr2 = "</color>";
+
+                string strToCheck = m_DialogueList[m_CurrIdx].dialogue.Substring(i, checkingStr.Length);
+                string strToCheck2 = m_DialogueList[m_CurrIdx].dialogue.Substring(i, checkingStr2.Length);
+
+                if (strToCheck.ToLower() == checkingStr.ToLower())
+                {
+                    strToCheck = m_DialogueList[m_CurrIdx].dialogue.Substring(i);
+                    string colorStr = strToCheck;
+                    colorStr = colorStr.Substring(0, colorStr.IndexOf('>') + 1);
+
+                    i = i + colorStr.Length;
+                    m_DialogueTextObject.text = m_DialogueList[m_CurrIdx].dialogue.Substring(0, i);
+                }
+                else if (strToCheck2.ToLower() == checkingStr2.ToLower())
+                {
+                    i = i + checkingStr2.Length + 1;
+
+                    if (i >= m_DialogueList[m_CurrIdx].dialogue.Length)
+                    {
+                        i = m_DialogueList[m_CurrIdx].dialogue.Length - 1;
+                        m_DialogueTextObject.text = m_DialogueList[m_CurrIdx].dialogue;
+                    } 
+                    else
+                    {
+                        m_DialogueTextObject.text = m_DialogueList[m_CurrIdx].dialogue.Substring(0, i);
+                    }
+                }
+
+                if (i >= m_DialogueList[m_CurrIdx].dialogue.Length - 1)
+                {
+                    i = m_DialogueList[m_CurrIdx].dialogue.Length - 1;
+                    break;
+                }
+            }
 
             //When left click or space is pressed (To skip)
             if (m_AnimationDone)
