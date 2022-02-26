@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class PauseController : MonoBehaviour
 {
@@ -29,27 +30,40 @@ public class PauseController : MonoBehaviour
         if (GameManager.Instance.ReturnGameOver())
             return;
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-            TogglePause();
-        if(Input.GetKeyDown(KeyCode.B))
+/*        if (Input.GetKeyDown(KeyCode.Escape))
+            TogglePause();*/
+        if (Input.GetKeyDown(KeyCode.B))
         {
             m_OptionPanel.SetActive(!m_OptionPanel.activeSelf);
         }
+        
     }
     public void ButtonClicked()
     {
-        if(m_PausePanel.activeInHierarchy == true)
+        if (m_PausePanel.activeInHierarchy == true)
             TogglePause();
         else
         {
             m_PausePanel.SetActive(true);
             m_OptionPanel.SetActive(false);
         }
-    }    
+    }
 
     public bool IsPaused()
     {
         return GameStateManager.Get_Instance.CurrentGameState == GameState.Paused;
+    }
+
+    public void OnExit(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            TogglePause();
+        
+    }
+
+    public void OnExitClick()
+    {
+        TogglePause();
     }
 
     protected void TogglePause()
@@ -57,14 +71,15 @@ public class PauseController : MonoBehaviour
         GameState currentGameState = GameStateManager.Get_Instance.CurrentGameState;
         GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay; //changing the gamestate to pause
         GameStateManager.Get_Instance.SetState(newGameState);
+        print(newGameState.ToString());
 
         m_PausePanel.SetActive(!m_PausePanel.activeSelf);
-        m_OptionPanel.SetActive(false);
+        PauseManager.Instance.OpenMenu("Options");
         if (m_PausePanel.activeSelf)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-        } 
+        }
         else
         {
             Cursor.visible = false;

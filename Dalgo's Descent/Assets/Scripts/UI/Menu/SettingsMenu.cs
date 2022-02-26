@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class Settings : MonoBehaviour
+public class SettingsMenu : MenuBase
 {
     //Variables for keybind
     public  Event events;
     private string keycode;
-    private bool startListen = false;
+    public bool startListen = false;
     private InputActionReference  setAction = null;
     private Text setText;
     private int keyID = 0;
@@ -45,16 +46,17 @@ public class Settings : MonoBehaviour
     public Button CursorButton;
     public Text CursorText;
 
-
-    public void Awake()
+    private GameState currentGameState = GameStateManager.Get_Instance.CurrentGameState;
+    public void Start()
     {
         //display respective keys from the system binding once the game starts
-        AttackText.text = AttackAction.action.GetBindingDisplayString(); 
-        JumpText.text = JumpAction.action.GetBindingDisplayString(); 
-        InteractText.text = InteractAction.action.GetBindingDisplayString(); 
-        SkillText.text = SkillAction.action.GetBindingDisplayString(); 
-        SettingsText.text = SettingsAction.action.GetBindingDisplayString(); 
-        CursorText.text = CursorAction.action.GetBindingDisplayString(); 
+        /*        AttackText.text = AttackAction.action.GetBindingDisplayString(); 
+                JumpText.text = JumpAction.action.GetBindingDisplayString(); 
+                InteractText.text = InteractAction.action.GetBindingDisplayString(); 
+                SkillText.text = SkillAction.action.GetBindingDisplayString(); 
+                SettingsText.text = SettingsAction.action.GetBindingDisplayString(); 
+                CursorText.text = CursorAction.action.GetBindingDisplayString();*/
+        
     }
     public void SetVolume(float volume)
     {
@@ -141,6 +143,7 @@ public class Settings : MonoBehaviour
     public void CursorClick()
     {
         setAction = CursorAction;
+        
         setText = CursorText;
         keyID = 11;
         StartBinding();
@@ -158,7 +161,7 @@ public class Settings : MonoBehaviour
         print(binding.ToDisplayString());
         startListen = false;
     }*/
-    public void ChangeBinding(string bindingKey,int id, InputActionReference reference)
+    public void ChangeBindingToKey(string bindingKey,int id, InputActionReference reference)
     {
         InputBinding binding = reference.action.bindings[0];
         bindingKey.ToLower();
@@ -167,11 +170,22 @@ public class Settings : MonoBehaviour
         print(binding.ToDisplayString());
         UpdateText(id);
         startListen = false;
+
+    }
+
+    public void ChangeBindingToMouse(string mouseClick, int id, InputActionReference reference)
+    {
+        InputBinding binding = reference.action.bindings[0];
+        binding.overridePath = "<Mouse>/"+ mouseClick;
+        reference.action.ApplyBindingOverride(0, binding);
+        print(binding.ToDisplayString());
+        UpdateText(id);
+        startListen = false;
     }
 
     public void OnGUI() //keybind listener
     {
-        if(startListen)
+        if (startListen)
         {
             events = Event.current;
             setText.text = "Press a key";
@@ -180,10 +194,36 @@ public class Settings : MonoBehaviour
                 string key = events.keyCode.ToString();
                 setText.text = key;
                 this.keycode = key;
-                ChangeBinding(this.keycode, keyID, setAction);
+                ChangeBindingToKey(this.keycode, keyID, setAction);
+            }
+            else if (events.isMouse)
+            {
+                string mouse = events.button.ToString();
+                switch (mouse)
+                {
+                    case "0":
+                        this.keycode = "leftButton";
+                        setText.text = "LMB";
+                        break;
+                    case "1":
+                        this.keycode = "rightButton";
+                        setText.text = "RMB";
+                        break;
+                    default:
+                        this.keycode = "leftButton";
+                        setText.text = "LMB";
+                        break;
+
+                }
+                ChangeBindingToMouse(this.keycode, keyID, setAction);
             }
         }
         
+    }
+
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene(1);
     }
     #endregion
 }

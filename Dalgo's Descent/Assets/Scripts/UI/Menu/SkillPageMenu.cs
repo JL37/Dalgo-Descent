@@ -11,9 +11,10 @@ public class SkillPageMenu : MenuBase
     public GameObject[] SkillPointsList;
     public GameObject[] UnlockedLinesList;
     public Button[] AddPointsButtons;
+    public LevelWindow m_LevelWindow;
+    public Text m_SkillpointText;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class SkillPageMenu : MenuBase
 
         for (int i = 0; i < AddPointsButtons.Length; i++)
         {
-            if (SkillObjectsList[i].CurrentSkillPoints < 4 /*&& skill points more than 0*/)
+            if (SkillObjectsList[i].CurrentSkillPoints < 4 && m_LevelWindow.getSkillpoints() > 0)
                 AddPointsButtons[i].interactable = true;
             else AddPointsButtons[i].interactable = false;
         }
@@ -37,6 +38,8 @@ public class SkillPageMenu : MenuBase
                 UnlockedLinesList[i].SetActive(true);
             else UnlockedLinesList[i].SetActive(false);
         }
+
+        m_SkillpointText.text = "Remaining Skill Points: " + m_LevelWindow.getSkillpoints();
     }
 
     public void ChangeCurrentSkillDescription(GameObject nextSkillDesc)
@@ -54,6 +57,8 @@ public class SkillPageMenu : MenuBase
     public void AddPointsToSkill(Skill skillToAdd) 
     {
         skillToAdd.SkillScriptable.CurrentSkillPoints++;
+
         // MINUS FROM OWNED SKILL POINTS
+        m_LevelWindow.setSkillpoints(-1);
     }
 }

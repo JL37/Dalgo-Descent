@@ -5,29 +5,33 @@ using UnityEngine.EventSystems;
 
 public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    public string details;
+    public string header;
+    public string body;
+
+    protected bool TriggerActive = false;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Tooltip_Warning.ShowTooltip_Static("You cannot use this skill yet!");
+        // Tooltip_Warning.ShowTooltip_Static("You cannot use this skill yet!");
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Tooltip.ShowTooltip_Static(details) ;
+        if (TriggerActive)
+            Tooltip.ShowTooltip_Static(header, body);
         //Tooltip_Warning.ShowTooltip_Static(details);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Tooltip.HideTooltip_Static();
-        Tooltip_Warning.HideTooltip_Static();
+        if (TriggerActive)
+            Tooltip.HideTooltip_Static();
+        // Tooltip_Warning.HideTooltip_Static();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
