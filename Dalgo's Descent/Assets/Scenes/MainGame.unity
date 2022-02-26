@@ -2854,7 +2854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1253428464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3494,7 +3494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1510074191
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6452,7 +6452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_experienceBarImage: {fileID: 3248199544426396307}
-  m_levelText: {fileID: 2460590703128231088}
+  m_levelText: {fileID: 1958960595}
 --- !u!114 &1035663490284789416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8330,7 +8330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4532216489774555708
 MonoBehaviour:
   m_ObjectHideFlags: 0

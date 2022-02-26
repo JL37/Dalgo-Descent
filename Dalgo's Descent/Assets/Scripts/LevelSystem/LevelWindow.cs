@@ -31,7 +31,7 @@ public class LevelWindow : MonoBehaviour
 
     private void setLevelNum(int num)
     {
-        m_levelText.text = "Level : " + (num + 1);
+        m_levelText.text = "Skill Points Available: " + (num - 1);
     }
 
     public void SetLevelSystem(LevelSystem levelSystem)
