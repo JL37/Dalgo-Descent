@@ -24,16 +24,25 @@ public class LevelWindow : MonoBehaviour
             
     }
 
+    public LevelSystemAnimated getLevelSystemAnimated()
+    {
+        return this.m_levelSystemAnimated;
+    }
+
     private void SetExperienceBarSize(float size)
     {
         m_experienceBarImage.fillAmount = size;
     }
 
-    private void setLevelNum(int num)
+    public void setLevelNum(int num)
     {
         m_levelText.text = "Skill Points Available: " + (num - 1);
     }
 
+    public void setLevel(int num)
+    {
+        m_levelSystemAnimated.SetCurrentLevel(num);
+    }
     public void SetLevelSystem(LevelSystem levelSystem)
     {
         this.m_levelSystem = levelSystem;
@@ -47,6 +56,7 @@ public class LevelWindow : MonoBehaviour
 
         levelSystemAnimated.OnExperienceChanged += LevelSystemAnimated_OnExperienceChanged;
         levelSystemAnimated.OnLevelChanged += LevelSystemAnimated_OnLevelChanged;
+        
     }
 
     private void LevelSystemAnimated_OnLevelChanged(object sender, EventArgs e)

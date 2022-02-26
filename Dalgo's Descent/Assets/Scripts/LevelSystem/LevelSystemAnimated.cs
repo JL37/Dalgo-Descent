@@ -98,6 +98,11 @@ public class LevelSystemAnimated
         return (float)m_experience / m_levelSystem.GetExperienceToNextLevel(m_level);
     }
 
+    public void SetCurrentLevel(int num)
+    {
+        this.m_level += num;
+    }
+
 
 
 }
