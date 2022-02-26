@@ -17,6 +17,7 @@ public class DialogueSystem : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] TMP_Text m_DialogueTextObject;
+    [SerializeField] TMP_Text m_NameTextObject;
     [SerializeField] Image m_CurrFace;
     [SerializeField] Image m_Arrow;
 
@@ -24,7 +25,12 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] Sprite m_DefaultFaceSprite;
     [SerializeField] int m_FaceApperanceIdx = 1; //Index in which face appears
     [SerializeField] float m_Timer = 0.1f;
-    
+
+    [Header("Subscribers")]
+    [SerializeField] DialogueListener[] m_DialogueListeners;
+
+    protected string m_SignalStr = "DEFAULT_END";
+
     //List for dialogue and stuff
     protected List<(string dialogue, float duration)> m_DialogueList;
     protected List<(Sprite img, int specialIdx)> m_FaceExeption;
@@ -32,6 +38,7 @@ public class DialogueSystem : MonoBehaviour
 
     //List for triggers
     protected List<(Sprite defaultFace, int specialIdx)> m_DefaultFaceEventList;
+    protected List<(string name, int specialIdx)> m_DefaultNameEventList;
 
     protected FaceAnimationListener m_AnimationListener;
     protected Sprite m_CurrFaceSprite;
@@ -49,6 +56,7 @@ public class DialogueSystem : MonoBehaviour
         m_AnimationList = new List<(ANITYPE animation, int specialIdx)>();
 
         m_DefaultFaceEventList = new List<(Sprite defaultFace, int specialIdx)>();
+        m_DefaultNameEventList = new List<(string name, int specialIdx)>();
 
         m_Arrow.gameObject.SetActive(false);
     }
@@ -63,6 +71,11 @@ public class DialogueSystem : MonoBehaviour
     private void LateUpdate()
     {
         AnimationSignalLateUpdate();
+    }
+
+    public void SetSignalText(string text)
+    {
+        m_SignalStr = text;
     }
 
     protected void AnimationSignalLateUpdate()
@@ -171,6 +184,7 @@ public class DialogueSystem : MonoBehaviour
 
     protected void AnimateText()
     {
+        //Events that will run for when entering the next line for the first time
         CheckEvents();
 
         //Text animation
@@ -195,6 +209,21 @@ public class DialogueSystem : MonoBehaviour
         Sprite newDefault = GetNewDefaultSprite(m_CurrIdx);
         if (newDefault)
             m_DefaultFaceSprite = newDefault;
+
+        string newName = GetNewDefaultName(m_CurrIdx);
+        if (newName != m_NameTextObject.text)
+            m_NameTextObject.text = newName;
+    }
+
+    protected string GetNewDefaultName(int specialIdx)
+    {
+        for (int i = 0; i < m_DefaultNameEventList.Count; ++i)
+        {
+            if (specialIdx == m_DefaultFaceEventList[i].specialIdx)
+                return m_DefaultNameEventList[i].name;
+        }
+
+        return m_NameTextObject.text;
     }
 
     protected Sprite GetNewDefaultSprite(int specialIdx)
@@ -251,6 +280,15 @@ public class DialogueSystem : MonoBehaviour
 
         m_AnimationDone = true;
         m_Animating = false;
+
+        if (m_CurrIdx >= m_DialogueList.Count - 1)
+            SendSignalToAllSubscribers();
+    }
+
+    protected void SendSignalToAllSubscribers()
+    {
+        foreach (DialogueListener listener in m_DialogueListeners)
+            listener.ReceiveSignal(m_SignalStr);
     }
 
     public int AddToDialogueList((string name, float duration) tuple)
@@ -302,6 +340,21 @@ public class DialogueSystem : MonoBehaviour
         }
 
         m_DefaultFaceEventList.Add(tuple);
+        return true;
+    }
+
+    public bool AddDefaultNameEvent((string name, int specialIndex) tuple)
+    {
+        for (int i = 0; i < m_DefaultNameEventList.Count; ++i)
+        {
+            if (m_DefaultNameEventList[i].specialIdx == tuple.specialIndex)
+            {
+                print("Default event list index " + tuple.specialIndex + " already added");
+                return false;
+            }
+        }
+
+        m_DefaultNameEventList.Add(tuple);
         return true;
     }
 }

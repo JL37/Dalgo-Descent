@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 299739134}
   - component: {fileID: 299739133}
   - component: {fileID: 299739137}
+  - component: {fileID: 299739138}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -436,6 +437,18 @@ MonoBehaviour:
   m_Annoyed: {fileID: 21300000, guid: 1804e769ee014a443bd5345c4268deec, type: 3}
   m_Angry: {fileID: 21300000, guid: 04cc3a25f0debd745a133594fd7ac6af, type: 3}
   m_Acceptance: {fileID: 21300000, guid: aece2fe297bdec042b9f11d43505f317, type: 3}
+--- !u!114 &299739138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299739132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d02725bd4baf834089edbd8e5b493f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &524469834
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +625,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 299739136}
     m_Modifications:
+    - target: {fileID: 3480291284934961387, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
+      propertyPath: m_DialogueListeners.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480291284934961387, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
+      propertyPath: m_DialogueListeners.Array.data[0]
+      value: 
+      objectReference: {fileID: 299739138}
     - target: {fileID: 3480291284934961396, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
