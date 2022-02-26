@@ -551,6 +551,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &316500339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7704767462432592195, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
+  m_PrefabInstance: {fileID: 7704767460922734093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &317243278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1489,6 +1494,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &874234003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3115233631464300488, guid: c008ac3c81244f247ae143d6f0809343, type: 3}
+  m_PrefabInstance: {fileID: 2143671096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b799bf09f4fc52f4f98ebc1306c0052a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &910405696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,8 +3773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PausePanel: {fileID: 4532216489774555707}
-  m_OptionPanel: {fileID: 0}
-  m_FreeLookCamera: {fileID: 0}
+  m_OptionPanel: {fileID: 316500339}
+  m_FreeLookCamera: {fileID: 2143671101}
 --- !u!114 &1002164032692137235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3774,7 +3790,7 @@ MonoBehaviour:
   _persistent: 0
   m_healthUI: {fileID: 3311792257456945543}
   playerStats: {fileID: 317243287}
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 874234003}
   m_VisibleCanvas: {fileID: 7507685402978902589}
   m_WorldCanvasPool: {fileID: 4218163283438929902}
   levelWindow: {fileID: 1032316232703346224}
