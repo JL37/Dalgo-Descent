@@ -17,6 +17,8 @@ public class EnemyManager : MonoBehaviour
     private int m_Wave;
     private int m_NumWaves;
 
+    bool LevelComplete = false;
+
     private void Start()
     {
         m_EnemyHolder = GameObject.FindGameObjectWithTag("EnemyParent").transform;
@@ -41,6 +43,10 @@ public class EnemyManager : MonoBehaviour
         if (m_Enemies.Count <= 0 && m_Wave < m_NumWaves)
         {
             SpawnNextWaveOfEnemies();
+        }
+        else if (m_Enemies.Count <= 0 && m_Wave == m_NumWaves)
+        {
+            LevelComplete = true;
         }
     }
 
