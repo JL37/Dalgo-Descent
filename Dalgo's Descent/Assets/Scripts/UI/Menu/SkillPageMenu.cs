@@ -13,7 +13,6 @@ public class SkillPageMenu : MenuBase
     public Button[] AddPointsButtons;
     void Start()
     {
-        
     }
 
     // Update is called once per frame

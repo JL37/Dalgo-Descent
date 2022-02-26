@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-public class Settings : MonoBehaviour
+public class SettingsMenu : MenuBase
 {
     //Variables for keybind
     public  Event events;
@@ -54,7 +54,7 @@ public class Settings : MonoBehaviour
         InteractText.text = InteractAction.action.GetBindingDisplayString(); 
         SkillText.text = SkillAction.action.GetBindingDisplayString(); 
         SettingsText.text = SettingsAction.action.GetBindingDisplayString(); 
-        CursorText.text = CursorAction.action.GetBindingDisplayString(); 
+        CursorText.text = CursorAction.action.GetBindingDisplayString();
     }
     public void SetVolume(float volume)
     {
