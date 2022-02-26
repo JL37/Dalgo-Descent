@@ -294,7 +294,7 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f9bbc7a2-0a4e-463a-a9ef-2f5d3b7a6aa7"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
