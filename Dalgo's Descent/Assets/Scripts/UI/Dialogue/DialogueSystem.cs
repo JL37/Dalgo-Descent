@@ -210,6 +210,8 @@ public class DialogueSystem : MonoBehaviour
         if (newDefault)
             m_DefaultFaceSprite = newDefault;
 
+
+        //Change default name event
         string newName = GetNewDefaultName(m_CurrIdx);
         if (newName != m_NameTextObject.text)
             m_NameTextObject.text = newName;
@@ -219,7 +221,7 @@ public class DialogueSystem : MonoBehaviour
     {
         for (int i = 0; i < m_DefaultNameEventList.Count; ++i)
         {
-            if (specialIdx == m_DefaultFaceEventList[i].specialIdx)
+            if (specialIdx == m_DefaultNameEventList[i].specialIdx)
                 return m_DefaultNameEventList[i].name;
         }
 
@@ -356,5 +358,24 @@ public class DialogueSystem : MonoBehaviour
 
         m_DefaultNameEventList.Add(tuple);
         return true;
+    }
+
+    public void ResetSystem()
+    {
+        m_CurrIdx = 0;
+
+        m_RiggedTimer = false;
+        m_Animating = false;
+        m_AnimationDone = true;
+
+        m_DialogueList.Clear();
+        m_FaceExeption.Clear();
+        m_AnimationList.Clear();
+
+        m_DefaultFaceEventList.Clear();
+        m_DefaultNameEventList.Clear();
+
+        m_Arrow.gameObject.SetActive(false);
+        m_CurrFaceSprite = m_DefaultFaceSprite;
     }
 }

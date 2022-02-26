@@ -23,6 +23,12 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(sSceneName);
     }
 
+    public void StartGame()
+    {
+        PostGameInfo.ResetPostGameInfo();
+        SceneManager.LoadScene("Scene/MainGame");
+    }
+
     public void ExitGame()
     {
         Application.Quit();

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueCanvas : MonoBehaviour, IEventListener
 {
     [Header("Objects")]
     [SerializeField] GameObject m_DialogueFolder;
+    [SerializeField] GameObject m_ChoiceFolder;
 
     [Header("Variables")]
     [SerializeField] float m_TimerStart = 0.5f;
@@ -30,6 +32,12 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
     protected PostGameInfo m_PostGameInfo;
     protected int m_CurrIdx;
 
+    //Signals
+    protected string m_RestartSignal = "RESET";
+    protected string m_MenuSignal = "MENU";
+
+    protected string m_HappyIntroSignal = "HAPPY_INTRO";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +48,13 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
 
         AddDialogue();
 
-        StartCoroutine(InitialiseDialogue(m_TimerStart));
+        InitialiseDialogue(m_TimerStart);
     }
 
     protected void AddDialogue()
     {
         EMOTION currEmotion = (EMOTION)m_CurrIdx;
+        m_DialogueFolder.GetComponent<DialogueSystem>().ResetSystem();
 
         switch (currEmotion)
         {
@@ -59,7 +68,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
     {
         int i = 0;
         DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
-        d.SetSignalText("HAPPY_INTRO");
+        d.SetSignalText(m_HappyIntroSignal);
 
         d.AddToDialogueList((".......... Oh!", 0));
         d.AddToDialogueList(("Hey, you. You're finally awake!", 0));
@@ -100,6 +109,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.AddFaceException((m_Annoyed, i));
 
         i = d.AddToDialogueList(("I will just add my name to the top left of that small little box.", 0));
+        print("nbruh " + i);
         d.AddDefaultNameEvent(("Aoshi", i));
 
         i = d.AddToDialogueList(("What even is that small little box anyway? Why's it copying what I'm saying?-", 0));
@@ -110,7 +120,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.AddToDialogueList(("Like, your body literally exploded into a million tiny pieces, how does that even happen?", 0));
         d.AddToDialogueList(("It's alright though, for Aoshi the Almighty will unexplode your million tiny pieces!", 0));
 
-        d.AddToDialogueList(("Right now, I will give you three choices.", 0));
+        d.AddToDialogueList(("Right now, I will give you a few choices.", 0));
         d.AddToDialogueList(("Option A: I rewind back to the time before you died, and you get a second chance at escaping.", 0));
         d.AddToDialogueList(("And option B: You just die and your wife and kids will never see you again.", 0));
         d.AddToDialogueList(("It is your choice.", 0));
@@ -120,7 +130,20 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.AddToDialogueList(("Now quit whining, and pick your choice.", 0));
     }
 
-    protected IEnumerator InitialiseDialogue(float time)
+    protected void InitialiseDialogue(float time = 0)
+    {
+        if (time > 0)
+        {
+            StartCoroutine(I_InitialiseDialogue(time));
+        }
+        else
+        {
+            m_DialogueFolder.SetActive(true);
+            m_DialogueFolder.GetComponent<DialogueSystem>().AnimateNextLine(true);
+        }
+    }
+
+    protected IEnumerator I_InitialiseDialogue(float time)
     {
         yield return new WaitForSeconds(time);
 
@@ -128,8 +151,86 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         m_DialogueFolder.GetComponent<DialogueSystem>().AnimateNextLine(true);
     }
 
-    public void ReceiveSignal()
+    public void ReceiveSignal(string text)
     {
-        print("received dialogue done event!");
+        print("received dialogue done event " + text + "!");
+
+        if (text == m_HappyIntroSignal)
+        {
+            m_ChoiceFolder.SetActive(true);
+        } 
+        else if (text == m_RestartSignal)
+        {
+            SceneManager.LoadScene("Scenes/MainGame");
+        } 
+        else if (text == m_MenuSignal)
+        {
+            SceneManager.LoadScene("Scenes/MainMenuScene");
+        }
+    }
+
+    public void ReceiveChoice(DialogueChoice.CHOICE choice)
+    {
+        EMOTION currEmotion = (EMOTION)m_CurrIdx;
+
+        switch (currEmotion)
+        {
+            case EMOTION.HAPPY:
+                ReceiveChoice_Happy(choice);
+                break;
+        }
+    }
+
+    protected void ReceiveChoice_Happy(DialogueChoice.CHOICE choice)
+    {
+        m_DialogueFolder.GetComponent<DialogueSystem>().ResetSystem();
+
+        switch (choice)
+        {
+            case DialogueChoice.CHOICE.RESTART:
+                m_DialogueFolder.GetComponent<DialogueSystem>().SetSignalText(m_RestartSignal);
+                HappyChoiceRestart();
+                break;
+
+            case DialogueChoice.CHOICE.MENU:
+                m_DialogueFolder.GetComponent<DialogueSystem>().SetSignalText(m_MenuSignal);
+                HappyChoiceMenu();
+                break;
+        }
+
+        InitialiseDialogue();
+    }
+
+    protected void HappyChoiceMenu()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.AddToDialogueList(("You made the right ch", 0.2f));
+
+        i = d.AddToDialogueList(("Wait that's what you chose??", 0));
+        d.AddDefaultFaceEvent((m_SomewhatAnnoyed, i));
+
+        d.AddToDialogueList(("Seriously????", 0));
+        d.AddToDialogueList(("There are things in the world that cannot be fixed again, just like my broken marraige,", 0));
+        d.AddToDialogueList(("But I gave you a chance to fix these things, and yet you passed it up?", 0));
+
+        d.AddToDialogueList(("You-", 0));
+        d.AddToDialogueList(("I-", 0));
+
+        d.AddToDialogueList(("You- You- Fine, I'll grant your wish!", 0));
+        d.AddToDialogueList(("I'll send your family your remains or something, I don't know.", 0));
+        d.AddToDialogueList(("Oh wait, you don't have any remains cause you were blown to shreds.", 0));
+
+        i = d.AddToDialogueList(("GOOOOOOOOOOOOOOOOOOOOOOOOOODDAAAAAAMMIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII", 0.1F));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+    }
+
+    protected void HappyChoiceRestart()
+    {
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.AddToDialogueList(("You made the right choice.", 0));
+        d.AddToDialogueList(("Well, good luck in your journey, this is your last chance to get back to your family.", 0));
+        d.AddToDialogueList(("If you die again, it's over.", 0f));
+        d.AddToDialogueList(("", 0f));
     }
 }

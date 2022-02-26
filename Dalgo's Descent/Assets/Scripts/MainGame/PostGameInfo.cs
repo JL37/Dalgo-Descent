@@ -34,6 +34,12 @@ public class PostGameInfo
         //Doing nothing la bastard if not what
     }
 
+    public static PostGameInfo ResetPostGameInfo()
+    {
+        m_Instance = null;
+        return GetInstance();
+    }
+
     public int UpdateCurrIdx()
     {
         if (m_LoseFirstTime)

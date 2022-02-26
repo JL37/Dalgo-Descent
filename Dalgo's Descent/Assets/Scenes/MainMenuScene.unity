@@ -207,8 +207,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4557156979666498774, guid: 92d2e6f5fce835f4787f39ecd384b076, type: 3}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
