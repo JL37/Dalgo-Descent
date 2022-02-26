@@ -8,6 +8,9 @@ public class DifficultyManager : MonoBehaviour
     public float difficultyScaling;
     public float currentRunTimeElapsed;
 
+    public int NumWaves;
+    public int NumEnemiesPerWave;
+
     private void Awake()
     {
         if (Instance)
@@ -17,11 +20,19 @@ public class DifficultyManager : MonoBehaviour
         currentRunTimeElapsed = 0;
     }
 
+    private void Start()
+    {
+        NumWaves = 3;
+        NumEnemiesPerWave = 5;
+    }
+
     // Update is called once per frame
     void Update()
     {
         currentRunTimeElapsed += Time.deltaTime;
         difficultyScaling = Mathf.Exp(1 + currentRunTimeElapsed * 0.0015f) - 1.7f; 
-        Debug.Log(difficultyScaling);
+
+        NumWaves = (int)(2 + Mathf.Pow(difficultyScaling, 1.2f));
+        NumEnemiesPerWave = (int)(5 + Mathf.Pow(difficultyScaling, 1.5f));
     }
 }

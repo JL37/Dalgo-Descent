@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Min(1)] private float Mass;
     [SerializeField] [Range(0, 5)] private float SlowSpeed;
     [SerializeField] [Range(0, 10)] private float TurnSpeed;
-    [SerializeField] [Range(0, 103)] private float DistToGround = 1f;
+    
 
     [Header("Idle Modifier")]
     [SerializeField] [Range(0, 10)] private float IdleInterval;
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Range(0, 10)] private float RunSpeed;
     [SerializeField] [Range(0, 10)] private float WalkSpeed;
     [SerializeField] [Range(0, 10)] private float DashImpact;
+    [SerializeField] [Range(0, 1)] private float SlideFriction;
     [SerializeField] [Range(0, 1)] private float IFrameDuration;
   
     [Header("Variables")]
@@ -38,16 +39,18 @@ public class PlayerController : MonoBehaviour
     public float Velocity { get; private set; }
     public bool IsMoving { get; private set; }
     public bool IsRunning { get; private set; }
-    public bool IsJump { get; private set; }
     public bool IsLanding { get; private set; }
     public bool IsGrounded { get; private set; }
     public bool IsIFrame { get; private set; }
 
-    private float TargetSpeed;
     private Vector3 Impact;
+    private Vector3 SlopeNormal;
+    private float TargetSpeed;
+    private float SlopeAngle;
     private double IdleTimer;
     private double IFrameTimer;
     private int AnimationLayerIndex;
+    private bool HasJumpInput;
     //Animator Parameter Hashes
     public int VelocityHash { get; private set; }
     public int IdleTriggerHash { get; private set; }
@@ -85,32 +88,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (IdleTimer >= IdleInterval)
-        {
-            if (!IsMoving && IsGrounded && !GetComponent<PlayerAttackManager>().IsAttacking)
-                PlayerAnimator.SetTrigger(IdleTriggerHash);
-            IdleTimer = 0;
-        }
-        else IdleTimer += Time.deltaTime;
+        IsGrounded = Controller.isGrounded && (SlopeAngle < Controller.slopeLimit) && (Impact.y <= -Gravity.y);
 
-        if (IFrameTimer >= IFrameDuration) IsIFrame = true;
-        else IFrameTimer += Time.deltaTime;
-
-        GroundCheck();
         if (Controller.velocity.y < -0.0001f && !IsGrounded)  //Set to Landing - Going Down + Not Grounded
-        {
-            IsJump = false;
             IsLanding = true;
-        }
         else
-        {
             IsLanding = false;
-        }
-        //else if (IsGrounded) //Set to Grounded
-        //{
-        //    IsLanding = false;
-        //    IsGrounded = true;
-        //}
+
+        ProcessTimers();
 
         if (GetComponent<PlayerSkillsManager>().ActiveSkillIndex >= 0 || GetComponent<PlayerAttackManager>().IsAttacking)
         {
@@ -130,14 +115,12 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (IsMoving && !(GetComponent<PlayerSkillsManager>().ActiveSkillIndex >= 0 || GetComponent<PlayerAttackManager>().IsAttacking) && IsGrounded)
+        if (IsMoving && !(GetComponent<PlayerSkillsManager>().ActiveSkillIndex >= 0 || GetComponent<PlayerAttackManager>().IsAttacking))
         {
             Vector3 cameraForward = InputScript.camera.transform.forward;
             cameraForward = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
-
             //Apply Camera Direction
             Rotation = Quaternion.LookRotation(cameraForward);
-
             //Apply Movement Direction based on Camera Direction
             Rotation = Rotation * Quaternion.LookRotation(MoveDirection);
 
@@ -148,27 +131,55 @@ public class PlayerController : MonoBehaviour
             Velocity = Mathf.Lerp(Velocity, 0, SlowSpeed * Time.fixedDeltaTime);
         }
 
-        Impact += Gravity * Mass * Time.fixedDeltaTime;
-        Impact.y = Mathf.Clamp(Impact.y, 0, float.PositiveInfinity);
-
-        if (IsGrounded)
+        var v3Velocity = Vector3.zero;
+        if (SlopeAngle < Controller.slopeLimit)
         {
-            Impact.x -= Mathf.Lerp(Impact.x, 0, SlowSpeed * Time.fixedDeltaTime);
-            Impact.z -= Mathf.Lerp(Impact.z, 0, SlowSpeed * Time.fixedDeltaTime);
+            v3Velocity = Rotation * Vector3.forward * Velocity;
         }
-        //Impact = ClampValue(Impact, new Vector3(0, 0, 0), new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity));
+        v3Velocity += Gravity;
 
-        var ForwardVelocity = Rotation * Vector3.forward * Velocity;
-        Controller.Move((ForwardVelocity + Gravity + Impact) * Time.fixedDeltaTime);
+        Impact += Gravity * Mass * Time.fixedDeltaTime;
+        Impact.x -= Mathf.Lerp(Impact.x, 0, SlowSpeed * Time.fixedDeltaTime);
+        Impact.z -= Mathf.Lerp(Impact.z, 0, SlowSpeed * Time.fixedDeltaTime);
+
+        if (!IsGrounded)
+        {
+            v3Velocity.x += ((1f - SlopeNormal.y) * SlopeNormal.x * (1f - SlideFriction));
+            v3Velocity.z += ((1f - SlopeNormal.y) * SlopeNormal.z * (1f - SlideFriction));
+        }
+        else
+        {
+            Impact.y = 0;
+        }
         
+        Controller.Move((v3Velocity + Impact) * Time.fixedDeltaTime);
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, TurnSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        SlopeNormal = hit.normal;
+        SlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+    }
+
+    void ProcessTimers()
+    {
+        if (IdleTimer >= IdleInterval)
+        {
+            if (!IsMoving && IsGrounded && !GetComponent<PlayerAttackManager>().IsAttacking)
+                PlayerAnimator.SetTrigger(IdleTriggerHash);
+            IdleTimer = 0;
+        }
+        else IdleTimer += Time.deltaTime;
+
+        if (IFrameTimer >= IFrameDuration) IsIFrame = true;
+        else IFrameTimer += Time.deltaTime;
     }
 
     public void ForceSetOnGround()
     {
         IsLanding = false;
         IsGrounded = true;
-        IsJump = false;
     }
 
     public Vector3 GetGravity()
@@ -184,15 +195,19 @@ public class PlayerController : MonoBehaviour
     #region InputAction
     public void OnMovement(InputAction.CallbackContext context)
     {
+        
         if (GetComponent<PlayerStats>().m_Health.currentHealth <= 0)
         {
+            IsMoving = false;
             MoveDirection = Vector3.zero;
             return;
         }
-
-        var contextDirection = context.ReadValue<Vector2>();
-        IsMoving = !context.canceled;
-        MoveDirection = IsMoving ? WalkSpeed * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
+        else
+        {
+            IsMoving = !context.canceled;
+            var contextDirection = context.ReadValue<Vector2>();
+            MoveDirection = IsMoving  ? WalkSpeed * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
+        }
 
         if (IsMoving && !IsRunning)
         {
@@ -226,7 +241,7 @@ public class PlayerController : MonoBehaviour
 
             if (context.started)
             {
-                GetComponent<PlayerAttackManager>().ResetState(true);
+                GetComponent<PlayerAttackManager>().ResetState(false);
                 PlayerAnimator.Play("Movement Tree", AnimationLayerIndex);
                 AddImpact(transform.rotation * Vector3.forward, DashImpact);
             }
@@ -235,42 +250,33 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && Impact.y <= 0 && IsGrounded && GetComponent<PlayerStats>().m_Health.currentHealth > 0)
+        if (context.started && Impact.y <= 0 && IsGrounded && GetComponent<PlayerStats>().m_Health.currentHealth > 0 && !HasJumpInput)
         {
+            HasJumpInput = true;
             PlayerAnimator.SetTrigger(JumpTriggerHash);
             Jump();
-
-            IsJump = true;
-            IsGrounded = false;
         }
     }
+    #endregion
     private async void Jump()
     {
-        //AddImpact(new Vector3(0, 1, 0), JumpForce);
+        await Task.Delay((int)(JumpDelay * 1000));
+
         if (MoveDirection.sqrMagnitude > 0)
         {
             Vector3 cameraForward = InputScript.camera.transform.forward;
             cameraForward = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
 
-            //Apply Camera Direction
             Rotation = Quaternion.LookRotation(cameraForward);
-
-            //Apply Movement Direction based on Camera Direction
             Rotation = Rotation * Quaternion.LookRotation(MoveDirection);
-
             transform.rotation = Rotation;
-        }
 
-        await Task.Delay((int)(JumpDelay * 1000));
-
-        if (MoveDirection.sqrMagnitude > 0)
-        {
             AddImpact(Rotation * Vector3.forward, JumpForce * 0.2f);
         }
-        
         AddImpact(Vector3.up, JumpForce);
+        IsGrounded = false;
+        HasJumpInput = false;
     }
-    #endregion
 
     void OnEnable()
     {
@@ -294,55 +300,13 @@ public class PlayerController : MonoBehaviour
         Impact += dir.normalized * force / Mass;
     }
 
-    public void GroundCheck()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, DistToGround + 0.1f))
-        {
-            //_slopeAngle = (Vector3.Angle(hit.normal, transform.forward) - 90);
-            IsGrounded = true;
-        }
-        else
-        {
-            IsGrounded = false;
-        }
-    }
-    
     public void ResetImpactForJump(bool resetAllAxes = true) //Resetting for additional jump (3RD SKILL)
     {
         PlayerAnimator.SetTrigger(JumpTriggerHash);
-        IsJump = true;
         IsGrounded = false;
         Impact.y = 0;
 
         Impact = resetAllAxes ? new Vector3(0, 0, 0) : Impact;
     }
 
-    private static Vector3 ClampValue (Vector3 target, Vector3 min, Vector3 max)
-    {
-        if (target.x <= min.x)
-            target.x = min.x;
-
-        if (target.y <= min.y)
-            target.y = min.y;
-
-        if (target.z <= min.z)
-            target.z = min.z;
-
-        if (target.x > max.x)
-            target.x = max.x;
-        
-        if (target.y > max.y)
-            target.y = max.y;
-        
-        if (target.z > max.z)
-            target.z = max.z;
-
-        return target;
-    }
-
-    public PlayerInput GetInput()
-    {
-        return this.InputScript;
-    }
 }

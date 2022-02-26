@@ -51,8 +51,6 @@ public class GameManager : Singleton<GameManager>
 
         m_PostGameInfo.UpdateTime(Time.deltaTime);
 
-      
-
         if (!playerStats && !m_GameOver)
         {
             //Run animation
@@ -69,7 +67,7 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.N)) //testing for exp
         {
-            m_LevelSystem.AddExperience(60);
+            m_LevelSystem.AddExperience(7);
 
         }
         if (Input.GetKeyDown(KeyCode.L)) //testing too add health

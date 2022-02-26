@@ -7,7 +7,9 @@ public enum SLASH_TYPE
     SLASH_1,
     SLASH_2,
     SLASH_3,
-    CLEAVE
+    CLEAVE,
+    SHOVEL_CUT,
+    SLAM_DUNK,
 }
 
 public class SlashVFXScript : MonoBehaviour

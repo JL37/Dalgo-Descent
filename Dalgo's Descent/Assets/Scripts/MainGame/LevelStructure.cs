@@ -8,6 +8,9 @@ public class LevelStructure : MonoBehaviour
     public GameObject ExteriorColliders;
     public Transform ExteriorCheckpoints;
     public Transform NextLocation;
+
+    public Transform EnemySpawnLocation;
+
     void Start()
     {
         ExteriorLayer.SetActive(false);
@@ -57,7 +60,10 @@ public class LevelStructure : MonoBehaviour
 
     void OnDisable()
     {
-        GameLevelManager.Instance.OnNextLevelEnterListener -= OnNextLevelEnter;    
-        GameLevelManager.Instance.OnCurrentLevelExitListener -= OnCurrentLevelExit;    
+        if (GameLevelManager.IsCreated)
+        {
+            GameLevelManager.Instance.OnNextLevelEnterListener -= OnNextLevelEnter;
+            GameLevelManager.Instance.OnCurrentLevelExitListener -= OnCurrentLevelExit;
+        }
     }
 }

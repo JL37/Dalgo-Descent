@@ -15,7 +15,7 @@ public class EnemyStats : MonoBehaviour
 
     public void Init(float strength)
     {
-        m_Health.maxHealth = m_Health.currentHealth = m_Health.maxHealth * strength;
+        m_Health.maxHealth = m_Health.currentHealth = m_Health.maxHealth * strength * 1.4f;
         baseDamage = (int)(baseDamage * strength);
     }
         

@@ -15,6 +15,7 @@ public class GameLevelManager : Singleton<GameLevelManager>
     public List<LevelStructure> LevelPrefabs;
     
     public PlayerController Player;
+    public Transform EnemySpawnLocation;
 
     public delegate void OnNextLevelListenDelegate();
     public event OnNextLevelListenDelegate OnNextLevelEnterListener;
@@ -62,6 +63,7 @@ public class GameLevelManager : Singleton<GameLevelManager>
             DestroyPlayLevel();
             PlayArea = newArea;
         }
+        EnemySpawnLocation = PlayArea.EnemySpawnLocation;
     }
 
     void DestroyPlayLevel()

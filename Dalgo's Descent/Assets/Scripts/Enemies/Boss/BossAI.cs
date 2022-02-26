@@ -28,8 +28,8 @@ public class BossAI : AI
     public float bossAttackIntervals;
 
     [Header("Boss Attack Modifiers")]
-    public float woodThrowModifier = 1f;
-    public float groundSlamModifier = 1f;
+    public float woodThrowModifier = 1.4f;
+    public float groundSlamModifier = 3f;
 
     protected override void Awake()
     {
@@ -37,6 +37,13 @@ public class BossAI : AI
         aiType = AI_TYPE.AI_TYPE_BOSS;
         // m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+
+    public void Init(float strength)
+    {
+        aiStrength = (int)strength;
+        enemyStats.Init(strength);
+    }
+
 
     protected override void Update()
     {

@@ -27,7 +27,10 @@ public class SkillSlotManager : MonoBehaviour
             if (skillSlots[i] == updatedSkillSlot || skillSlots[i].AnchoredSkill == null) continue;
 
             if (skillSlots[i].AnchoredSkill.name == updatedSkillSlot.AnchoredSkill.name)
+            {
                 skillSlots[i].ResetSkill();
+
+            }
         }
     }
 }
