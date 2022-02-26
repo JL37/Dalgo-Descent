@@ -90,11 +90,6 @@ public class PlayerController : MonoBehaviour
     {
         IsGrounded = Controller.isGrounded && (SlopeAngle < Controller.slopeLimit) && (Impact.y <= -Gravity.y);
 
-        if (SlopeAngle > Controller.slopeLimit)
-        {
-            IsMoving = false;
-            MoveDirection = Vector3.zero;
-        }
         if (Controller.velocity.y < -0.0001f && !IsGrounded)  //Set to Landing - Going Down + Not Grounded
             IsLanding = true;
         else
@@ -136,7 +131,11 @@ public class PlayerController : MonoBehaviour
             Velocity = Mathf.Lerp(Velocity, 0, SlowSpeed * Time.fixedDeltaTime);
         }
 
-        var v3Velocity = Rotation * Vector3.forward * Velocity;
+        var v3Velocity = Vector3.zero;
+        if (SlopeAngle < Controller.slopeLimit)
+        {
+            v3Velocity = Rotation * Vector3.forward * Velocity;
+        }
         v3Velocity += Gravity;
 
         Impact += Gravity * Mass * Time.fixedDeltaTime;
@@ -207,9 +206,8 @@ public class PlayerController : MonoBehaviour
         {
             IsMoving = !context.canceled;
             var contextDirection = context.ReadValue<Vector2>();
-            MoveDirection = (IsMoving || (SlopeAngle > Controller.slopeLimit)) ? WalkSpeed * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
+            MoveDirection = IsMoving  ? WalkSpeed * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
         }
-
 
         if (IsMoving && !IsRunning)
         {

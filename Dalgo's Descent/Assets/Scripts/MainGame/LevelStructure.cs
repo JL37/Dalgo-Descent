@@ -56,7 +56,10 @@ public class LevelStructure : MonoBehaviour
 
     void OnDisable()
     {
-        GameLevelManager.Instance.OnNextLevelEnterListener -= OnNextLevelEnter;    
-        GameLevelManager.Instance.OnCurrentLevelExitListener -= OnCurrentLevelExit;    
+        if (GameLevelManager.IsCreated)
+        {
+            GameLevelManager.Instance.OnNextLevelEnterListener -= OnNextLevelEnter;
+            GameLevelManager.Instance.OnCurrentLevelExitListener -= OnCurrentLevelExit;
+        }
     }
 }
