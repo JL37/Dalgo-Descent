@@ -39,7 +39,7 @@ public class AIUnit : AI
     {
         this.isMiniboss = isMiniboss;
         transform.localScale = new Vector3(strength, strength, strength);
-        enemyStats.Init(strength);
+        enemyStats.Init(DifficultyManager.Instance.difficultyScaling * strength);
     }
 
     protected override void Update()

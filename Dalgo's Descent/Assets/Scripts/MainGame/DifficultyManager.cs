@@ -21,6 +21,7 @@ public class DifficultyManager : MonoBehaviour
     void Update()
     {
         currentRunTimeElapsed += Time.deltaTime;
-        difficultyScaling = 1 + Time.deltaTime; 
+        difficultyScaling = Mathf.Exp(1 + currentRunTimeElapsed * 0.0015f) - 1.7f; 
+        Debug.Log(difficultyScaling);
     }
 }
