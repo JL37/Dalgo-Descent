@@ -8,6 +8,7 @@ TagManager:
   - HUD
   - ProjCollidable
   - Slash
+  - EnemyParent
   layers:
   - Default
   - TransparentFX

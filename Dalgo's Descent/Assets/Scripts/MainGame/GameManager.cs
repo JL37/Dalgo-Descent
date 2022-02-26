@@ -51,8 +51,6 @@ public class GameManager : Singleton<GameManager>
 
         m_PostGameInfo.UpdateTime(Time.deltaTime);
 
-      
-
         if (!playerStats && !m_GameOver)
         {
             //Run animation

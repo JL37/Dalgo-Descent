@@ -641,11 +641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2081770819304162866, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 2081770819304162866, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.902
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2081770819304162866, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1117,7 +1117,7 @@ GameObject:
   - component: {fileID: 910405697}
   m_Layer: 0
   m_Name: ===== Enemies =====
-  m_TagString: Untagged
+  m_TagString: EnemyParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1223,7 +1223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1402439999
 Transform:
   m_ObjectHideFlags: 0
@@ -1348,6 +1348,7 @@ Transform:
   - {fileID: 613563394}
   - {fileID: 1556699917}
   - {fileID: 1663729012}
+  - {fileID: 1690273526}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1404,6 +1405,7 @@ MonoBehaviour:
   LevelPrefabs:
   - {fileID: 140074839874931107, guid: bc89f95300d14dc4bb908f641d127952, type: 3}
   Player: {fileID: 317243288}
+  EnemySpawnLocation: {fileID: 0}
 --- !u!1001 &1589087539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2233,6 +2235,53 @@ MonoBehaviour:
   ExteriorCM: {fileID: 1606508843}
   CameraHeightOffset: 5
   ExteriorFollowPoint: {fileID: 1457678807}
+--- !u!1 &1690273525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690273526}
+  - component: {fileID: 1690273527}
+  m_Layer: 0
+  m_Name: DifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1690273526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690273525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1549893279}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690273527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690273525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446ef5b2622912943b033abf1ec3ef28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyScaling: 0
+  currentRunTimeElapsed: 0
+  NumWaves: 0
+  NumEnemiesPerWave: 0
 --- !u!4 &1740126231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 229982603349147798, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}

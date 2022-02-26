@@ -31,6 +31,8 @@ public class AI : MonoBehaviour
     protected bool m_inAttackRange = false;
     protected bool m_AggroActivated = false;
 
+    protected EnemyManager m_EnemyManager;
+
     protected virtual void Awake()
     {
         aiType = AI_TYPE.AI_TYPE_NONE;
@@ -38,6 +40,7 @@ public class AI : MonoBehaviour
         m_Animator = GetComponentInChildren<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     // Update is called once per frame
@@ -88,6 +91,7 @@ public class AI : MonoBehaviour
 
     public void Die()
     {
+        m_EnemyManager.m_Enemies.Remove(this);
         m_EnemyStats.health.DieAnimation();
     }
 
