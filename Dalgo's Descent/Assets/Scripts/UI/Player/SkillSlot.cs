@@ -27,10 +27,7 @@ public class SkillSlot : TooltipTrigger, IDropHandler
 
     void Update()
     {
-        if (AnchoredSkill)
-            TriggerActive = true;
-        else
-            TriggerActive = false;
+        TriggerActive = (AnchoredSkill != null);
     }
 
 }
