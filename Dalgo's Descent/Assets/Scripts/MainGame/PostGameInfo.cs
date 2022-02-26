@@ -18,7 +18,7 @@ public class PostGameInfo
     protected int m_TotalBosses = 0;
 
     //Dialogue system
-    protected int m_CurrIdx = 0;
+    protected int m_CurrIdx = 2;
     protected bool m_LoseFirstTime = true;
 
     public static PostGameInfo GetInstance()

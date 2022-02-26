@@ -189,12 +189,6 @@ public class DialogueSystem : MonoBehaviour
 
         //Text animation
         StartCoroutine(I_AnimateText());
-
-        //Face animation
-        if (!m_CurrFace.gameObject.activeSelf && m_CurrIdx == m_FaceApperanceIdx)
-            m_CurrFace.GetComponent<DialogueFace>().Initialise(m_DefaultFaceSprite);
-        else if (m_CurrFace.gameObject.activeSelf)
-            m_CurrFace.GetComponent<DialogueFace>().Initialise(GetCurrentSprite(m_CurrIdx));
     }
 
     protected void CheckEvents()
@@ -215,6 +209,12 @@ public class DialogueSystem : MonoBehaviour
         string newName = GetNewDefaultName(m_CurrIdx);
         if (newName != m_NameTextObject.text)
             m_NameTextObject.text = newName;
+
+        //Face animation
+        if (!m_CurrFace.gameObject.activeSelf && m_CurrIdx == m_FaceApperanceIdx)
+            m_CurrFace.GetComponent<DialogueFace>().Initialise(m_DefaultFaceSprite);
+        else if (m_CurrFace.gameObject.activeSelf)
+            m_CurrFace.GetComponent<DialogueFace>().Initialise(GetCurrentSprite(m_CurrIdx));
     }
 
     protected string GetNewDefaultName(int specialIdx)
@@ -242,6 +242,8 @@ public class DialogueSystem : MonoBehaviour
     protected void ActivateAnimations(int animationIdx)
     {
         (ANITYPE animation, float duration) tuple = (m_AnimationList[animationIdx].animation, m_DialogueList[m_CurrIdx].duration);
+
+        m_CurrFace.GetComponent<DialogueFace>().Initialise(m_CurrFaceSprite);
         m_CurrFace.GetComponent<DialogueFace>().InitialiseAnimation(tuple);
     }
 
@@ -396,6 +398,8 @@ public class DialogueSystem : MonoBehaviour
         m_DefaultNameEventList.Add(tuple);
         return true;
     }
+
+    public void SetFaceAppearanceIdx(int idx) { m_FaceApperanceIdx = idx; }
 
     public void ResetSystem()
     {

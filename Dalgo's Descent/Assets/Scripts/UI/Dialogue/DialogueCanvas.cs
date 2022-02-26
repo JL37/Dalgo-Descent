@@ -65,7 +65,42 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
             case EMOTION.SOMEWHATANNOYED:
                 AddSomeWhatAnnoyedDialogue();
                 break;
+
+            case EMOTION.ANNOYED:
+                AddAnnoyedDialogue();
+                break;
         }
+    }
+
+    protected void AddAnnoyedDialogue()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.SetSignalText(m_IntroSignal);
+
+        d.AddToDialogueList((".......... Oh!", 0));
+        d.AddToDialogueList(("Hey, you. You're finally awake-", 0.2f));
+
+        i = d.AddToDialogueList(("OH MY GOD. Are you serious???? How'd you even-", 0));
+        d.SetFaceAppearanceIdx(i);
+        d.AddDefaultNameEvent(("Aoshi", i));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+        d.AddFaceException((m_Annoyed, i));
+
+        d.AddToDialogueList(("Hah!.... I... I... I can't even believe this!", 0));
+        d.AddToDialogueList(("You actually got to be kidding me right now?", 0));
+
+        i = d.AddToDialogueList(("...........", 0));
+        d.AddFaceException((m_SomewhatAnnoyed, i));
+        d.AddDefaultFaceEvent((m_Annoyed, i + 1));
+
+        d.AddToDialogueList(("Alright, I'll be real with you.", 0));
+        d.AddToDialogueList(("No matter how many times you die.", 0));
+        d.AddToDialogueList(("You'll always come back.", 0));
+        d.AddToDialogueList(("So unlike my broken marriage, you'll have as many chances as you want to fix things.", 0));
+        d.AddToDialogueList(("<color=red>Do not take this as an invitation for you to keep dying, though.</color>", 0));
+
+        d.AddToDialogueList(("You caught me red handed real good- I'll give you that, you caught me real good...", 0));
     }
 
     protected void AddSomeWhatAnnoyedDialogue()
@@ -75,14 +110,33 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.SetSignalText(m_IntroSignal);
 
         d.AddToDialogueList((".......... Oh!", 0));
-        d.AddToDialogueList(("Hey, you. You're finally awake-", 0.5f));
+        d.AddToDialogueList(("Hey, you. You're finally awake-", 0.2f));
 
         i = d.AddToDialogueList(("Oh you? Didn't I revive you a few moments ago???", 0));
+        d.SetFaceAppearanceIdx(i);
+        d.AddDefaultNameEvent(("Aoshi", i));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
-        d.AddDefaultFaceEvent((m_SomewhatAnnoyed,i));
+        d.AddFaceException((m_SomewhatAnnoyed,i));
 
         d.AddToDialogueList(("You..... Wha- How-", 0));
+        d.AddToDialogueList(("Ohh.. I see what this is!", 0));
+        d.AddToDialogueList(("Ahah... Ahahahahaha.....", 0));
 
+        i = d.AddToDialogueList(("Ahahahahahahaha!!", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+
+        d.AddToDialogueList(("Alright buddy, you caught me!", 0));
+        d.AddToDialogueList(("Actually, the previous chance wasn't your last chance.", 0));
+        d.AddToDialogueList(("In fact, this will be your very last chance!", 0));
+
+        i = d.AddToDialogueList(("Just make sure you don't die again.", 0));
+        d.AddDefaultFaceEvent((m_SomewhatAnnoyed, i));
+
+        d.AddToDialogueList(("Anyway, the usual choice,", 0));
+        d.AddToDialogueList(("A: You ressurect, and try again.", 0));
+        d.AddToDialogueList(("B: Noone will come to your funeral.", 0));
+
+        d.AddToDialogueList(("So which will it be?", 0));
     }
 
     protected void AddHappyDialogue()
@@ -196,8 +250,11 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         switch (currEmotion)
         {
             case EMOTION.HAPPY:
+            case EMOTION.SOMEWHATANNOYED:
                 ReceiveChoice_Happy(choice);
                 break;
+
+            
         }
     }
 
