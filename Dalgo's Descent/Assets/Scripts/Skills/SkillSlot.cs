@@ -16,6 +16,11 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
 
     public Image SkillBorderImage;
     public TMP_Text SkillBorderTMP;
+
+    public void Awake()
+    {
+        SkillBorderTMP.text = "";
+    }
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
@@ -46,6 +51,7 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
     {
         //skill1_text.text = "Press a button";
         SkillBorderImage.color = new Color(0.6f, 0.6f, 0.6f);
+        SkillBorderTMP.text = keycode;
         startListen = true;
     }
 
@@ -68,6 +74,7 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
         header = AnchoredSkill.SkillName + " [" + keycode + "]";
         body = AnchoredSkill.SkillDescription;
         SkillBorderImage.color = new Color(1.0f, 1.0f, 1.0f);
+        SkillBorderTMP.text = "";
     }
 
     public void OnGUI() //keybind listener
