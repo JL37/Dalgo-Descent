@@ -46,15 +46,15 @@ public class SettingsMenu : MenuBase
     public Text CursorText;
 
 
-    public void Awake()
+    public void Start()
     {
         //display respective keys from the system binding once the game starts
-        AttackText.text = AttackAction.action.GetBindingDisplayString(); 
+/*        AttackText.text = AttackAction.action.GetBindingDisplayString(); 
         JumpText.text = JumpAction.action.GetBindingDisplayString(); 
         InteractText.text = InteractAction.action.GetBindingDisplayString(); 
         SkillText.text = SkillAction.action.GetBindingDisplayString(); 
         SettingsText.text = SettingsAction.action.GetBindingDisplayString(); 
-        CursorText.text = CursorAction.action.GetBindingDisplayString();
+        CursorText.text = CursorAction.action.GetBindingDisplayString();*/
     }
     public void SetVolume(float volume)
     {

@@ -283,7 +283,7 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""18087291-2e8a-41a5-8364-b56d2a9f7260"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/leftAlt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -294,7 +294,7 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f9bbc7a2-0a4e-463a-a9ef-2f5d3b7a6aa7"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
