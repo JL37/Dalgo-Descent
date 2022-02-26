@@ -10,7 +10,7 @@ public class SettingsMenu : MenuBase
     //Variables for keybind
     public  Event events;
     private string keycode;
-    private bool startListen = false;
+    public bool startListen = false;
     private InputActionReference  setAction = null;
     private Text setText;
     private int keyID = 0;
@@ -46,16 +46,17 @@ public class SettingsMenu : MenuBase
     public Button CursorButton;
     public Text CursorText;
 
-
+    private GameState currentGameState = GameStateManager.Get_Instance.CurrentGameState;
     public void Start()
     {
         //display respective keys from the system binding once the game starts
-/*        AttackText.text = AttackAction.action.GetBindingDisplayString(); 
-        JumpText.text = JumpAction.action.GetBindingDisplayString(); 
-        InteractText.text = InteractAction.action.GetBindingDisplayString(); 
-        SkillText.text = SkillAction.action.GetBindingDisplayString(); 
-        SettingsText.text = SettingsAction.action.GetBindingDisplayString(); 
-        CursorText.text = CursorAction.action.GetBindingDisplayString();*/
+        /*        AttackText.text = AttackAction.action.GetBindingDisplayString(); 
+                JumpText.text = JumpAction.action.GetBindingDisplayString(); 
+                InteractText.text = InteractAction.action.GetBindingDisplayString(); 
+                SkillText.text = SkillAction.action.GetBindingDisplayString(); 
+                SettingsText.text = SettingsAction.action.GetBindingDisplayString(); 
+                CursorText.text = CursorAction.action.GetBindingDisplayString();*/
+        
     }
     public void SetVolume(float volume)
     {
@@ -142,6 +143,7 @@ public class SettingsMenu : MenuBase
     public void CursorClick()
     {
         setAction = CursorAction;
+        
         setText = CursorText;
         keyID = 11;
         StartBinding();
@@ -168,6 +170,7 @@ public class SettingsMenu : MenuBase
         print(binding.ToDisplayString());
         UpdateText(id);
         startListen = false;
+
     }
 
     public void ChangeBindingToMouse(string mouseClick, int id, InputActionReference reference)
@@ -182,7 +185,7 @@ public class SettingsMenu : MenuBase
 
     public void OnGUI() //keybind listener
     {
-        if(startListen)
+        if (startListen)
         {
             events = Event.current;
             setText.text = "Press a key";

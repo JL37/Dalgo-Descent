@@ -51,7 +51,7 @@ public class GameManager : Singleton<GameManager>
 
         m_PostGameInfo.UpdateTime(Time.deltaTime);
 
-        print(levelWindow.getLevelSystemAnimated().GetCurrentLevel());
+      
 
         if (!playerStats && !m_GameOver)
         {
