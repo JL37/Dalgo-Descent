@@ -14,8 +14,13 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
     public Sprite baseImage;
     private bool startListen = false;
 
-    public Image SkillBorderImage_1;
-    public TMP_Text SkillBorderTMP_1;
+    public Image SkillBorderImage;
+    public TMP_Text SkillBorderTMP;
+
+    public void Awake()
+    {
+        SkillBorderTMP.text = "";
+    }
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
@@ -42,10 +47,11 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
         }
     }
 
-    public void RebindSkill1()
+    public void RebindSkill()
     {
         //skill1_text.text = "Press a button";
-        SkillBorderImage_1.color = new Color(0.6f, 0.6f, 0.6f);
+        SkillBorderImage.color = new Color(0.6f, 0.6f, 0.6f);
+        SkillBorderTMP.text = keycode;
         startListen = true;
     }
 
@@ -67,7 +73,8 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
         // Update tooltip info
         header = AnchoredSkill.SkillName + " [" + keycode + "]";
         body = AnchoredSkill.SkillDescription;
-        SkillBorderImage_1.color = new Color(1.0f, 1.0f, 1.0f);
+        SkillBorderImage.color = new Color(1.0f, 1.0f, 1.0f);
+        SkillBorderTMP.text = "";
     }
 
     public void OnGUI() //keybind listener
@@ -78,7 +85,7 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
             if (events.isKey && events.keyCode.ToString() != "LeftAlt")
             {
                 string key = events.keyCode.ToString();
-                SkillBorderTMP_1.text = key;
+                SkillBorderTMP.text = key;
                 //skill1_text.text = key;
                 keycode = key;
                 AnchoredSkill.RebindKey("<Keyboard>/" + keycode);
