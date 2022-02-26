@@ -35,11 +35,11 @@ public class AIUnit : AI
         
     }
 
-    public void Init(float strength, bool isMiniboss) 
+    public void Init(float size, float strength, bool isMiniboss) 
     {
         this.isMiniboss = isMiniboss;
-        transform.localScale = new Vector3(strength, strength, strength);
-        enemyStats.Init(DifficultyManager.Instance.difficultyScaling * strength);
+        transform.localScale = new Vector3(size, size, size);
+        enemyStats.Init(strength);
     }
 
     protected override void Update()

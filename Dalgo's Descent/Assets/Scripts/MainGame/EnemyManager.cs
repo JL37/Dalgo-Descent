@@ -40,7 +40,7 @@ public class EnemyManager : MonoBehaviour
         {
             GameObject newEnemy = Instantiate(m_EnemyPrefab, m_EnemyHolder);
             newEnemy.GetComponent<NavMeshAgent>().Warp(position);
-            newEnemy.GetComponent<AIUnit>().Init(3f, true);
+            newEnemy.GetComponent<AIUnit>().Init(3f, DifficultyManager.Instance.difficultyScaling * 3f, true);
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
         }
     }
@@ -60,7 +60,8 @@ public class EnemyManager : MonoBehaviour
             {
                 GameObject newEnemy = Instantiate(m_EnemyPrefab, m_EnemyHolder);
                 newEnemy.GetComponent<NavMeshAgent>().Warp(newPosition);
-                newEnemy.GetComponent<AIUnit>().Init(Random.Range(0.7f, 1.5f), false);
+                float size = Random.Range(0.7f, 1.5f);
+                newEnemy.GetComponent<AIUnit>().Init(size, DifficultyManager.Instance.difficultyScaling * size, false);
                 newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
 
                 enemiesSpawned++;
