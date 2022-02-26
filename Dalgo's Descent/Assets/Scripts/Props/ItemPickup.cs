@@ -261,6 +261,7 @@ public class ItemPickup : MonoBehaviour, IObjectPooling
         //Start animation
         m_Animating = true;
         stat.AddItem(m_Item, true);
+        PostGameInfo.GetInstance().UpdateItem(1);
 
         //Remove reference from chest
         m_Chest.RemoveSpawnedItem();

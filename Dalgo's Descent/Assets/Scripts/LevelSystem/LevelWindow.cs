@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class LevelWindow : MonoBehaviour
 {
     public Image m_experienceBarImage;
-    public Text m_levelText;
+    public TMP_Text m_levelText;
     private LevelSystem m_levelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
@@ -24,16 +25,34 @@ public class LevelWindow : MonoBehaviour
             
     }
 
+    public LevelSystemAnimated getLevelSystemAnimated()
+    {
+        return this.m_levelSystemAnimated;
+    }
+
     private void SetExperienceBarSize(float size)
     {
         m_experienceBarImage.fillAmount = size;
     }
 
-    private void setLevelNum(int num)
+    public void setLevelNum(int num)
     {
-        m_levelText.text = "Level : " + (num + 1);
+        m_levelText.text = "Lv " + (num-1);
     }
 
+    public void setLevel(int num)
+    {
+        m_levelSystemAnimated.SetCurrentLevel(num);
+    }
+
+    public int getSkillpoints()
+    {
+        return this.m_levelSystem.getSkillPoints();
+    }
+    public void setSkillpoints(int num)
+    {
+        this.m_levelSystem.setSkillpoints(num);
+    }
     public void SetLevelSystem(LevelSystem levelSystem)
     {
         this.m_levelSystem = levelSystem;
@@ -47,11 +66,16 @@ public class LevelWindow : MonoBehaviour
 
         levelSystemAnimated.OnExperienceChanged += LevelSystemAnimated_OnExperienceChanged;
         levelSystemAnimated.OnLevelChanged += LevelSystemAnimated_OnLevelChanged;
+        
     }
 
+    /*    private void LevelSystemAnimated_OnLevelChanged(object sender, EventArgs e)
+        {
+            setLevelNum(m_levelSystemAnimated.GetCurrentLevel()); //after level has been changed, change the text
+        }*/
     private void LevelSystemAnimated_OnLevelChanged(object sender, EventArgs e)
     {
-        setLevelNum(m_levelSystemAnimated.GetCurrentLevel()); //after level has been changed, change the text
+        setLevelNum(getSkillpoints()); //after level has been changed, change the text
     }
 
     private void LevelSystemAnimated_OnExperienceChanged(object sender, EventArgs e)

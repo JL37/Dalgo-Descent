@@ -90,6 +90,8 @@ public class Coin : MonoBehaviour, IObjectPooling
             m_Animator.SetTrigger("PickedUp");
             m_IsCollected = true;
 
+            PostGameInfo.GetInstance().UpdateMoney(1);
+
             StartCoroutine(Disable(0.3f));
         }
     }

@@ -250,7 +250,7 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bf0c3bb6-510c-4ebf-97e7-b1cf831fcfee"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -261,7 +261,7 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e371cb78-b458-4448-8bf6-3eebd2a6883f"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -272,7 +272,7 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8ea77149-d18d-4a3e-9fdf-9056a837a4cb"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -283,7 +283,7 @@ public partial class @DalgosDescent : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""18087291-2e8a-41a5-8364-b56d2a9f7260"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/leftAlt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

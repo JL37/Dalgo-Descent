@@ -9,7 +9,9 @@ public class Skill : TooltipTrigger
 
     private void Start()
     {
-        details = SkillScriptable.SkillDescription;
+        header = SkillScriptable.SkillName;
+        body = SkillScriptable.SkillDescription;
+        TriggerActive = true;
         m_SkillImage = GetComponent<Image>();
     }
 

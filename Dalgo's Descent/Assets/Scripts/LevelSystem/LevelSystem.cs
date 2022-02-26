@@ -11,6 +11,7 @@ public class LevelSystem
     
     private int m_level;
     private int m_experience;
+    private int m_skillpoints;
 
 
     public LevelSystem()
@@ -18,7 +19,7 @@ public class LevelSystem
         //init var
         this.m_level = 0;
         this.m_experience = 0;
-
+        this.m_skillpoints = 0;
     }
 
     public void AddExperience(int _amount)
@@ -29,6 +30,7 @@ public class LevelSystem
         {
             m_experience -= GetExperienceToNextLevel(m_level);
             m_level++;
+            m_skillpoints++;
             if(OnLevelChanged != null)
                 OnLevelChanged(this,EventArgs.Empty);
         }
@@ -54,5 +56,15 @@ public class LevelSystem
     public int GetExperienceToNextLevel(int level)
     {
         return level * 10;
+    }
+
+    public void setSkillpoints(int point)
+    {
+        this.m_skillpoints += point;
+    }
+
+    public int getSkillPoints()
+    {
+        return m_skillpoints;
     }
 }

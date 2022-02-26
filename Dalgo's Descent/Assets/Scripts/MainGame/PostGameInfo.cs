@@ -17,6 +17,10 @@ public class PostGameInfo
     protected int m_TotalEnemies = 0;
     protected int m_TotalBosses = 0;
 
+    //Dialogue system
+    protected int m_CurrIdx = 0;
+    protected bool m_LoseFirstTime = true;
+
     public static PostGameInfo GetInstance()
     {
         if (null == m_Instance)
@@ -28,6 +32,17 @@ public class PostGameInfo
     protected PostGameInfo()
     {
         //Doing nothing la bastard if not what
+    }
+
+    public int UpdateCurrIdx()
+    {
+        if (m_LoseFirstTime)
+        {
+            m_LoseFirstTime = false;
+            return m_CurrIdx;
+        }
+
+        return m_CurrIdx < 5 ? ++m_CurrIdx : m_CurrIdx;
     }
 
     public void Reset()

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Health_UI : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Health_UI : MonoBehaviour
     [Header("Linked objects")]
     public Image m_HealthBar, m_BufferBar, m_PlayerIcon;
     public Sprite m_Healthy, m_HalfDead, m_CriticalHealth, m_Dead;
+    public TMP_Text m_HealthText;
 
     [Header("Variables to adjust")]
     public float m_HealthLerpSpd = 0.25f;
@@ -92,5 +94,6 @@ public class Health_UI : MonoBehaviour
     protected void UpdateHealthBar()
     {
         m_HealthBar.fillAmount = Mathf.Lerp(m_HealthBar.fillAmount, m_TargetHealthFillAmt, m_HealthLerpSpd);
+        m_HealthText.text = playerStats.m_Health.currentHealth + " / " + playerStats.m_Health.maxHealth;
     }
 }

@@ -35,9 +35,10 @@ public class AIUnit : AI
         
     }
 
-    public void Init(float strength) 
+    public void Init(float size, float strength, bool isMiniboss) 
     {
-        transform.localScale = new Vector3(strength, strength, strength);
+        this.isMiniboss = isMiniboss;
+        transform.localScale = new Vector3(size, size, size);
         enemyStats.Init(strength);
     }
 
@@ -48,7 +49,7 @@ public class AIUnit : AI
         foreach (SkinnedMeshRenderer smr in mr)
         {
             smr.materials[0].SetFloat("_CutoffHeight", smr.materials[0].GetFloat("_CutoffHeight") + Time.deltaTime * 2f);
-            smr.materials[0].SetFloat("_CutoffHeight", Mathf.Clamp(smr.materials[0].GetFloat("_CutoffHeight"), -1f, 1.8f));
+            smr.materials[0].SetFloat("_CutoffHeight", Mathf.Clamp(smr.materials[0].GetFloat("_CutoffHeight"), -1f, 3f));
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -76,9 +77,13 @@ public class AIUnit : AI
             AddAggroToGameManager();
 
         enemyStats.health.TakeDamage(amount);
+        PostGameInfo.GetInstance().UpdateDamage((int)amount);
+
         if (enemyStats.health.currentHealth <= 0)
         {
             PostGameInfo.GetInstance().UpdateEnemy(isMiniboss);
+            GetComponent<Collider>().enabled = false;
+            rigidbody.isKinematic = true;
             RemoveFromGameManager();
         }
     }

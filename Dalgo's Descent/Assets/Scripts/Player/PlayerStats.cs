@@ -50,17 +50,6 @@ public class PlayerStats : MonoBehaviour
         m_playerskills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
     }
 
-    private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
-    {
-        switch(e.skilltype)
-        {
-            case PlayerSkills.SkillType.Health_Upgrade:
-                SetMaxHealth(10);
-                m_playerskills.RemoveSkill(e.skilltype);
-                break;
-        }
-    }
-
     private void Start()
     {
         m_ItemArr = new List<ItemUI>();
@@ -134,6 +123,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    #region OBSOLETE
     public bool CanUseSkill1()
     {
         return m_playerskills.IsSkillUnlocked(PlayerSkills.SkillType.Skill_1);
@@ -158,6 +148,18 @@ public class PlayerStats : MonoBehaviour
     {
         return m_playerskills;
     }
+
+    private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
+    {
+        switch(e.skilltype)
+        {
+            case PlayerSkills.SkillType.Health_Upgrade:
+                SetMaxHealth(10);
+                m_playerskills.RemoveSkill(e.skilltype);
+                break;
+        }
+    }
+    #endregion
 
     protected void AdjustHealth()
     {
