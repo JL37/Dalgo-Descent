@@ -499,8 +499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4fb5a6b3f960c4894e29cfe5a107a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExitBarrier: {fileID: 0}
-  EntranceBarrier: {fileID: 0}
   ExteriorLayer: {fileID: 2866434800090615263}
   ExteriorColliders: {fileID: 9102031855700392347}
   ExteriorCheckpoints: {fileID: 1958223185978887489}
@@ -1254,6 +1252,10 @@ PrefabInstance:
     - target: {fileID: 5084859337873581249, guid: 45af96de2e4076d4b8ce2f53704117a1, type: 3}
       propertyPath: m_Name
       value: Level Barrier Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084859337873581262, guid: 45af96de2e4076d4b8ce2f53704117a1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45af96de2e4076d4b8ce2f53704117a1, type: 3}
