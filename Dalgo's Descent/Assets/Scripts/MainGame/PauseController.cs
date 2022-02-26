@@ -32,10 +32,6 @@ public class PauseController : MonoBehaviour
 
 /*        if (Input.GetKeyDown(KeyCode.Escape))
             TogglePause();*/
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            m_OptionPanel.SetActive(!m_OptionPanel.activeSelf);
-        }
         
     }
     public void ButtonClicked()

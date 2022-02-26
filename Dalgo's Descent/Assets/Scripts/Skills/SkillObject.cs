@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Skill", menuName = "ScriptableObjects/SkillObject")]
@@ -15,6 +16,7 @@ public class SkillObject : ScriptableObject
     [SerializeField] float m_SkillCooldown;
     [SerializeField] bool m_Unlocked = false;
     [SerializeField] int m_MaxSkillPoints;
+    [SerializeField] InputActionReference m_InputActionReference;
     #endregion
 
     #region instance_variables
@@ -28,6 +30,7 @@ public class SkillObject : ScriptableObject
     private bool _unlocked;
     private int _skillPoints;
     private int _maxSkillPoints;
+    private InputActionReference _inputActionReference;
     
     public string SkillName { get { return _skillName;} }
     public string SkillDescription { get { return _skillDescription;} }
@@ -38,6 +41,7 @@ public class SkillObject : ScriptableObject
     public bool Unlocked { get { return _unlocked; } set { _unlocked = value; } }
     public int CurrentSkillPoints { get { return _skillPoints; } set { if (value > 0) _skillPoints = value; } }
     public int MaxSkillPoints { get { return _maxSkillPoints; } }
+    public InputActionReference InputActionReference { get { return _inputActionReference; } }
     #endregion
 
     private void OnEnable()
@@ -51,6 +55,11 @@ public class SkillObject : ScriptableObject
         _unlocked = m_Unlocked;
         _skillPoints = 0; 
         _maxSkillPoints = m_MaxSkillPoints;
+        _inputActionReference = m_InputActionReference;
     }
 
+    public void RebindKey(string keycode)
+    {
+        SettingsMenu.OverrideBinding(keycode, _inputActionReference);
+    }
 }

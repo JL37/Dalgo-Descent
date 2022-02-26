@@ -3443,6 +3443,7 @@ MonoBehaviour:
   - {fileID: 1935511313}
   - {fileID: 1572589782}
   m_LevelWindow: {fileID: 1032316232703346224}
+  m_SkillpointText: {fileID: 1958960595}
 --- !u!222 &1253428466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5975,7 +5976,7 @@ GameObject:
   - component: {fileID: 1958960596}
   - component: {fileID: 1958960595}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SkillPointText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8188,6 +8189,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!114 &3311792257456945543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9393,6 +9396,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!1 &4866182310169864269
 GameObject:
   m_ObjectHideFlags: 0
@@ -9642,6 +9647,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!1 &5644870387295524531
 GameObject:
   m_ObjectHideFlags: 0
@@ -10308,6 +10315,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!114 &7027455091112948922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10769,7 +10778,7 @@ RectTransform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 7891457116596999966}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10789,7 +10798,7 @@ GameObject:
   - component: {fileID: 7891457115794953685}
   - component: {fileID: 7891457115794953691}
   m_Layer: 5
-  m_Name: SkillBorder1
+  m_Name: SkillBorder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10810,6 +10819,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: E
+  baseImage: {fileID: 21300000, guid: de207854f48b07f4fa1278b240b06c93, type: 3}
 --- !u!224 &7891457116060526880
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10925,6 +10936,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!225 &7891457116060526887
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10998,6 +11011,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: Q
+  baseImage: {fileID: 21300000, guid: de207854f48b07f4fa1278b240b06c93, type: 3}
 --- !u!224 &7891457116561439133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11010,7 +11025,7 @@ RectTransform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 7891457116596999966}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11030,7 +11045,7 @@ GameObject:
   - component: {fileID: 7891457116561439107}
   - component: {fileID: 7891457116561439132}
   m_Layer: 5
-  m_Name: SkillBorder2
+  m_Name: SkillBorder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11045,6 +11060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7891457116596999966}
+  - component: {fileID: 7891457116596999963}
   m_Layer: 5
   m_Name: SkillBar
   m_TagString: Untagged
@@ -11052,6 +11068,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7891457116596999963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891457116596999962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03ed31dc8340bf4ba10001420274f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillSlots: []
 --- !u!224 &7891457116596999966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11064,8 +11093,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7725300764919214436}
-  - {fileID: 7891457115794953686}
   - {fileID: 7891457116561439133}
+  - {fileID: 7891457115794953686}
   - {fileID: 7891457116920935084}
   - {fileID: 506229806333920504}
   - {fileID: 4592334819594974489}
@@ -11150,6 +11179,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!225 &7891457116698256493
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11297,6 +11328,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!224 &7891457116900313964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11444,6 +11477,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: B
+  baseImage: {fileID: 21300000, guid: de207854f48b07f4fa1278b240b06c93, type: 3}
 --- !u!114 &7891457116923129652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11459,6 +11494,8 @@ MonoBehaviour:
   header: 
   body: 
   AnchoredSkill: {fileID: 0}
+  keycode: 
+  baseImage: {fileID: 0}
 --- !u!225 &7891457116923129653
 CanvasGroup:
   m_ObjectHideFlags: 0
