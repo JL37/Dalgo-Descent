@@ -16,11 +16,13 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
 
     public Image SkillBorderImage;
     public TMP_Text SkillBorderTMP;
+    public TMP_Text cooldownTimerText;
 
     public void Awake()
     {
-        SkillBorderTMP.text = "";
+        SkillBorderTMP.gameObject.SetActive(false);
     }
+
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
@@ -51,7 +53,7 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
     {
         //skill1_text.text = "Press a button";
         SkillBorderImage.color = new Color(0.6f, 0.6f, 0.6f);
-        SkillBorderTMP.text = keycode;
+        SkillBorderTMP.gameObject.SetActive(true);
         startListen = true;
     }
 
@@ -65,16 +67,39 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
     void Update()
     {
         TriggerActive = (AnchoredSkill != null);
-        
+
+        if (AnchoredSkill != null)
+        {
+            if (AnchoredSkill.SkillCooldownTimer > 0)
+            {
+                AnchoredSkill.SkillCooldownTimer -= Time.deltaTime;
+                cooldownTimerText.gameObject.SetActive(true);
+                cooldownTimerText.text = ((int)AnchoredSkill.SkillCooldownTimer).ToString();
+                SkillBorderImage.color = new Color(0.6f, 0.6f, 0.6f);
+            }
+            else
+            {
+                cooldownTimerText.gameObject.SetActive(false);
+                SkillBorderImage.color = Color.white;
+            }
+        }
+        else
+        {
+            cooldownTimerText.gameObject.SetActive(false);
+            SkillBorderImage.color = Color.white;
+        }
     }
 
     private void UpdateToolTipInfo()
     {
         // Update tooltip info
-        header = AnchoredSkill.SkillName + " [" + keycode + "]";
-        body = AnchoredSkill.SkillDescription;
+        if (AnchoredSkill != null)
+        {
+            header = AnchoredSkill.SkillName + " [" + keycode + "]";
+            body = AnchoredSkill.SkillDescription;
+        }
         SkillBorderImage.color = new Color(1.0f, 1.0f, 1.0f);
-        SkillBorderTMP.text = "";
+        SkillBorderTMP.gameObject.SetActive(false);
     }
 
     public void OnGUI() //keybind listener
@@ -88,7 +113,9 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
                 SkillBorderTMP.text = key;
                 //skill1_text.text = key;
                 keycode = key;
-                AnchoredSkill.RebindKey("<Keyboard>/" + keycode);
+                if (AnchoredSkill != null)
+                    AnchoredSkill.RebindKey("<Keyboard>/" + keycode);
+
                 UpdateToolTipInfo();
                 this.startListen = false;
             }
@@ -98,20 +125,23 @@ public class SkillSlot : TooltipTrigger, IDropHandler, IPointerDownHandler
                 switch (mouse)
                 {
                     case "0":
-                        AnchoredSkill.RebindKey("<Mouse>/leftButton");
+                        if (AnchoredSkill != null)
+                            AnchoredSkill.RebindKey("<Mouse>/leftButton");
                         keycode = "LMB";
                         break;
                     case "1":
-                        AnchoredSkill.RebindKey("<Mouse>/rightButton");
+                        if (AnchoredSkill != null)
+                            AnchoredSkill.RebindKey("<Mouse>/rightButton");
                         keycode = "RMB";
                         break;
                     default:
-                        AnchoredSkill.RebindKey("<Mouse>/leftButton");
+                        if (AnchoredSkill != null)
+                            AnchoredSkill.RebindKey("<Mouse>/leftButton");
                         keycode = "LMB";
                         break;
 
                 }
-                AnchoredSkill.RebindKey(mouse);
+                // AnchoredSkill.RebindKey(mouse);
                 UpdateToolTipInfo();
                 this.startListen = false;
             }

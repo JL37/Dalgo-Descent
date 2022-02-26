@@ -44,6 +44,11 @@ public class PlayerStats : MonoBehaviour
     //Player skill
     private PlayerSkills m_playerskills;
 
+    [Header("Skill References")]
+    public SkillObject CleaveSkill;
+    public SkillObject ShovelCutSkill;
+    public SkillObject SlamDunkSkill;
+
     private void Awake()
     {
         m_playerskills = new PlayerSkills(); //create a new instance of playerskill
@@ -332,13 +337,17 @@ public class PlayerStats : MonoBehaviour
         switch (slashType)
         {
             case SLASH_TYPE.SLASH_1:
-                return (int)(BasicAtk * 0.5f);
+                return (int)(BasicAtk * 0.5f + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
             case SLASH_TYPE.SLASH_2:
-                return (int)(BasicAtk * 0.7f);
+                return (int)(BasicAtk * 0.7f + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
             case SLASH_TYPE.SLASH_3:
-                return (int)(BasicAtk * 1.2f);
+                return (int)(BasicAtk * 1.2f + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
             case SLASH_TYPE.CLEAVE:
-                return (int)(BasicAtk * 2.5f);
+                return (int)(BasicAtk * 2.5f * CleaveSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
+            case SLASH_TYPE.SHOVEL_CUT:
+                return (int)(BasicAtk * 2f * ShovelCutSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
+            case SLASH_TYPE.SLAM_DUNK:
+                return (int)(BasicAtk * 3f * SlamDunkSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
             default:
                 return BasicAtk;
         }

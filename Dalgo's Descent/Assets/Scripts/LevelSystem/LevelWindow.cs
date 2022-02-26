@@ -7,13 +7,16 @@ using TMPro;
 
 public class LevelWindow : MonoBehaviour
 {
+    public static LevelWindow Instance;
+
     public Image m_experienceBarImage;
     public TMP_Text m_levelText;
-    private LevelSystem m_levelSystem;
+    public LevelSystem m_levelSystem;
     private LevelSystemAnimated m_levelSystemAnimated;
 
     private void Awake()
     {
+        Instance = this;
 /*        m_levelText = transform.Find("level_text").GetComponent<Text>();
         m_experienceBarImage = transform.Find("lv_bar").Find("lv_fill").GetComponent<Image>();*/
 

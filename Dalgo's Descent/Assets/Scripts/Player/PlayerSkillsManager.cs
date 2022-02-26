@@ -122,11 +122,11 @@ public class PlayerSkillsManager : MonoBehaviour
                 AI ai = c.gameObject.GetComponent<AI>();
                 if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
                 {
-                    ((AIUnit)ai).EnemyKnockup((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                    ((AIUnit)ai).EnemyKnockup(m_playerStats.GetSlashDamage(SLASH_TYPE.SHOVEL_CUT));
                 }
                 if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
                 {
-                    ((BossAI)ai).Damage((int)(m_playerStats.BaseBasicAtk * m_playerStats.SkillDmg));
+                    ((BossAI)ai).Damage((int)(m_playerStats.GetSlashDamage(SLASH_TYPE.SHOVEL_CUT)));
                 }
             }
         }
@@ -196,10 +196,14 @@ public class PlayerSkillsManager : MonoBehaviour
     }
     private void UseSkill(int index)
     {
+        if (Skills[index].SkillCooldownTimer > 0)
+            return;
+
         SkillAnimationTimer = 0;
         GetComponent<PlayerAttackManager>().ResetState();
         ActiveSkillIndex = index;
         PlayerAnimator.Play(Skills[index].SkillAnimation.name, SkillLayerIndex);
         PlayerAnimator.SetLayerWeight(SkillLayerIndex, 1);
+        Skills[index].SkillCooldownTimer = Skills[index].SkillCooldown;
     }
 }

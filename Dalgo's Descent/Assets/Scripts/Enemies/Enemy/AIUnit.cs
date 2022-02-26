@@ -38,6 +38,7 @@ public class AIUnit : AI
     public void Init(float size, float strength, bool isMiniboss, EnemyManager enemyManager) 
     {
         this.isMiniboss = isMiniboss;
+        aiStrength = (int)strength;
         transform.localScale = new Vector3(size, size, size);
         enemyStats.Init(strength);
         m_EnemyManager = enemyManager;

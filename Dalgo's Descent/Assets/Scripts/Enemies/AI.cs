@@ -33,6 +33,8 @@ public class AI : MonoBehaviour
 
     protected EnemyManager m_EnemyManager;
 
+    protected int aiStrength;
+
     protected virtual void Awake()
     {
         aiType = AI_TYPE.AI_TYPE_NONE;
@@ -91,6 +93,7 @@ public class AI : MonoBehaviour
 
     public void Die()
     {
+        LevelWindow.Instance.m_levelSystem.AddExperience(aiStrength);
         m_EnemyManager.m_Enemies.Remove(this);
         m_EnemyStats.health.DieAnimation();
     }

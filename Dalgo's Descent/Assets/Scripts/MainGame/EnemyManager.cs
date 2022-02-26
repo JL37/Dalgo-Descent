@@ -28,17 +28,17 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            SpawnEnemies(1, 1, new Vector3(0, FindObjectOfType<PlayerController>().transform.position.y, 0));
-        }
+        //#if UNITY_EDITOR
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    SpawnEnemies(1, 1, new Vector3(0, FindObjectOfType<PlayerController>().transform.position.y, 0));
+        //}
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SpawnMiniboss(new Vector3(0, FindObjectOfType<PlayerController>().transform.position.y, 0));
-        }
-        #endif
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    SpawnMiniboss(new Vector3(0, FindObjectOfType<PlayerController>().transform.position.y, 0));
+        //}
+        //#endif
 
         if (m_Enemies.Count <= 0 && m_Wave < m_NumWaves)
         {
@@ -63,7 +63,7 @@ public class EnemyManager : MonoBehaviour
         {
             GameObject newEnemy = Instantiate(m_EnemyPrefab, m_EnemyHolder);
             newEnemy.GetComponent<NavMeshAgent>().Warp(position);
-            newEnemy.GetComponent<AIUnit>().Init(3f, DifficultyManager.Instance.difficultyScaling * 3f, true, this);
+            newEnemy.GetComponent<AIUnit>().Init(3f, DifficultyManager.Instance.difficultyScaling * 2f, true, this);
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
         }
     }
@@ -120,14 +120,4 @@ public class EnemyManager : MonoBehaviour
 
         hasSpawnedEnemies = false;
     }
-
-    //private void OnEnable()
-    //{
-    //    GameLevelManager.Instance.OnNextLevelEnterListener += SpawnEnemiesInNewLevel;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    GameLevelManager.Instance.OnNextLevelEnterListener -= SpawnEnemiesInNewLevel;
-    //}
 }
