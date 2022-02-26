@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SettingsMenu : MenuBase
 {
@@ -215,6 +216,11 @@ public class SettingsMenu : MenuBase
             }
         }
         
+    }
+
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene(1);
     }
     #endregion
 }

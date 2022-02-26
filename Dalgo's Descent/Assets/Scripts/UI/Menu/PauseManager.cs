@@ -12,11 +12,6 @@ public class PauseManager : MonoBehaviour
         Instance = this;
     }
 
-    void Update()
-    {
-        
-    }
-
     public void OpenMenu(MenuBase menu)
     {
         for (int i = 0; i < Menus.Length; i++)
