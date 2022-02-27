@@ -34,6 +34,8 @@ public class GameManager : Singleton<GameManager>
 
         m_PostGameInfo = PostGameInfo.GetInstance();
         m_PostGameInfo.Reset();
+
+        AudioManager.Instance.Play("Gameplay");
     }
 
     protected override void OnAwake()

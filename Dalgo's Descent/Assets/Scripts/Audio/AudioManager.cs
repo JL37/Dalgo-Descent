@@ -27,9 +27,20 @@ public class AudioManager : Singleton<AudioManager>
             return;
         }
         sound_ToPlay.source.Play();
-        print(sound_ToPlay.volume);
+        
     }
 
+    public void Stop(string name)
+    {
+        Sound sound_ToStop = Array.Find(soundsArr, sound => sound.name == name); 
+        if (sound_ToStop == null)
+        {
+            Debug.LogError("SOUND " + name + " CANT BE STOP, CHECK SPELLING OF THE SONG");
+            return;
+        }
+        sound_ToStop.source.Stop();
+        
+    }
     private void Start()
     {
         
