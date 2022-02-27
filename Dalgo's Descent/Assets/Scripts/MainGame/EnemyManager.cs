@@ -48,6 +48,8 @@ public class EnemyManager : MonoBehaviour
         //}
         //#endif
 
+        Debug.Log(BossKilled);
+
         if (m_Enemies.Count <= 0 && m_Wave < m_NumWaves)
         {
             SpawnNextWaveOfEnemies();
@@ -75,17 +77,17 @@ public class EnemyManager : MonoBehaviour
         {
             AIUnit newEnemy = Instantiate(m_EnemyPrefab, m_EnemyHolder).GetComponent<AIUnit>();
             newEnemy.agent.Warp(position);
-            newEnemy.Init(3f, DifficultyManager.Instance.difficultyScaling * 2f, true, this);
+            newEnemy.Init(3f, DifficultyManager.Instance.difficultyScaling * 2f, true);
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
             m_Enemies.Add(newEnemy.GetComponent<AIUnit>());
         }
     }
 
-    public BossAI SpawnBoss(Vector3 position, EnemyManager enemyManager)
+    public BossAI SpawnBoss(Vector3 position)
     {
         BossAI boss = GameLevelManager.Instance.BossObject;
         boss.gameObject.SetActive(true);
-        boss.Init(DifficultyManager.Instance.difficultyScaling, enemyManager);
+        boss.Init(DifficultyManager.Instance.difficultyScaling);
         boss.agent.Warp(position);
 
         return boss;
@@ -112,7 +114,7 @@ public class EnemyManager : MonoBehaviour
                 newEnemy.GetComponent<NavMeshAgent>().Warp(newPosition);
 
                 float enemySize = Random.Range(0.7f, 1.5f);
-                newEnemy.GetComponent<AIUnit>().Init(enemySize, DifficultyManager.Instance.difficultyScaling * enemySize, false, this);
+                newEnemy.GetComponent<AIUnit>().Init(enemySize, DifficultyManager.Instance.difficultyScaling * enemySize, false);
                 newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
 
                 enemiesSpawned++;
@@ -151,7 +153,7 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            boss = SpawnBoss(m_AssociatedLevel.EnemySpawnLocation.position, this);
+            boss = SpawnBoss(m_AssociatedLevel.EnemySpawnLocation.position);
             m_Enemies.Add(boss);
         }
     }

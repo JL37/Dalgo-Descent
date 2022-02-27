@@ -38,11 +38,10 @@ public class BossAI : AI
         // m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    public void Init(float strength, EnemyManager enemyManager)
+    public void Init(float strength)
     {
         aiStrength = (int)strength;
         enemyStats.Init(strength);
-        m_EnemyManager = enemyManager;
         centerOfRoom.position = transform.position;
     }
 
