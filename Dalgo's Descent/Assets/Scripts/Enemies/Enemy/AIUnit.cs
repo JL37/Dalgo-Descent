@@ -48,7 +48,7 @@ public class AIUnit : AI
     {
         enemySize = size;
         this.isMiniboss = isMiniboss;
-        aiStrength = (int)strength;
+        aiStrength = strength;
         transform.localScale = new Vector3(size, size, size);
         enemyStats.Init(strength);
      

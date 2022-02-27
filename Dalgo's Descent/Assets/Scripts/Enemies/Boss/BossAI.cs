@@ -46,7 +46,7 @@ public class BossAI : AI
 
     public void Init(float strength)
     {
-        aiStrength = (int)strength;
+        aiStrength = strength;
         enemyStats.Init(strength);
         centerOfRoom.position = transform.position;
     }
