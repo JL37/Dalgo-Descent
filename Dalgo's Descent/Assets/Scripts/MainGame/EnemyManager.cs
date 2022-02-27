@@ -21,6 +21,8 @@ public class EnemyManager : MonoBehaviour
     private int m_Wave;
     private int m_NumWaves;
 
+    public Transform BossSpawnLocation;
+
     public bool BossKilled { get; set; }
     public bool LevelComplete { get; private set; }
 
@@ -29,8 +31,10 @@ public class EnemyManager : MonoBehaviour
         m_AssociatedLevel = GetComponent<LevelStructure>();
         m_EnemyHolder = GameObject.FindGameObjectWithTag("EnemyParent").transform;
         m_NumWaves = DifficultyManager.Instance.NumWaves;
+        LevelComplete = false;
         BossKilled = false;
 
+        m_AssociatedLevel.OnLevelStart();
         SpawnEnemiesInNewLevel();
     }
 
@@ -59,7 +63,7 @@ public class EnemyManager : MonoBehaviour
             if(!LevelComplete)
             {
                 LevelComplete = true;
-                GetComponent<LevelStructure>().OnLevelComplete();
+                m_AssociatedLevel.OnLevelComplete();
             }
         }
     }
@@ -83,19 +87,24 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public BossAI SpawnBoss(Vector3 position)
+    public void SpawnBoss(Vector3 position)
     {
-        BossAI boss = GameLevelManager.Instance.BossObject;
-        boss.gameObject.SetActive(true);
-        boss.Init(DifficultyManager.Instance.difficultyScaling);
-        boss.agent.Warp(position);
+        StartCoroutine(DoSpawnBoss(position));
+    }
 
-        return boss;
+    IEnumerator DoSpawnBoss(Vector3 position)
+    {
+        yield return new WaitForSeconds(4f);
+        boss = GameLevelManager.Instance.BossObject;
+        boss.gameObject.SetActive(true);
+        boss.agent.Warp(position);
+        boss.Init(DifficultyManager.Instance.difficultyScaling);
+        m_Enemies.Add(boss);
     }
 
     IEnumerator DoSpawnEnemies(float timeToSpawnEnemies, int EnemyCount, Vector3 position)
     {
-        float radiusOffset = 10f;
+        float radiusOffset = 7f;
         int enemiesSpawned = 0;
         WaitForSeconds timeBetweenNextEnemy = new WaitForSeconds(timeToSpawnEnemies / (float)EnemyCount);
 
@@ -143,7 +152,7 @@ public class EnemyManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         m_Wave++;
-        if (!GameLevelManager.Instance.IsLastLevel())
+        if (GameLevelManager.Instance.CurrentLevel <= GameLevelManager.Instance.TotalLevels)
         {
             if (m_Wave < m_NumWaves)
                 SpawnEnemies(1f, DifficultyManager.Instance.NumEnemiesPerWave, m_AssociatedLevel.spawnLocation.position);
@@ -153,8 +162,7 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            boss = SpawnBoss(m_AssociatedLevel.spawnLocation.position);
-            m_Enemies.Add(boss);
+            SpawnBoss(BossSpawnLocation.position);
         }
     }
 

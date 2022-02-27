@@ -22,25 +22,27 @@ public class LevelStructure : MonoBehaviour
             ExteriorCheckpoints.GetChild(i).GetComponent<MeshRenderer>().enabled = false;
     }
 
+    public void OnLevelStart()
+    {
+        EnemyManager enemymanager = null;
+        if (TryGetComponent(out enemymanager))
+        {
+            foreach (var barrier in LevelBarriers)
+            {
+                barrier.SetActivation(true);
+            }
+        }
+    }
+
     public void OnLevelComplete()
     {
         EnemyManager enemymanager = null;
         // i would make it an event but im too lazy
         if (TryGetComponent(out enemymanager))
         {
-            if (enemymanager.LevelComplete)
+            foreach (var barrier in LevelBarriers)
             {
-                foreach (var barrier in LevelBarriers)
-                {
-                    barrier.SetActivation(false);
-                }
-            }
-            else
-            {
-                foreach (var barrier in LevelBarriers)
-                {
-                    barrier.SetActivation(true);
-                }
+                barrier.SetActivation(false);
             }
         }
     }

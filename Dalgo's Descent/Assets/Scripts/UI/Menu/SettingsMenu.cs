@@ -60,7 +60,8 @@ public class SettingsMenu : MenuBase
     }
     public void SetVolume(float volume)
     {
-        AudioManager.Instance.SetVolume(volume, "Testing");
+        AudioManager.Instance.SetVolume(volume, "Gameplay");
+        AudioManager.Instance.SetVolume(volume, "BossMusic");
     }
 
     public void SetQuality(int qualityIndex) //this does not work hmmm

@@ -61,6 +61,7 @@ public class PlayerSkillsManager : MonoBehaviour
             if (Skills[0].CurrentSkillPoints > 0) //check if skill has been unlock already
             {
                 UseSkill(0);
+                
                 Debug.Log("USING SKILL 1 LIAO");
 
             }
@@ -199,6 +200,15 @@ public class PlayerSkillsManager : MonoBehaviour
         if (Skills[index].SkillCooldownTimer > 0)
             return;
 
+        switch(index)
+        {
+            case 0:
+                AudioManager.Instance.Play("Cleave");
+                break;
+            case 1:
+                AudioManager.Instance.Play("ShovelCut");
+                break;
+        }
         SkillAnimationTimer = 0;
         GetComponent<PlayerAttackManager>().ResetState();
         ActiveSkillIndex = index;
