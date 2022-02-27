@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsMoving && !IsRunning)
         {
-            TargetSpeed = RunSpeed * GetComponent<PlayerStats>().MovementSpd;
+            TargetSpeed = WalkSpeed * GetComponent<PlayerStats>().MovementSpd;
         }
     }
 
@@ -235,6 +235,8 @@ public class PlayerController : MonoBehaviour
     public void OnSprint(InputAction.CallbackContext context)
     {
         TargetSpeed = !context.canceled ? RunSpeed : WalkSpeed;
+        TargetSpeed *= GetComponent<PlayerStats>().MovementSpd;
+
         if (IsMoving)
         {
             IsRunning = !context.canceled;
