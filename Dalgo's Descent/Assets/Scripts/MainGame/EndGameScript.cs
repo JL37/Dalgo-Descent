@@ -33,6 +33,7 @@ public class EndGameScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.Stop("BossMusic");
             GameManager.Instance.Victory();
         }
     }

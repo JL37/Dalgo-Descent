@@ -17,9 +17,16 @@ public class AIUnit : AI
     //Reference
     private EnemyHealthUI m_HealthUI;
 
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public AudioClip hurt;
+    public AudioClip attack;
+
     protected override void Awake()
     {
         base.Awake();
+
+        audioSource = GetComponent<AudioSource>();
         aiType = AI_TYPE.AI_TYPE_ENEMY;
         rigidbody = GetComponent<Rigidbody>();
 
@@ -72,6 +79,8 @@ public class AIUnit : AI
 
     public override void Damage(float amount)
     {
+        audioSource.PlayOneShot(hurt, 1f);
+
         animator.speed = 1f;
         rigidbody.isKinematic = false;
         agent.enabled = false;
@@ -92,6 +101,15 @@ public class AIUnit : AI
             GetComponent<Collider>().enabled = false;
             rigidbody.isKinematic = true;
             RemoveFromGameManager();
+        }
+    }
+
+    public override void AttackPlayer()
+    {
+        base.AttackPlayer();
+        if (m_inAttackRange && playerRef)
+        {
+            audioSource.PlayOneShot(attack, 1f);
         }
     }
 

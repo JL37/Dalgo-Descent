@@ -94,12 +94,6 @@ public class PlayerSkillsManager : MonoBehaviour
                 playerController.ResetImpactForJump();
                 playerController.AddImpact(Vector3.up, 15f);
             }
-
-            //if (Dunk.GetPlayerSkills().IsSkillUnlocked(PlayerSkills.SkillType.Skill_3))
-            //{
-            //    Debug.Log("USING SKILL 3 LIAO");
-            //    UseSkill(2);
-            //}
         }
     }
 
@@ -200,15 +194,6 @@ public class PlayerSkillsManager : MonoBehaviour
         if (Skills[index].SkillCooldownTimer > 0)
             return;
 
-        switch(index)
-        {
-            case 0:
-                AudioManager.Instance.Play("Cleave");
-                break;
-            case 1:
-                AudioManager.Instance.Play("ShovelCut");
-                break;
-        }
         SkillAnimationTimer = 0;
         GetComponent<PlayerAttackManager>().ResetState();
         ActiveSkillIndex = index;

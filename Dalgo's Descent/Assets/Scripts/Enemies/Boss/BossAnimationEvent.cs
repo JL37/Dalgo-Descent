@@ -39,4 +39,14 @@ public class BossAnimationEvent : MonoBehaviour
     {
         bossAI.GroundSlam();
     }
+
+    public void ScreamSound()
+    {
+        bossAI.Scream();
+    }
+
+    public void LandSound()
+    {
+        bossAI.Land();
+    }
 }

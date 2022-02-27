@@ -48,6 +48,8 @@ public class GameLevelManager : Singleton<GameLevelManager>
         if (CurrentLevel >= TotalLevels)
         {
             PlayArea.GetComponent<EnemyManager>().SpawnBoss(PlayArea.GetComponent<EnemyManager>().BossSpawnLocation.position);
+            AudioManager.Instance.Stop("Gameplay");
+            AudioManager.Instance.Play("BossMusic");
             return;
         }
 
