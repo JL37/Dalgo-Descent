@@ -117,11 +117,17 @@ public class PlayerSkillsManager : MonoBehaviour
                 AI ai = c.gameObject.GetComponent<AI>();
                 if (ai.aiType == AI.AI_TYPE.AI_TYPE_ENEMY)
                 {
-                    ((AIUnit)ai).EnemyKnockup(m_playerStats.GetSlashDamage(SLASH_TYPE.SHOVEL_CUT));
+                    int dmg = m_playerStats.GetSlashDamage(SLASH_TYPE.SHOVEL_CUT);
+                    ((AIUnit)ai).EnemyKnockup(dmg);
+
+                    m_playerStats.UpdateLifesteal(dmg);
                 }
                 if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
                 {
-                    ((BossAI)ai).Damage((int)(m_playerStats.GetSlashDamage(SLASH_TYPE.SHOVEL_CUT)));
+                    int dmg = m_playerStats.GetSlashDamage(SLASH_TYPE.SHOVEL_CUT);
+                    ((BossAI)ai).Damage(dmg);
+
+                    m_playerStats.UpdateLifesteal(dmg);
                 }
             }
         }
