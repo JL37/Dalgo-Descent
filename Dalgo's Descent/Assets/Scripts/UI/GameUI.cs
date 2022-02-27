@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class GameUI : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] EnemyHealthUI m_BossHealth;
     [SerializeField] Image m_GameOverBg;
     [SerializeField] Volume m_Volume;
+    [SerializeField] TMP_Text m_CoinUI;
 
     [Header("Timers")]
     protected float m_CurrErrorTimer = 0f;
@@ -59,6 +61,11 @@ public class GameUI : MonoBehaviour
 
         StartCoroutine(I_BlurOut(3f));
         StartCoroutine(I_FadeOut(1.5f, victory));
+    }
+
+    public void UpdateCoinUI(int coin)
+    {
+        m_CoinUI.text = "Coins: " + coin;
     }
 
     protected IEnumerator I_BlurOut(float duration)

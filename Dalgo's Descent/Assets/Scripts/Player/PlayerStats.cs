@@ -35,6 +35,7 @@ public class PlayerStats : MonoBehaviour
     protected int m_coin = 0;
     protected List<Chest> m_ChestArr;
     protected List<ItemUI> m_ItemArr;
+    protected GameUI m_GameUI;
 
     public event EventHandler onHealthChanged;
 
@@ -63,6 +64,8 @@ public class PlayerStats : MonoBehaviour
         m_ItemArr = new List<ItemUI>();
         m_ChestArr = new List<Chest>();
         m_BaseHealth = (int)m_Health.maxHealth;
+
+        m_GameUI = GameObject.FindGameObjectWithTag("HUD").GetComponent<GameUI>();
     }
 
     private void Update()
@@ -290,6 +293,9 @@ public class PlayerStats : MonoBehaviour
     public void AddCoin(int num = 1)
     {
         m_coin += num;
+
+        if (m_GameUI)
+            m_GameUI.UpdateCoinUI(m_coin);
     }
 
     public bool DeductCoin(int num = 1)
@@ -297,6 +303,9 @@ public class PlayerStats : MonoBehaviour
         if (m_coin >= num)
         {
             m_coin -= num;
+
+            if (m_GameUI)
+                m_GameUI.UpdateCoinUI(m_coin);
             return true;
         }
 
