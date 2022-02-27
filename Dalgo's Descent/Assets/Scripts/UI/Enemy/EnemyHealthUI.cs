@@ -48,7 +48,7 @@ public class EnemyHealthUI : MonoBehaviour
         if (m_InWorldSpace)
         {
             Vector3 pos = m_Target.transform.position;
-            pos.y += m_HeightOffset;
+            pos.y += m_HeightOffset * m_Target.GetComponent<AIUnit>().GetSize();
             transform.position = pos;
 
             m_HealthFolder.transform.LookAt(Camera.main.transform, Camera.main.transform.up);

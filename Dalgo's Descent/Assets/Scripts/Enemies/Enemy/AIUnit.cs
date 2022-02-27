@@ -7,6 +7,8 @@ public class AIUnit : AI
 {
     public bool isMiniboss;
 
+    private float enemySize = 1f;
+
     private new Rigidbody rigidbody;
     public LayerMask groundLayer;
     public Texture2D[] enemyTextures;
@@ -37,6 +39,7 @@ public class AIUnit : AI
 
     public void Init(float size, float strength, bool isMiniboss, EnemyManager enemyManager) 
     {
+        enemySize = size;
         this.isMiniboss = isMiniboss;
         aiStrength = (int)strength;
         transform.localScale = new Vector3(size, size, size);
@@ -64,6 +67,8 @@ public class AIUnit : AI
             EnemyHit(10, 100f);
         }
     }
+
+    public float GetSize() { return enemySize; }
 
     public override void Damage(float amount)
     {
