@@ -206,12 +206,12 @@ public class PlayerController : MonoBehaviour
         {
             IsMoving = !context.canceled;
             var contextDirection = context.ReadValue<Vector2>();
-            MoveDirection = IsMoving  ? WalkSpeed * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
+            MoveDirection = IsMoving  ? (WalkSpeed * GetComponent<PlayerStats>().MovementSpd) * new Vector3(contextDirection.x, 0, contextDirection.y) : Vector3.zero;
         }
 
         if (IsMoving && !IsRunning)
         {
-            TargetSpeed = WalkSpeed;
+            TargetSpeed = WalkSpeed * GetComponent<PlayerStats>().MovementSpd;
         }
     }
 
@@ -235,6 +235,8 @@ public class PlayerController : MonoBehaviour
     public void OnSprint(InputAction.CallbackContext context)
     {
         TargetSpeed = !context.canceled ? RunSpeed : WalkSpeed;
+        TargetSpeed *= GetComponent<PlayerStats>().MovementSpd;
+
         if (IsMoving)
         {
             IsRunning = !context.canceled;

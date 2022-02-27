@@ -377,6 +377,15 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void UpdateLifesteal(int totalDmg)
+    {
+        int hpPlus = (int)(totalDmg * m_LifeSteal);
+
+        m_Health.currentHealth += hpPlus;
+        if (m_Health.currentHealth > m_Health.maxHealth)
+            m_Health.currentHealth = m_Health.maxHealth;
+    }
+
     public float GetKnockbackForce(SLASH_TYPE slashType)
     {
         switch (slashType)
