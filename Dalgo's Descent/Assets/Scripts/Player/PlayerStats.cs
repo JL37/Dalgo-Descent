@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
 
     protected float m_DmgTakenMultiplier = 1f;
 
-    protected float m_BaseCoolDown = 1f;
+    protected float m_CoolDownReduction = 1f;
     protected float m_BaseSkillDmg = 1f;
 
     protected float m_MovementSpd = 1f;
@@ -215,10 +215,10 @@ public class PlayerStats : MonoBehaviour
         set { m_DmgTakenMultiplier = value; }
     }
 
-    public float SkillCD
+    public float CDReduction
     {
-        get { return m_BaseCoolDown; }
-        set { m_BaseCoolDown = value; }
+        get { return m_CoolDownReduction; }
+        set { m_CoolDownReduction = value; }
     }
 
     public float SkillDmg
@@ -272,7 +272,6 @@ public class PlayerStats : MonoBehaviour
 
         m_DmgTakenMultiplier -= perc;
 
-        m_BaseCoolDown -= perc;
         m_BaseSkillDmg += perc;
 
         m_MovementSpd += perc;
