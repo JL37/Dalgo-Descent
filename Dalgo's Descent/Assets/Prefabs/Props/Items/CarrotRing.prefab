@@ -200,7 +200,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 841353245024331960}
   m_DescBox: {fileID: 7230148892568906582}
-  m_Texture: {fileID: 2800000, guid: 52729308823a9b340bae067e185ae6ca, type: 3}
+  m_Textures:
+  - {fileID: 2800000, guid: cf5064ed6215fa648baa34e54e66bb41, type: 3}
+  - {fileID: 2800000, guid: 715d7cf9ce68ac14d870d0c1ef147b10, type: 3}
+  - {fileID: 2800000, guid: 63894ab63a4ebe74ebb9690a73255c25, type: 3}
+  - {fileID: 2800000, guid: d287538828b69c548841727540977005, type: 3}
+  - {fileID: 2800000, guid: f94f6ebc8957ae84c9de473f045be611, type: 3}
+  - {fileID: 2800000, guid: ba6ed3d0fde2d0d4983a11813ec0d538, type: 3}
+  - {fileID: 2800000, guid: bbd0683287727244cbd0b3b650f2677f, type: 3}
+  - {fileID: 2800000, guid: 3eca36e46ca6c8b448fb77905e1ff8cd, type: 3}
+  - {fileID: 2800000, guid: 3314bbfd36d70c94d9fdbceb21df5f8d, type: 3}
   m_Scale_InRange: 20
   m_Scale_NotInRange: 15
   m_OffSet_InRange: 0.75

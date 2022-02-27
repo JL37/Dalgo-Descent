@@ -8,7 +8,9 @@ public class ItemPickup : MonoBehaviour, IObjectPooling
     [Header("Objects")]
     [SerializeField] Canvas m_Canvas;
     [SerializeField] RectTransform m_DescBox;
-    [SerializeField] Texture m_Texture;
+
+    [Header("Texture")]
+    [SerializeField] Texture[] m_Textures;
 
     [Header("Variables")]
     [SerializeField] float m_Scale_InRange = 30f;
@@ -52,7 +54,7 @@ public class ItemPickup : MonoBehaviour, IObjectPooling
         m_Item = new Item();
         m_Item.InitialiseRandomStats();
         //For now, give all items same image
-        m_Item.SetCurrTexture(m_Texture);
+        m_Item.SetCurrTexture(m_Textures[m_Item.GetItemIdx()]);
 
 
         //Change desc box text
@@ -83,7 +85,7 @@ public class ItemPickup : MonoBehaviour, IObjectPooling
         m_Item = new Item();
         m_Item.InitialiseRandomStats();
         //For now, give all items same image
-        m_Item.SetCurrTexture(m_Texture);
+        m_Item.SetCurrTexture(m_Textures[m_Item.GetItemIdx()]);
 
 
         //Change desc box text

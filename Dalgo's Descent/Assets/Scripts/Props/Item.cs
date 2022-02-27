@@ -51,6 +51,41 @@ public class Item
         InitialiseRandomItem();
     }
 
+    public int GetItemIdx()
+    {
+        switch (m_CurrType)
+        {
+            case TYPE.CARROTHELMET: //INCREASE HP BY 20 (13 - 26 RANDOM)
+                return 0;
+
+            case TYPE.TIGERCLAW: //INCREASE ATK SPD BY 10% (7 - 12% RANDOM)
+                return 1;
+
+            case TYPE.FEATHERBOOT: //MOVEMENT SPD BY 7% (5-12% RANDOM)
+                return 2;
+
+            case TYPE.VAMPIRICSCYTHE:
+                return 3;
+
+            case TYPE.BIRDARMOR:
+                return 4;
+
+            case TYPE.RUNICSCYTHE:
+                return 5;
+
+            case TYPE.CHRONOSCYTHE:
+                return 6;
+
+            case TYPE.DOUBEEDGEDSCYTHE: //INCREASE DAMAGE TAKEN BY 10%, INCREASE DAMAGE DEALT BY 15%
+                return 7;
+
+            case TYPE.ADDERALL: //INCREASE ALL STATS BY 10%
+                return 8;
+        }
+
+        return 0;
+    }
+
     public Color GetRarityColor()
     {
         switch (m_CurrRarity)
