@@ -799,6 +799,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1579057506505466885, guid: 05862828b2b9cfa4dad17f103a76f65a, type: 2}
+    - target: {fileID: 3480291283958559474, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
+      propertyPath: m_MaxHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3480291284687717583, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
       propertyPath: m_text
       value: Almighty

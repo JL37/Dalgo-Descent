@@ -35,5 +35,7 @@ public class DialogueArrow : MonoBehaviour
 
         float newY = Mathf.Sin(m_CurrRadians) * m_MaxHeight;
         m_Transform.position = new Vector3(ogPos.x, ogPos.y + newY, ogPos.z);
+
+        //print("YESSS");
     }
 }
