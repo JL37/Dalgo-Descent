@@ -7,6 +7,8 @@ public class EnemyManager : MonoBehaviour
 {
     private LevelStructure m_AssociatedLevel;
 
+    public BossAI boss;
+
     [Header("Enemy")]
     [SerializeField] GameObject m_EnemyPrefab;
     [SerializeField] Transform m_EnemyHolder;
@@ -18,6 +20,7 @@ public class EnemyManager : MonoBehaviour
     private int m_Wave;
     private int m_NumWaves;
 
+    public bool BossKilled { get; set; }
     public bool LevelComplete { get; private set; }
 
     private void Start()
@@ -25,6 +28,7 @@ public class EnemyManager : MonoBehaviour
         m_AssociatedLevel = GetComponent<LevelStructure>();
         m_EnemyHolder = GameObject.FindGameObjectWithTag("EnemyParent").transform;
         m_NumWaves = DifficultyManager.Instance.NumWaves;
+        BossKilled = false;
 
         SpawnEnemiesInNewLevel();
     }
@@ -47,7 +51,7 @@ public class EnemyManager : MonoBehaviour
         {
             SpawnNextWaveOfEnemies();
         }
-        else if (m_Enemies.Count <= 0 && m_Wave == m_NumWaves)
+        else if (m_Enemies.Count <= 0 && (m_Wave == m_NumWaves || BossKilled))
         {
             LevelComplete = true;
         }
@@ -65,18 +69,20 @@ public class EnemyManager : MonoBehaviour
         if (NavMesh.SamplePosition(position, out hit, 5f, NavMesh.AllAreas))
         {
             AIUnit newEnemy = Instantiate(m_EnemyPrefab, m_EnemyHolder).GetComponent<AIUnit>();
-            newEnemy.agent.Warp(hit.position);
+            newEnemy.agent.Warp(position);
             newEnemy.Init(3f, DifficultyManager.Instance.difficultyScaling * 2f, true, this);
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
         }
     }
 
-    public void SpawnBoss(Vector3 position)
+    public BossAI SpawnBoss(Vector3 position)
     {
         BossAI boss = GameLevelManager.Instance.BossObject;
         boss.gameObject.SetActive(true);
         boss.Init(DifficultyManager.Instance.difficultyScaling);
         boss.agent.Warp(position);
+
+        return boss;
     }
 
     IEnumerator DoSpawnEnemies(float timeToSpawnEnemies, int EnemyCount, Vector3 position)
@@ -97,7 +103,7 @@ public class EnemyManager : MonoBehaviour
             {
                 GameObject newEnemy = Instantiate(m_EnemyPrefab, m_EnemyHolder);
                 m_Enemies.Add(newEnemy.GetComponent<AIUnit>());
-                newEnemy.GetComponent<NavMeshAgent>().Warp(hit.position);
+                newEnemy.GetComponent<NavMeshAgent>().Warp(newPosition);
 
                 float enemySize = Random.Range(0.7f, 1.5f);
                 newEnemy.GetComponent<AIUnit>().Init(enemySize, DifficultyManager.Instance.difficultyScaling * enemySize, false, this);
@@ -135,12 +141,12 @@ public class EnemyManager : MonoBehaviour
                 SpawnEnemies(1f, DifficultyManager.Instance.NumEnemiesPerWave, m_AssociatedLevel.EnemySpawnLocation.position);
             else if (m_Wave == m_NumWaves)
                 SpawnMiniboss(m_AssociatedLevel.EnemySpawnLocation.position);
+            hasSpawnedEnemies = false;
         }
         else
         {
-            SpawnBoss(m_AssociatedLevel.EnemySpawnLocation.position);
+            boss = SpawnBoss(m_AssociatedLevel.EnemySpawnLocation.position);
+            m_Enemies.Add(boss);
         }
-
-        hasSpawnedEnemies = false;
     }
 }

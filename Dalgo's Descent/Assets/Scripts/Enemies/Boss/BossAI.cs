@@ -42,6 +42,7 @@ public class BossAI : AI
     {
         aiStrength = (int)strength;
         enemyStats.Init(strength);
+        centerOfRoom.position = transform.position;
     }
 
 
@@ -69,6 +70,7 @@ public class BossAI : AI
 
         if (enemyStats.health.currentHealth <= 0)
         {
+            m_EnemyManager.BossKilled = true;
             PostGameInfo.GetInstance().UpdateEnemy(true);
             RemoveFromGameManager();
         }
