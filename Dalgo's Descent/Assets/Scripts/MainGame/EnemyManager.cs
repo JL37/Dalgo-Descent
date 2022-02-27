@@ -48,7 +48,7 @@ public class EnemyManager : MonoBehaviour
         //}
         //#endif
 
-        Debug.Log(BossKilled);
+        //Debug.Log(BossKilled);
 
         if (m_Enemies.Count <= 0 && m_Wave < m_NumWaves)
         {
@@ -146,14 +146,14 @@ public class EnemyManager : MonoBehaviour
         if (!GameLevelManager.Instance.IsLastLevel())
         {
             if (m_Wave < m_NumWaves)
-                SpawnEnemies(1f, DifficultyManager.Instance.NumEnemiesPerWave, m_AssociatedLevel.EnemySpawnLocation.position);
+                SpawnEnemies(1f, DifficultyManager.Instance.NumEnemiesPerWave, m_AssociatedLevel.spawnLocation.position);
             else if (m_Wave == m_NumWaves)
-                SpawnMiniboss(m_AssociatedLevel.EnemySpawnLocation.position);
+                SpawnMiniboss(m_AssociatedLevel.spawnLocation.position);
             hasSpawnedEnemies = false;
         }
         else
         {
-            boss = SpawnBoss(m_AssociatedLevel.EnemySpawnLocation.position);
+            boss = SpawnBoss(m_AssociatedLevel.spawnLocation.position);
             m_Enemies.Add(boss);
         }
     }

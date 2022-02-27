@@ -473,7 +473,7 @@ MonoBehaviour:
   ExteriorColliders: {fileID: 8219664519627862506}
   ExteriorCheckpoints: {fileID: 4325804794852980443}
   NextLocation: {fileID: 7823979786398365683}
-  EnemySpawnLocation: {fileID: 3579916103576523883}
+  spawnLocation: {fileID: 3579916103576523883}
 --- !u!54 &8089499298905100843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -517,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0a58ef16046cf4eb7617a8c646b371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 0}
   m_EnemyPrefab: {fileID: 3676725544286473702, guid: 293c6e76fd666e74c8046c77cef45f6f, type: 3}
   m_EnemyHolder: {fileID: 0}
   m_Enemies: []

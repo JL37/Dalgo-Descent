@@ -77,6 +77,9 @@ public class DamageTextUI : MonoBehaviour
 
     protected void StickToTarget()
     {
+        if (!m_TransformToTrack)
+            return;
+
         //Update positioning of UI above text
         //Final position of marker above chest in world space
         float offset = m_TransformToTrack.position.y + m_HeightOffSet;

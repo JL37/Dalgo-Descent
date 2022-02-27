@@ -44,8 +44,8 @@ public class Chest : MonoBehaviour, IObjectPooling
         m_CurrFontSize = 0;
 
         //Randomise cost
-        m_Cost = 1;
-        //m_Cost = Random.Range(15, 30);
+        //m_Cost = 1;
+        m_Cost = Random.Range(2, 12);
 
         //Set text to the cost
         m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(F)</color>";
@@ -61,7 +61,7 @@ public class Chest : MonoBehaviour, IObjectPooling
 
     public void Initialise()
     {
-        m_Cost = Random.Range(15, 30);
+        m_Cost = Random.Range(3, 15);
         m_ChestAnimation.Play("Closed");
     }
 

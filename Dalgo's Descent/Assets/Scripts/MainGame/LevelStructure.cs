@@ -12,7 +12,7 @@ public class LevelStructure : MonoBehaviour
     public Transform ExteriorCheckpoints;
     public Transform NextLocation;
 
-    public Transform EnemySpawnLocation;
+    public Transform spawnLocation;
 
     void Start()
     {

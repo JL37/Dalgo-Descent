@@ -393,7 +393,7 @@ MonoBehaviour:
   ExteriorColliders: {fileID: 1601648891841383942}
   ExteriorCheckpoints: {fileID: 7604555546593627285}
   NextLocation: {fileID: 6710948785618408749}
-  EnemySpawnLocation: {fileID: 8925443132984424920}
+  spawnLocation: {fileID: 8925443132984424920}
 --- !u!114 &8652374198417588595
 MonoBehaviour:
   m_ObjectHideFlags: 0

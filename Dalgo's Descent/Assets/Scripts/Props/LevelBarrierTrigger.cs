@@ -40,7 +40,7 @@ public class LevelBarrierTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Activated)
+        if (Activated || other.tag != "Player")
             return;
 
         Activated = true;
