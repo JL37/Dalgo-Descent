@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : Singleton<AudioManager>
 {
@@ -85,8 +86,18 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
+    public void OnSceneChange(Scene scn1, Scene scn2)
+    {
+        StopAll();
+    }
+
     void Update()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.activeSceneChanged += OnSceneChange;
     }
 }

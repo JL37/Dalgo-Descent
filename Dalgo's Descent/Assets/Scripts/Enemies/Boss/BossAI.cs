@@ -57,10 +57,13 @@ public class BossAI : AI
         base.Update();
 
         rig.weight = m_rigActive ? rig.weight + Time.deltaTime * 2f : rig.weight - Time.deltaTime * 2f;
+
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.O))
         {
             Damage(200);
         }
+#endif
     }
 
     public override void Damage(float amount)

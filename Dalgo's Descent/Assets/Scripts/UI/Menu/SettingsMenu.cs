@@ -218,7 +218,8 @@ public class SettingsMenu : MenuBase
 
     public void QuitToMainMenu()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Scenes/MainMenuScene");
     }
     #endregion
 }
