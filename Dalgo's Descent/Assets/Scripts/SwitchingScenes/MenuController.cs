@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         blackFadeImage.color = Color.black;
+        AudioManager.Instance.Play("MainMenu");
         FadeOut();
     }
 
@@ -25,6 +26,7 @@ public class MenuController : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.Instance.Stop("MainMenu");
         PostGameInfo.ResetPostGameInfo();
         SceneManager.LoadScene("Scenes/MainGame");
     }
