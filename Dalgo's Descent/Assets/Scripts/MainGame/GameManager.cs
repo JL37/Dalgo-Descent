@@ -61,6 +61,9 @@ public class GameManager : Singleton<GameManager>
         }
 
         m_levelSystemAnimated.Update();
+
+#if UNITY_EDITOR
+        
         if (Input.GetKeyDown(KeyCode.M)) // testing for receiving damage
         {
             Debug.Log("Attack");
@@ -78,6 +81,8 @@ public class GameManager : Singleton<GameManager>
             playerStats.Replenish_Health(5);
             //print("health now is  : " + playerStats.Health);
         }
+
+#endif
         if (m_EnemyArr.Count > 0)
             m_InCombat = true;
         else

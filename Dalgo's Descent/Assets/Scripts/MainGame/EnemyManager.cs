@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour
         //}
         //#endif
 
-        Debug.Log(BossKilled);
+        // Debug.Log(BossKilled);
 
         if (m_Enemies.Count <= 0 && m_Wave < m_NumWaves)
         {
