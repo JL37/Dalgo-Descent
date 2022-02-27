@@ -100,7 +100,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.SetSignalText(m_IntroSignal);
 
         i = d.AddToDialogueList(("..............", 0));
-        d.AddDefaultNameEvent(("Aoshi", i));
+        d.AddDefaultNameEvent(("Almighty", i));
 
         i = d.AddToDialogueList(("You know what?", 0));
         d.SetFaceAppearanceIdx(i);
@@ -250,7 +250,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.AddToDialogueList(("-You know what, that's besides the point.", 0));
         d.AddToDialogueList(("Anyway, it seems you have died a really horrible death.", 0));
         d.AddToDialogueList(("Like, your body literally exploded into a million tiny pieces, how does that even happen?", 0));
-        d.AddToDialogueList(("It's alright though, for Aoshi the Almighty will unexplode your million tiny pieces!", 0));
+        d.AddToDialogueList(("It's alright though, for the Almighty will unexplode your million tiny pieces!", 0));
 
         d.AddToDialogueList(("Right now, I will give you a few choices.", 0));
         d.AddToDialogueList(("Option A: I rewind back to the time before you died, and you get a second chance at escaping.", 0));

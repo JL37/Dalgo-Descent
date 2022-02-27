@@ -91,9 +91,9 @@ public class GameUI : MonoBehaviour
     {
         for (float i = 0; i <= 1; i += Time.deltaTime / duration)
         {
-            Color ogColor = m_GameOverBg.color;
-            ogColor.a = i;
-            m_GameOverBg.color = ogColor;
+            //Color ogColor = m_GameOverBg.color;
+            //ogColor.a = i;
+            m_GameOverBg.color = victory ? new Color(1, 1, 1, i) : new Color(0,0,0,i);
 
             yield return null;
         }
