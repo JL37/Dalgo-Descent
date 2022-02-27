@@ -7,20 +7,21 @@ public class LevelSystem
 {
     public event EventHandler OnExperienceChanged;
     public event EventHandler OnLevelChanged;
+ 
 
     private int m_level;
-    private int m_experience;
+    private float m_experience;
     private int m_skillpoints;
 
     public LevelSystem()
     {
         //init var
         this.m_level = 0;
-        this.m_experience = 0;
+        this.m_experience = 0.0f;
         this.m_skillpoints = 0;
     }
 
-    public void AddExperience(int _amount)
+    public void AddExperience(float _amount)
     {
         m_experience += _amount;
 
@@ -51,7 +52,7 @@ public class LevelSystem
         return (float)m_experience / GetExperienceToNextLevel(m_level);
     }
 
-    public int GetExperience()
+    public float GetExperience()
     {
         return m_experience;
     }

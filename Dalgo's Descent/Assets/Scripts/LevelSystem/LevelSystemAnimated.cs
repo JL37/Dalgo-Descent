@@ -14,7 +14,7 @@ public class LevelSystemAnimated
     private float m_updateTimerMax;
 
     private int m_level;
-    private int m_experience;
+    private float m_experience;
 
 
     public LevelSystemAnimated(LevelSystem level_system)

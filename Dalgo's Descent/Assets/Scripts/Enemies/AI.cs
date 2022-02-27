@@ -96,7 +96,8 @@ public class AI : MonoBehaviour
 
     public void Die()
     {
-        // LevelWindow.Instance.m_levelSystem.AddExperience(aiStrength);
+        print("AI strength : " + aiStrength);
+        LevelWindow.Instance.m_levelSystem.AddExperience(aiStrength);
         m_EnemyStats.health.DieAnimation();
         OnEnemyDeathListener?.Invoke(this);
     }
