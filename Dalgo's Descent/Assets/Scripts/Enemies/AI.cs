@@ -33,7 +33,7 @@ public class AI : MonoBehaviour
 
     protected EnemyManager m_EnemyManager;
 
-    protected int aiStrength;
+    protected float aiStrength;
 
     public delegate void OnEnemyDeathDelegate(AI ai);
     public event OnEnemyDeathDelegate OnEnemyDeathListener;
@@ -96,7 +96,7 @@ public class AI : MonoBehaviour
 
     public void Die()
     {
-        LevelWindow.Instance.m_levelSystem.AddExperience(aiStrength);
+        // LevelWindow.Instance.m_levelSystem.AddExperience(aiStrength);
         m_EnemyStats.health.DieAnimation();
         OnEnemyDeathListener?.Invoke(this);
     }
