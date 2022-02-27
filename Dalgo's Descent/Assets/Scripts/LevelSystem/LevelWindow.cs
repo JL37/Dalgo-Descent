@@ -24,8 +24,7 @@ public class LevelWindow : MonoBehaviour
 
     private void Update()
     {
-        
-            
+        m_levelText.text = "Lv " + (m_levelSystem.GetCurrentLevel() + 1);
     }
 
     public LevelSystemAnimated getLevelSystemAnimated()
@@ -40,7 +39,7 @@ public class LevelWindow : MonoBehaviour
 
     public void setLevelNum(int num)
     {
-        m_levelText.text = "Lv " + (num);
+        // m_levelText.text = "Lv " + (num + 1);
     }
 
     public void setLevel(int num)
