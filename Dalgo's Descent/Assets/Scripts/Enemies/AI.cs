@@ -35,6 +35,9 @@ public class AI : MonoBehaviour
 
     protected int aiStrength;
 
+    public delegate void OnEnemyDeathDelegate(AI ai);
+    public event OnEnemyDeathDelegate OnEnemyDeathListener;
+
     protected virtual void Awake()
     {
         aiType = AI_TYPE.AI_TYPE_NONE;
@@ -42,7 +45,7 @@ public class AI : MonoBehaviour
         m_Animator = GetComponentInChildren<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
         m_PlayerRef = GameObject.FindGameObjectWithTag("Player");
-
+        m_EnemyManager = GameObject.FindObjectOfType<EnemyManager>();
     }
 
     // Update is called once per frame
@@ -94,10 +97,8 @@ public class AI : MonoBehaviour
     public void Die()
     {
         LevelWindow.Instance.m_levelSystem.AddExperience(aiStrength);
-        if (m_EnemyManager)
-            m_EnemyManager.m_Enemies.Remove(this);
-
         m_EnemyStats.health.DieAnimation();
+        OnEnemyDeathListener?.Invoke(this);
     }
 
     void OnTriggerEnter(Collider other)
@@ -141,6 +142,16 @@ public class AI : MonoBehaviour
     public bool aggroActivated { 
         get { return m_AggroActivated; } 
         set { m_AggroActivated = value; }
+    }
+
+    private void OnEnable()
+    {
+        OnEnemyDeathListener += m_EnemyManager.RemoveEnemyFromArray;
+    }
+
+    private void OnDisable()
+    {
+        OnEnemyDeathListener -= m_EnemyManager.RemoveEnemyFromArray;
     }
 
 }

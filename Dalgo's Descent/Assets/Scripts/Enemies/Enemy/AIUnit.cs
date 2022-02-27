@@ -37,14 +37,14 @@ public class AIUnit : AI
         
     }
 
-    public void Init(float size, float strength, bool isMiniboss, EnemyManager enemyManager) 
+    public void Init(float size, float strength, bool isMiniboss) 
     {
         enemySize = size;
         this.isMiniboss = isMiniboss;
         aiStrength = (int)strength;
         transform.localScale = new Vector3(size, size, size);
         enemyStats.Init(strength);
-        m_EnemyManager = enemyManager;
+     
     }
 
     protected override void Update()

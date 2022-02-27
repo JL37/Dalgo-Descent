@@ -6,6 +6,7 @@ public class LevelStructure : MonoBehaviour
 {
     public int LevelNum;
 
+    public List<LevelBarrierTrigger> LevelBarriers;
     public GameObject ExteriorLayer;
     public GameObject ExteriorColliders;
     public Transform ExteriorCheckpoints;
@@ -21,7 +22,28 @@ public class LevelStructure : MonoBehaviour
             ExteriorCheckpoints.GetChild(i).GetComponent<MeshRenderer>().enabled = false;
     }
 
-
+    public void OnLevelComplete()
+    {
+        EnemyManager enemymanager = null;
+        // i would make it an event but im too lazy
+        if (TryGetComponent(out enemymanager))
+        {
+            if (enemymanager.LevelComplete)
+            {
+                foreach (var barrier in LevelBarriers)
+                {
+                    barrier.SetActivation(false);
+                }
+            }
+            else
+            {
+                foreach (var barrier in LevelBarriers)
+                {
+                    barrier.SetActivation(true);
+                }
+            }
+        }
+    }
     public void OnCurrentLevelExit()
     {
         ExteriorLayer.SetActive(true);
@@ -51,8 +73,6 @@ public class LevelStructure : MonoBehaviour
             other.GetComponent<CharacterController>().Move((closestpoint.position + new Vector3(0, 5, 0)) - other.transform.position);
         }
     }
-
-    
 
     void OnEnable()
     {
