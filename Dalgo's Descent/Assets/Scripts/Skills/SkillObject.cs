@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Skill", menuName = "ScriptableObjects/SkillObject")]
@@ -52,18 +53,12 @@ public class SkillObject : ScriptableObject
 
     private void OnEnable()
     {
-        _skillName = m_SkillName;
-        _skillDescription = m_SkillDescription;
-        _skillSprite = m_SkillSprite;
-        _skillAnimation = m_SkillAnimation;
-        _skillCooldown = m_SkillCooldown;
-        _originalSkillCooldown = m_SkillCooldown;
-        _finalSkillCooldown = m_MaxSkillCooldown;
-        _skillCooldownTimer = 0f;
-        _unlocked = m_Unlocked;
-        _skillPoints = 0; 
-        _maxSkillPoints = m_MaxSkillPoints;
-        _inputActionReference = m_InputActionReference;
+        SceneManager.activeSceneChanged += ResetOnSceneChanged;
+        ResetSkill();
+    }
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= ResetOnSceneChanged;
     }
 
     public void RebindKey(string keycode)
@@ -84,5 +79,26 @@ public class SkillObject : ScriptableObject
         _skillCooldown = _originalSkillCooldown - ((CurrentSkillPoints - 1) * ((_originalSkillCooldown - _finalSkillCooldown) / (_maxSkillPoints - 1)));
 
         return true;
+    }
+
+    public void ResetSkill() 
+    {
+        _skillName = m_SkillName;
+        _skillDescription = m_SkillDescription;
+        _skillSprite = m_SkillSprite;
+        _skillAnimation = m_SkillAnimation;
+        _skillCooldown = m_SkillCooldown;
+        _originalSkillCooldown = m_SkillCooldown;
+        _finalSkillCooldown = m_MaxSkillCooldown;
+        _skillCooldownTimer = 0f;
+        _unlocked = m_Unlocked;
+        _skillPoints = 0;
+        _maxSkillPoints = m_MaxSkillPoints;
+        _inputActionReference = m_InputActionReference;
+    }
+
+    public void ResetOnSceneChanged(Scene scn1, Scene scn2)
+    {
+        ResetSkill();
     }
 }
