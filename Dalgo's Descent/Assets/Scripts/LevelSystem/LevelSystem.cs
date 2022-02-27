@@ -29,8 +29,13 @@ public class LevelSystem
             m_experience -= GetExperienceToNextLevel(m_level);
             m_level++;
             m_skillpoints++;
-            if(OnLevelChanged != null)
+            PlayerStats playerstats = GameObject.FindObjectOfType<PlayerStats>();
+            playerstats.m_Health.maxHealth = playerstats.m_Health.currentHealth = playerstats.m_Health.maxHealth + (100 * 0.5f * m_level);
+
+            if (OnLevelChanged != null)
                 OnLevelChanged(this,EventArgs.Empty);
+
+            
         }
         if(OnExperienceChanged != null)
             OnExperienceChanged(this, EventArgs.Empty);
