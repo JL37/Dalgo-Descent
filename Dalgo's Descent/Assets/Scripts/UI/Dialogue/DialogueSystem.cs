@@ -17,6 +17,7 @@ public class DialogueSystem : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] TMP_Text m_DialogueTextObject;
+    [SerializeField] TMP_Text m_NameTextObject;
     [SerializeField] Image m_CurrFace;
     [SerializeField] Image m_Arrow;
 
@@ -24,7 +25,12 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] Sprite m_DefaultFaceSprite;
     [SerializeField] int m_FaceApperanceIdx = 1; //Index in which face appears
     [SerializeField] float m_Timer = 0.1f;
-    
+
+    [Header("Subscribers")]
+    [SerializeField] DialogueListener[] m_DialogueListeners;
+
+    protected string m_SignalStr = "DEFAULT_END";
+
     //List for dialogue and stuff
     protected List<(string dialogue, float duration)> m_DialogueList;
     protected List<(Sprite img, int specialIdx)> m_FaceExeption;
@@ -32,6 +38,7 @@ public class DialogueSystem : MonoBehaviour
 
     //List for triggers
     protected List<(Sprite defaultFace, int specialIdx)> m_DefaultFaceEventList;
+    protected List<(string name, int specialIdx)> m_DefaultNameEventList;
 
     protected FaceAnimationListener m_AnimationListener;
     protected Sprite m_CurrFaceSprite;
@@ -49,6 +56,7 @@ public class DialogueSystem : MonoBehaviour
         m_AnimationList = new List<(ANITYPE animation, int specialIdx)>();
 
         m_DefaultFaceEventList = new List<(Sprite defaultFace, int specialIdx)>();
+        m_DefaultNameEventList = new List<(string name, int specialIdx)>();
 
         m_Arrow.gameObject.SetActive(false);
     }
@@ -63,6 +71,11 @@ public class DialogueSystem : MonoBehaviour
     private void LateUpdate()
     {
         AnimationSignalLateUpdate();
+    }
+
+    public void SetSignalText(string text)
+    {
+        m_SignalStr = text;
     }
 
     protected void AnimationSignalLateUpdate()
@@ -171,16 +184,11 @@ public class DialogueSystem : MonoBehaviour
 
     protected void AnimateText()
     {
+        //Events that will run for when entering the next line for the first time
         CheckEvents();
 
         //Text animation
         StartCoroutine(I_AnimateText());
-
-        //Face animation
-        if (!m_CurrFace.gameObject.activeSelf && m_CurrIdx == m_FaceApperanceIdx)
-            m_CurrFace.GetComponent<DialogueFace>().Initialise(m_DefaultFaceSprite);
-        else if (m_CurrFace.gameObject.activeSelf)
-            m_CurrFace.GetComponent<DialogueFace>().Initialise(GetCurrentSprite(m_CurrIdx));
     }
 
     protected void CheckEvents()
@@ -195,6 +203,29 @@ public class DialogueSystem : MonoBehaviour
         Sprite newDefault = GetNewDefaultSprite(m_CurrIdx);
         if (newDefault)
             m_DefaultFaceSprite = newDefault;
+
+
+        //Change default name event
+        string newName = GetNewDefaultName(m_CurrIdx);
+        if (newName != m_NameTextObject.text)
+            m_NameTextObject.text = newName;
+
+        //Face animation
+        if (!m_CurrFace.gameObject.activeSelf && m_CurrIdx == m_FaceApperanceIdx)
+            m_CurrFace.GetComponent<DialogueFace>().Initialise(m_DefaultFaceSprite);
+        else if (m_CurrFace.gameObject.activeSelf)
+            m_CurrFace.GetComponent<DialogueFace>().Initialise(GetCurrentSprite(m_CurrIdx));
+    }
+
+    protected string GetNewDefaultName(int specialIdx)
+    {
+        for (int i = 0; i < m_DefaultNameEventList.Count; ++i)
+        {
+            if (specialIdx == m_DefaultNameEventList[i].specialIdx)
+                return m_DefaultNameEventList[i].name;
+        }
+
+        return m_NameTextObject.text;
     }
 
     protected Sprite GetNewDefaultSprite(int specialIdx)
@@ -211,6 +242,8 @@ public class DialogueSystem : MonoBehaviour
     protected void ActivateAnimations(int animationIdx)
     {
         (ANITYPE animation, float duration) tuple = (m_AnimationList[animationIdx].animation, m_DialogueList[m_CurrIdx].duration);
+
+        m_CurrFace.GetComponent<DialogueFace>().Initialise(m_CurrFaceSprite);
         m_CurrFace.GetComponent<DialogueFace>().InitialiseAnimation(tuple);
     }
 
@@ -235,7 +268,44 @@ public class DialogueSystem : MonoBehaviour
         //Animate letter by letter
         for (int i = 0; i < m_DialogueList[m_CurrIdx].dialogue.Length; ++i)
         {
-            //print("animatin..." + m_DialogueList[m_CurrIDx].dialogue);
+            if (m_DialogueList[m_CurrIdx].dialogue[i] == '<')
+            {
+                string checkingStr = "<color";
+                string checkingStr2 = "</color>";
+
+                string strToCheck = m_DialogueList[m_CurrIdx].dialogue.Substring(i, checkingStr.Length);
+                string strToCheck2 = m_DialogueList[m_CurrIdx].dialogue.Substring(i, checkingStr2.Length);
+
+                if (strToCheck.ToLower() == checkingStr.ToLower())
+                {
+                    strToCheck = m_DialogueList[m_CurrIdx].dialogue.Substring(i);
+                    string colorStr = strToCheck;
+                    colorStr = colorStr.Substring(0, colorStr.IndexOf('>') + 1);
+
+                    i = i + colorStr.Length;
+                    m_DialogueTextObject.text = m_DialogueList[m_CurrIdx].dialogue.Substring(0, i);
+                }
+                else if (strToCheck2.ToLower() == checkingStr2.ToLower())
+                {
+                    i = i + checkingStr2.Length + 1;
+
+                    if (i >= m_DialogueList[m_CurrIdx].dialogue.Length)
+                    {
+                        i = m_DialogueList[m_CurrIdx].dialogue.Length - 1;
+                        m_DialogueTextObject.text = m_DialogueList[m_CurrIdx].dialogue;
+                    } 
+                    else
+                    {
+                        m_DialogueTextObject.text = m_DialogueList[m_CurrIdx].dialogue.Substring(0, i);
+                    }
+                }
+
+                if (i >= m_DialogueList[m_CurrIdx].dialogue.Length - 1)
+                {
+                    i = m_DialogueList[m_CurrIdx].dialogue.Length - 1;
+                    break;
+                }
+            }
 
             //When left click or space is pressed (To skip)
             if (m_AnimationDone)
@@ -251,6 +321,15 @@ public class DialogueSystem : MonoBehaviour
 
         m_AnimationDone = true;
         m_Animating = false;
+
+        if (m_CurrIdx >= m_DialogueList.Count - 1)
+            SendSignalToAllSubscribers();
+    }
+
+    protected void SendSignalToAllSubscribers()
+    {
+        foreach (DialogueListener listener in m_DialogueListeners)
+            listener.ReceiveSignal(m_SignalStr);
     }
 
     public int AddToDialogueList((string name, float duration) tuple)
@@ -303,5 +382,41 @@ public class DialogueSystem : MonoBehaviour
 
         m_DefaultFaceEventList.Add(tuple);
         return true;
+    }
+
+    public bool AddDefaultNameEvent((string name, int specialIndex) tuple)
+    {
+        for (int i = 0; i < m_DefaultNameEventList.Count; ++i)
+        {
+            if (m_DefaultNameEventList[i].specialIdx == tuple.specialIndex)
+            {
+                print("Default event list index " + tuple.specialIndex + " already added");
+                return false;
+            }
+        }
+
+        m_DefaultNameEventList.Add(tuple);
+        return true;
+    }
+
+    public void SetFaceAppearanceIdx(int idx) { m_FaceApperanceIdx = idx; }
+
+    public void ResetSystem()
+    {
+        m_CurrIdx = 0;
+
+        m_RiggedTimer = false;
+        m_Animating = false;
+        m_AnimationDone = true;
+
+        m_DialogueList.Clear();
+        m_FaceExeption.Clear();
+        m_AnimationList.Clear();
+
+        m_DefaultFaceEventList.Clear();
+        m_DefaultNameEventList.Clear();
+
+        m_Arrow.gameObject.SetActive(false);
+        m_CurrFaceSprite = m_DefaultFaceSprite;
     }
 }
