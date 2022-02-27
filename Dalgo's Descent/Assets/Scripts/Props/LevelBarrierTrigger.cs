@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class LevelBarrierTrigger : MonoBehaviour
 {
+    public bool Activated;
     public bool IsNextLevel;
     public Collider TriggerCollider;
     public Collider BarrierCollider;
     MeshRenderer BarrierMesh;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         BarrierMesh = GetComponent<MeshRenderer>();
@@ -17,8 +19,31 @@ public class LevelBarrierTrigger : MonoBehaviour
         BarrierCollider.enabled = false;
     }
 
-    private void OnTriggerExit(Collider other)
+    void Update()
     {
+        SetActivation(Activated);    
+    }
+    public void SetActivation(bool active)
+    {
+        Activated = active;
+        if (active)
+        {
+            BarrierMesh.enabled = true;
+            BarrierCollider.enabled = true;
+        }
+        else
+        {
+            BarrierMesh.enabled = false;
+            BarrierCollider.enabled = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (Activated)
+            return;
+
+        Activated = true;
         BarrierMesh.enabled = true;
         BarrierCollider.enabled = true;
 
