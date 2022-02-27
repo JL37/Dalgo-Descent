@@ -29,7 +29,7 @@ public class BossAI : AI
 
     [Header("Boss Attack Modifiers")]
     public float woodThrowModifier = 1.4f;
-    public float groundSlamModifier = 3f;
+    public float groundSlamModifier = 2.5f;
 
     protected override void Awake()
     {
