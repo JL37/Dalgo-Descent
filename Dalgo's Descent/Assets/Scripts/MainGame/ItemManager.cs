@@ -31,7 +31,7 @@ public class ItemManager : MonoBehaviour
     {
         if (m_IsSpawning)
         {
-            SpawnChests(Random.Range(1, 2) * (int)DifficultyManager.Instance.difficultyScaling);
+            SpawnChests(Random.Range(1, 3) * (int)DifficultyManager.Instance.difficultyScaling);
             m_IsSpawning = false;
         }
     }

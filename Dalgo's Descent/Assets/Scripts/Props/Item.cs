@@ -133,19 +133,19 @@ public class Item
         switch (m_CurrRarity)
         {
             case RARITY.COMMON:
-                m_CurrType = (TYPE)Random.Range((int)TYPE.F_COMMON + 1, (int)TYPE.F_UNCOMMON - 1);
+                m_CurrType = (TYPE)Random.Range((int)TYPE.F_COMMON + 1, (int)TYPE.F_UNCOMMON);
                 break;
             case RARITY.UNCOMMON:
-                m_CurrType = (TYPE)Random.Range((int)TYPE.F_UNCOMMON + 1, (int)TYPE.F_RARE - 1);
+                m_CurrType = (TYPE)Random.Range((int)TYPE.F_UNCOMMON + 1, (int)TYPE.F_RARE);
                 break;
             case RARITY.RARE:
-                m_CurrType = (TYPE)Random.Range((int)TYPE.F_RARE + 1, (int)TYPE.F_EPIC - 1);
+                m_CurrType = (TYPE)Random.Range((int)TYPE.F_RARE + 1, (int)TYPE.F_EPIC);
                 break;
             case RARITY.EPIC:
-                m_CurrType = (TYPE)Random.Range((int)TYPE.F_EPIC + 1, (int)TYPE.F_LEGENDARY - 1);
+                m_CurrType = (TYPE)Random.Range((int)TYPE.F_EPIC + 1, (int)TYPE.F_LEGENDARY);
                 break;
             case RARITY.LEGENDARY:
-                m_CurrType = (TYPE)Random.Range((int)TYPE.F_LEGENDARY + 1, (int)TYPE.F_TOTAL - 1);
+                m_CurrType = (TYPE)Random.Range((int)TYPE.F_LEGENDARY + 1, (int)TYPE.F_TOTAL);
                 break;
             default:
                 Debug.Log("Current rarity set is invalid! Cannot initialise random item!");
@@ -156,7 +156,7 @@ public class Item
     protected void InitialiseRarity()
     {
         //Randomising rarity first
-        int randRarity = Random.Range(0, 100);
+        int randRarity = Random.Range(0, 101);
 
         foreach (RARITY currRarity in Enum.GetValues(typeof(RARITY)))
         {

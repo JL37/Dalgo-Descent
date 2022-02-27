@@ -99,4 +99,10 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: 72d9f173a71056f4987dba1cfc2e4073, type: 3}
+    name: EndingSong
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
   audioMixer: {fileID: 24100000, guid: 58ecc9ff2831a6948899dad858bf6045, type: 2}

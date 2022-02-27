@@ -73,6 +73,8 @@ public class PostGameInfo
         return m_CurrIdx < 5 ? ++m_CurrIdx : m_CurrIdx;
     }
 
+    public int GetCurrIdx() { return m_CurrIdx; }
+
     public void Reset()
     {
         m_TimePassed = 0f;
