@@ -25,6 +25,7 @@ public class DialogueFace : MonoBehaviour
     [Header("Variables to adjust")]
     [SerializeField] float m_LerpSpd = 0.15f;
 
+    protected Vector2 m_OriginalSize;
     protected Vector3 m_OriginalPos;
     protected Vector3 m_PrevPos;
     protected Vector3 m_DialogueTextPrevPos;
@@ -48,6 +49,7 @@ public class DialogueFace : MonoBehaviour
         GetComponent<RectTransform>().localPosition += m_DownOffSet;
 
         m_RectTransform = GetComponent<RectTransform>();
+        m_OriginalSize = m_RectTransform.sizeDelta;
 
         gameObject.SetActive(false);
     }
@@ -122,6 +124,8 @@ public class DialogueFace : MonoBehaviour
         {
             case DialogueSystem.ANITYPE.NOTHING:
                 rectTransform.localPosition = m_OriginalPos + m_DownOffSet;
+                rectTransform.sizeDelta = m_OriginalSize;
+
                 //Duration changes to lerp spd
                 if (tuple.duration <= 1 && tuple.duration > 0)
                     m_LerpSpd = tuple.duration;

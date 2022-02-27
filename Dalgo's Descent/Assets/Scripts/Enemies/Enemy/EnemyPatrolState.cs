@@ -57,8 +57,10 @@ public class EnemyPatrolState : EnemyBaseState
 
     private void SearchWalkPoint()
     {
+        int searchCount = 0;
         while (!walkpointSet)
         {
+            searchCount++;
             aiUnit.targetPosition = new Vector3(aiUnit.transform.position.x + Random.Range(5, -5), aiUnit.transform.position.y, aiUnit.transform.position.z + Random.Range(5, -5));
             Debug.Log("Walkpoint Set");
 
@@ -66,6 +68,12 @@ public class EnemyPatrolState : EnemyBaseState
             if (agent.CalculatePath(aiUnit.targetPosition, path) && path.status == NavMeshPathStatus.PathComplete)
             {
                 walkpointSet = true;
+            }
+
+            if (searchCount > 50)
+            {
+                Destroy(aiUnit.gameObject);
+                break;
             }
         }
     }
