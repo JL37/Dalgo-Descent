@@ -129,7 +129,7 @@ public class EnemyManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         m_Wave++;
-        if (GetComponent<LevelStructure>().LevelNum < GameLevelManager.Instance.TotalLevels)
+        if (!GameLevelManager.Instance.IsLastLevel())
         {
             if (m_Wave < m_NumWaves)
                 SpawnEnemies(1f, DifficultyManager.Instance.NumEnemiesPerWave, m_AssociatedLevel.EnemySpawnLocation.position);
