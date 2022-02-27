@@ -367,11 +367,11 @@ public class PlayerStats : MonoBehaviour
             case SLASH_TYPE.SLASH_3:
                 return (int)(BasicAtk * 1.2f + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
             case SLASH_TYPE.CLEAVE:
-                return (int)(BasicAtk * 2.5f * CleaveSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
+                return (int)(BasicAtk * 2.5f * CleaveSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f) * SkillDmg);
             case SLASH_TYPE.SHOVEL_CUT:
-                return (int)(BasicAtk * 2f * ShovelCutSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
+                return (int)(BasicAtk * 2f * ShovelCutSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f) * SkillDmg);
             case SLASH_TYPE.SLAM_DUNK:
-                return (int)(BasicAtk * 3f * SlamDunkSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f));
+                return (int)(BasicAtk * 3f * SlamDunkSkill.CurrentSkillPoints + ((LevelWindow.Instance.m_levelSystem.GetCurrentLevel() + 1) * 1.4f) * SkillDmg);
             default:
                 return BasicAtk;
         }
