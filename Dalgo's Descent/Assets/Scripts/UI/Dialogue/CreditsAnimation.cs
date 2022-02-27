@@ -73,7 +73,7 @@ public class CreditsAnimation : MonoBehaviour
 
         m_CreditsText.text = newText.Replace("\\n","\n");
 
-        print(m_CreditsText.text);
+        //print(m_CreditsText.text);
         m_CurrArr.Add(newText);
 
         m_Enumerator = null;
