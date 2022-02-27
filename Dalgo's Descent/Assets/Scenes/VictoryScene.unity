@@ -224,9 +224,9 @@ MonoBehaviour:
   - ART\nELIZE
   - ART\nMELVRICK
   - ART\nJUSTIN
-  m_FlashDuration: 0.15
+  m_FlashDuration: 0.075
   m_FlashAmount: 3
-  m_MaxTimer: 1.7
+  m_MaxTimer: 1.5
 --- !u!1 &259901881
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ Canvas:
   m_GameObject: {fileID: 299739132}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 259901883}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

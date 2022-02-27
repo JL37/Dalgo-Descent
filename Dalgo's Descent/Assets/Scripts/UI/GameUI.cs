@@ -72,6 +72,7 @@ public class GameUI : MonoBehaviour
     {
         GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
         GetComponent<Canvas>().worldCamera = Camera.main;
+        //AudioManager.Instance.Play("VictorySfx");
 
         for (float i = 0; i <= 1; i += Time.deltaTime / duration)
         {
