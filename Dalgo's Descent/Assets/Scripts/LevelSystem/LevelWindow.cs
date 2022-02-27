@@ -40,7 +40,7 @@ public class LevelWindow : MonoBehaviour
 
     public void setLevelNum(int num)
     {
-        m_levelText.text = "Lv " + (num-1);
+        m_levelText.text = "Lv " + (num);
     }
 
     public void setLevel(int num)
@@ -78,7 +78,7 @@ public class LevelWindow : MonoBehaviour
         }*/
     private void LevelSystemAnimated_OnLevelChanged(object sender, EventArgs e)
     {
-        setLevelNum(getSkillpoints()); //after level has been changed, change the text
+        setLevelNum(m_levelSystem.GetCurrentLevel()); //after level has been changed, change the text
     }
 
     private void LevelSystemAnimated_OnExperienceChanged(object sender, EventArgs e)
