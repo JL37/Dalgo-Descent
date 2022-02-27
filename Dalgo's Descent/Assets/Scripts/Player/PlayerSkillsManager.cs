@@ -204,6 +204,6 @@ public class PlayerSkillsManager : MonoBehaviour
         ActiveSkillIndex = index;
         PlayerAnimator.Play(Skills[index].SkillAnimation.name, SkillLayerIndex);
         PlayerAnimator.SetLayerWeight(SkillLayerIndex, 1);
-        Skills[index].SkillCooldownTimer = Skills[index].SkillCooldown;
+        Skills[index].SkillCooldownTimer = Skills[index].SkillCooldown * m_playerStats.CDReduction;
     }
 }

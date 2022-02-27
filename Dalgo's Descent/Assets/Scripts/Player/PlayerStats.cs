@@ -14,6 +14,9 @@ public class PlayerStats : MonoBehaviour
 
     protected int m_BaseHealth = 100;
     protected int m_HealthAdd = 0;
+    protected float m_HealthRegenPerRate = 2f;
+    protected float m_HealthRegenRate = 5f; // seconds to next regen
+    protected float m_HealthRegenTimer = 0f;
 
     protected float m_AtkSpd = 1f;
     protected float m_LifeSteal = 0f;
@@ -23,7 +26,7 @@ public class PlayerStats : MonoBehaviour
 
     protected float m_DmgTakenMultiplier = 1f;
 
-    protected float m_BaseCoolDown = 1f;
+    protected float m_CoolDownReduction = 1f;
     protected float m_BaseSkillDmg = 1f;
 
     protected float m_MovementSpd = 1f;
@@ -62,6 +65,16 @@ public class PlayerStats : MonoBehaviour
         m_BaseHealth = (int)m_Health.maxHealth;
     }
 
+    private void Update()
+    {
+        m_HealthRegenTimer -= Time.deltaTime;
+        if (m_HealthRegenTimer < 0f)
+        {
+            m_HealthRegenTimer = m_HealthRegenRate;
+            Replenish_Health((int)m_HealthRegenPerRate);
+        }
+    }
+
     public void Received_Damage(int damageAmount)
     {
         if (m_Health.currentHealth <= 0.0f)
@@ -81,10 +94,10 @@ public class PlayerStats : MonoBehaviour
         m_Health.currentHealth += amount;
         UpdatePlayerIcon();
         //if (m_Health >= 100)
-        if (m_Health.currentHealth >= 100)
+        if (m_Health.currentHealth >= m_Health.maxHealth)
         {
             //m_Health = 100;
-            m_Health.currentHealth = 100;
+            m_Health.currentHealth = m_Health.maxHealth;
         }
         if (onHealthChanged != null)
             onHealthChanged(this, EventArgs.Empty);
@@ -202,10 +215,10 @@ public class PlayerStats : MonoBehaviour
         set { m_DmgTakenMultiplier = value; }
     }
 
-    public float SkillCD
+    public float CDReduction
     {
-        get { return m_BaseCoolDown; }
-        set { m_BaseCoolDown = value; }
+        get { return m_CoolDownReduction; }
+        set { m_CoolDownReduction = value; }
     }
 
     public float SkillDmg
@@ -259,7 +272,6 @@ public class PlayerStats : MonoBehaviour
 
         m_DmgTakenMultiplier -= perc;
 
-        m_BaseCoolDown -= perc;
         m_BaseSkillDmg += perc;
 
         m_MovementSpd += perc;

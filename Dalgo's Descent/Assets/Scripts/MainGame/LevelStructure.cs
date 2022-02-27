@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelStructure : MonoBehaviour
 {
+    public int LevelNum;
+
     public GameObject ExteriorLayer;
     public GameObject ExteriorColliders;
     public Transform ExteriorCheckpoints;

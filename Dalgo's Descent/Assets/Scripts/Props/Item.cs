@@ -163,7 +163,7 @@ public class Item
                 stat.SkillDmg += m_EffectVal / 100f;
                 break;
             case TYPE.CHRONOSCYTHE:
-                stat.SkillCD -= m_EffectVal / 100f;
+                stat.CDReduction -= m_EffectVal / 100f;
                 break;
             case TYPE.DOUBEEDGEDSCYTHE: //INCREASE DAMAGE TAKEN BY 10%, INCREASE DAMAGE DEALT BY 15%
                 stat.DamageTakenMultiplier += m_SideEffectsVal / 100f;

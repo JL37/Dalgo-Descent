@@ -221,6 +221,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460454829852956838, guid: af92c2b4a014f8848a310dc5d12bc4e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 460454829852956838, guid: af92c2b4a014f8848a310dc5d12bc4e9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 87bd20252d9b4274b9916c5b1c0ac0ef, type: 2}
@@ -243,6 +247,10 @@ PrefabInstance:
     - target: {fileID: 460454829852956857, guid: af92c2b4a014f8848a310dc5d12bc4e9, type: 3}
       propertyPath: m_Name
       value: Chest (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 460454829852956857, guid: af92c2b4a014f8848a310dc5d12bc4e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5724665402285688498, guid: af92c2b4a014f8848a310dc5d12bc4e9, type: 3}
       propertyPath: m_Camera
@@ -1105,6 +1113,17 @@ Transform:
   m_Father: {fileID: 910405697}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &386270582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 229982603349147797, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
+  m_PrefabInstance: {fileID: 1589087539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4623969db12a549a572d5428176790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &613563393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
-  TotalLevels: 3
+  TotalLevels: 2
   CurrentLevel: 0
   LevelOffset: 20
   LevelContainer: {fileID: 2006774260}
@@ -2219,7 +2238,7 @@ MonoBehaviour:
   LevelPrefabs:
   - {fileID: 140074839874931107, guid: bc89f95300d14dc4bb908f641d127952, type: 3}
   Player: {fileID: 317243288}
-  EnemySpawnLocation: {fileID: 0}
+  BossObject: {fileID: 386270582}
 --- !u!1001 &1589087539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2342,6 +2361,10 @@ PrefabInstance:
     - target: {fileID: 1480428180458386573, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.066072
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559048877591265076, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
+      propertyPath: baseDamage
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1905453947179017111, guid: 4b9a4e18c0b609546a39f15eec0715c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

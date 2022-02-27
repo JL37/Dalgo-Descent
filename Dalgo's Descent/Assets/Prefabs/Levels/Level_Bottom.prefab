@@ -384,6 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4fb5a6b3f960c4894e29cfe5a107a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNum: 0
   ExteriorLayer: {fileID: 7070193027288392851}
   ExteriorColliders: {fileID: 1601648891841383942}
   ExteriorCheckpoints: {fileID: 7604555546593627285}
@@ -550,6 +551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBaseMesh_Mushroom (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cacde3bf5d72b4c83946ddae3d2dc8, type: 3}
+      propertyPath: m_TagString
+      value: ProjCollidable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cacde3bf5d72b4c83946ddae3d2dc8, type: 3}
 --- !u!4 &194940262397730810 stripped
@@ -612,6 +617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBaseMesh_Mushroom (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cacde3bf5d72b4c83946ddae3d2dc8, type: 3}
+      propertyPath: m_TagString
+      value: ProjCollidable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cacde3bf5d72b4c83946ddae3d2dc8, type: 3}
 --- !u!4 &63927394345109641 stripped
@@ -673,6 +682,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02cacde3bf5d72b4c83946ddae3d2dc8, type: 3}
       propertyPath: m_Name
       value: LevelBaseMesh_Mushroom (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cacde3bf5d72b4c83946ddae3d2dc8, type: 3}
+      propertyPath: m_TagString
+      value: ProjCollidable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cacde3bf5d72b4c83946ddae3d2dc8, type: 3}
@@ -739,6 +752,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 833037742f325c54bb99bd2f2577ed32, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 833037742f325c54bb99bd2f2577ed32, type: 3}
+      propertyPath: m_TagString
+      value: ProjCollidable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833037742f325c54bb99bd2f2577ed32, type: 3}
@@ -1000,6 +1017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBaseMesh_Branch
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 86cc1ef9d5c23aa4685a24f7a99a7b45, type: 3}
+      propertyPath: m_TagString
+      value: ProjCollidable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86cc1ef9d5c23aa4685a24f7a99a7b45, type: 3}
 --- !u!4 &6308947330318083385 stripped
@@ -1065,6 +1086,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c83fe2b48bd52cd46827bd4c2c032cc6, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c83fe2b48bd52cd46827bd4c2c032cc6, type: 3}
+      propertyPath: m_TagString
+      value: ProjCollidable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83fe2b48bd52cd46827bd4c2c032cc6, type: 3}
