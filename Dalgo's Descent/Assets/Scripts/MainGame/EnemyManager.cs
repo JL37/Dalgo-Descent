@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     private int m_Wave;
     private int m_NumWaves;
 
-    bool LevelComplete = false;
+    public bool LevelComplete { get; private set; }
 
     private void Start()
     {

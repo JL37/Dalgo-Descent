@@ -119,7 +119,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
 
         i = d.AddToDialogueList(("<color=red>ARE YOU F###ING SERIOUS RIGHT NOW?</color>", 0));
         d.SetFaceAppearanceIdx(i);
-        d.AddDefaultNameEvent(("Aoshi", i));
+        d.AddDefaultNameEvent(("Almighty", i));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
         d.AddDefaultFaceEvent((m_Angry, i));
 
@@ -141,7 +141,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
 
         i = d.AddToDialogueList(("OH MY GOD. Are you serious???? How'd you even-", 0));
         d.SetFaceAppearanceIdx(i);
-        d.AddDefaultNameEvent(("Aoshi", i));
+        d.AddDefaultNameEvent(("Almighty", i));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
         d.AddFaceException((m_Annoyed, i));
 
@@ -172,7 +172,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
 
         i = d.AddToDialogueList(("Oh you? Didn't I revive you a few moments ago???", 0));
         d.SetFaceAppearanceIdx(i);
-        d.AddDefaultNameEvent(("Aoshi", i));
+        d.AddDefaultNameEvent(("Almighty", i));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
         d.AddFaceException((m_SomewhatAnnoyed,i));
 
@@ -234,7 +234,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.AddAnimationSequence((DialogueSystem.ANITYPE.NOTHING, i));
 
         d.AddToDialogueList(("Let's- Let's just try this again.", 0));
-        d.AddToDialogueList(("My name is Aoshi, and I'm your God.", 0));
+        d.AddToDialogueList(("My name is Almighty, and I'm your God.", 0));
         d.AddToDialogueList(("And just in case your brain is so small to the point where you can't remember certain things", 0));
 
         i = d.AddToDialogueList(("TO THE POINT WHERE YOU FORGOT YOUR OWN CREATOR.", 0));
@@ -242,7 +242,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         d.AddFaceException((m_Annoyed, i));
 
         i = d.AddToDialogueList(("I will just add my name to the top left of that small little box.", 0));
-        d.AddDefaultNameEvent(("Aoshi", i));
+        d.AddDefaultNameEvent(("Almighty", i));
 
         i = d.AddToDialogueList(("What even is that small little box anyway? Why's it copying what I'm saying?-", 0));
         d.AddFaceException((m_SomewhatAnnoyed, i));

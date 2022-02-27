@@ -1121,9 +1121,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 05862828b2b9cfa4dad17f103a76f65a, type: 2}
     - target: {fileID: 3480291284687717583, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.6862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480291284687717583, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.78823537
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480291284687717583, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.8745099
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480291284687717583, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1579057506505466885, guid: 05862828b2b9cfa4dad17f103a76f65a, type: 2}
+    - target: {fileID: 3480291284687717583, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4289710559
+      objectReference: {fileID: 0}
     - target: {fileID: 3480291284934961387, guid: def499f6fdf173143a3904fcc01f526c, type: 3}
       propertyPath: m_DialogueListeners.Array.size
       value: 1
