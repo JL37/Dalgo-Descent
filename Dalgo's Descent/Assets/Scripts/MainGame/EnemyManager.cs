@@ -150,4 +150,13 @@ public class EnemyManager : MonoBehaviour
             m_Enemies.Add(boss);
         }
     }
+
+    public void RemoveEnemyFromArray(AI ai)
+    {
+        if (ai.aiType == AI.AI_TYPE.AI_TYPE_BOSS)
+            BossKilled = true;
+
+        m_Enemies.Remove(ai);
+    }
+
 }
