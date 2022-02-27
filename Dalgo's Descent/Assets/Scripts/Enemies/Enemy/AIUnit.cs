@@ -64,6 +64,7 @@ public class AIUnit : AI
             smr.materials[0].SetFloat("_CutoffHeight", Mathf.Clamp(smr.materials[0].GetFloat("_CutoffHeight"), -1f, 3f));
         }
 
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.P))
         {
             EnemyKnockup(20);
@@ -73,6 +74,7 @@ public class AIUnit : AI
         {
             EnemyHit(200, 100f);
         }
+#endif
     }
 
     public float GetSize() { return enemySize; }
