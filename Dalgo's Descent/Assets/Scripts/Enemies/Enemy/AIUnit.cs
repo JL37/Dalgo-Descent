@@ -167,11 +167,11 @@ public class AIUnit : AI
         if (isMiniboss)
         {
             GameManager.Instance.DisableBossHealthUI();
-            Factory.CreateCoins(transform.position, Random.Range(3, 5));
+            Factory.CreateCoins(transform.position, Random.Range(3, 6));
         }
         else
         {
-            Factory.CreateCoins(transform.position, Random.Range(1, 2));
+            Factory.CreateCoins(transform.position, Random.Range(1, 3));
             m_HealthUI.StartFadeAnimation(true);
         }
     }
