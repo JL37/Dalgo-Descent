@@ -61,7 +61,7 @@ public class AIUnit : AI
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            EnemyHit(10, 100f);
+            EnemyHit(200, 100f);
         }
     }
 

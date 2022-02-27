@@ -644,6 +644,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1704681914332765323, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
+      propertyPath: JumpForce
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704681914332765323, guid: ea4bf444538ee61459d574e595b2b2de, type: 3}
       propertyPath: IdleInterval
       value: 10
       objectReference: {fileID: 0}
@@ -1817,6 +1821,7 @@ MonoBehaviour:
   m_EnemyPrefab: {fileID: 3676725544286473702, guid: 293c6e76fd666e74c8046c77cef45f6f, type: 3}
   m_EnemyHolder: {fileID: 0}
   m_Enemies: []
+  BossSpawnLocation: {fileID: 0}
 --- !u!1 &1403279499
 GameObject:
   m_ObjectHideFlags: 0

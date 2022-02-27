@@ -46,7 +46,10 @@ public class GameLevelManager : Singleton<GameLevelManager>
     void CreateNextLevel()
     {
         if (CurrentLevel >= TotalLevels)
+        {
+            PlayArea.GetComponent<EnemyManager>().SpawnBoss(PlayArea.GetComponent<EnemyManager>().BossSpawnLocation.position);
             return;
+        }
 
         CurrentLevel++;
         if (CurrentLevel == 1)
