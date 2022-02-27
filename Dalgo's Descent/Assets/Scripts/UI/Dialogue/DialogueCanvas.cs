@@ -69,7 +69,65 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
             case EMOTION.ANNOYED:
                 AddAnnoyedDialogue();
                 break;
+
+            case EMOTION.ANGRY:
+                AddAngryDialogue();
+                break;
+
+            case EMOTION.ACCEPTANCE:
+                AddAcceptanceDialogue();
+                break;
+
+            case EMOTION.KILLEDHIMSELF:
+                AddKilledHimselfDialogue();
+                break;
         }
+    }
+
+    protected void AddKilledHimselfDialogue()
+    {
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.SetSignalText(m_IntroSignal);
+        d.SetFaceAppearanceIdx(999);
+
+        d.AddToDialogueList(("..............", 0));
+    }
+
+    protected void AddAcceptanceDialogue()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.SetSignalText(m_IntroSignal);
+
+        i = d.AddToDialogueList(("..............", 0));
+        d.AddDefaultNameEvent(("Aoshi", i));
+
+        i = d.AddToDialogueList(("You know what?", 0));
+        d.SetFaceAppearanceIdx(i);
+        d.AddDefaultFaceEvent((m_Acceptance, i));
+
+        d.AddToDialogueList(("I don't care anymore.", 0));
+    }
+
+    protected void AddAngryDialogue()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.SetSignalText(m_IntroSignal);
+
+        d.AddToDialogueList(("Hey, you. You're finally", 0.2f));
+
+        i = d.AddToDialogueList(("<color=red>ARE YOU F###ING SERIOUS RIGHT NOW?</color>", 0));
+        d.SetFaceAppearanceIdx(i);
+        d.AddDefaultNameEvent(("Aoshi", i));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
+        d.AddDefaultFaceEvent((m_Angry, i));
+
+        d.AddToDialogueList(("<color=red>MOTHER###### S#I# ON A G#*(AMN STICK F*&%&N# GODd*^@</color>", 0));
+        d.AddToDialogueList(("<color=red>WHY THE *&$&^ IN #&& OF THE EARTH F(*& DAMN IT SH***Y B*&C* C)*( SUCKER</color>", 0));
+
+        i = d.AddToDialogueList(("<color=red>AWUIDJSAUIWHDJIASUHJIWDHJAUWHIJDSOAIHJWDUOIHSAUWIDHHAIUWHDJAIUWDJ</color>", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
     }
 
     protected void AddAnnoyedDialogue()
@@ -254,8 +312,176 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
                 ReceiveChoice_Happy(choice);
                 break;
 
-            
+            case EMOTION.ANNOYED:
+                ReceiveChoice_Annoyed(choice);
+                break;
+
+            case EMOTION.ANGRY:
+                ReceiveChoice_Angry(choice);
+                break;
+
+            case EMOTION.ACCEPTANCE:
+                ReceiveChoice_Acceptance(choice);
+                break;
+
+            case EMOTION.KILLEDHIMSELF:
+                ReceiveChoice_KilledHimself(choice);
+                break;
         }
+    }
+
+    protected void ReceiveChoice_KilledHimself(DialogueChoice.CHOICE choice)
+    {
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.ResetSystem();
+        d.SetFaceAppearanceIdx(999);
+
+        switch (choice)
+        {
+            case DialogueChoice.CHOICE.RESTART:
+                d.SetSignalText(m_RestartSignal);
+                d.AddToDialogueList(("..............", 0));
+                break;
+
+            case DialogueChoice.CHOICE.MENU:
+                d.SetSignalText(m_MenuSignal);
+                d.AddToDialogueList(("..............", 0));
+
+                break;
+            case DialogueChoice.CHOICE.STATS:
+                InitialiseStatDialogue();
+                break;
+        }
+
+        InitialiseDialogue();
+    }
+
+    protected void ReceiveChoice_Acceptance(DialogueChoice.CHOICE choice)
+    {
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+        d.ResetSystem();
+
+        switch (choice)
+        {
+            case DialogueChoice.CHOICE.RESTART:
+                d.SetSignalText(m_RestartSignal);
+                d.AddToDialogueList(("Just get lost.", 0));
+                break;
+
+            case DialogueChoice.CHOICE.MENU:
+                d.SetSignalText(m_MenuSignal);
+                d.AddToDialogueList(("Just get lost.", 0));
+
+                break;
+            case DialogueChoice.CHOICE.STATS:
+                InitialiseStatDialogue();
+                break;
+        }
+
+        InitialiseDialogue();
+    }
+
+    protected void ReceiveChoice_Angry(DialogueChoice.CHOICE choice)
+    {
+        m_DialogueFolder.GetComponent<DialogueSystem>().ResetSystem();
+
+        switch (choice)
+        {
+            case DialogueChoice.CHOICE.RESTART:
+                m_DialogueFolder.GetComponent<DialogueSystem>().SetSignalText(m_RestartSignal);
+                AngryChoiceRestart();
+                break;
+
+            case DialogueChoice.CHOICE.MENU:
+                m_DialogueFolder.GetComponent<DialogueSystem>().SetSignalText(m_MenuSignal);
+                AngryChoiceMenu();
+                break;
+            case DialogueChoice.CHOICE.STATS:
+                InitialiseStatDialogue();
+                break;
+        }
+
+        InitialiseDialogue();
+    }
+
+    protected void AngryChoiceMenu()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+
+        d.AddToDialogueList(("<color=red>GOOD.</color>", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, 0));
+    }
+
+    protected void AngryChoiceRestart()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+
+        d.AddToDialogueList(("<color=red>JUST GET LOST LA.</color>", 0));
+        d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, 0));
+    }
+
+    protected void ReceiveChoice_Annoyed(DialogueChoice.CHOICE choice)
+    {
+        m_DialogueFolder.GetComponent<DialogueSystem>().ResetSystem();
+
+        switch (choice)
+        {
+            case DialogueChoice.CHOICE.RESTART:
+                m_DialogueFolder.GetComponent<DialogueSystem>().SetSignalText(m_RestartSignal);
+                AnnoyedChoiceRestart();
+                break;
+
+            case DialogueChoice.CHOICE.MENU:
+                m_DialogueFolder.GetComponent<DialogueSystem>().SetSignalText(m_MenuSignal);
+                AnnoyedChoiceMenu();
+                break;
+            case DialogueChoice.CHOICE.STATS:
+                InitialiseStatDialogue();
+                break;
+        }
+
+        InitialiseDialogue();
+    }
+
+    protected void AnnoyedChoiceMenu()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+
+        d.AddToDialogueList(("Huh, I mean... I can see where you're coming from, I guess.", 0));
+        d.AddFaceException((m_SomewhatAnnoyed, 0));
+
+        d.AddToDialogueList(("I mean, you've been getting your ass kicked for like, the third time now?", 0));
+        d.AddToDialogueList(("So I can understand if you've given up", 0));
+        d.AddToDialogueList(("........", 0));
+
+        d.AddToDialogueList(("Well we ain't got much to discuss so.... I'll just send you on your merry way to bunny heaven right now.", 0));
+        d.AddToDialogueList(("Bye, I guess?", 0));
+
+        d.AddToDialogueList(("", 0));
+    }
+
+    protected void AnnoyedChoiceRestart()
+    {
+        int i = 0;
+        DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
+
+        d.AddToDialogueList(("Alright, but I must tell you though,", 0));
+        d.AddFaceException((m_SomewhatAnnoyed, 0));
+
+        d.AddToDialogueList(("DO", 0));
+        d.AddToDialogueList(("NOT", 0));
+        d.AddToDialogueList(("DIE", 0));
+        d.AddToDialogueList(("AGAIN.", 0));
+
+        d.AddToDialogueList(("Capische?", 0));
+
+        i = d.AddToDialogueList(("Capische!", 0));
+        d.AddDefaultFaceEvent((m_Happy, i));
+
+        d.AddToDialogueList(("", 0));
     }
 
     protected void ReceiveChoice_Happy(DialogueChoice.CHOICE choice)
@@ -318,6 +544,8 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
 
         string moneyAndItemText = "Coins earned: <color=orange>" + m_PostGameInfo.GetTotalMoney() + " coins</color>, items collected <color=orange>" + m_PostGameInfo.GetTotalItems() + "</color>.";
         d.AddToDialogueList((moneyAndItemText, 0));
+
+        d.AddToDialogueList(("..............", 0));
     }
 
     protected void AggroStatsDialogue()
@@ -325,7 +553,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         int i = 0;
         DialogueSystem d = m_DialogueFolder.GetComponent<DialogueSystem>();
 
-        d.AddToDialogueList(("YOU ONLY SURVIVED FOR <color=orange>" + m_PostGameInfo.GetTimePassedText() + "</color>.", 0));
+        d.AddToDialogueList(("YOU ONLY SURVIVED FOR <color=orange>" + m_PostGameInfo.GetTimePassedText().ToUpper() + "</color>.", 0));
 
         i = d.AddToDialogueList(("<color=red>MY GRANDMOTHER LIVED LONGER THAN YOU!!!!</color>",0));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
@@ -345,7 +573,7 @@ public class DialogueCanvas : MonoBehaviour, IEventListener
         i = d.AddToDialogueList(("<color=red>NOW I KNOW WHY YOU CAN'T PAY FOR CHILD SUPPORT, YOU SAD POOR BASTARD.</color>", 0));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
 
-        i = d.AddToDialogueList(("<color=red>GET OUT OF MY SIGHT AND DON'T COME BACK.</color>", 0));
+        i = d.AddToDialogueList(("<color=red>GET OUT OF MY SIGHT AND DON'T COME BACK. YOUR FATHER SHOULD HAVE PULLED OUT WHEN HE HAD THE CHANCE.</color>", 0));
         d.AddAnimationSequence((DialogueSystem.ANITYPE.SHAKEWITHTEXT, i));
     }
 

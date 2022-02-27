@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
         PostGameInfo.ResetPostGameInfo();
-        SceneManager.LoadScene("Scene/MainGame");
+        SceneManager.LoadScene("Scenes/MainGame");
     }
 
     public void ExitGame()
