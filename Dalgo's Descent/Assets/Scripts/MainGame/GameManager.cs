@@ -56,7 +56,7 @@ public class GameManager : Singleton<GameManager>
         if (!playerStats && !m_GameOver)
         {
             //Run animation
-            m_VisibleCanvas.FadeOutGame();
+            GameOver();
             m_GameOver = true;
         }
 
@@ -85,6 +85,16 @@ public class GameManager : Singleton<GameManager>
     }
 
     public bool ReturnGameOver() { return m_GameOver; }
+
+    public void GameOver()
+    {
+        m_VisibleCanvas.FadeOutGame(false);
+    }
+
+    public void Victory()
+    {
+        m_VisibleCanvas.FadeOutGame(true);
+    }
 
     public void EnableBossHealthUI(Health health)
     {

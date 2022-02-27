@@ -67,6 +67,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
+        if (m_Health.currentHealth <= 0.0f)
+            return;
+
         m_HealthRegenTimer -= Time.deltaTime;
         if (m_HealthRegenTimer < 0f)
         {

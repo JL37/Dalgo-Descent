@@ -29,7 +29,7 @@ public class BossAI : AI
 
     [Header("Boss Attack Modifiers")]
     public float woodThrowModifier = 1.4f;
-    public float groundSlamModifier = 3f;
+    public float groundSlamModifier = 2.5f;
 
     protected override void Awake()
     {
@@ -53,7 +53,7 @@ public class BossAI : AI
         rig.weight = m_rigActive ? rig.weight + Time.deltaTime * 2f : rig.weight - Time.deltaTime * 2f;
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Damage(10);
+            Damage(200);
         }
     }
 

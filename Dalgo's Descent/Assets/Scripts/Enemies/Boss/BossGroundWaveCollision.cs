@@ -9,6 +9,8 @@ public class BossGroundWaveCollision : MonoBehaviour
     private static bool hasBeenHitBySmash = false;
     private float m_timeElapsed;
 
+    public BossAI boss;
+
     void Start()
     {
         m_timeElapsed = 0f;
@@ -42,7 +44,7 @@ public class BossGroundWaveCollision : MonoBehaviour
                 hasBeenHitBySmash = true;
                 Vector3 direction = (other.transform.position - part.transform.position).normalized;
                 other.gameObject.GetComponent<PlayerController>().AddImpact(new Vector3(direction.x, direction.y, direction.z).normalized, 40f);
-                other.gameObject.GetComponent<PlayerStats>().Received_Damage(10);
+                other.gameObject.GetComponent<PlayerStats>().Received_Damage((int)(boss.enemyStats.FinalDamage() * boss.groundSlamModifier));
                 Debug.Log("Player Hit");
             }
             i++;

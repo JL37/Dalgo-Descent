@@ -53,11 +53,12 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void FadeOutGame()
+    public void FadeOutGame(bool victory)
     {
         m_GameOverBg.gameObject.SetActive(true);
 
-        StartCoroutine(I_BlurOut(0.4f));
+        StartCoroutine(I_BlurOut(3f));
+        StartCoroutine(I_FadeOut(1.5f, victory));
     }
 
     protected IEnumerator I_BlurOut(float duration)
@@ -77,11 +78,9 @@ public class GameUI : MonoBehaviour
 
             yield return null;
         }
-
-        StartCoroutine(I_FadeOut(0.5f));
     }
 
-    protected IEnumerator I_FadeOut(float duration)
+    protected IEnumerator I_FadeOut(float duration, bool victory)
     {
         for (float i = 0; i <= 1; i += Time.deltaTime / duration)
         {
@@ -91,8 +90,7 @@ public class GameUI : MonoBehaviour
 
             yield return null;
         }
-
-        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
+        SceneManager.LoadScene(victory ? "VictoryScene" : "GameOverScene", LoadSceneMode.Single);
     }
 
     public void EnableBossUI(Health bossHealth)

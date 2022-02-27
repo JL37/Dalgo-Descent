@@ -28,19 +28,21 @@ public class LevelBarrierTrigger : MonoBehaviour
         Activated = active;
         if (active)
         {
-            BarrierMesh.enabled = true;
+            if (BarrierMesh != null)
+                BarrierMesh.enabled = true;
             BarrierCollider.enabled = true;
         }
         else
         {
-            BarrierMesh.enabled = false;
+            if (BarrierMesh != null)
+                BarrierMesh.enabled = false;
             BarrierCollider.enabled = false;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Activated)
+        if (Activated || other.tag != "Player")
             return;
 
         Activated = true;
