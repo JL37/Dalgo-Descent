@@ -45,7 +45,7 @@ public class GameLevelManager : Singleton<GameLevelManager>
 
     void CreateNextLevel()
     {
-        if (CurrentLevel > TotalLevels)
+        if (CurrentLevel >= TotalLevels)
             return;
 
         CurrentLevel++;

@@ -12,13 +12,14 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Transform m_EnemyHolder;
 
     // Total number of enemies.
-    [HideInInspector] public List<AI> m_Enemies;
+    //[HideInInspector]
+    public List<AI> m_Enemies;
     private bool hasSpawnedEnemies;
 
     private int m_Wave;
     private int m_NumWaves;
 
-    bool LevelComplete = false;
+    public bool LevelComplete { private set; get; }
 
     private void Start()
     {
@@ -49,7 +50,11 @@ public class EnemyManager : MonoBehaviour
         }
         else if (m_Enemies.Count <= 0 && m_Wave == m_NumWaves)
         {
-            LevelComplete = true;
+            if(!LevelComplete)
+            {
+                LevelComplete = true;
+                GetComponent<LevelStructure>().OnLevelComplete();
+            }
         }
     }
 
@@ -68,6 +73,7 @@ public class EnemyManager : MonoBehaviour
             newEnemy.agent.Warp(hit.position);
             newEnemy.Init(3f, DifficultyManager.Instance.difficultyScaling * 2f, true, this);
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
+            m_Enemies.Add(newEnemy.GetComponent<AIUnit>());
         }
     }
 
@@ -142,5 +148,13 @@ public class EnemyManager : MonoBehaviour
         }
 
         hasSpawnedEnemies = false;
+    }
+
+    public void DestroyAllEnemies()
+    {
+        foreach(var enemy in m_EnemyHolder.GetComponentsInChildren<AIUnit>())
+        {
+            Destroy(enemy.gameObject);
+        }
     }
 }
