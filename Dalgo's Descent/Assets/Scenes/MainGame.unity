@@ -4221,6 +4221,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7704767462175963900, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
+      propertyPath: m_GameUI
+      value: 
+      objectReference: {fileID: 7507685402978902589}
     - target: {fileID: 7704767462432592195, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
       propertyPath: m_IsActive
       value: 1

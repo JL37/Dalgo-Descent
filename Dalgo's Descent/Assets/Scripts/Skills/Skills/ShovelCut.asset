@@ -17,7 +17,8 @@ MonoBehaviour:
     upwards to dead damage and send enemies in front of him airborne
   m_SkillSprite: {fileID: 21300000, guid: b328b19d318ea334586903073fbd72db, type: 3}
   m_SkillAnimation: {fileID: 7400000, guid: 490e4b8acdce2274dabf57f604f1118d, type: 2}
-  m_SkillCooldown: 0
+  m_SkillCooldown: 15
+  m_MaxSkillCooldown: 5
   m_Unlocked: 0
   m_MaxSkillPoints: 4
   m_InputActionReference: {fileID: -3989664814714379458, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}

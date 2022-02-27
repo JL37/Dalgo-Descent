@@ -17,7 +17,8 @@ MonoBehaviour:
     around him '
   m_SkillSprite: {fileID: 21300000, guid: 9d195cbdf93368845b393160dd97a674, type: 3}
   m_SkillAnimation: {fileID: 7400000, guid: b684110adb4fb644d9d7d007f83c6143, type: 2}
-  m_SkillCooldown: 10
+  m_SkillCooldown: 5
+  m_MaxSkillCooldown: 3
   m_Unlocked: 0
   m_MaxSkillPoints: 4
   m_InputActionReference: {fileID: -895788823793448390, guid: 08b1a9d0d67078b48ac7604d530be38d, type: 3}

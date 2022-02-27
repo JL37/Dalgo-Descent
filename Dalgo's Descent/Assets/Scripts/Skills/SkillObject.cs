@@ -14,6 +14,7 @@ public class SkillObject : ScriptableObject
     [SerializeField] Sprite m_SkillSprite;
     [SerializeField] AnimationClip m_SkillAnimation;
     [SerializeField] float m_SkillCooldown;
+    [SerializeField] float m_MaxSkillCooldown;
     [SerializeField] bool m_Unlocked = false;
     [SerializeField] int m_MaxSkillPoints;
     [SerializeField] InputActionReference m_InputActionReference;
@@ -25,11 +26,16 @@ public class SkillObject : ScriptableObject
 
     private Sprite _skillSprite;
     private AnimationClip _skillAnimation;
+
+    private float _originalSkillCooldown;
     private float _skillCooldown;
+    private float _finalSkillCooldown;
     private float _skillCooldownTimer;
+
     private bool _unlocked;
     private int _skillPoints;
     private int _maxSkillPoints;
+
     private InputActionReference _inputActionReference;
     
     public string SkillName { get { return _skillName;} }
@@ -51,6 +57,8 @@ public class SkillObject : ScriptableObject
         _skillSprite = m_SkillSprite;
         _skillAnimation = m_SkillAnimation;
         _skillCooldown = m_SkillCooldown;
+        _originalSkillCooldown = m_SkillCooldown;
+        _finalSkillCooldown = m_MaxSkillCooldown;
         _skillCooldownTimer = 0f;
         _unlocked = m_Unlocked;
         _skillPoints = 0; 
@@ -61,5 +69,20 @@ public class SkillObject : ScriptableObject
     public void RebindKey(string keycode)
     {
         SettingsMenu.OverrideBinding(keycode, _inputActionReference);
+    }
+
+    public bool UpgradeSkill()
+    {
+        if (CurrentSkillPoints >= MaxSkillPoints)
+            return false;
+
+        CurrentSkillPoints++;
+
+        if (m_MaxSkillPoints == 1)
+            return true;
+
+        _skillCooldown = _originalSkillCooldown - ((CurrentSkillPoints - 1) * ((_originalSkillCooldown - _finalSkillCooldown) / (_maxSkillPoints - 1)));
+
+        return true;
     }
 }

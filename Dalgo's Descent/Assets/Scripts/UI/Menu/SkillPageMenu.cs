@@ -13,6 +13,8 @@ public class SkillPageMenu : MenuBase
     public Button[] AddPointsButtons;
     public LevelWindow m_LevelWindow;
     public Text m_SkillpointText;
+    public GameUI m_GameUI;
+
     void Start()
     {
     }
@@ -56,9 +58,12 @@ public class SkillPageMenu : MenuBase
 
     public void AddPointsToSkill(Skill skillToAdd) 
     {
-        skillToAdd.SkillScriptable.CurrentSkillPoints++;
+        //skillToAdd.SkillScriptable.CurrentSkillPoints++;
 
         // MINUS FROM OWNED SKILL POINTS
-        m_LevelWindow.setSkillpoints(-1);
+        if (skillToAdd.SkillScriptable.UpgradeSkill())
+            m_LevelWindow.setSkillpoints(-1);
+        else
+            m_GameUI.ShowError("Skill is already maxed!");
     }
 }
