@@ -75,11 +75,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public BossAI SpawnBoss(Vector3 position)
+    public BossAI SpawnBoss(Vector3 position, EnemyManager enemyManager)
     {
         BossAI boss = GameLevelManager.Instance.BossObject;
         boss.gameObject.SetActive(true);
-        boss.Init(DifficultyManager.Instance.difficultyScaling);
+        boss.Init(DifficultyManager.Instance.difficultyScaling, enemyManager);
         boss.agent.Warp(position);
 
         return boss;
@@ -145,7 +145,7 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            boss = SpawnBoss(m_AssociatedLevel.EnemySpawnLocation.position);
+            boss = SpawnBoss(m_AssociatedLevel.EnemySpawnLocation.position, this);
             m_Enemies.Add(boss);
         }
     }
