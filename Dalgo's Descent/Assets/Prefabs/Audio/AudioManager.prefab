@@ -43,10 +43,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa8b3e87c8f49e489ce2c07e81daba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
   soundsArr:
-  - clip: {fileID: 8300000, guid: a2286628633bfaf4fa232e4ee9290e40, type: 3}
-    name: Testing
+  - clip: {fileID: 8300000, guid: 3fc8ee4cb334c6848b2eb9b7484bd18f, type: 3}
+    name: Gameplay
     volume: 0.187
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - clip: {fileID: 8300000, guid: dc18cf4d6eecec54e9d475ba424be312, type: 3}
+    name: BossMusic
+    volume: 0.187
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: 68c3ba43d5d495e41b55da35c7613b9f, type: 3}
+    name: Attack1
+    volume: 0.713
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: ad51937b0481d24469e402e4fe745bf0, type: 3}
+    name: Attack2
+    volume: 0.187
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: fde26c15f8fec1c4c90230de6dc2a33f, type: 3}
+    name: Attack3
+    volume: 0.187
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: bda41a42563ca894bb4e058b7e37b095, type: 3}
+    name: Cleave
+    volume: 0.187
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 61b7090068697cd4f8874591da0d4722, type: 3}
+    name: BossSpawn
+    volume: 0.187
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: 45ea06fdf4bb7764686d2da2f6dd1a26, type: 3}
+    name: ShovelCut
+    volume: 0.282
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

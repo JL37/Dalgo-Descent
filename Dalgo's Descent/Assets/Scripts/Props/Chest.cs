@@ -45,7 +45,7 @@ public class Chest : MonoBehaviour, IObjectPooling
 
         //Randomise cost
         //m_Cost = 1;
-        m_Cost = Random.Range(2, 12);
+        m_Cost = Random.Range(5, 15);
 
         //Set text to the cost
         m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(F)</color>";
@@ -55,14 +55,25 @@ public class Chest : MonoBehaviour, IObjectPooling
 
         //Get pool manager
         m_ItemPoolManager = GameObject.Find(m_PoolManagerStr).GetComponent<ObjectPoolManager>();
+
+        m_ChestAnimation.keepAnimatorControllerStateOnDisable = false;
     }
 
     public ParticleSystem GetParticleSystem() { return m_ParticleSystem; }
 
     public void Initialise()
     {
-        m_Cost = Random.Range(3, 15);
-        m_ChestAnimation.Play("Closed");
+        m_WithinRange = false;
+        m_Opened = false;
+        m_ItemSpawned = false;
+
+        m_CurrFontSize = 0;
+        m_Item = null;
+
+        m_Cost = Random.Range(5, 15);
+
+        //Set text to the cost
+        m_NameText.text = "<color=yellow>$</color>" + m_Cost + "\n<color=yellow>(F)</color>";
     }
 
     public void RemoveSpawnedItem()
@@ -94,6 +105,11 @@ public class Chest : MonoBehaviour, IObjectPooling
         //Debug to check if reset works
         //if (Input.GetMouseButtonDown(1))
         //   Reset();
+    }
+
+    private void OnDisable()
+    {
+        m_ChestAnimation.Play("Closed");
     }
 
     protected bool AnimationNotPlaying(string name)

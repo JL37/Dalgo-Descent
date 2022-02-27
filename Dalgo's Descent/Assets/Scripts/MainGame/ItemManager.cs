@@ -17,6 +17,13 @@ public class ItemManager : MonoBehaviour
     void Start()
     {
         m_ChestPool = GameObject.Find(m_ChestPoolName).GetComponent<ObjectPoolManager>();
+
+        //Disable all instances first...
+        GameObject poolFolder = GameObject.Find("ObjectPooling");
+        foreach (Transform pool in poolFolder.transform)
+        {
+            pool.GetComponent<ObjectPoolManager>().DisableAll();
+        }
     }
 
     // Update is called once per frame
@@ -48,6 +55,7 @@ public class ItemManager : MonoBehaviour
             Vector3 newRotate = chest.transform.rotation.eulerAngles;
             newRotate.y = 0;
             chest.transform.rotation = Quaternion.Euler(newRotate);
+            chest.transform.Rotate(Vector3.up, 180);
 
             //Rotate vector
             dir = Quaternion.Euler(0, degree, 0) * dir;

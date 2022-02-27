@@ -142,9 +142,17 @@ public class AIUnit : AI
     protected override void RemoveFromGameManager()
     {
         base.RemoveFromGameManager();
+
+        //Basic enemy: 1-2 coins, boss : 3-5 coins
         if (isMiniboss)
+        {
             GameManager.Instance.DisableBossHealthUI();
+            Factory.CreateCoins(transform.position, Random.Range(3, 5));
+        }
         else
+        {
+            Factory.CreateCoins(transform.position, Random.Range(1, 2));
             m_HealthUI.StartFadeAnimation(true);
+        }
     }
 }

@@ -13,6 +13,7 @@ public class Coin : MonoBehaviour, IObjectPooling
     [SerializeField] float m_RotationSpd = 280f;
     [SerializeField] float m_Duration = 0.75f;
     [SerializeField] float m_MaxHeight = 0.3f;
+    [SerializeField] float m_ScaleLerpSpd = 0.3f;
 
 
     //variables to reset la if not what
@@ -27,11 +28,30 @@ public class Coin : MonoBehaviour, IObjectPooling
     private void Update()
     {
         UpdateRotate();
+        UpdateScale();
 
         if (!m_IsCollected)
             UpdatePosition();
         else
             UpdateMovingUp();
+    }
+
+    protected void UpdateScale()
+    {
+        if (transform.localScale.x >= 1)
+            return;
+
+        Vector3 scale = transform.localScale;
+
+        scale.x = Mathf.Lerp(scale.x, 1, m_ScaleLerpSpd);
+
+        if (Mathf.Abs(scale.x - 1) < 0.01f)
+            scale.x = 1;
+
+        scale.y = scale.x;
+        scale.z = scale.x;
+
+        transform.localScale = scale;
     }
 
     protected void UpdateMovingUp()
@@ -55,6 +75,7 @@ public class Coin : MonoBehaviour, IObjectPooling
         //Random ass position test
         Vector3 pos = new Vector3(Random.Range(0f, 7f), -2.627f, Random.Range(0f, 7f));
         transform.position = pos;
+        transform.localScale = new Vector3(0, 0, 0);
 
         m_IsCollected = false;
     }
@@ -80,6 +101,9 @@ public class Coin : MonoBehaviour, IObjectPooling
 
     private void OnTriggerEnter(Collider other)
     {
+        if (transform.localScale.x < 1)
+            return;
+
         if (other.gameObject.tag == "Player" && m_ModelTransform.gameObject.activeSelf)
         {
             //Pick up coin la if not what bro?

@@ -41,6 +41,15 @@ public class AudioManager : Singleton<AudioManager>
         sound_ToStop.source.Stop();
         
     }
+
+    public void StopAll()
+    {
+        foreach (Sound sound in soundsArr)
+        {
+            sound.source.Stop();
+        }
+    }
+
     private void Start()
     {
         
