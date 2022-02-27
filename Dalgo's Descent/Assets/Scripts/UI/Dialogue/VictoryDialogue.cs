@@ -17,6 +17,7 @@ public class VictoryDialogue : MonoBehaviour, IEventListener
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.Play("VictorySfx");
         m_DialogueSystem.gameObject.SetActive(false);
         AddDialogue();
 
@@ -59,8 +60,17 @@ public class VictoryDialogue : MonoBehaviour, IEventListener
     {
         if (text == m_SignalEnd)
         {
-            m_DialogueSystem.gameObject.SetActive(false);
-            m_Credits.Initialise();
+            AudioManager.Instance.Play("EndingSong");
+            AudioManager.Instance.Stop("VictorySfx");
+
+            StartCoroutine(I_StartCredits());
         }
+    }
+
+    protected IEnumerator I_StartCredits()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        m_DialogueSystem.gameObject.SetActive(false);
+        m_Credits.Initialise();
     }
 }
