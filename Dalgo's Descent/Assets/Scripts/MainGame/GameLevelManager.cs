@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Cinemachine;
+using UnityEngine.AI;
+
 public class GameLevelManager : Singleton<GameLevelManager>
 {
     [Header("Level Generation")]
@@ -15,7 +17,7 @@ public class GameLevelManager : Singleton<GameLevelManager>
     public List<LevelStructure> LevelPrefabs;
     
     public PlayerController Player;
-    public Transform EnemySpawnLocation;
+    public BossAI BossObject;
 
     public delegate void OnNextLevelListenDelegate();
     public event OnNextLevelListenDelegate OnNextLevelEnterListener;
@@ -63,7 +65,7 @@ public class GameLevelManager : Singleton<GameLevelManager>
             DestroyPlayLevel();
             PlayArea = newArea;
         }
-        EnemySpawnLocation = PlayArea.EnemySpawnLocation;
+        PlayArea.LevelNum = CurrentLevel;
     }
 
     void DestroyPlayLevel()
