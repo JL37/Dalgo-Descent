@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : Singleton<AudioManager>
 {
     public Sound[] soundsArr;
+    public AudioMixer audioMixer;
     protected override void OnAwake()
     {
         foreach(Sound sound in soundsArr)
@@ -14,6 +15,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.source.volume = sound.volume;
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
+            sound.source.outputAudioMixerGroup = audioMixer.outputAudioMixerGroup;
         }
     }
 

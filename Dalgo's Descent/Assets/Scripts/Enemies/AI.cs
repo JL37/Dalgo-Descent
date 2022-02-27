@@ -85,7 +85,7 @@ public class AI : MonoBehaviour
         agent.SetDestination(m_TargetPosition);
     }
 
-    public void AttackPlayer()
+    public virtual void AttackPlayer()
     {
         if (m_inAttackRange && playerRef)
         {
@@ -146,12 +146,14 @@ public class AI : MonoBehaviour
 
     private void OnEnable()
     {
-        OnEnemyDeathListener += m_EnemyManager.RemoveEnemyFromArray;
+        if (m_EnemyManager)
+            OnEnemyDeathListener += m_EnemyManager.RemoveEnemyFromArray;
     }
 
     private void OnDisable()
     {
-        OnEnemyDeathListener -= m_EnemyManager.RemoveEnemyFromArray;
+        if (m_EnemyManager)
+            OnEnemyDeathListener -= m_EnemyManager.RemoveEnemyFromArray;
     }
 
 }

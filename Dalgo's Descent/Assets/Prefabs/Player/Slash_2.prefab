@@ -67,6 +67,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slash_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3719336954389436102, guid: c3b2a503f6de22948af98806f7477154, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0bd888b368149144791ea1a746324aab, type: 3}
+    - target: {fileID: 3719336954389436102, guid: c3b2a503f6de22948af98806f7477154, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5773179452797310580, guid: c3b2a503f6de22948af98806f7477154, type: 3}
       propertyPath: SlashType
       value: 1

@@ -31,9 +31,15 @@ public class BossAI : AI
     public float woodThrowModifier = 1.4f;
     public float groundSlamModifier = 2.5f;
 
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public AudioClip scream;
+    public AudioClip land;
+
     protected override void Awake()
     {
         base.Awake();
+        audioSource = GetComponent<AudioSource>();
         aiType = AI_TYPE.AI_TYPE_BOSS;
         // m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -91,6 +97,16 @@ public class BossAI : AI
     {
         shockwaveParticleSystem.Play(); 
         // shake camera or smth
+    }
+
+    public void Scream()
+    {
+        audioSource.PlayOneShot(scream, 1f);
+    }
+
+    public void Land()
+    {
+        audioSource.PlayOneShot(land, 1f);
     }
 
     public void ChooseAttack()
