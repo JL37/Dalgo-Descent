@@ -72,6 +72,7 @@ public class EnemyManager : MonoBehaviour
             newEnemy.agent.Warp(position);
             newEnemy.Init(3f, DifficultyManager.Instance.difficultyScaling * 2f, true, this);
             newEnemy.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
+            m_Enemies.Add(newEnemy);
         }
     }
 
