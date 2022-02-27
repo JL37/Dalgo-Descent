@@ -94,6 +94,6 @@ public class Health_UI : MonoBehaviour
     protected void UpdateHealthBar()
     {
         m_HealthBar.fillAmount = Mathf.Lerp(m_HealthBar.fillAmount, m_TargetHealthFillAmt, m_HealthLerpSpd);
-        m_HealthText.text = playerStats.m_Health.currentHealth + " / " + playerStats.m_Health.maxHealth;
+        m_HealthText.text = (int)playerStats.m_Health.currentHealth + " / " + (int)playerStats.m_Health.maxHealth;
     }
 }
