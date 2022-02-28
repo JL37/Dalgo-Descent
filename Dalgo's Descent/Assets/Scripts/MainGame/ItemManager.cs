@@ -50,12 +50,12 @@ public class ItemManager : MonoBehaviour
             basePos.y -= 0.2f;
 
             chest.transform.position = basePos + (dir * m_Radius);
-            chest.transform.LookAt(m_SpawnPos);
+            chest.transform.LookAt(basePos);
 
             Vector3 newRotate = chest.transform.rotation.eulerAngles;
-            newRotate.y = 0;
+            //newRotate.y = 0;
             chest.transform.rotation = Quaternion.Euler(newRotate);
-            chest.transform.Rotate(Vector3.up, 180);
+            //chest.transform.Rotate(Vector3.up, 180);
 
             //Rotate vector
             dir = Quaternion.Euler(0, degree, 0) * dir;
