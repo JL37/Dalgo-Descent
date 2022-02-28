@@ -24,7 +24,7 @@ public class LevelWindow : MonoBehaviour
 
     private void Update()
     {
-        m_levelText.text = "Lv " + (m_levelSystem.GetCurrentLevel() + 1);
+        m_levelText.text = "Lv " + (m_levelSystem.GetCurrentLevel());
     }
 
     public LevelSystemAnimated getLevelSystemAnimated()
