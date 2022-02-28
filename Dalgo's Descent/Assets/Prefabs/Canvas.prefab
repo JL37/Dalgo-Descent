@@ -374,8 +374,8 @@ MonoBehaviour:
   keycode: E
   baseImage: {fileID: 21300000, guid: de207854f48b07f4fa1278b240b06c93, type: 3}
   SkillBorderImage: {fileID: 0}
-  SkillBorderTMP: {fileID: 0}
-  cooldownTimerText: {fileID: 0}
+  SkillBorderTMP: {fileID: 6422617193566691526}
+  cooldownTimerText: {fileID: 3413801658720198607}
 --- !u!1 &533891237943287596
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,8 +752,8 @@ MonoBehaviour:
   keycode: R
   baseImage: {fileID: 21300000, guid: de207854f48b07f4fa1278b240b06c93, type: 3}
   SkillBorderImage: {fileID: 0}
-  SkillBorderTMP: {fileID: 0}
-  cooldownTimerText: {fileID: 0}
+  SkillBorderTMP: {fileID: 1002902788103649880}
+  cooldownTimerText: {fileID: 4612496351275420524}
 --- !u!1 &533891238830004538
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,8 +991,8 @@ MonoBehaviour:
   keycode: Q
   baseImage: {fileID: 21300000, guid: de207854f48b07f4fa1278b240b06c93, type: 3}
   SkillBorderImage: {fileID: 0}
-  SkillBorderTMP: {fileID: 0}
-  cooldownTimerText: {fileID: 0}
+  SkillBorderTMP: {fileID: 7704767461417168041}
+  cooldownTimerText: {fileID: 4398921417863943472}
 --- !u!114 &533891239541919634
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1617,17 +1617,6 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7341399946409133941, guid: ee34e238e33710745b60bc2893f932a5, type: 3}
   m_PrefabInstance: {fileID: 1019030346}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1044913442 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7704767461417168041, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
-  m_PrefabInstance: {fileID: 7704767460922734093}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1162049932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4042,41 +4031,17 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 533891237676475350, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
-      propertyPath: SkillBorderTMP
-      value: 
-      objectReference: {fileID: 925004220}
-    - target: {fileID: 533891237676475350, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
       propertyPath: SkillBorderImage
       value: 
       objectReference: {fileID: 297988869}
-    - target: {fileID: 533891237676475350, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
-      propertyPath: cooldownTimerText
-      value: 
-      objectReference: {fileID: 287116541}
-    - target: {fileID: 533891238827738334, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
-      propertyPath: SkillBorderTMP
-      value: 
-      objectReference: {fileID: 1551916577}
     - target: {fileID: 533891238827738334, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
       propertyPath: SkillBorderImage
       value: 
       objectReference: {fileID: 2102241016}
-    - target: {fileID: 533891238827738334, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
-      propertyPath: cooldownTimerText
-      value: 
-      objectReference: {fileID: 790899546}
-    - target: {fileID: 533891239541919633, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
-      propertyPath: SkillBorderTMP
-      value: 
-      objectReference: {fileID: 1044913442}
     - target: {fileID: 533891239541919633, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
       propertyPath: SkillBorderImage
       value: 
       objectReference: {fileID: 1603833816}
-    - target: {fileID: 533891239541919633, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
-      propertyPath: cooldownTimerText
-      value: 
-      objectReference: {fileID: 1403279501}
     - target: {fileID: 533891239541919634, guid: 86bdf2b319d220045979bfe41f0f4e82, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RebindSkill
